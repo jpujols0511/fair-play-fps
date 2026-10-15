@@ -22,7 +22,7 @@ enforcement as native engine systems.
 
 Architecture and threat-model definition. No playable build exists yet.
 
-Start with [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md).
+Start with [the design thesis](docs/DESIGN.md), then [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md).
 The [lineage matrix](docs/LINEAGE_MATRIX.md) records what to keep, reject,
 modernize, and test across the major competitive-shooter eras.
 

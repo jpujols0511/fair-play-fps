@@ -1,5 +1,19 @@
 # Status
 
+## October 15, 2026: design thesis recorded
+
+- Added `docs/DESIGN.md`: Joan's fairness thesis and six kernel invariants.
+  Required reading on entry through the new `CLAUDE.md`.
+- Added `docs/decisions/0001-engine-and-netcode.md`: Godot 4 proposed, three
+  netcode candidates and a bounded spike plan. Status Proposed.
+- Recorded three open decisions in `DESIGN.md` instead of changing them:
+  licence (proprietary today, open source in the thesis), engine, and the
+  role of learned detectors.
+- Checks: `python3 scripts/check_repo.py` and the 6 prototype unit tests pass.
+  Documentation only; no runtime, compiler or network claim.
+- Next: Joan accepts or amends 0001 and chooses the licence; then the Godot
+  headless spike from 0001.
+
 ## Verified
 
 - Private GitHub repository exists under jpujols0511.
