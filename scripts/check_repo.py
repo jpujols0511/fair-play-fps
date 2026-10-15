@@ -19,6 +19,15 @@ REQUIRED = [
     'prototype/README.md',
     'prototype/fairplay_sim.py',
     'tests/test_fairplay_sim.py',
+    'tests/test_godot_spike.py',
+    'godot/README.md',
+    'godot/project.godot',
+    'godot/kernel/fairplay_kernel.gd',
+    'godot/net/protocol.gd',
+    'godot/net/server.gd',
+    'godot/net/client.gd',
+    'godot/tests/kernel_parity.gd',
+    '.claude/settings.json',
 ]
 FORBIDDEN_FILES = {'.env', 'id_rsa', 'id_ed25519'}
 
@@ -38,6 +47,18 @@ readme = (ROOT / 'README.md').read_text(errors='replace')
 license_text = (ROOT / 'LICENSE.txt').read_text(errors='replace')
 if 'Joan Pujols' not in readme or 'Joan Pujols' not in license_text:
     errors.append('ownership text must name Joan Pujols')
+
+claude_md = (ROOT / 'CLAUDE.md').read_text(errors='replace')
+if 'docs/DESIGN.md' not in claude_md:
+    errors.append('CLAUDE.md must require reading docs/DESIGN.md on entry')
+import json
+try:
+    hooks = json.loads((ROOT / '.claude/settings.json').read_text())['hooks']['SessionStart']
+    commands = [h['command'] for group in hooks for h in group['hooks']]
+    if not any('docs/DESIGN.md' in c for c in commands):
+        errors.append('SessionStart hook must inject docs/DESIGN.md')
+except (KeyError, ValueError, TypeError):
+    errors.append('.claude/settings.json must define a SessionStart hook')
 
 if errors:
     for error in errors:

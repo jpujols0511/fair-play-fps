@@ -7,7 +7,9 @@ This file is the map. Keep it short and current.
 
 1. `AGENTS.md`: ownership, boundaries, verification rules.
 2. `docs/DESIGN.md`: the fairness thesis and the six kernel invariants.
-   Required. Every change is checked against those invariants.
+   Required. Every change is checked against those invariants. A session
+   start hook injects it automatically; when you start a sub-agent, tell it
+   to read `docs/DESIGN.md` first.
 3. `docs/PROJECT_CONTEXT.md`, then `docs/STATUS.md`, then the active
    milestone in `docs/ROADMAP.md`.
 4. The relevant record in `docs/decisions/` before changing foundations.
@@ -22,7 +24,9 @@ This file is the map. Keep it short and current.
 | Design lineage | `docs/LINEAGE_MATRIX.md` | What to keep, reject, modernize and test from earlier shooter eras. Ideas only; no third-party code or assets. |
 | Decisions | `docs/decisions/NNNN-*.md` | One record per foundational choice, with status Proposed, Accepted or Superseded. |
 | Executable reference | `prototype/fairplay_sim.py`, `tests/` | Dependency-free Python fixed-tick authoritative simulation. Settles contracts; it is not the game. |
-| Checks | `scripts/check_repo.py`, `python3 -m unittest discover -s tests` | Both run with only Python 3. |
+| Godot spike | `godot/` | Headless GDScript kernel, intent-only UDP protocol, server and client. See `godot/README.md`. |
+| Session hook | `.claude/settings.json` | Injects `docs/DESIGN.md` at every session start. Do not remove. |
+| Checks | `scripts/check_repo.py`, `python3 -m unittest discover -s tests` | Both run with only Python 3. Set `FAIRPLAY_GODOT` to a Godot 4.4.1 binary to run the Godot spike tests too. |
 
 ## Conventions
 
@@ -43,6 +47,7 @@ This file is the map. Keep it short and current.
 
 ## Current milestone
 
-M0, Foundation. Remaining: Joan's decisions on licence and engine
-(`docs/decisions/0001-engine-and-netcode.md`), then the engine spike
-described there. No playable build exists.
+M0, Foundation. The Godot headless spike from decision 0001 is done on
+loopback (`godot/README.md`). Remaining: Joan's decisions on licence and on
+accepting 0001. Next technical items: encryption and authentication, a
+jitter buffer, a time-boxed Netfox integration. No playable build exists.

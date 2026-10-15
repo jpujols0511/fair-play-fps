@@ -1,6 +1,7 @@
 # 0001 — Engine and netcode foundation
 
 Status: **Proposed**, October 15, 2026. Awaiting Joan's acceptance.
+Spike steps 1 to 3 done the same day; see Results.
 Fills the M0 roadmap item "Decision record for prototype language and
 libraries".
 
@@ -72,3 +73,22 @@ Each criterion maps to a kernel invariant in `docs/DESIGN.md`.
   reproduce its results for the same command stream.
 - Accepting this record does not change the licence. That is a separate
   decision for Joan (see the open decisions table in `docs/DESIGN.md`).
+
+## Results, October 15, 2026
+
+Full detail in `godot/README.md`. Godot 4.4.1-stable, Linux, headless,
+loopback only.
+
+- Steps 1 to 3 done. The GDScript kernel matches the Python oracle digest
+  byte for byte. A real UDP server and two client processes ran a 64-tick
+  match, and the server's demo log replays to the same digest. Forged
+  positions and spoofed identities never reached the kernel.
+- Step 4 done at metadata level only. Netfox is MIT, active and GDScript on
+  stock Godot: the leading candidate. monke-net needs a custom Godot fork,
+  is C#, and has no licence file: not suitable now. The Asset Library
+  framework could not be reached from the cloud container.
+- Open: invariant 2 (encryption and authentication), a jitter buffer so
+  honest late inputs are not discarded, and a time-boxed Netfox integration.
+
+Recommendation: accept Godot 4.4.x with Netfox as the first netcode
+candidate, keeping the fairness kernel in our own code.
