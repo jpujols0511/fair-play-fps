@@ -23,8 +23,13 @@ only, Linux, Godot 4.4.1.
   Kernel hash republished (`928904…fdbf`).
 - **Protocol:** new strict world packet (every byte accounted for; truncated,
   extra, duplicate or oversized packets rejected).
-- **Checks:** `check_repo.py` passes (46 files); 51 tests. Results recorded
-  in the commit message.
+- **Checks:** `check_repo.py` passes (46 files). An assertion that some
+  shots would miss without rewind failed in 5 of 14 full runs: it depends on
+  timing (rewinds of 8 ticks or fewer move the target less than its
+  radius). It now asserts instead that the server judged most shots against
+  the drawn, earlier position. After that change, 51 tests passed four full
+  runs in a row with Godot, and the aim test alone five in a row. The 4-of-12
+  figure above is one measured run, not a guarantee.
 - **Not done:** walls and line of sight, a rendered client, other machines,
   players.
 - **Next:** a test between two machines (the runner's `--bind`), then a
