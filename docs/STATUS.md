@@ -14,6 +14,7 @@
 - Roadmap
 - Repository rules
 - Threat model in progress
+- Competitive-shooter lineage matrix
 
 ## Unverified
 
