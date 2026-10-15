@@ -125,7 +125,7 @@ then, the existing file governs and nothing is changed silently.
 | Topic | Existing repository | This thesis | Status |
 | --- | --- | --- | --- |
 | Licence and visibility | Proprietary, private by default (`LICENSE.txt`, `README.md`) | Open source, free, community-owned | Open. Joan chooses the licence; `LICENSE.txt` is unchanged until then. |
-| Engine | Language and libraries unselected; "Linux-first native stack" | Godot 4 (MIT) | Proposed in `decisions/0001-engine-and-netcode.md`. |
+| Engine | Language and libraries unselected; "Linux-first native stack" | Godot 4 (MIT) | Accepted in `decisions/0001-engine-and-netcode.md`: Godot 4.4 with Netfox; the kernel stays project code. |
 | Learned detectors | Neural networks listed as a current non-goal | LSTM sequence detector as one research reference | Compatible only as offline, shadow-mode ranking with no punishment authority, per `AGENTS.md`. Promotion needs Joan's approval. |
 
 ## How sessions use this document

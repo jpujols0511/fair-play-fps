@@ -28,6 +28,21 @@ REQUIRED = [
     'godot/net/client.gd',
     'godot/tests/kernel_parity.gd',
     '.claude/settings.json',
+    'godot/kernel/KERNEL_SHA256',
+    'scripts/run_dedicated_server.py',
+    'docs/COMMUNITY_SERVERS.md',
+    'docs/THIRD_PARTY.md',
+    'godot/tests/netfox_tick.gd',
+    'godot/addons/netfox/LICENSE',
+    'godot/addons/netfox/plugin.cfg',
+    'detection/features.py',
+    'detection/pipeline.py',
+    'detection/bans.py',
+    'detection/run.py',
+    'detection/fixtures.py',
+    'review/cases.py',
+    'review/consensus.py',
+    'tests/test_detection_review.py',
 ]
 FORBIDDEN_FILES = {'.env', 'id_rsa', 'id_ed25519'}
 
@@ -59,6 +74,12 @@ try:
         errors.append('SessionStart hook must inject docs/DESIGN.md')
 except (KeyError, ValueError, TypeError):
     errors.append('.claude/settings.json must define a SessionStart hook')
+
+import hashlib
+kernel = ROOT / 'godot/kernel/fairplay_kernel.gd'
+published = (ROOT / 'godot/kernel/KERNEL_SHA256').read_text().split()
+if not published or hashlib.sha256(kernel.read_bytes()).hexdigest() != published[0]:
+    errors.append('godot/kernel changed without updating godot/kernel/KERNEL_SHA256')
 
 if errors:
     for error in errors:
