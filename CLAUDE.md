@@ -24,7 +24,7 @@ This file is the map. Keep it short and current.
 | Design lineage | `docs/LINEAGE_MATRIX.md` | What to keep, reject, modernize and test from earlier shooter eras. Ideas only; no third-party code or assets. |
 | Decisions | `docs/decisions/NNNN-*.md` | One record per foundational choice, with status Proposed, Accepted or Superseded. |
 | Executable reference | `prototype/fairplay_sim.py`, `tests/` | Dependency-free Python fixed-tick authoritative simulation. Settles contracts; it is not the game. |
-| Godot spike | `godot/` | Headless GDScript kernel, intent-only UDP protocol, server and client. See `godot/README.md`. |
+| Godot spike | `godot/` | Headless GDScript kernel, intent-only protocol, servers and clients on raw DTLS and on ENet with DTLS plus Netfox clock sync. See `godot/README.md`. |
 | Detection | `detection/` | Offline, on recorded demos only. Features, explainable flags, calibration that refuses to flag clean play, context-weighted review priority, banned database. |
 | Community review | `review/` | Blind cases, weighted consensus, seeded ground truth. Decisions are recommendations until a moderator signs off. |
 | Community servers | `scripts/run_dedicated_server.py`, `docs/COMMUNITY_SERVERS.md` | One match plus offline detection. Kernel hash is published in `godot/kernel/KERNEL_SHA256`. |
@@ -56,6 +56,7 @@ Built and tested on one Linux machine (loopback): DTLS transport with
 per-player tokens, Netfox-driven kernel ticks, offline detection, community
 review, and a community server runner. Proposed on `claude/jitter-buffer-v01`
 (decision 0002, waits for Joan): missing input is a neutral tick, plus a server
-jitter buffer. Next: Netfox stage 2 (ENet with DTLS across processes), then
-prediction. No playable build exists; nothing has been tested across machines
-or by players.
+jitter buffer. Built on top of it, on `claude/netfox-enet-v01`: Netfox stage 2,
+ENet with DTLS and clock sync across processes. Next: stage 3, client
+prediction and reconciliation. No playable build exists; nothing has been
+tested across machines or by players.

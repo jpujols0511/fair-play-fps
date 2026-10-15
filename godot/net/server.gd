@@ -25,7 +25,7 @@ extends SceneTree
 
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
 const Protocol = preload("res://net/protocol.gd")
-const MAX_BUFFER := 64
+const InputBuffer = preload("res://net/input_buffer.gd")
 const PRIME_TIMEOUT_MSEC := 2000
 
 
@@ -34,7 +34,7 @@ func _initialize() -> void:
 	var port: int = int(args.get("port", "47911"))
 	var ticks: int = int(args.get("ticks", "64"))
 	var out_dir: String = args.get("out", "user://run")
-	var jitter_ticks: int = clampi(int(args.get("jitter-ticks", "3")), 0, MAX_BUFFER / 2)
+	var jitter_ticks: int = int(args.get("jitter-ticks", "3"))
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var tokens: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(args.get("tokens", "")))
 	if tokens == null or tokens.is_empty():
@@ -63,7 +63,7 @@ func _initialize() -> void:
 	var conns: Array = []
 	var bound := {}
 	var stats := {"packets": 0, "malformed": 0, "auth_failed": 0, "identity_mismatch": 0,
-		"handshake_failed": 0, "pre_start_discarded": 0, "post_match_discarded": 0, "buffer": {}}
+		"handshake_failed": 0, "pre_start_discarded": 0, "post_match_discarded": 0}
 
 	var deadline := Time.get_ticks_msec() + 15000
 	while bound.size() < expected.size() and Time.get_ticks_msec() < deadline:
@@ -75,14 +75,11 @@ func _initialize() -> void:
 		return
 
 	var kernel = Kernel.new(expected)
-	var buffers := {}
-	for player_id in expected:
-		buffers[player_id] = {}
-		stats["buffer"][player_id] = {"underruns": 0, "late": 0, "trimmed": 0, "duplicate": 0, "overflow": 0, "max_depth": 0}
+	var buffers = InputBuffer.new(expected, jitter_ticks)
+	stats["buffer"] = buffers.counters
 	# Fill every buffer before the first tick, so steady state has slack.
 	var prime_deadline := Time.get_ticks_msec() + PRIME_TIMEOUT_MSEC
-	while Time.get_ticks_msec() < prime_deadline \
-			and buffers.values().any(func(pending): return pending.size() < jitter_ticks):
+	while Time.get_ticks_msec() < prime_deadline and not buffers.primed():
 		_service(udp_server, dtls, conns, tokens, bound, stats, buffers, "")
 		OS.delay_msec(1)
 	var demo: Array = []
@@ -93,7 +90,7 @@ func _initialize() -> void:
 		while Time.get_ticks_usec() < next_tick:
 			OS.delay_usec(200)
 		_service(udp_server, dtls, conns, tokens, bound, stats, buffers, "")
-		var submits := _release(kernel, buffers, stats, jitter_ticks)
+		var submits: Array = buffers.release(kernel)
 		kernel.step()
 		demo.append(submits)
 		for player_id in bound:
@@ -106,7 +103,7 @@ func _initialize() -> void:
 
 	var summary := {
 		"ok": true, "engine": Engine.get_version_info()["string"], "transport": "DTLS",
-		"jitter_ticks": jitter_ticks,
+		"jitter_ticks": buffers.target,
 		"kernel_sha256": FileAccess.get_sha256("res://kernel/fairplay_kernel.gd"),
 		"ticks": kernel.tick, "digest": kernel.digest(), "stats": stats,
 		"players": kernel.players, "evidence_counts": {},
@@ -170,55 +167,7 @@ func _service(udp_server: UDPServer, dtls: DTLSServer, conns: Array, tokens: Dic
 			if buffers == null:
 				stats[discard] += 1
 				continue
-			var pending: Dictionary = buffers[conn["player_id"]]
-			var counters: Dictionary = stats["buffer"][conn["player_id"]]
-			var cmd: Dictionary = decoded["command"]
-			if pending.has(cmd["sequence"]):
-				counters["duplicate"] += 1
-			elif pending.size() >= MAX_BUFFER:
-				counters["overflow"] += 1
-			else:
-				pending[cmd["sequence"]] = cmd
-				counters["max_depth"] = maxi(counters["max_depth"], pending.size())
-
-
-## For each player in sorted order:
-## 1. If the buffer is far behind (more than 2 * jitter_ticks + 4), drop the
-##    oldest intents so that player's latency stays bounded.
-## 2. Submit intents the kernel has already passed. They are recorded as
-##    stale_input, which never counts toward suspicion.
-## 3. Submit the next intent if it is next in sequence, or if the buffer is
-##    deeper than jitter_ticks (a gap that waiting will not fill).
-## Otherwise it is an underrun: the kernel applies a neutral tick and consumes
-## no sequence number, so the late intent still counts when it arrives.
-## Returns the submits in order for the demo log.
-func _release(kernel, buffers: Dictionary, stats: Dictionary, jitter_ticks: int) -> Array:
-	var submits: Array = []
-	var ids: Array = buffers.keys()
-	ids.sort()
-	for player_id in ids:
-		var pending: Dictionary = buffers[player_id]
-		var counters: Dictionary = stats["buffer"][player_id]
-		var last: int = kernel.players[player_id]["last_sequence"]
-		var sequences: Array = pending.keys()
-		sequences.sort()
-		while sequences.size() > 2 * jitter_ticks + 4:
-			pending.erase(sequences.pop_front())
-			counters["trimmed"] += 1
-		while not sequences.is_empty() and sequences[0] <= last:
-			var stale: Dictionary = pending[sequences[0]]
-			pending.erase(sequences.pop_front())
-			kernel.submit(player_id, stale)
-			submits.append([player_id, stale])
-			counters["late"] += 1
-		if not sequences.is_empty() and (sequences[0] == last + 1 or sequences.size() > jitter_ticks):
-			var cmd: Dictionary = pending[sequences[0]]
-			pending.erase(sequences[0])
-			kernel.submit(player_id, cmd)
-			submits.append([player_id, cmd])
-		else:
-			counters["underruns"] += 1
-	return submits
+			buffers.add(conn["player_id"], decoded["command"])
 
 
 func _parse(user_args: PackedStringArray) -> Dictionary:

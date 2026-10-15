@@ -2,12 +2,15 @@
 """Run one community-hosted match, then analyse it offline.
 
     python3 scripts/run_dedicated_server.py --godot /path/to/Godot_v4.4.1 \
-        --players alice,bob --ticks 640 --out matches/2026-10-15-a [--jitter-ticks 3] [--demo-clients]
+        --players alice,bob --ticks 640 --out matches/2026-10-15-a [--jitter-ticks 3] \
+        [--transport enet|dtls] [--demo-clients]
 
 1. Issues a random access token per player into <out>/tokens.json (mode 0600).
    Hand each player their own token; never publish the file.
-2. Starts the headless authoritative server (DTLS, 64 Hz, a jitter buffer of
-   --jitter-ticks per player) and waits for it.
+2. Starts the headless authoritative server (64 Hz, a jitter buffer of
+   --jitter-ticks per player) and waits for it. Transport "enet" (default) is
+   ENet with DTLS and Netfox clock sync; "dtls" is the earlier raw DTLS path,
+   kept as a reference.
 3. Verifies the server ran the published kernel (godot/kernel/KERNEL_SHA256).
 4. Runs detection as a separate process on the recorded demo and writes
    <out>/detection.json. Detection never runs inside the live server.
@@ -43,6 +46,9 @@ def main() -> int:
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--population", type=int, default=0, help="for review priority; default: player count")
     parser.add_argument("--coverage", type=float, default=1.0, help="live moderation coverage 0..1")
+    parser.add_argument("--transport", choices=("enet", "dtls"), default="enet")
+    parser.add_argument("--bind", default="127.0.0.1",
+                        help="address the enet server listens on; 0.0.0.0 to accept other machines")
     parser.add_argument("--demo-clients", action="store_true")
     args = parser.parse_args()
 
@@ -56,11 +62,14 @@ def main() -> int:
     subprocess.run([args.godot, "--headless", "--path", str(PROJECT), "--import"],
                    capture_output=True, text=True, timeout=300)
     base = [args.godot, "--headless", "--path", str(PROJECT), "--script"]
-    server = subprocess.Popen(base + ["res://net/server.gd", "--", "--port", str(args.port),
+    prefix = "res://net/enet_" if args.transport == "enet" else "res://net/"
+    server = subprocess.Popen(base + [prefix + "server.gd", "--", "--port", str(args.port),
                                       "--ticks", str(args.ticks), "--tokens", str(token_file),
-                                      "--out", str(args.out), "--jitter-ticks", str(args.jitter_ticks)],
+                                      "--out", str(args.out), "--jitter-ticks", str(args.jitter_ticks),
+                                      "--bind", args.bind],
                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-    print(json.dumps({"server": "starting", "players": players, "tokens_file": str(token_file)}))
+    print(json.dumps({"server": "starting", "transport": args.transport, "players": players,
+                      "tokens_file": str(token_file)}))
 
     clients = []
     if args.demo_clients:
@@ -73,7 +82,7 @@ def main() -> int:
         for player in players:
             role = "attacker" if player == "attacker" else "honest"
             clients.append(subprocess.Popen(
-                base + ["res://net/client.gd", "--", "--port", str(args.port), "--player", player,
+                base + [prefix + "client.gd", "--", "--port", str(args.port), "--player", player,
                         "--role", role, "--token", tokens[player], "--cert", str(cert), "--seconds", seconds],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True))
     for proc in clients:

@@ -219,15 +219,105 @@ class JitterBuffer(unittest.TestCase):
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class EnetNetfoxMatch(unittest.TestCase):
+    """Decision 0001 stage 2: ENet with DTLS, Netfox clock sync across three
+    processes, the same intent-only rules and the same refusals."""
+
+    @classmethod
+    def setUpClass(cls):
+        import secrets
+        cls.out = Path(tempfile.mkdtemp(prefix="fairplay-enet-"))
+        port = str(48300 + os.getpid() % 90)
+        cls.tokens = {"honest": secrets.token_hex(32), "attacker": secrets.token_hex(32)}
+        token_file = cls.out / "tokens.json"
+        token_file.write_text(json.dumps(cls.tokens))
+        token_file.chmod(0o600)
+        base = [GODOT, "--headless", "--path", str(PROJECT), "--script"]
+        server = subprocess.Popen(base + ["res://net/enet_server.gd", "--", "--port", port, "--ticks", "128",
+                                          "--tokens", str(token_file), "--out", str(cls.out)],
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        cert = cls.out / "server_cert.crt"
+        deadline = time.time() + 30
+        while not cert.exists() and time.time() < deadline:
+            time.sleep(0.1)
+        time.sleep(0.2)
+        jitter = {"honest": "hold2", "attacker": "none"}
+        clients = [subprocess.Popen(base + ["res://net/enet_client.gd", "--", "--port", port, "--player", role,
+                                            "--role", role, "--token", cls.tokens[role], "--cert", str(cert),
+                                            "--seconds", "4", "--jitter", jitter[role]],
+                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                   for role in ("honest", "attacker")]
+        cls.client_out = {}
+        for role, proc in zip(("honest", "attacker"), clients):
+            text, _ = proc.communicate(timeout=90)
+            cls.client_out[role] = next(json.loads(l) for l in text.splitlines() if l.startswith('{"client"'))
+        server.communicate(timeout=90)
+        cls.result = json.loads((cls.out / "result.json").read_text())
+        cls.demo = json.loads((cls.out / "demo.json").read_text())
+
+    def test_server_completed_over_enet_dtls_with_netfox_clock(self):
+        self.assertTrue(self.result["ok"], self.result)
+        self.assertEqual(self.result["ticks"], 128)
+        self.assertEqual(self.result["transport"], "ENet+DTLS")
+        self.assertEqual(self.result["clock"]["driver"], "netfox NetworkTime")
+        published = (PROJECT / "kernel" / "KERNEL_SHA256").read_text().split()[0]
+        self.assertEqual(self.result["kernel_sha256"], published)
+
+    def test_client_clocks_follow_the_server(self):
+        # Clients stamp intents with their synced estimate of the server tick.
+        # Unsynced clocks would start at 0 and be start_tick ticks behind.
+        self.assertGreater(self.result["clock"]["start_tick"], 16)
+        for role in ("honest", "attacker"):
+            arrival = self.result["arrival"][role]
+            self.assertGreater(arrival["count"], 100, role)
+            self.assertLessEqual(abs(arrival["median"]), 3, (role, arrival))
+            self.assertGreater(self.client_out[role]["first_tick"], 0, role)
+
+    def test_demo_replays_to_same_digest(self):
+        self.assertEqual(replay_demo(["attacker", "honest"], self.demo).digest, self.result["digest"])
+
+    def test_attacker_bounded_and_forgeries_refused(self):
+        counts = self.result["evidence_counts"]["attacker"]
+        self.assertGreater(counts.get("input_clamped", 0), 0)
+        self.assertGreater(counts.get("fire_cadence_rejected", 0), 0)
+        self.assertLessEqual(counts.get("shot_accepted", 0), 128 // 8 + 1)
+        stats = self.result["stats"]
+        self.assertGreater(stats["auth_failed"], 0, "HELLO as honest with a wrong token")
+        self.assertGreater(stats["malformed"], 0, "forged position packets")
+        self.assertGreater(stats["identity_mismatch"], 0, "intent claiming honest inside attacker session")
+        applied = {pid for submits in self.demo for pid, cmd in submits if cmd["sequence"] >= 100000}
+        self.assertEqual(applied, set(), "spoofed or plaintext intents reached the kernel")
+
+    def test_honest_under_injected_jitter_keeps_every_input(self):
+        counts = self.result["evidence_counts"]["honest"]
+        for category in ("input_clamped", "fire_cadence_rejected", "stale_input", "reordered_input"):
+            self.assertNotIn(category, counts)
+        self.assertEqual(self.result["buffer"]["honest"]["late"], 0)
+
+    def test_clients_render_only_server_truth(self):
+        for role in ("honest", "attacker"):
+            confirmed = self.client_out[role]["last_confirmed"]
+            self.assertGreaterEqual(confirmed["tick"], 100, role)
+            truth = replay_demo(["attacker", "honest"], self.demo[:confirmed["tick"]]).players[role]
+            self.assertEqual(
+                (confirmed["x"], confirmed["y"], confirmed["ammunition"], confirmed["last_sequence"]),
+                (truth.x, truth.y, truth.ammunition, truth.last_sequence), role)
+
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
 class CommunityServerRunner(unittest.TestCase):
     """scripts/run_dedicated_server.py: match, kernel check, offline detection."""
 
     def test_runner_flags_only_the_attacker(self):
+        for transport, port in (("enet", 48000), ("dtls", 48400)):
+            with self.subTest(transport=transport):
+                self._run(transport, str(port + os.getpid() % 90))
+
+    def _run(self, transport, port):
         out = Path(tempfile.mkdtemp(prefix="fairplay-community-"))
-        port = str(48000 + os.getpid() % 90)
         proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "run_dedicated_server.py"),
                                "--godot", GODOT, "--players", "attacker,honest", "--ticks", "128",
-                               "--port", port, "--out", str(out), "--demo-clients"],
+                               "--port", port, "--out", str(out), "--transport", transport, "--demo-clients"],
                               capture_output=True, text=True, timeout=300)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         summary = json.loads(proc.stdout.strip().splitlines()[-1])

@@ -1,5 +1,43 @@
 # Status
 
+## October 15, 2026: Netfox stage 2, ENet with DTLS and clock sync
+
+Branch `claude/netfox-enet-v01`, built on `claude/jitter-buffer-v01`
+(decision 0002, still Proposed). Not merged. Compiled, run and
+network-tested on loopback only, Linux, Godot 4.4.1.
+
+- **Transport:** `godot/net/enet_server.gd` and `enet_client.gd` run the
+  match on `ENetMultiplayerPeer` with DTLS. Tokens are checked through
+  SceneMultiplayer authentication, so a peer can send nothing else until its
+  token matches. The community runner now uses ENet by default
+  (`--transport dtls` keeps the earlier path, `--bind` sets the listen
+  address).
+- **Clock sync across processes (invariant 3 groundwork):** Netfox
+  `NetworkTime` drives the 64 Hz tick on the server and syncs each client's
+  clock. Clients stamp intents with the server tick; they arrive a median of
+  1 tick later (max 3 with injected jitter). Unsynced, about 70 ticks.
+- **Same refusals (invariants 1 and 2):** wrong token, forged positions,
+  identity spoofs and plaintext packets never reached the kernel. Attacker
+  movement clamped and cadence enforced; honest never clamped, rejected or
+  stale, including with an input held two ticks every eight.
+- **Shared jitter buffer:** moved to `godot/net/input_buffer.gd` and used by
+  both servers; the first intent of a match is no longer counted as an
+  underrun.
+- **Checks:** `check_repo.py` passes (43 files); 36 tests pass three runs in
+  a row with Godot. New: six ENet tests (transport, clock, replay, refusals,
+  honest under jitter, client shows server truth) and the runner on both
+  transports.
+- **Known:** Netfox's time messages are trusted for timing only; a client
+  can claim it is synced, which only changes when the match starts. The
+  server cannot count plaintext packets on ENet; the test checks they never
+  reach the kernel.
+- **Not done:** other machines or the internet, certificate distribution
+  and token issuing beyond one machine, prediction and reconciliation
+  (stage 3), lag compensation for hits.
+- **Next:** Joan reviews 0002 and this branch. Then stage 3: client
+  prediction and reconciliation for the local player, inputs sent ahead of
+  the server tick by the measured delay.
+
 ## October 15, 2026: missing input and jitter buffer (decision 0002, Proposed)
 
 Branch `claude/jitter-buffer-v01`, not merged. Changes the kernel contract,

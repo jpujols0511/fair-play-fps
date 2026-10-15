@@ -13,6 +13,8 @@ loopback**. Not playtested, not rendered, not tested across machines.
 | `net/protocol.gd` | Strict binary wire format. Client to server carries intent only; there is no field for position, health, damage, ammunition or score. Wrong length or fields means malformed and dropped. |
 | `net/server.gd` | Headless authoritative server over DTLS. Authenticates each player's access token, binds the identity to that encrypted session, runs 64 Hz, sends each client its confirmed state, writes a demo log of every submit, and records the kernel hash it ran. |
 | `net/client.gd` | Thin headless client: sends one intent per tick and keeps the last server-confirmed state. Role `attacker` is a controlled test fixture, not a cheat. |
+| `net/enet_server.gd`, `net/enet_client.gd` | Stage 2: the same match on ENet with DTLS. Tokens checked through SceneMultiplayer authentication; Netfox `NetworkTime` drives the tick and syncs each client's clock to the server. Default transport for the community runner. |
+| `net/input_buffer.gd` | Per-player jitter buffer shared by both servers (decision 0002). |
 | `tests/netfox_tick.gd` | Netfox's tick loop driving the kernel; digest must match the oracle. |
 | `addons/netfox*` | Vendored Netfox, MIT. Provenance in `docs/THIRD_PARTY.md`. |
 | `tests/kernel_parity.gd` | Prints digests for the honest, attacker and mixed command streams. |
@@ -64,6 +66,17 @@ python3 -m unittest tests.test_godot_spike -v
    Netfox's `NetworkTime` loop at 64 Hz and matches the oracle digest. A
    fresh checkout must run `godot --headless --path godot --import` once so
    Netfox's class names resolve; the tests and the server runner do this.
+6. **Stage 2: ENet with DTLS and Netfox clock sync across processes.**
+   Server and two clients as separate processes on loopback: clients stamp
+   each intent with their synced estimate of the server tick; intents arrive
+   a median of 1 tick (max 3 with injected jitter) after the tick they name.
+   Unsynced, they would be about 70 ticks off. With the honest client's
+   input held two ticks every eight, no honest input was late or discarded.
+   Netfox's own time messages are trusted for timing only: a client can
+   claim to be synced (`_submit_sync_success` accepts any peer), which only
+   affects when the match starts, never an outcome. ENet refuses plaintext
+   packets in its DTLS layer; the server logs a handshake error but cannot
+   count them, so the test checks they never reach the kernel instead.
 5. **The kernel is fingerprinted.** `kernel/KERNEL_SHA256` is published;
    every match records the hash it ran, and `scripts/check_repo.py` fails
    if the kernel changes without the published hash.

@@ -22,7 +22,10 @@ python3 scripts/run_dedicated_server.py --godot /path/to/Godot_v4.4.1-stable_lin
 
 1. Gives each player a random access token in `<out>/tokens.json` (mode
    0600). Send each player only their own token. Never publish the file.
-2. Starts the headless server: DTLS, 64 Hz, server-authoritative, with a
+2. Starts the headless server: ENet with DTLS and Netfox clock sync
+   (`--transport dtls` selects the earlier raw DTLS path), 64 Hz,
+   server-authoritative, listening on `--bind` (default `127.0.0.1`; use
+   `0.0.0.0` to accept other machines, which is not tested yet), with a
    per-player jitter buffer of `--jitter-ticks` (default 3, about 47 ms) so
    honest late or reordered packets are not discarded (decision 0002,
    proposed).

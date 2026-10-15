@@ -100,9 +100,15 @@ candidate, keeping the fairness kernel in our own code.
    `NetworkTime` loop at 64 Hz drives the kernel and reproduces the Python
    oracle digest (`godot/tests/netfox_tick.gd`). Transport is DTLS with
    per-player access tokens.
-2. **Next.** Move the match onto `ENetMultiplayerPeer` with DTLS so
-   Netfox's clock synchronization runs across processes; server stays the
-   only place outcomes are decided.
+2. **Done, October 15 (branch `claude/netfox-enet-v01`).** The match runs on
+   `ENetMultiplayerPeer` with DTLS (`godot/net/enet_server.gd`,
+   `enet_client.gd`). Access tokens are checked through SceneMultiplayer
+   authentication before a peer can send anything else. Netfox synchronizes
+   each client's clock to the server across processes: clients stamp
+   intents with the server tick, which arrive a median of 1 tick later on
+   loopback. Forged positions, spoofed identities, wrong tokens and plaintext
+   packets are still refused before the kernel. The raw DTLS path stays as a
+   reference (`--transport dtls`).
 3. **Then.** Client prediction and reconciliation with Netfox rollback for
    the local player only. The jitter buffer part is proposed separately in
    decision 0002 (branch `claude/jitter-buffer-v01`).
