@@ -2,7 +2,8 @@ extends SceneTree
 ## Headless authoritative server.
 ##
 ## godot --headless --path godot --script res://net/server.gd -- \
-##     --port 47911 --ticks 64 --tokens /run/tokens.json --out /run/match
+##     --port 47911 --ticks 64 --tokens /run/tokens.json --out /run/match \
+##     [--jitter-ticks 3]
 ##
 ## Transport is DTLS (invariant 2). The server creates its key and a
 ## self-signed certificate at start and writes the certificate to
@@ -10,13 +11,22 @@ extends SceneTree
 ## session and send HELLO with the access token issued for its player id; the
 ## identity is then bound to that session. Plain UDP never reaches the kernel.
 ##
-## Match: fixed 64 Hz tick; drain intents, submit to the kernel, step, send
+## Match: fixed 64 Hz tick; release buffered intents to the kernel, step, send
 ## each client its server-confirmed state. Every submit is written to a demo
 ## log for offline replay and detection (invariant 5). The result records a
 ## hash of the kernel source so players can check what the server ran.
+##
+## Jitter buffer (invariant 6): intents wait in a per-player buffer and are
+## released one per tick in sequence order, after an initial fill of
+## --jitter-ticks. Jitter and reordering smaller than that never leave a tick
+## without the player's own input, and a later gap costs one neutral tick, not
+## the input (decision 0002). Release never depends on send rate: one command
+## per player per tick, so sending faster buys nothing (invariant 1).
 
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
 const Protocol = preload("res://net/protocol.gd")
+const MAX_BUFFER := 64
+const PRIME_TIMEOUT_MSEC := 2000
 
 
 func _initialize() -> void:
@@ -24,6 +34,7 @@ func _initialize() -> void:
 	var port: int = int(args.get("port", "47911"))
 	var ticks: int = int(args.get("ticks", "64"))
 	var out_dir: String = args.get("out", "user://run")
+	var jitter_ticks: int = clampi(int(args.get("jitter-ticks", "3")), 0, MAX_BUFFER / 2)
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var tokens: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(args.get("tokens", "")))
 	if tokens == null or tokens.is_empty():
@@ -52,11 +63,11 @@ func _initialize() -> void:
 	var conns: Array = []
 	var bound := {}
 	var stats := {"packets": 0, "malformed": 0, "auth_failed": 0, "identity_mismatch": 0,
-		"handshake_failed": 0, "pre_start_discarded": 0}
+		"handshake_failed": 0, "pre_start_discarded": 0, "post_match_discarded": 0, "buffer": {}}
 
 	var deadline := Time.get_ticks_msec() + 15000
 	while bound.size() < expected.size() and Time.get_ticks_msec() < deadline:
-		_service(udp_server, dtls, conns, tokens, bound, stats, null, null)
+		_service(udp_server, dtls, conns, tokens, bound, stats, null, "pre_start_discarded")
 		OS.delay_msec(2)
 	if bound.size() < expected.size():
 		_write(out_dir + "/result.json", {"ok": false, "error": "players missing", "bound": bound.keys(), "stats": stats})
@@ -64,6 +75,16 @@ func _initialize() -> void:
 		return
 
 	var kernel = Kernel.new(expected)
+	var buffers := {}
+	for player_id in expected:
+		buffers[player_id] = {}
+		stats["buffer"][player_id] = {"underruns": 0, "late": 0, "trimmed": 0, "duplicate": 0, "overflow": 0, "max_depth": 0}
+	# Fill every buffer before the first tick, so steady state has slack.
+	var prime_deadline := Time.get_ticks_msec() + PRIME_TIMEOUT_MSEC
+	while Time.get_ticks_msec() < prime_deadline \
+			and buffers.values().any(func(pending): return pending.size() < jitter_ticks):
+		_service(udp_server, dtls, conns, tokens, bound, stats, buffers, "")
+		OS.delay_msec(1)
 	var demo: Array = []
 	var tick_usec: int = 1000000 / Kernel.TICK_RATE
 	var next_tick: int = Time.get_ticks_usec()
@@ -71,8 +92,8 @@ func _initialize() -> void:
 		next_tick += tick_usec
 		while Time.get_ticks_usec() < next_tick:
 			OS.delay_usec(200)
-		var submits: Array = []
-		_service(udp_server, dtls, conns, tokens, bound, stats, kernel, submits)
+		_service(udp_server, dtls, conns, tokens, bound, stats, buffers, "")
+		var submits := _release(kernel, buffers, stats, jitter_ticks)
 		kernel.step()
 		demo.append(submits)
 		for player_id in bound:
@@ -80,11 +101,12 @@ func _initialize() -> void:
 	# Keep servicing briefly so late handshakes and the last snapshots flush.
 	var flush_until := Time.get_ticks_msec() + 300
 	while Time.get_ticks_msec() < flush_until:
-		_service(udp_server, dtls, conns, tokens, bound, stats, null, null)
+		_service(udp_server, dtls, conns, tokens, bound, stats, null, "post_match_discarded")
 		OS.delay_msec(5)
 
 	var summary := {
 		"ok": true, "engine": Engine.get_version_info()["string"], "transport": "DTLS",
+		"jitter_ticks": jitter_ticks,
 		"kernel_sha256": FileAccess.get_sha256("res://kernel/fairplay_kernel.gd"),
 		"ticks": kernel.tick, "digest": kernel.digest(), "stats": stats,
 		"players": kernel.players, "evidence_counts": {},
@@ -98,9 +120,10 @@ func _initialize() -> void:
 
 
 ## Accepts new DTLS sessions, authenticates HELLO, and (during the match)
-## submits intents whose player id matches the session's bound identity.
+## buffers intents whose player id matches the session's bound identity.
+## Outside the match, buffers is null and intents are counted under discard.
 func _service(udp_server: UDPServer, dtls: DTLSServer, conns: Array, tokens: Dictionary,
-		bound: Dictionary, stats: Dictionary, kernel, submits) -> void:
+		bound: Dictionary, stats: Dictionary, buffers, discard: String) -> void:
 	udp_server.poll()
 	while udp_server.is_connection_available():
 		var peer := udp_server.take_connection()
@@ -144,12 +167,58 @@ func _service(udp_server: UDPServer, dtls: DTLSServer, conns: Array, tokens: Dic
 			if decoded["player_id"] != conn["player_id"]:
 				stats["identity_mismatch"] += 1
 				continue
-			if kernel == null:
-				stats["pre_start_discarded"] += 1
+			if buffers == null:
+				stats[discard] += 1
 				continue
+			var pending: Dictionary = buffers[conn["player_id"]]
+			var counters: Dictionary = stats["buffer"][conn["player_id"]]
 			var cmd: Dictionary = decoded["command"]
-			kernel.submit(conn["player_id"], cmd)
-			submits.append([conn["player_id"], cmd])
+			if pending.has(cmd["sequence"]):
+				counters["duplicate"] += 1
+			elif pending.size() >= MAX_BUFFER:
+				counters["overflow"] += 1
+			else:
+				pending[cmd["sequence"]] = cmd
+				counters["max_depth"] = maxi(counters["max_depth"], pending.size())
+
+
+## For each player in sorted order:
+## 1. If the buffer is far behind (more than 2 * jitter_ticks + 4), drop the
+##    oldest intents so that player's latency stays bounded.
+## 2. Submit intents the kernel has already passed. They are recorded as
+##    stale_input, which never counts toward suspicion.
+## 3. Submit the next intent if it is next in sequence, or if the buffer is
+##    deeper than jitter_ticks (a gap that waiting will not fill).
+## Otherwise it is an underrun: the kernel applies a neutral tick and consumes
+## no sequence number, so the late intent still counts when it arrives.
+## Returns the submits in order for the demo log.
+func _release(kernel, buffers: Dictionary, stats: Dictionary, jitter_ticks: int) -> Array:
+	var submits: Array = []
+	var ids: Array = buffers.keys()
+	ids.sort()
+	for player_id in ids:
+		var pending: Dictionary = buffers[player_id]
+		var counters: Dictionary = stats["buffer"][player_id]
+		var last: int = kernel.players[player_id]["last_sequence"]
+		var sequences: Array = pending.keys()
+		sequences.sort()
+		while sequences.size() > 2 * jitter_ticks + 4:
+			pending.erase(sequences.pop_front())
+			counters["trimmed"] += 1
+		while not sequences.is_empty() and sequences[0] <= last:
+			var stale: Dictionary = pending[sequences[0]]
+			pending.erase(sequences.pop_front())
+			kernel.submit(player_id, stale)
+			submits.append([player_id, stale])
+			counters["late"] += 1
+		if not sequences.is_empty() and (sequences[0] == last + 1 or sequences.size() > jitter_ticks):
+			var cmd: Dictionary = pending[sequences[0]]
+			pending.erase(sequences[0])
+			kernel.submit(player_id, cmd)
+			submits.append([player_id, cmd])
+		else:
+			counters["underruns"] += 1
+	return submits
 
 
 func _parse(user_args: PackedStringArray) -> Dictionary:

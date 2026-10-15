@@ -16,7 +16,9 @@ def _cmd(seq, mx=0, my=0, yaw=0, fire=False):
 
 def honest(ticks: int, seed: int, player_id: str = "p1") -> list:
     """Smooth turning, legal input, legal fire spacing, and network jitter:
-    some packets arrive a tick late, which the kernel records as stale_input."""
+    some packets arrive a tick late, after the next one. That tick is neutral
+    in the kernel (no move, same facing) and the late packet is recorded as
+    reordered_input, which never counts toward suspicion."""
     rng = random.Random(seed)
     demo, yaw, late, last_fire = [], rng.randrange(360_000), None, -100
     for t in range(ticks):
@@ -26,13 +28,14 @@ def honest(ticks: int, seed: int, player_id: str = "p1") -> list:
             last_fire = t
         cmd = _cmd(t, rng.randint(-INPUT_SCALE, INPUT_SCALE), rng.randint(-INPUT_SCALE, INPUT_SCALE), yaw, fire)
         submits = []
+        if rng.random() < 0.1:
+            next_late = cmd
+        else:
+            next_late = None
+            submits.append([player_id, cmd])
         if late is not None:
             submits.append([player_id, late])
-            late = None
-        if rng.random() < 0.1:
-            late = cmd
-        else:
-            submits.append([player_id, cmd])
+        late = next_late
         demo.append(submits)
     return demo
 
