@@ -100,7 +100,7 @@ func _initialize() -> void:
 		kernel.step()
 		demo.append(submits)
 		for player_id in bound:
-			bound[player_id]["dtls"].put_packet(Protocol.encode_snapshot(kernel.tick, kernel.players[player_id]))
+			bound[player_id]["dtls"].put_packet(Protocol.encode_snapshot(kernel.tick, kernel.snapshot(player_id)))
 	# Keep servicing briefly so late handshakes and the last snapshots flush.
 	var flush_until := Time.get_ticks_msec() + 300
 	while Time.get_ticks_msec() < flush_until:

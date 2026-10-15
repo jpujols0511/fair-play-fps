@@ -14,8 +14,13 @@
   input; each demo replayed to the server digest.
 - **Not verified:** cross-machine LAN, internet conditions, rendered ENet
   client, human playtest, or production deployment.
-- **Next:** integrate presentation-only prediction without weakening the
-  authoritative snapshot boundary.
+- **Prediction integrated:** the ENet client predicts only local presentation,
+  replaces it with every newer server snapshot, and replays only unconfirmed
+  intents. Snapshots include movement remainders for exact reconciliation at
+  both profiles; no predicted state is sent to the server.
+- **Protocol:** snapshot expansion is explicit protocol version 2; incompatible
+  version 1 packets are rejected rather than silently misdecoded.
+- **Next:** stage profile-aware combat and bounded lag compensation.
 
 ## October 15, 2026: authoritative Godot graybox client
 

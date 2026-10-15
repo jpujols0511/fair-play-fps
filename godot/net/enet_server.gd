@@ -153,7 +153,7 @@ func _on_tick(_delta: float, tick: int) -> void:
 	kernel.step()
 	demo.append(submits)
 	for player_id in bound:
-		mp.send_bytes(Protocol.encode_snapshot(kernel.tick, kernel.players[player_id]),
+		mp.send_bytes(Protocol.encode_snapshot(kernel.tick, kernel.snapshot(player_id)),
 			bound[player_id], MultiplayerPeer.TRANSFER_MODE_UNRELIABLE)
 	if kernel.tick >= ticks:
 		finished = true

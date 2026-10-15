@@ -330,6 +330,8 @@ class EnetNetfoxMatch(unittest.TestCase):
                 for role in ("honest", "attacker"):
                     self.assertEqual(client_reports[role]["tick_rate"], tick_rate)
                     self.assertGreater(client_reports[role]["snapshots"], 0)
+                    self.assertGreater(client_reports[role]["prediction"]["confirmed"], 0)
+                self.assertEqual(client_reports["honest"]["prediction"]["corrections"], 0)
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
