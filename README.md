@@ -26,6 +26,10 @@ Start with [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md).
 The [lineage matrix](docs/LINEAGE_MATRIX.md) records what to keep, reject,
 modernize, and test across the major competitive-shooter eras.
 
+The first executable work is a dependency-free
+[headless authoritative arena reference](prototype/README.md). It is a simulation
+and evidence laboratory, not a playable game or production engine.
+
 ## Ownership
 
 Copyright (c) 2026 Joan Pujols. All rights reserved.

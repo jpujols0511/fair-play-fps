@@ -16,11 +16,19 @@
 - Threat model in progress
 - Competitive-shooter lineage matrix
 
+## Executable reference
+
+- Dependency-free Python fixed-tick authoritative simulation
+- Client intent schema with no position, health, damage, ammunition, or score
+- Server-owned movement limits, fire cadence, ammunition, and shot evidence
+- Honest and controlled-attacker command fixtures
+- Deterministic result digest and six focused unit tests
+
 ## Unverified
 
 - Language, libraries, compiler, and build system
 - Linux server or client compilation
-- Runtime simulation
+- Native runtime simulation
 - LAN multiplayer
 - Prediction or reconciliation
 - Weapons or maps
@@ -34,4 +42,5 @@ No runtime stack has been selected. Do not claim a playable game.
 ## Next step
 
 Complete the threat model and bounded M1 technical proposal before writing the
-simulation kernel.
+native simulation kernel. Use the Python reference to settle contracts, not as a
+claim of a production engine.
