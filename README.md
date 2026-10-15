@@ -20,7 +20,9 @@ enforcement as native engine systems.
 
 ## Current phase
 
-Architecture and threat-model definition. No playable build exists yet.
+M1 authoritative arena integration. A render-capable Godot graybox now connects
+two intent-only clients to the DTLS server, but it is not yet a complete or
+human-playtested game slice.
 
 Start with [the design thesis](docs/DESIGN.md), then [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md).
 The [lineage matrix](docs/LINEAGE_MATRIX.md) records what to keep, reject,
@@ -29,6 +31,11 @@ modernize, and test across the major competitive-shooter eras.
 The first executable work is a dependency-free
 [headless authoritative arena reference](prototype/README.md). It is a simulation
 and evidence laboratory, not a playable game or production engine.
+
+Run the two-client Godot graybox with:
+
+    python3 scripts/run_graybox_clients.py --godot /path/to/Godot_v4.4.1 \
+        --out matches/graybox-demo
 
 Run every current check locally with:
 

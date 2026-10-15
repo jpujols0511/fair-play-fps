@@ -1,12 +1,39 @@
-; Fair Play FPS — Godot 4 headless spike (decision 0001).
-; No scenes or assets yet: the kernel and network test run as headless scripts.
+; Fair Play FPS — Godot 4 authoritative graybox.
 
 config_version=5
 
 [application]
 
-config/name="Fair Play FPS spike"
+config/name="Fair Play FPS"
+run/main_scene="res://client/graybox_client.tscn"
 config/features=PackedStringArray("4.4")
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[input]
+
+move_forward={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":87)]
+}
+move_back={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":83)]
+}
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":65)]
+}
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":68)]
+}
 
 [autoload]
 
