@@ -1,5 +1,22 @@
 # Status
 
+## October 15, 2026: staged ENet transport integration
+
+- **Integrated on the staged branch:** ENet with DTLS and Netfox clock sync
+  is an opt-in transport alongside the preserved raw DTLS graybox path.
+- **Profiles:** both 64 and 128 Hz configure Netfox explicitly and construct
+  the existing profile-aware kernel without changing its digest contract.
+- **Diagnostics:** the shared bounded input buffer now reports reordered
+  arrivals separately; network timing remains diagnostic evidence only.
+- **Verified:** Godot 4.4.1 on Linux loopback, server plus two headless clients
+  at both profiles. Authentication failures, malformed and identity-spoofed
+  packets were refused; honest injected two-tick jitter produced no stale
+  input; each demo replayed to the server digest.
+- **Not verified:** cross-machine LAN, internet conditions, rendered ENet
+  client, human playtest, or production deployment.
+- **Next:** integrate presentation-only prediction without weakening the
+  authoritative snapshot boundary.
+
 ## October 15, 2026: authoritative Godot graybox client
 
 - **Authored:** original procedural room, first-person camera, lighting,
