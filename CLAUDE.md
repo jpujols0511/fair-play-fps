@@ -59,6 +59,8 @@ review, and a community server runner. Proposed on `claude/jitter-buffer-v01`
 jitter buffer. Built on top of it: `claude/netfox-enet-v01` (stage 2, ENet with DTLS and
 Netfox clock sync across processes), then `claude/prediction-v01` (stage 3,
 client prediction and reconciliation), then `claude/hits-lag-comp-v01`
-(decision 0003, hits and bounded lag compensation, Proposed). Next: send
-other players' positions to clients, with interpolation. No playable build
-exists; nothing has been tested across machines or by players.
+(decision 0003, hits and bounded lag compensation, Proposed), then
+`claude/world-view-v01` (clients see the players the kernel allows and hit
+what they drew). Next: a test between two machines, then a first rendered
+client. No playable build exists; nothing has been tested across machines or
+by players.

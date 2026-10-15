@@ -16,6 +16,8 @@ const VERSION := 1
 const KIND_INTENT := 1
 const KIND_SNAPSHOT := 2
 const KIND_HELLO := 3
+const KIND_WORLD := 4
+const MAX_WORLD_PLAYERS := 32
 const MAX_ID := 32
 const TOKEN_LEN := 64
 const SERVER_NAME := "fairplay.local"
@@ -125,6 +127,56 @@ static func decode_snapshot(packet: PackedByteArray) -> Dictionary:
 	for key in SNAPSHOT_KEYS:
 		out[key] = b.get_32()
 	return out
+
+
+## Server -> client: the other players this client may see at a kernel tick
+## (kernel visible_to), each with position, facing and health. Nothing about
+## players outside legitimate visibility is ever sent.
+static func encode_world(tick: int, others: Dictionary) -> PackedByteArray:
+	var b := StreamPeerBuffer.new()
+	b.put_u8(VERSION)
+	b.put_u8(KIND_WORLD)
+	b.put_32(tick)
+	var ids: Array = others.keys()
+	ids.sort()
+	b.put_u8(ids.size())
+	for player_id in ids:
+		var id_bytes: PackedByteArray = player_id.to_ascii_buffer()
+		b.put_u8(id_bytes.size())
+		b.put_data(id_bytes)
+		var state: Dictionary = others[player_id]
+		for key in ["x", "y", "yaw_millidegrees", "health"]:
+			b.put_32(state[key])
+	return b.data_array
+
+
+## Returns {} for anything malformed: every byte must be accounted for.
+static func decode_world(packet: PackedByteArray) -> Dictionary:
+	if packet.size() < 7 or packet[0] != VERSION or packet[1] != KIND_WORLD:
+		return {}
+	var b := StreamPeerBuffer.new()
+	b.data_array = packet
+	b.seek(2)
+	var tick := b.get_32()
+	var count: int = b.get_u8()
+	if count > MAX_WORLD_PLAYERS:
+		return {}
+	var players := {}
+	for _i in count:
+		if b.get_position() >= packet.size():
+			return {}
+		var id_len: int = b.get_u8()
+		if id_len < 1 or id_len > MAX_ID or b.get_position() + id_len + 16 > packet.size():
+			return {}
+		var player_id := packet.slice(b.get_position(), b.get_position() + id_len).get_string_from_ascii()
+		if player_id.length() != id_len or not _valid_id(player_id) or players.has(player_id):
+			return {}
+		b.seek(b.get_position() + id_len)
+		players[player_id] = {"x": b.get_32(), "y": b.get_32(), "yaw_millidegrees": b.get_32(),
+			"health": b.get_32()}
+	if b.get_position() != packet.size():
+		return {}
+	return {"tick": tick, "players": players}
 
 
 static func _valid_id(player_id: String) -> bool:

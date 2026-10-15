@@ -15,6 +15,8 @@ extends SceneTree
 ##   clock to this server, so clients stamp each intent with the server tick
 ##   it is meant for. Netfox carries timing only; nothing it sends reaches the
 ##   kernel.
+## - Each tick every client gets its own confirmed state and the other players
+##   the kernel says it may see (visible_to); nothing else about anyone.
 ## - Intents go through the shared jitter buffer (decision 0002). The kernel
 ##   decides every outcome (invariant 1); every submit is written to the demo
 ##   log (invariant 5).
@@ -149,6 +151,11 @@ func _on_tick(_delta: float, tick: int) -> void:
 	demo.append(submits)
 	for player_id in bound:
 		mp.send_bytes(Protocol.encode_snapshot(kernel.tick, kernel.players[player_id]),
+			bound[player_id], MultiplayerPeer.TRANSFER_MODE_UNRELIABLE)
+		var others := {}
+		for other_id in kernel.visible_to(player_id):
+			others[other_id] = kernel.players[other_id]
+		mp.send_bytes(Protocol.encode_world(kernel.tick, others),
 			bound[player_id], MultiplayerPeer.TRANSFER_MODE_UNRELIABLE)
 	if kernel.tick >= ticks:
 		finished = true

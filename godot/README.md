@@ -16,6 +16,8 @@ loopback**. Not playtested, not rendered, not tested across machines.
 | `net/enet_server.gd`, `net/enet_client.gd` | Stage 2: the same match on ENet with DTLS. Tokens checked through SceneMultiplayer authentication; Netfox `NetworkTime` drives the tick and syncs each client's clock to the server. Default transport for the community runner. |
 | `net/input_buffer.gd` | Per-player jitter buffer shared by both servers (decision 0002). |
 | `net/prediction.gd` | Stage 3: the ENet client predicts its own player with the server's kernel code and reconciles to each snapshot. |
+| `net/world_view.gd` | Other players from world packets, drawn a few ticks in the past and interpolated; supplies the `view_tick` each intent names. |
+| `tests/world_view_check.gd` | World packet strictness and interpolation. |
 | `tests/netfox_tick.gd` | Netfox's tick loop driving the kernel; digest must match the oracle. |
 | `addons/netfox*` | Vendored Netfox, MIT. Provenance in `docs/THIRD_PARTY.md`. |
 | `tests/kernel_parity.gd` | Prints digests for the honest, attacker and mixed command streams. |
@@ -93,6 +95,15 @@ python3 -m unittest tests.test_godot_spike -v
    elimination. Python and GDScript agree on a three-player combat stream.
    Intents now carry `view_tick`; the attacker fixture claims tick 0 and is
    held to 13 ticks of rewind.
+9. **Players see each other, and hit what they see.** Each tick the server
+   sends every client the other players the kernel says it may see
+   (`visible_to`: within 60 m for now, walls later), and nothing about
+   anyone else (THREAT_MODEL: knowledge outside legitimate visibility).
+   Clients draw them 6 ticks in the past and name the drawn tick in each
+   intent. In a loopback match an aimer shooting at a strafer: every one of
+   12 accepted shots hit where the aimer drew the target (rewind 9 ticks);
+   judged at the server's current tick instead, 4 of the 12 would have
+   missed.
 5. **The kernel is fingerprinted.** `kernel/KERNEL_SHA256` is published;
    every match records the hash it ran, and `scripts/check_repo.py` fails
    if the kernel changes without the published hash.

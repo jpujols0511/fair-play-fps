@@ -19,6 +19,7 @@ HIT_RADIUS = 400
 MAX_RANGE = 50_000
 DAMAGE = 25
 MAX_REWIND_TICKS = 13  # about 200 ms at 64 Hz
+VIEW_RANGE = 60_000  # players farther away are never sent to a client
 TRIG_SCALE = 1_000_000
 # round(sin(k degrees) * TRIG_SCALE) for k = 0..90. Fixed integers so every
 # implementation computes the same rays; never recompute at runtime.
@@ -232,6 +233,21 @@ class AuthoritativeServer:
         )
         self._resolve_hit(player_id, state, view_tick)
 
+    def visible_to(self, viewer_id: str) -> list[str]:
+        """Other players this viewer may know about. The server sends a client
+        nothing else (THREAT_MODEL: no knowledge outside legitimate
+        visibility). No map yet, so distance only; walls belong here."""
+        viewer = self.players[viewer_id]
+        visible = []
+        for other_id in sorted(self.players):
+            if other_id == viewer_id:
+                continue
+            other = self.players[other_id]
+            dx, dy = other.x - viewer.x, other.y - viewer.y
+            if dx * dx + dy * dy <= VIEW_RANGE * VIEW_RANGE:
+                visible.append(other_id)
+        return visible
+
     def _resolve_hit(self, player_id: str, state: PlayerState, view_tick: int) -> None:
         """Lag compensation: rewind other players to the start of the tick the
         shooter saw, at most MAX_REWIND_TICKS, then trace a ray along its yaw.
@@ -244,7 +260,10 @@ class AuthoritativeServer:
             if rewind > MAX_REWIND_TICKS:
                 self._record(player_id, "rewind_limited", {"requested": rewind})
                 rewind = MAX_REWIND_TICKS
-        rewind = min(rewind, self.tick)
+        # Never past the history this kernel holds (a client's prediction
+        # kernel starts mid-match with none).
+        while self.tick - rewind not in self._history:
+            rewind -= 1
         seen = self._history[self.tick - rewind]
         dx, dy = cos_scaled(state.yaw_millidegrees), sin_scaled(state.yaw_millidegrees)
         best = None

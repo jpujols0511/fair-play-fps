@@ -1,5 +1,35 @@
 # Status
 
+## October 15, 2026: players see each other and hit what they see
+
+Branch `claude/world-view-v01`, on top of `claude/hits-lag-comp-v01` and the
+branches below it. Not merged. Compiled, run and network-tested on loopback
+only, Linux, Godot 4.4.1.
+
+- **Visibility (THREAT_MODEL: no knowledge outside legitimate visibility):**
+  the kernel decides which other players each client may see
+  (`visible_to`, within 60 m for now; walls belong there later). The server
+  sends each client those players every tick and nothing about anyone
+  else. Python and GDScript agree, including at the exact range boundary.
+- **Drawing in the past:** `godot/net/world_view.gd` keeps the world packets
+  and draws other players a few ticks behind, with integer interpolation
+  for smooth drawing. Each intent's `view_tick` is the tick drawn.
+- **Lag compensation end to end (invariant 3):** an aimer client firing at
+  a strafing client hit where it drew the target with every one of 12
+  accepted shots (rewind 9 ticks, under the 13-tick cap). Judged at the
+  server's current tick instead, 4 of those 12 would have missed.
+- **Kernel fix:** a rewind stops at the history the kernel holds. The
+  client's prediction kernel has none, and tracing its own shot crashed.
+  Kernel hash republished (`928904…fdbf`).
+- **Protocol:** new strict world packet (every byte accounted for; truncated,
+  extra, duplicate or oversized packets rejected).
+- **Checks:** `check_repo.py` passes (46 files); 51 tests. Results recorded
+  in the commit message.
+- **Not done:** walls and line of sight, a rendered client, other machines,
+  players.
+- **Next:** a test between two machines (the runner's `--bind`), then a
+  first rendered client.
+
 ## October 15, 2026: hits and bounded lag compensation (decision 0003, Proposed)
 
 Branch `claude/hits-lag-comp-v01`, on top of the prediction, ENet and

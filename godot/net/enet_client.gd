@@ -3,7 +3,8 @@ extends SceneTree
 ##
 ## godot --headless --path godot --script res://net/enet_client.gd -- \
 ##     --port 47911 --player honest --role honest --token <hex> \
-##     --cert /run/match/server_cert.crt --seconds 3 [--jitter hold2]
+##     --cert /run/match/server_cert.crt --seconds 3 [--jitter hold2] \
+##     [--interp-ticks 2] [--lag-comp off]
 ##
 ## Trusts only the server certificate, authenticates with HELLO, then lets
 ## Netfox synchronize its clock to the server. Each Netfox tick it sends one
@@ -11,6 +12,16 @@ extends SceneTree
 ## It predicts its own player with the server's kernel code and replaces the
 ## prediction with every server snapshot (net/prediction.gd). The server
 ## never receives a position; the last confirmed state is the truth.
+##
+## Other players arrive in world packets (only those the server says this
+## client may see) and are drawn --interp-ticks in the past (net/world_view.gd).
+## Each intent names the tick drawn, so the server's lag compensation judges
+## shots against what this player saw. --lag-comp off sends -1 instead, to
+## measure the difference.
+##
+## Roles "strafer" (moves left and right, never fires) and "aimer" (walks
+## 3 m away, then aims at the nearest player it draws and fires at the legal
+## cadence) exercise that path; they are test fixtures like "attacker".
 ##
 ## Role "attacker" is the same controlled test fixture as net/client.gd: a
 ## HELLO claiming "honest" with a wrong token first, oversized movement and
@@ -22,6 +33,7 @@ extends SceneTree
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
 const Protocol = preload("res://net/protocol.gd")
 const Prediction = preload("res://net/prediction.gd")
+const WorldView = preload("res://net/world_view.gd")
 const TIMEOUT_MSEC := 30000
 const SPOOF_OFFSET := 100000
 
@@ -41,6 +53,10 @@ var snapshots := 0
 var confirmed := {}
 var held: Array = []
 var prediction
+var world
+var lag_comp := true
+var worlds := 0
+var aimed := 0
 var deadline := 0
 var done := false
 
@@ -61,6 +77,8 @@ func _begin() -> void:
 	jitter = args.get("jitter", "none")
 	total_ticks = int(float(args.get("seconds", "3")) * Kernel.TICK_RATE)
 	prediction = Prediction.new(player_id)
+	world = WorldView.new(int(args.get("interp-ticks", "2")))
+	lag_comp = args.get("lag-comp", "on") != "off"
 	Engine.max_fps = 500
 	deadline = Time.get_ticks_msec() + TIMEOUT_MSEC
 
@@ -103,6 +121,11 @@ func _on_packet(_peer_id: int, packet: PackedByteArray) -> void:
 		if snap["tick"] > confirmed.get("tick", -1):
 			confirmed = snap
 		prediction.reconcile(snap)
+		return
+	var seen := Protocol.decode_world(packet)
+	if not seen.is_empty():
+		worlds += 1
+		world.add(seen)
 
 
 func _on_tick(_delta: float, tick: int) -> void:
@@ -114,12 +137,18 @@ func _on_tick(_delta: float, tick: int) -> void:
 	if i >= total_ticks:
 		_report(0)
 		return
+	var view: Dictionary = world.view()
+	var view_tick: int = view["tick"] if lag_comp else -1
 	var cmd: Dictionary
 	if role == "attacker":
 		cmd = Kernel.command(tick, 5000, -4000, 450000, true, 0)
+	elif role == "strafer":
+		cmd = Kernel.command(tick, 1000 if (i / 48) % 2 == 0 else -1000, 0, 0, false, view_tick)
+	elif role == "aimer":
+		cmd = _aim(tick, i, view, view_tick)
 	else:
 		var moving := (i / 32) % 2 == 0
-		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000, i % 12 == 0, confirmed.get("tick", -1))
+		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000, i % 12 == 0, view_tick)
 	prediction.send(cmd)
 	var packet := Protocol.encode_intent(player_id, cmd)
 	if jitter == "hold2" and i % 8 == 3:
@@ -147,8 +176,33 @@ func _on_tick(_delta: float, tick: int) -> void:
 ## Ends after --seconds of ticks, or when the server closes the match.
 func _report(code: int) -> void:
 	if not done:
-		_finish({"sent": sent, "forged": forged, "snapshots": snapshots, "first_tick": first_tick,
-			"last_confirmed": confirmed, "prediction": prediction.report()}, code)
+		_finish({"sent": sent, "forged": forged, "snapshots": snapshots, "worlds": worlds, "aimed": aimed,
+			"first_tick": first_tick, "last_confirmed": confirmed, "prediction": prediction.report()}, code)
+
+
+## Walks 3 m in -y, stops, then from its 80th tick turns toward the nearest
+## player in the drawn frame and fires every 8 ticks, even at an eliminated
+## one, so tests can judge every shot. Aims from its own predicted position,
+## which equals the server's once it stands still.
+func _aim(tick: int, i: int, view: Dictionary, view_tick: int) -> Dictionary:
+	if i < 64:
+		return Kernel.command(tick, 0, -1000, 0, false, view_tick)
+	var me: Dictionary = prediction.display()
+	var target := {}
+	var best := -1
+	for other_id in view["players"]:
+		var other: Dictionary = view["players"][other_id]
+		var d: int = (other["x"] - me["x"]) * (other["x"] - me["x"]) + (other["y"] - me["y"]) * (other["y"] - me["y"])
+		if best < 0 or d < best:
+			best = d
+			target = other
+	if target.is_empty():
+		return Kernel.command(tick, 0, 0, me["yaw_millidegrees"], false, view_tick)
+	var yaw := int(round(rad_to_deg(atan2(float(target["y"] - me["y"]), float(target["x"] - me["x"]))) * 1000.0))
+	var fire := i >= 80 and i % 8 == 0
+	if fire:
+		aimed += 1
+	return Kernel.command(tick, 0, 0, yaw, fire, view_tick)
 
 
 func _send(packet: PackedByteArray) -> void:

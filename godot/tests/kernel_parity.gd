@@ -13,18 +13,23 @@ func _initialize() -> void:
 	_report("attacker", ["attacker"], _attacker(32))
 	_report("mixed", ["attacker", "honest"], _mixed(48))
 	_report("combat", ["a", "b", "c"], _combat(96))
+	_visibility()
 	quit(0)
 
 
 func _report(scenario: String, ids: Array, ticks: Array) -> void:
 	var kernel = Kernel.new(ids)
+	var visible := {}
 	for commands in ticks:
 		var keys: Array = commands.keys()
 		keys.sort()
 		for player_id in keys:
 			kernel.submit(player_id, commands[player_id])
 		kernel.step()
-	print(JSON.stringify({"scenario": scenario, "digest": kernel.digest(), "ticks": kernel.tick}, "", true))
+		for player_id in ids:
+			visible["%s@%d" % [player_id, kernel.tick]] = kernel.visible_to(player_id)
+	print(JSON.stringify({"scenario": scenario, "digest": kernel.digest(), "ticks": kernel.tick,
+		"visible": visible}, "", true))
 
 
 func _honest(n: int, player_id: String = "honest") -> Array:
@@ -68,3 +73,20 @@ func _combat(n: int) -> Array:
 		var c := Kernel.command(t if t % 7 else t - 1, -700, -700, -135000 + 1500 * t, t % 10 == 0, t - 1)
 		out.append({"a": a, "b": b, "c": c})
 	return out
+
+
+## Players placed just inside, exactly on and just outside VIEW_RANGE.
+const PLACES := {"a": [0, 0], "b": [59999, 0], "c": [42427, 42427], "d": [-60000, 0], "e": [0, -60001]}
+
+
+func _visibility() -> void:
+	var ids: Array = PLACES.keys()
+	var kernel = Kernel.new(ids)
+	for player_id in ids:
+		kernel.players[player_id]["x"] = PLACES[player_id][0]
+		kernel.players[player_id]["y"] = PLACES[player_id][1]
+	var visible := {}
+	for player_id in ids:
+		visible[player_id] = kernel.visible_to(player_id)
+	print(JSON.stringify({"scenario": "visibility", "visible": visible}, "", true))
+

@@ -72,5 +72,14 @@ is about 3 m/s.
 - Maps, cover and line of sight; hit zones; weapons beyond the one rifle.
 - Respawn and match rules (game modes live on the community surface).
 - Detection features from hits (accuracy, aim before visibility).
-- Sending other players' positions to clients so they can aim (interest
-  management and interpolation).
+- Walls and line of sight in `visible_to`; today it is distance only.
+
+## Follow-up, October 15, 2026 (branch `claude/world-view-v01`)
+
+Clients now receive the other players the kernel says they may see
+(`visible_to`, `VIEW_RANGE` 60 m, a prototype value) and draw them a few
+ticks in the past. Each intent's `view_tick` is the tick the client drew.
+End to end on loopback, an aimer firing at a strafer hit where it drew the
+target with every one of 12 accepted shots (rewind 9 ticks); without rewind
+4 of those 12 would have missed. The kernel also stops a rewind at the
+history it holds, which a client's prediction kernel needs.

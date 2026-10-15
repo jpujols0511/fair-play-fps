@@ -17,8 +17,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "prototype"))
 
 from fairplay_sim import (  # noqa: E402
+    HIT_RADIUS,
+    MAX_RANGE,
     MAX_REWIND_TICKS,
+    TRIG_SCALE,
     AuthoritativeServer,
+    cos_scaled,
+    sin_scaled,
     InputCommand,
     controlled_attacker_commands,
     honest_commands,
@@ -61,6 +66,16 @@ def _combat(n):
         }
 
 
+def _client_report(text):
+    """The JSON line a client prints when it finishes."""
+    for line in text.splitlines():
+        if line.startswith("{"):
+            report = json.loads(line)
+            if "client" in report:
+                return report
+    raise AssertionError("client printed no report:\n" + text[-2000:])
+
+
 def replay_demo(player_ids, demo):
     """Feed a server demo log (every submit, in order, per tick) to the oracle."""
     server = AuthoritativeServer(player_ids)
@@ -86,6 +101,32 @@ class GodotKernelParity(unittest.TestCase):
         }
         for scenario, digest in expected.items():
             self.assertEqual(rows[scenario]["digest"], digest, scenario)
+
+    def test_visibility_matches_python_oracle(self):
+        proc = _godot("res://tests/kernel_parity.gd")
+        row = next(r for r in (json.loads(line) for line in proc.stdout.splitlines() if line.startswith("{"))
+                   if r["scenario"] == "combat")
+        server = AuthoritativeServer(["a", "b", "c"])
+        expected = {}
+        for commands in _combat(96):
+            for player_id, command in sorted(commands.items()):
+                server.submit(player_id, command)
+            server.step()
+            for player_id in ("a", "b", "c"):
+                expected[f"{player_id}@{server.tick}"] = server.visible_to(player_id)
+        self.assertEqual(row["visible"], expected)
+
+    def test_view_range_boundary_matches_python_oracle(self):
+        proc = _godot("res://tests/kernel_parity.gd")
+        row = next(r for r in (json.loads(line) for line in proc.stdout.splitlines() if line.startswith("{"))
+                   if r["scenario"] == "visibility")
+        places = {"a": (0, 0), "b": (59_999, 0), "c": (42_427, 42_427), "d": (-60_000, 0), "e": (0, -60_001)}
+        server = AuthoritativeServer(places)
+        for player_id, (x, y) in places.items():
+            server.players[player_id].x, server.players[player_id].y = x, y
+        expected = {player_id: server.visible_to(player_id) for player_id in places}
+        self.assertEqual(expected["a"], ["b", "d"])
+        self.assertEqual(row["visible"], expected)
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
@@ -130,7 +171,7 @@ class GodotLoopbackMatch(unittest.TestCase):
         cls.client_out = {}
         for role, proc in zip(("honest", "attacker"), clients):
             text, _ = proc.communicate(timeout=90)
-            cls.client_out[role] = next(json.loads(l) for l in text.splitlines() if l.startswith('{"client"'))
+            cls.client_out[role] = _client_report(text)
         server.communicate(timeout=90)
         cls.result = json.loads((cls.out / "result.json").read_text())
         cls.demo = json.loads((cls.out / "demo.json").read_text())
@@ -262,7 +303,7 @@ class EnetNetfoxMatch(unittest.TestCase):
         cls.client_out = {}
         for role, proc in zip(("honest", "attacker"), clients):
             text, _ = proc.communicate(timeout=90)
-            cls.client_out[role] = next(json.loads(l) for l in text.splitlines() if l.startswith('{"client"'))
+            cls.client_out[role] = _client_report(text)
         server.communicate(timeout=90)
         cls.result = json.loads((cls.out / "result.json").read_text())
         cls.demo = json.loads((cls.out / "demo.json").read_text())
@@ -368,7 +409,7 @@ class PredictionCorrects(unittest.TestCase):
                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         text, _ = client.communicate(timeout=90)
         server.communicate(timeout=90)
-        report = next(json.loads(l) for l in text.splitlines() if l.startswith('{"client"'))
+        report = _client_report(text)
         result = json.loads((out / "result.json").read_text())
         demo = json.loads((out / "demo.json").read_text())
         buffer = result["buffer"]["honest"]
@@ -380,6 +421,95 @@ class PredictionCorrects(unittest.TestCase):
         truth = replay_demo(["honest"], demo[:confirmed["tick"]]).players["honest"]
         self.assertEqual((confirmed["x"], confirmed["y"], confirmed["last_sequence"]),
                          (truth.x, truth.y, truth.last_sequence))
+
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class WorldPacketsAndView(unittest.TestCase):
+    def test_world_packets_are_strict_and_view_interpolates(self):
+        proc = _godot("res://tests/world_view_check.gd")
+        self.assertNotIn("SCRIPT ERROR", proc.stdout + proc.stderr)
+        r = next(json.loads(l) for l in proc.stdout.splitlines() if l.startswith("{"))
+        self.assertEqual(r["empty"], {"tick": 3, "players": {}})
+        self.assertEqual(r["two"]["tick"], 12)
+        self.assertEqual(r["two"]["players"]["c"], {"x": -5, "y": 7, "yaw_millidegrees": 90000, "health": 75})
+        for malformed in ("truncated", "extra", "duplicate", "oversized", "snapshot_is_not_world"):
+            self.assertEqual(r[malformed], {}, malformed)
+        self.assertEqual(r["view_tick"], 10, "drawn one tick behind the newest frame, at a frame it has")
+        self.assertEqual((r["sample_11"]["b"]["x"], r["sample_11"]["b"]["y"]), (100, -50))
+        self.assertEqual((r["sample_11_5"]["b"]["x"], r["sample_11_5"]["b"]["y"]), (150, -75))
+
+
+def _would_hit(origin, yaw, target):
+    dx, dy = cos_scaled(yaw), sin_scaled(yaw)
+    vx, vy = target[0] - origin[0], target[1] - origin[1]
+    along = vx * dx + vy * dy
+    return 0 <= along <= MAX_RANGE * TRIG_SCALE and abs(vx * dy - vy * dx) <= HIT_RADIUS * TRIG_SCALE
+
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class AimAtWhatYouSee(unittest.TestCase):
+    """Decision 0003 end to end: a client draws the other player 6 ticks in
+    the past from world packets and aims at what it draws. Every accepted
+    shot must hit that drawn position; judged at the server's current tick
+    instead, some would miss. Rewind stays within MAX_REWIND_TICKS."""
+
+    @classmethod
+    def setUpClass(cls):
+        import secrets
+        out = Path(tempfile.mkdtemp(prefix="fairplay-aim-"))
+        port = str(48600 + os.getpid() % 90)
+        tokens = {"aimer": secrets.token_hex(32), "strafer": secrets.token_hex(32)}
+        token_file = out / "tokens.json"
+        token_file.write_text(json.dumps(tokens))
+        token_file.chmod(0o600)
+        base = [GODOT, "--headless", "--path", str(PROJECT), "--script"]
+        server = subprocess.Popen(base + ["res://net/enet_server.gd", "--", "--port", port, "--ticks", "256",
+                                          "--tokens", str(token_file), "--out", str(out)],
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        cert = out / "server_cert.crt"
+        deadline = time.time() + 30
+        while not cert.exists() and time.time() < deadline:
+            time.sleep(0.1)
+        time.sleep(0.2)
+        clients = [subprocess.Popen(base + ["res://net/enet_client.gd", "--", "--port", port, "--player", role,
+                                            "--role", role, "--token", tokens[role], "--cert", str(cert),
+                                            "--seconds", "6", "--interp-ticks", "6"],
+                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                   for role in ("aimer", "strafer")]
+        cls.client_text = {role: proc.communicate(timeout=120)[0] for role, proc in zip(("aimer", "strafer"), clients)}
+        server.communicate(timeout=120)
+        cls.result = json.loads((out / "result.json").read_text())
+        cls.demo = json.loads((out / "demo.json").read_text())
+
+    def test_every_shot_hits_what_the_shooter_drew(self):
+        self.assertTrue(self.result["ok"], self.result)
+        for role, text in self.client_text.items():
+            self.assertNotIn("SCRIPT ERROR", text, role)
+        server = AuthoritativeServer(["aimer", "strafer"])
+        seen, shots, at_view, at_now = {}, 0, 0, 0
+        for tick, submits in enumerate(self.demo):
+            seen[tick] = (server.players["strafer"].x, server.players["strafer"].y)
+            last, applied = server.players["aimer"].last_sequence, None
+            for player_id, command in submits:
+                if player_id == "aimer" and command["sequence"] > last:
+                    applied = command
+                server.submit(player_id, InputCommand(**command))
+            before = len(server.evidence)
+            server.step()
+            for event in server.evidence[before:]:
+                if event.player_id == "aimer" and event.category == "shot_accepted":
+                    origin, yaw = (event.detail["origin_x"], event.detail["origin_y"]), event.detail["yaw_millidegrees"]
+                    self.assertLessEqual(tick - applied["view_tick"], MAX_REWIND_TICKS)
+                    shots += 1
+                    at_view += _would_hit(origin, yaw, seen[applied["view_tick"]])
+                    at_now += _would_hit(origin, yaw, seen[tick])
+        self.assertEqual(server.result().digest, self.result["digest"])
+        self.assertGreaterEqual(shots, 8)
+        self.assertEqual(at_view, shots, "every shot hits where the shooter drew the target")
+        self.assertLess(at_now, shots, "without rewind some of the same shots miss")
+        hits = [e for e in server.evidence if e.category == "hit_confirmed"]
+        self.assertGreater(len(hits), 0)
+        self.assertTrue(all(0 < h.detail["rewind_ticks"] <= MAX_REWIND_TICKS for h in hits))
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")

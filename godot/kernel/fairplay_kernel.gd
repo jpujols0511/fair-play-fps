@@ -18,6 +18,7 @@ const HIT_RADIUS := 400
 const MAX_RANGE := 50000
 const DAMAGE := 25
 const MAX_REWIND_TICKS := 13
+const VIEW_RANGE := 60000  # players farther away are never sent to a client
 const TRIG_SCALE := 1000000
 # round(sin(k degrees) * TRIG_SCALE) for k = 0..90, identical to the Python
 # oracle. Fixed integers so every implementation computes the same rays.
@@ -201,6 +202,24 @@ func _attempt_fire(player_id: String, state: Dictionary, view_tick: int = -1) ->
 	_resolve_hit(player_id, state, view_tick)
 
 
+## Other players this viewer may know about. The server sends a client nothing
+## else (THREAT_MODEL: no knowledge outside legitimate visibility). No map
+## yet, so distance only; walls belong here.
+func visible_to(viewer_id: String) -> Array:
+	var viewer: Dictionary = players[viewer_id]
+	var visible: Array = []
+	var ids: Array = players.keys()
+	ids.sort()
+	for other_id in ids:
+		if other_id == viewer_id:
+			continue
+		var dx: int = players[other_id]["x"] - viewer["x"]
+		var dy: int = players[other_id]["y"] - viewer["y"]
+		if dx * dx + dy * dy <= VIEW_RANGE * VIEW_RANGE:
+			visible.append(other_id)
+	return visible
+
+
 ## Lag compensation: rewind other players to the start of the tick the
 ## shooter saw, at most MAX_REWIND_TICKS, then trace a ray along its yaw.
 ## The closest living target within HIT_RADIUS and MAX_RANGE is hit.
@@ -213,7 +232,10 @@ func _resolve_hit(player_id: String, state: Dictionary, view_tick: int) -> void:
 		if rewind > MAX_REWIND_TICKS:
 			_record(player_id, "rewind_limited", {"requested": rewind})
 			rewind = MAX_REWIND_TICKS
-	rewind = mini(rewind, tick)
+	# Never past the history this kernel holds (a client's prediction kernel
+	# starts mid-match with none).
+	while not _history.has(tick - rewind):
+		rewind -= 1
 	var seen: Dictionary = _history[tick - rewind]
 	var dx := cos_scaled(state["yaw_millidegrees"])
 	var dy := sin_scaled(state["yaw_millidegrees"])
