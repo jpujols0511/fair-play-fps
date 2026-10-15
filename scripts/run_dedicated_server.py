@@ -6,7 +6,7 @@
 
 1. Issues a random access token per player into <out>/tokens.json (mode 0600).
    Hand each player their own token; never publish the file.
-2. Starts the headless authoritative server (DTLS, 64 Hz) and waits for it.
+2. Starts the headless authoritative server (DTLS, 64 or 128 Hz) and waits.
 3. Verifies the server ran the published kernel (godot/kernel/KERNEL_SHA256).
 4. Runs detection as a separate process on the recorded demo and writes
    <out>/detection.json. Detection never runs inside the live server.
@@ -36,6 +36,7 @@ def main() -> int:
     parser.add_argument("--godot", required=True)
     parser.add_argument("--players", default="attacker,honest")
     parser.add_argument("--ticks", type=int, default=640)
+    parser.add_argument("--tick-rate", type=int, choices=(64, 128), default=64)
     parser.add_argument("--port", type=int, default=47911)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--population", type=int, default=0, help="for review priority; default: player count")
@@ -55,6 +56,7 @@ def main() -> int:
     base = [args.godot, "--headless", "--path", str(PROJECT), "--script"]
     server = subprocess.Popen(base + ["res://net/server.gd", "--", "--port", str(args.port),
                                       "--ticks", str(args.ticks), "--tokens", str(token_file),
+                                      "--tick-rate", str(args.tick_rate),
                                       "--out", str(args.out)],
                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     print(json.dumps({"server": "starting", "players": players, "tokens_file": str(token_file)}))
@@ -66,16 +68,17 @@ def main() -> int:
         while not cert.exists() and time.time() < deadline:
             time.sleep(0.1)
         time.sleep(0.2)
-        seconds = str(args.ticks / 64 + 2)
+        seconds = str(args.ticks / args.tick_rate + 2)
         for player in players:
             role = "attacker" if player == "attacker" else "honest"
             clients.append(subprocess.Popen(
                 base + ["res://net/client.gd", "--", "--port", str(args.port), "--player", player,
-                        "--role", role, "--token", tokens[player], "--cert", str(cert), "--seconds", seconds],
+                        "--role", role, "--token", tokens[player], "--cert", str(cert),
+                        "--seconds", seconds, "--tick-rate", str(args.tick_rate)],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True))
     for proc in clients:
         proc.communicate(timeout=120)
-    server.communicate(timeout=args.ticks / 64 + 120)
+    server.communicate(timeout=args.ticks / args.tick_rate + 120)
 
     result = json.loads((args.out / "result.json").read_text())
     if not result.get("ok"):
@@ -98,6 +101,7 @@ def main() -> int:
     report = json.loads(detection.stdout)
     print(json.dumps({
         "server": "done", "digest": result["digest"], "kernel_sha256": result["kernel_sha256"],
+        "tick_rate": result["tick_rate"],
         "flags": {p: len(v["flags"]) for p, v in report["players"].items()},
         "priority": {p: v["priority"] for p, v in report["players"].items()},
     }))

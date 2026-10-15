@@ -28,11 +28,13 @@ def analyse(match_dir: Path, context: Context, detector: Detector | None = None)
     result = json.loads((match_dir / "result.json").read_text())
     demo = json.loads((match_dir / "demo.json").read_text())
     players = sorted(result["players"])
-    timelines, digest = replay(players, demo)
+    tick_rate = result.get("tick_rate", 64)
+    timelines, digest = replay(players, demo, tick_rate=tick_rate)
     if digest != result["digest"]:
         raise ValueError("demo does not reproduce the server's recorded digest")
     detector = detector or default_detector()
-    report = {"digest": digest, "detector_version": detector.version, "players": {}}
+    report = {"digest": digest, "tick_rate": tick_rate,
+              "detector_version": detector.version, "players": {}}
     for player_id, timeline in timelines.items():
         flags = detector.flags(timeline)
         report["players"][player_id] = {

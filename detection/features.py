@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from fairplay_sim import AuthoritativeServer, InputCommand
 
-WINDOW_TICKS = 128
+WINDOW_SECONDS = 2
 SNAP_MILLIDEGREES = 90_000  # more than 90 degrees of yaw in one tick
 FIRE_CATEGORIES = ("shot_accepted", "fire_cadence_rejected", "empty_fire_rejected")
 # Evidence caused by network conditions. Kept for diagnosis, never used as
@@ -17,15 +17,16 @@ NEVER_SUSPICION = frozenset({"stale_input", "reordered_input"})
 @dataclass(frozen=True)
 class Timeline:
     player_id: str
+    tick_rate: int
     yaw: tuple[int, ...]          # accepted yaw after each tick
     position: tuple[tuple[int, int], ...]
     fired_ticks: frozenset[int]   # ticks with an accepted shot
     evidence: tuple               # this player's EvidenceEvents
 
 
-def replay(player_ids, demo) -> tuple[dict[str, Timeline], str]:
+def replay(player_ids, demo, tick_rate: int = 64) -> tuple[dict[str, Timeline], str]:
     """Rebuild every player's timeline from a demo (list of per-tick submits)."""
-    server = AuthoritativeServer(player_ids)
+    server = AuthoritativeServer(player_ids, tick_rate=tick_rate)
     yaw = {p: [] for p in server.players}
     position = {p: [] for p in server.players}
     for submits in demo:
@@ -39,7 +40,7 @@ def replay(player_ids, demo) -> tuple[dict[str, Timeline], str]:
     for player_id in server.players:
         evidence = tuple(e for e in server.evidence if e.player_id == player_id)
         fired = frozenset(e.tick for e in evidence if e.category == "shot_accepted")
-        timelines[player_id] = Timeline(player_id, tuple(yaw[player_id]),
+        timelines[player_id] = Timeline(player_id, tick_rate, tuple(yaw[player_id]),
                                         tuple(position[player_id]), fired, evidence)
     return timelines, server.result().digest
 
@@ -69,7 +70,8 @@ def window_features(t: Timeline, start: int, end: int) -> dict[str, float]:
     }
 
 
-def windows(t: Timeline, size: int = WINDOW_TICKS) -> list[dict]:
+def windows(t: Timeline, size: int | None = None) -> list[dict]:
+    size = size or t.tick_rate * WINDOW_SECONDS
     n = len(t.yaw)
     return [{"start": s, "end": min(n, s + size), **window_features(t, s, min(n, s + size))}
             for s in range(0, max(n, 1), size)]
