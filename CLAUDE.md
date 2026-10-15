@@ -56,7 +56,8 @@ Built and tested on one Linux machine (loopback): DTLS transport with
 per-player tokens, Netfox-driven kernel ticks, offline detection, community
 review, and a community server runner. Proposed on `claude/jitter-buffer-v01`
 (decision 0002, waits for Joan): missing input is a neutral tick, plus a server
-jitter buffer. Built on top of it, on `claude/netfox-enet-v01`: Netfox stage 2,
-ENet with DTLS and clock sync across processes. Next: stage 3, client
-prediction and reconciliation. No playable build exists; nothing has been
-tested across machines or by players.
+jitter buffer. Built on top of it: `claude/netfox-enet-v01` (stage 2, ENet with DTLS and
+Netfox clock sync across processes), then `claude/prediction-v01` (stage 3,
+client prediction and reconciliation). Next: hit validation in the kernel,
+then lag compensation. No playable build exists; nothing has been tested
+across machines or by players.

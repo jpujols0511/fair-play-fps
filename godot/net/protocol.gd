@@ -97,25 +97,30 @@ static func decode_intent(packet: PackedByteArray) -> Dictionary:
 	return {"player_id": player_id, "command": cmd}
 
 
+## Server -> client: the player's own confirmed state after a kernel tick.
+## Carries every field the client needs to replay its unconfirmed intents.
+const SNAPSHOT_KEYS := ["tick", "x", "y", "velocity_x", "velocity_y", "yaw_millidegrees",
+	"health", "ammunition", "next_fire_tick", "last_sequence"]
+
+
 static func encode_snapshot(tick: int, state: Dictionary) -> PackedByteArray:
 	var b := StreamPeerBuffer.new()
 	b.put_u8(VERSION)
 	b.put_u8(KIND_SNAPSHOT)
-	for value in [tick, state["x"], state["y"], state["velocity_x"], state["velocity_y"],
-			state["ammunition"], state["last_sequence"]]:
-		b.put_32(value)
+	b.put_32(tick)
+	for key in SNAPSHOT_KEYS.slice(1):
+		b.put_32(state[key])
 	return b.data_array
 
 
 static func decode_snapshot(packet: PackedByteArray) -> Dictionary:
-	if packet.size() != 2 + 7 * 4 or packet[0] != VERSION or packet[1] != KIND_SNAPSHOT:
+	if packet.size() != 2 + SNAPSHOT_KEYS.size() * 4 or packet[0] != VERSION or packet[1] != KIND_SNAPSHOT:
 		return {}
 	var b := StreamPeerBuffer.new()
 	b.data_array = packet
 	b.seek(2)
-	var keys := ["tick", "x", "y", "velocity_x", "velocity_y", "ammunition", "last_sequence"]
 	var out := {}
-	for key in keys:
+	for key in SNAPSHOT_KEYS:
 		out[key] = b.get_32()
 	return out
 

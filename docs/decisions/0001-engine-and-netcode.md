@@ -109,8 +109,14 @@ candidate, keeping the fairness kernel in our own code.
    loopback. Forged positions, spoofed identities, wrong tokens and plaintext
    packets are still refused before the kernel. The raw DTLS path stays as a
    reference (`--transport dtls`).
-3. **Then.** Client prediction and reconciliation with Netfox rollback for
-   the local player only. The jitter buffer part is proposed separately in
-   decision 0002 (branch `claude/jitter-buffer-v01`).
+3. **Prediction done, October 15 (branch `claude/prediction-v01`).** The
+   ENet client predicts its own player and reconciles to every server
+   snapshot (`godot/net/prediction.gd`). It replays unconfirmed intents with
+   our own kernel code rather than Netfox's `RollbackSynchronizer`: the
+   kernel is small and integer-exact, so the same code predicts exactly, and
+   the rules stay in one place. This differs from the wording above and is
+   open for Joan. Netfox rollback remains available for rendering other
+   players. The jitter buffer part is decision 0002. Still open: lag
+   compensation for hits, which needs hit validation in the kernel first.
 
 Accepting this record does not change the licence, which stays open.

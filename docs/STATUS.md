@@ -1,5 +1,35 @@
 # Status
 
+## October 15, 2026: client prediction and reconciliation (stage 3)
+
+Branch `claude/prediction-v01`, on top of `claude/netfox-enet-v01` and
+`claude/jitter-buffer-v01`. Not merged. Compiled, run and network-tested on
+loopback only, Linux, Godot 4.4.1.
+
+- **Prediction (invariant 1 kept):** the ENet client applies each intent
+  to its own copy of the kernel as it sends it, and on every server snapshot
+  restarts from the confirmed state and replays what is unconfirmed
+  (`godot/net/prediction.gd`). Predictions never leave the client; the
+  server stays the only authority.
+- **Measured:** honest play with a two-tick fault and a three-tick buffer
+  predicted every confirmed tick exactly (0 corrections in about 128). With
+  no buffer, 12 corrections against 16 server neutral ticks, largest error
+  one tick of movement.
+- **Protocol:** snapshots now also carry yaw, health and the next legal fire
+  tick, so the client can replay exactly. Strict length check kept.
+- **Choice for Joan:** prediction uses our kernel code, not Netfox's
+  `RollbackSynchronizer`, so the rules stay in one place. Recorded in
+  decision 0001, stage 3.
+- **Checks:** `check_repo.py` passes (44 files); 38 tests pass three runs in
+  a row with Godot. New: honest predicts exactly under absorbed jitter;
+  every correction has a server-side cause; unbuffered jitter is corrected
+  to server truth.
+- **Not done:** hits. The kernel accepts shots but does not resolve them,
+  so lag compensation (invariant 3) has nothing to rewind yet. Rendering,
+  other machines, players.
+- **Next:** hit validation in the kernel (Python oracle first, then
+  GDScript, parity), then bounded server-side rewind for lag compensation.
+
 ## October 15, 2026: Netfox stage 2, ENet with DTLS and clock sync
 
 Branch `claude/netfox-enet-v01`, built on `claude/jitter-buffer-v01`

@@ -30,6 +30,7 @@ REQUIRED = [
     'godot/net/input_buffer.gd',
     'godot/net/enet_server.gd',
     'godot/net/enet_client.gd',
+    'godot/net/prediction.gd',
     'godot/tests/kernel_parity.gd',
     '.claude/settings.json',
     'godot/kernel/KERNEL_SHA256',

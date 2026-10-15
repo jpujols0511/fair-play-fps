@@ -15,6 +15,7 @@ loopback**. Not playtested, not rendered, not tested across machines.
 | `net/client.gd` | Thin headless client: sends one intent per tick and keeps the last server-confirmed state. Role `attacker` is a controlled test fixture, not a cheat. |
 | `net/enet_server.gd`, `net/enet_client.gd` | Stage 2: the same match on ENet with DTLS. Tokens checked through SceneMultiplayer authentication; Netfox `NetworkTime` drives the tick and syncs each client's clock to the server. Default transport for the community runner. |
 | `net/input_buffer.gd` | Per-player jitter buffer shared by both servers (decision 0002). |
+| `net/prediction.gd` | Stage 3: the ENet client predicts its own player with the server's kernel code and reconciles to each snapshot. |
 | `tests/netfox_tick.gd` | Netfox's tick loop driving the kernel; digest must match the oracle. |
 | `addons/netfox*` | Vendored Netfox, MIT. Provenance in `docs/THIRD_PARTY.md`. |
 | `tests/kernel_parity.gd` | Prints digests for the honest, attacker and mixed command streams. |
@@ -77,6 +78,15 @@ python3 -m unittest tests.test_godot_spike -v
    affects when the match starts, never an outcome. ENet refuses plaintext
    packets in its DTLS layer; the server logs a handshake error but cannot
    count them, so the test checks they never reach the kernel instead.
+7. **Stage 3: prediction and reconciliation for the local player.** The
+   client applies each intent to its own copy of the kernel as it sends it,
+   then on every snapshot restarts from the server state and replays the
+   intents the server has not confirmed. Honest play with a two-tick fault
+   and a three-tick buffer: 0 corrections in about 128 confirmed ticks. With
+   no buffer: 12 corrections, each caused by a server neutral tick, largest
+   error 48 units (one tick of movement). Tests require every correction to
+   have a server-side cause (underrun, late or trimmed input). Snapshots now
+   carry yaw, health and the next legal fire tick so replay is exact.
 5. **The kernel is fingerprinted.** `kernel/KERNEL_SHA256` is published;
    every match records the hash it ran, and `scripts/check_repo.py` fails
    if the kernel changes without the published hash.

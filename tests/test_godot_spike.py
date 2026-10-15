@@ -294,6 +294,18 @@ class EnetNetfoxMatch(unittest.TestCase):
             self.assertNotIn(category, counts)
         self.assertEqual(self.result["buffer"]["honest"]["late"], 0)
 
+    def test_prediction_matches_server_and_corrections_have_causes(self):
+        # Stage 3: the client predicts with the server's kernel code. Honest
+        # play under absorbed jitter predicts exactly; any correction must be
+        # explained by the server applying a neutral tick or dropping input.
+        honest = self.client_out["honest"]["prediction"]
+        self.assertGreater(honest["confirmed"], 100)
+        self.assertEqual(honest["corrections"], 0)
+        for role in ("honest", "attacker"):
+            buffer = self.result["buffer"][role]
+            causes = buffer["underruns"] + buffer["late"] + buffer["trimmed"]
+            self.assertLessEqual(self.client_out[role]["prediction"]["corrections"], causes, role)
+
     def test_clients_render_only_server_truth(self):
         for role in ("honest", "attacker"):
             confirmed = self.client_out[role]["last_confirmed"]
@@ -302,6 +314,48 @@ class EnetNetfoxMatch(unittest.TestCase):
             self.assertEqual(
                 (confirmed["x"], confirmed["y"], confirmed["ammunition"], confirmed["last_sequence"]),
                 (truth.x, truth.y, truth.ammunition, truth.last_sequence), role)
+
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class PredictionCorrects(unittest.TestCase):
+    """Without a buffer the server applies neutral ticks the client did not
+    predict. The client must correct to the server, never the other way."""
+
+    def test_unbuffered_jitter_is_corrected_to_server_truth(self):
+        import secrets
+        out = Path(tempfile.mkdtemp(prefix="fairplay-predict-"))
+        port = str(48500 + os.getpid() % 90)
+        token = secrets.token_hex(32)
+        token_file = out / "tokens.json"
+        token_file.write_text(json.dumps({"honest": token}))
+        token_file.chmod(0o600)
+        base = [GODOT, "--headless", "--path", str(PROJECT), "--script"]
+        server = subprocess.Popen(base + ["res://net/enet_server.gd", "--", "--port", port, "--ticks", "128",
+                                          "--tokens", str(token_file), "--out", str(out), "--jitter-ticks", "0"],
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        cert = out / "server_cert.crt"
+        deadline = time.time() + 30
+        while not cert.exists() and time.time() < deadline:
+            time.sleep(0.1)
+        time.sleep(0.2)
+        client = subprocess.Popen(base + ["res://net/enet_client.gd", "--", "--port", port, "--player", "honest",
+                                          "--role", "honest", "--token", token, "--cert", str(cert),
+                                          "--seconds", "4", "--jitter", "hold2"],
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        text, _ = client.communicate(timeout=90)
+        server.communicate(timeout=90)
+        report = next(json.loads(l) for l in text.splitlines() if l.startswith('{"client"'))
+        result = json.loads((out / "result.json").read_text())
+        demo = json.loads((out / "demo.json").read_text())
+        buffer = result["buffer"]["honest"]
+        self.assertGreater(buffer["underruns"], 0)
+        self.assertGreater(report["prediction"]["corrections"], 0)
+        self.assertLessEqual(report["prediction"]["corrections"],
+                             buffer["underruns"] + buffer["late"] + buffer["trimmed"])
+        confirmed = report["last_confirmed"]
+        truth = replay_demo(["honest"], demo[:confirmed["tick"]]).players["honest"]
+        self.assertEqual((confirmed["x"], confirmed["y"], confirmed["last_sequence"]),
+                         (truth.x, truth.y, truth.last_sequence))
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
