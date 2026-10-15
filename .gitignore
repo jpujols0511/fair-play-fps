@@ -5,6 +5,8 @@ out/
 
 # Local tools and IDE state
 .cache/
+__pycache__/
+*.py[cod]
 .idea/
 .vscode/
 *.swp
