@@ -52,12 +52,14 @@ python3 -m unittest tests.test_godot_spike -v
 
 ## Findings to carry forward
 
-1. **Honest late inputs are discarded as `stale_input`.** When an input has
-   not arrived by its tick, the kernel synthesizes a default command with the
-   next sequence number. The real packet then arrives "stale" and is dropped.
-   Under loopback jitter the honest player produced 7 such events in 64 ticks.
-   This is a false-positive risk: `stale_input` must never count toward
-   suspicion, and M2 needs a jitter buffer instead of synthesized sequences.
+1. **Honest late inputs: fixed by decision 0002.**
+   The kernel used to fill a missing input with the next sequence number and
+   yaw 0, so the real packet was discarded as stale, the loss never healed,
+   and the view snapped (7 stale in 64 loopback ticks; 107 in 128 with an
+   injected two-tick delay). Decision 0002 makes a missing input a neutral
+   tick that consumes no sequence, and adds a per-player server jitter buffer
+   (`--jitter-ticks`, default 3). With the same injected fault: zero stale
+   inputs and all 11 legal shots accepted. Still never counted as suspicion.
 2. **Clients can miss the final snapshot.** UDP gives no delivery guarantee,
    so clients must interpolate and reconcile, never assume the latest state.
 3. **Transport is now DTLS with per-player tokens** (invariant 2). The

@@ -134,6 +134,7 @@ class GodotLoopbackMatch(unittest.TestCase):
         self.assertEqual(self.result["ticks"], 64)
         self.assertEqual(self.result["tick_rate"], 64)
         self.assertEqual(self.result["transport"], "DTLS")
+        self.assertEqual(self.result["jitter_ticks"], 3)
         published = (PROJECT / "kernel" / "KERNEL_SHA256").read_text().split()[0]
         self.assertEqual(self.result["kernel_sha256"], published)
 
@@ -161,6 +162,7 @@ class GodotLoopbackMatch(unittest.TestCase):
         counts = self.result["evidence_counts"]["honest"]
         self.assertNotIn("input_clamped", counts)
         self.assertNotIn("fire_cadence_rejected", counts)
+        self.assertNotIn("stale_input", counts, "jitter buffer: honest inputs are never discarded")
 
     def test_clients_render_only_server_truth(self):
         # A client may miss the final snapshot (UDP), so compare what it shows
@@ -174,6 +176,56 @@ class GodotLoopbackMatch(unittest.TestCase):
             self.assertEqual(
                 (confirmed["x"], confirmed["y"], confirmed["ammunition"], confirmed["last_sequence"]),
                 (truth.x, truth.y, truth.ammunition, truth.last_sequence), role)
+
+
+def _honest_match(jitter_ticks, jitter, port, ticks=128):
+    """One honest client over DTLS with a repeatable network fault."""
+    import secrets
+    out = Path(tempfile.mkdtemp(prefix="fairplay-jitter-"))
+    token = secrets.token_hex(32)
+    token_file = out / "tokens.json"
+    token_file.write_text(json.dumps({"honest": token}))
+    token_file.chmod(0o600)
+    base = [GODOT, "--headless", "--path", str(PROJECT), "--script"]
+    server = subprocess.Popen(base + ["res://net/server.gd", "--", "--port", port, "--ticks", str(ticks),
+                                      "--tokens", str(token_file), "--out", str(out),
+                                      "--jitter-ticks", str(jitter_ticks)],
+                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    cert = out / "server_cert.crt"
+    deadline = time.time() + 30
+    while not cert.exists() and time.time() < deadline:
+        time.sleep(0.1)
+    time.sleep(0.2)
+    client = subprocess.Popen(base + ["res://net/client.gd", "--", "--port", port, "--player", "honest",
+                                      "--role", "honest", "--token", token, "--cert", str(cert),
+                                      "--seconds", str(ticks / 64 + 2), "--jitter", jitter],
+                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    client.communicate(timeout=90)
+    server.communicate(timeout=90)
+    return json.loads((out / "result.json").read_text()), json.loads((out / "demo.json").read_text())
+
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class JitterBuffer(unittest.TestCase):
+    """Decision 0002: an honest intent two ticks late and out of order, every
+    eight ticks. Without a buffer it is discarded; with three ticks it is not."""
+
+    def test_unbuffered_fault_discards_honest_input(self):
+        result, demo = _honest_match(0, "hold2", str(48100 + os.getpid() % 90))
+        self.assertTrue(result["ok"], result)
+        self.assertGreater(result["evidence_counts"]["honest"].get("stale_input", 0), 0)
+        self.assertEqual(replay_demo(["honest"], demo).digest, result["digest"])
+
+    def test_three_tick_buffer_keeps_every_honest_input(self):
+        result, demo = _honest_match(3, "hold2", str(48200 + os.getpid() % 90))
+        self.assertTrue(result["ok"], result)
+        counts = result["evidence_counts"]["honest"]
+        self.assertNotIn("stale_input", counts)
+        self.assertNotIn("reordered_input", counts)
+        self.assertEqual(result["stats"]["buffer"]["honest"]["late"], 0)
+        self.assertEqual(result["stats"]["buffer"]["honest"]["trimmed"], 0)
+        self.assertEqual(counts["shot_accepted"], 11)
+        self.assertEqual(replay_demo(["honest"], demo).digest, result["digest"])
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")

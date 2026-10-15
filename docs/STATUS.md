@@ -1,5 +1,36 @@
 # Status
 
+## October 15, 2026: missing input and jitter buffer (decision 0002)
+
+Integrated with the 64 and 128 tick profiles on `main`; product acceptance is
+pending. Compiled, run and network-tested on loopback only, Linux, Godot
+4.4.1.
+
+- **Root cause found:** the old `stale_input` finding came from the kernel.
+  A missing input used the next sequence number and yaw 0, so the real input
+  was discarded and the stream never caught up. With one input in eight held
+  two ticks, 107 of 128 honest inputs went stale and 1 of 11 legal shots
+  landed.
+- **Detection was nearly blind to snaps:** the yaw-0 reset looked like snaps,
+  so calibrating on clean, jittery play raised snap rate from 0.02 to 0.504
+  and snap-then-fire from 2 to 6. With the fix they are back to 0.02 and 2.
+- **Kernel (both implementations):** a missing input is now a neutral tick
+  that consumes no sequence number. Parity with the Python oracle holds; the
+  published kernel hash is updated to `b4aabbf9…6ef1`.
+- **Server:** per-player jitter buffer, `--jitter-ticks` (default 3), one
+  release per tick in sequence order, bounded backlog, per-player buffer
+  counts in `result.json`. The runner passes the flag through.
+- **Measured:** with the same fault, a buffer of 3 gives zero stale inputs,
+  zero underruns and 11 of 11 shots; 0 and 1 still lose 16. The table is in
+  the decision record.
+- **Checks:** the integrated 32-test suite passes with Godot. New tests:
+  neutral missing input (Python), the
+  fault without and with a buffer (Godot), no honest `stale_input` on the
+  loopback match.
+- **Not done:** cross-machine or real-network test, client time dilation
+  and clock sync (Netfox stage 2), prediction, per-player adaptive targets.
+- **Next:** render the authoritative graybox client, then Netfox stage 2.
+
 ## October 15, 2026: fairness thesis built end to end on one machine
 
 All levels below are compiled, run and network-tested on loopback only, on

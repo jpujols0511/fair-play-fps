@@ -3,7 +3,7 @@ extends SceneTree
 ##
 ## godot --headless --path godot --script res://net/client.gd -- \
 ##     --port 47911 --player honest --role honest --token <hex> \
-##     --cert /run/match/server_cert.crt --seconds 3
+##     --cert /run/match/server_cert.crt --seconds 3 [--jitter hold2]
 ##
 ## Opens a DTLS session that trusts only the server certificate, sends HELLO
 ## with its access token, then one intent per tick. It keeps the last
@@ -14,6 +14,10 @@ extends SceneTree
 ## sends oversized movement and fire every tick, and from tick 32 every 16
 ## ticks: a packet carrying a forged position, an intent claiming "honest"
 ## inside its own session, and a plaintext intent outside DTLS.
+##
+## --jitter hold2 is a repeatable network fault for tests: in every 8 ticks the
+## intent for tick 3 is held and sent after tick 5's, so it arrives two ticks
+## late and after two newer intents.
 
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
 const Protocol = preload("res://net/protocol.gd")
@@ -33,6 +37,7 @@ func _initialize() -> void:
 		_finish({"client": player_id, "error": "tick rate must be 64 or 128"}, 1)
 		return
 	var total_ticks: int = int(float(args.get("seconds", "3")) * tick_rate)
+	var jitter: String = args.get("jitter", "none")
 
 	var cert := X509Certificate.new()
 	if cert.load(args.get("cert", "")) != OK:
@@ -61,6 +66,7 @@ func _initialize() -> void:
 	var sent := 0
 	var snapshots := 0
 	var confirmed := {}
+	var held: Array = []
 	var tick_usec: int = 1000000 / tick_rate
 	var next_tick: int = Time.get_ticks_usec()
 
@@ -77,7 +83,15 @@ func _initialize() -> void:
 			var fire_interval: int = 12 * tick_rate / Kernel.TICK_RATE
 			cmd = Kernel.command(local_tick, 1000 if moving else 0, 0, 90000,
 				local_tick % fire_interval == 0)
-		session.put_packet(Protocol.encode_intent(player_id, cmd))
+		var packet := Protocol.encode_intent(player_id, cmd)
+		if jitter == "hold2" and local_tick % 8 == 3:
+			held.append(packet)
+		else:
+			session.put_packet(packet)
+			if jitter == "hold2" and local_tick % 8 == 5:
+				for late in held:
+					session.put_packet(late)
+				held.clear()
 		sent += 1
 		if role == "attacker" and local_tick >= tick_rate / 2 \
 				and local_tick % (tick_rate / 4) == 0:

@@ -2,11 +2,12 @@
 """Run one community-hosted match, then analyse it offline.
 
     python3 scripts/run_dedicated_server.py --godot /path/to/Godot_v4.4.1 \
-        --players alice,bob --ticks 640 --out matches/2026-10-15-a [--demo-clients]
+        --players alice,bob --ticks 640 --out matches/2026-10-15-a [--jitter-ticks 3] [--demo-clients]
 
 1. Issues a random access token per player into <out>/tokens.json (mode 0600).
    Hand each player their own token; never publish the file.
-2. Starts the headless authoritative server (DTLS, 64 or 128 Hz) and waits.
+2. Starts the headless authoritative server (DTLS, 64 or 128 Hz, with a jitter buffer of
+   --jitter-ticks per player) and waits for it.
 3. Verifies the server ran the published kernel (godot/kernel/KERNEL_SHA256).
 4. Runs detection as a separate process on the recorded demo and writes
    <out>/detection.json. Detection never runs inside the live server.
@@ -38,6 +39,8 @@ def main() -> int:
     parser.add_argument("--ticks", type=int, default=640)
     parser.add_argument("--tick-rate", type=int, choices=(64, 128), default=64)
     parser.add_argument("--port", type=int, default=47911)
+    parser.add_argument("--jitter-ticks", type=int, default=3,
+                        help="per-player input buffer; absorbs this much network jitter (decision 0002)")
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--population", type=int, default=0, help="for review priority; default: player count")
     parser.add_argument("--coverage", type=float, default=1.0, help="live moderation coverage 0..1")
@@ -57,7 +60,7 @@ def main() -> int:
     server = subprocess.Popen(base + ["res://net/server.gd", "--", "--port", str(args.port),
                                       "--ticks", str(args.ticks), "--tokens", str(token_file),
                                       "--tick-rate", str(args.tick_rate),
-                                      "--out", str(args.out)],
+                                      "--out", str(args.out), "--jitter-ticks", str(args.jitter_ticks)],
                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     print(json.dumps({"server": "starting", "players": players, "tokens_file": str(token_file)}))
 
