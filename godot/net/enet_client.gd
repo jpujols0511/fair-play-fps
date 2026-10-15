@@ -19,6 +19,7 @@ extends SceneTree
 
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
 const Protocol = preload("res://net/protocol.gd")
+const Prediction = preload("res://net/prediction.gd")
 const TIMEOUT_MSEC := 30000
 const SPOOF_OFFSET := 100000
 
@@ -38,6 +39,7 @@ var forged := 0
 var snapshots := 0
 var confirmed := {}
 var held: Array = []
+var prediction
 var deadline := 0
 var done := false
 
@@ -62,6 +64,7 @@ func _begin() -> void:
 		return
 	Engine.physics_ticks_per_second = tick_rate
 	total_ticks = int(float(args.get("seconds", "3")) * tick_rate)
+	prediction = Prediction.new(player_id, tick_rate)
 	Engine.max_fps = 500
 	deadline = Time.get_ticks_msec() + TIMEOUT_MSEC
 
@@ -101,7 +104,9 @@ func _on_packet(_peer_id: int, packet: PackedByteArray) -> void:
 	var snap := Protocol.decode_snapshot(packet)
 	if not snap.is_empty():
 		snapshots += 1
-		confirmed = snap
+		if snap["tick"] > confirmed.get("tick", -1):
+			confirmed = snap
+			prediction.reconcile(snap)
 
 
 func _on_tick(_delta: float, tick: int) -> void:
@@ -120,6 +125,7 @@ func _on_tick(_delta: float, tick: int) -> void:
 		var moving := (i / 32) % 2 == 0
 		var fire_interval := ceili(float(Kernel.FIRE_INTERVAL_TICKS) * tick_rate / Kernel.TICK_RATE)
 		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000, i % fire_interval == 0)
+	prediction.send(cmd)
 	var packet := Protocol.encode_intent(player_id, cmd)
 	if jitter == "hold2" and i % 8 == 3:
 		held.append(packet)
@@ -147,7 +153,7 @@ func _on_tick(_delta: float, tick: int) -> void:
 func _report(code: int) -> void:
 	if not done:
 		_finish({"sent": sent, "forged": forged, "snapshots": snapshots, "first_tick": first_tick,
-			"last_confirmed": confirmed}, code)
+			"last_confirmed": confirmed, "prediction": prediction.report()}, code)
 
 
 func _send(packet: PackedByteArray) -> void:

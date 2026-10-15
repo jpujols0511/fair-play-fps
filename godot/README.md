@@ -23,6 +23,7 @@ use the same profile.
 | `net/client.gd` | Thin headless client: sends one intent per tick and keeps the last server-confirmed state. Role `attacker` is a controlled test fixture, not a cheat. |
 | `net/enet_server.gd`, `net/enet_client.gd` | Stage 2: the same match on ENet with DTLS. Tokens checked through SceneMultiplayer authentication; Netfox `NetworkTime` drives the tick and syncs each client's clock to the server. Default transport for the community runner. |
 | `net/input_buffer.gd` | Per-player jitter buffer shared by both servers (decision 0002). |
+| `net/prediction.gd` | Local presentation prediction. Every newer server snapshot replaces confirmed state; only unconfirmed intent is replayed. |
 | `tests/netfox_tick.gd` | Netfox's tick loop driving the kernel; digest must match the oracle. |
 | `addons/netfox*` | Vendored Netfox, MIT. Provenance in `docs/THIRD_PARTY.md`. |
 | `tests/kernel_parity.gd` | Prints digests for the honest, attacker and mixed command streams. |

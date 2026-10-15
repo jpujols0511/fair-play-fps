@@ -34,6 +34,7 @@ REQUIRED = [
     'godot/net/input_buffer.gd',
     'godot/net/enet_server.gd',
     'godot/net/enet_client.gd',
+    'godot/net/prediction.gd',
     'godot/client/graybox_client.gd',
     'godot/client/graybox_client.tscn',
     'godot/tests/kernel_parity.gd',

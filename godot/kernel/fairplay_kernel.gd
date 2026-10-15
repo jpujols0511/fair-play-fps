@@ -50,6 +50,19 @@ static func command(sequence: int, move_x: int = 0, move_y: int = 0,
 	}
 
 
+func snapshot(player_id: String) -> Dictionary:
+	var state: Dictionary = players[player_id].duplicate()
+	state["remainder_x"] = _position_remainders[player_id][0]
+	state["remainder_y"] = _position_remainders[player_id][1]
+	return state
+
+
+func restore_snapshot(player_id: String, state: Dictionary) -> void:
+	for key in players[player_id]:
+		players[player_id][key] = state[key]
+	_position_remainders[player_id] = [state["remainder_x"], state["remainder_y"]]
+
+
 ## Python-style floor division (GDScript int division truncates toward zero).
 static func floor_div(a: int, b: int) -> int:
 	var q: int = a / b
