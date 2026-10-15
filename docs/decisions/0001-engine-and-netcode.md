@@ -1,7 +1,8 @@
 # 0001 — Engine and netcode foundation
 
-Status: **Proposed**, October 15, 2026. Awaiting Joan's acceptance.
-Spike steps 1 to 3 done the same day; see Results.
+Status: **Accepted**, October 15, 2026. Joan's goal of that date directs
+Godot and building the fairness kernel on an existing netcode addon; the
+spike chose Netfox on evidence. See Results and Integration stages.
 Fills the M0 roadmap item "Decision record for prototype language and
 libraries".
 
@@ -92,3 +93,18 @@ loopback only.
 
 Recommendation: accept Godot 4.4.x with Netfox as the first netcode
 candidate, keeping the fairness kernel in our own code.
+
+## Integration stages
+
+1. **Done, October 15.** Netfox vendored (`docs/THIRD_PARTY.md`). Its
+   `NetworkTime` loop at 64 Hz drives the kernel and reproduces the Python
+   oracle digest (`godot/tests/netfox_tick.gd`). Transport is DTLS with
+   per-player access tokens.
+2. **Next.** Move the match onto `ENetMultiplayerPeer` with DTLS so
+   Netfox's clock synchronization runs across processes; server stays the
+   only place outcomes are decided.
+3. **Then.** Client prediction and reconciliation with Netfox rollback for
+   the local player only, plus a jitter buffer so honest late inputs are
+   not discarded.
+
+Accepting this record does not change the licence, which stays open.

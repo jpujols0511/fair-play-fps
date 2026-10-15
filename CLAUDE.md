@@ -25,8 +25,12 @@ This file is the map. Keep it short and current.
 | Decisions | `docs/decisions/NNNN-*.md` | One record per foundational choice, with status Proposed, Accepted or Superseded. |
 | Executable reference | `prototype/fairplay_sim.py`, `tests/` | Dependency-free Python fixed-tick authoritative simulation. Settles contracts; it is not the game. |
 | Godot spike | `godot/` | Headless GDScript kernel, intent-only UDP protocol, server and client. See `godot/README.md`. |
+| Detection | `detection/` | Offline, on recorded demos only. Features, explainable flags, calibration that refuses to flag clean play, context-weighted review priority, banned database. |
+| Community review | `review/` | Blind cases, weighted consensus, seeded ground truth. Decisions are recommendations until a moderator signs off. |
+| Community servers | `scripts/run_dedicated_server.py`, `docs/COMMUNITY_SERVERS.md` | One match plus offline detection. Kernel hash is published in `godot/kernel/KERNEL_SHA256`. |
+| Third party | `docs/THIRD_PARTY.md` | Netfox and Godot provenance. Record anything new here first. |
 | Session hook | `.claude/settings.json` | Injects `docs/DESIGN.md` at every session start. Do not remove. |
-| Checks | `scripts/check_repo.py`, `python3 -m unittest discover -s tests` | Both run with only Python 3. Set `FAIRPLAY_GODOT` to a Godot 4.4.1 binary to run the Godot spike tests too. |
+| Checks | `scripts/check_repo.py`, `python3 -m unittest discover -s tests` | Both run with only Python 3. Set `FAIRPLAY_GODOT` to a Godot 4.4.1 binary to run the Godot tests too (they run `--import` first). |
 
 ## Conventions
 
@@ -47,7 +51,9 @@ This file is the map. Keep it short and current.
 
 ## Current milestone
 
-M0, Foundation. The Godot headless spike from decision 0001 is done on
-loopback (`godot/README.md`). Remaining: Joan's decisions on licence and on
-accepting 0001. Next technical items: encryption and authentication, a
-jitter buffer, a time-boxed Netfox integration. No playable build exists.
+M0 is complete apart from the licence decision; M1 groundwork is in place.
+Built and tested on one Linux machine (loopback): DTLS transport with
+per-player tokens, Netfox-driven kernel ticks, offline detection, community
+review, and a community server runner. Next: Netfox stage 2 (ENet with DTLS
+across processes), then prediction with a jitter buffer. No playable build
+exists; nothing has been tested across machines or by players.

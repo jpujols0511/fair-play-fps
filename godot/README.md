@@ -11,8 +11,10 @@ loopback**. Not playtested, not rendered, not tested across machines.
 | --- | --- |
 | `kernel/fairplay_kernel.gd` | Integer-exact GDScript port of `prototype/fairplay_sim.py`: fixed tick, intent-only commands, movement limits, fire cadence, ammunition, evidence, digest. |
 | `net/protocol.gd` | Strict binary wire format. Client to server carries intent only; there is no field for position, health, damage, ammunition or score. Wrong length or fields means malformed and dropped. |
-| `net/server.gd` | Headless authoritative server on UDP. Binds each identity to the address it first spoke from, runs 64 Hz, sends each client its confirmed state, and writes a demo log of every submit. |
+| `net/server.gd` | Headless authoritative server over DTLS. Authenticates each player's access token, binds the identity to that encrypted session, runs 64 Hz, sends each client its confirmed state, writes a demo log of every submit, and records the kernel hash it ran. |
 | `net/client.gd` | Thin headless client: sends one intent per tick and keeps the last server-confirmed state. Role `attacker` is a controlled test fixture, not a cheat. |
+| `tests/netfox_tick.gd` | Netfox's tick loop driving the kernel; digest must match the oracle. |
+| `addons/netfox*` | Vendored Netfox, MIT. Provenance in `docs/THIRD_PARTY.md`. |
 | `tests/kernel_parity.gd` | Prints digests for the honest, attacker and mixed command streams. |
 | `../tests/test_godot_spike.py` | Python checks; skipped unless `FAIRPLAY_GODOT` points to a Godot binary. |
 
@@ -50,11 +52,21 @@ python3 -m unittest tests.test_godot_spike -v
    suspicion, and M2 needs a jitter buffer instead of synthesized sequences.
 2. **Clients can miss the final snapshot.** UDP gives no delivery guarantee,
    so clients must interpolate and reconcile, never assume the latest state.
-3. **Address binding is not authentication.** It is a placeholder for
-   invariant 2. Encryption and authentication (for example DTLS, which Godot
-   ships as `PacketPeerDTLS`) are not done.
+3. **Transport is now DTLS with per-player tokens** (invariant 2). The
+   server makes a self-signed certificate per match; clients trust only that
+   certificate and must present their access token in HELLO. Wrong tokens,
+   identities claimed inside another session, plaintext packets and forged
+   positions are all refused before the kernel. Certificate distribution and
+   token issuing beyond one machine are open (`docs/COMMUNITY_SERVERS.md`).
+4. **Netfox drives the tick.** `tests/netfox_tick.gd` runs the kernel from
+   Netfox's `NetworkTime` loop at 64 Hz and matches the oracle digest. A
+   fresh checkout must run `godot --headless --path godot --import` once so
+   Netfox's class names resolve; the tests and the server runner do this.
+5. **The kernel is fingerprinted.** `kernel/KERNEL_SHA256` is published;
+   every match records the hash it ran, and `scripts/check_repo.py` fails
+   if the kernel changes without the published hash.
 
-## Netcode candidates (metadata only, not integrated)
+## Netcode candidates (October 15 assessment; Netfox chosen)
 
 | Candidate | Licence | Version and activity | Fit |
 | --- | --- | --- | --- |

@@ -1,5 +1,33 @@
 # Status
 
+## October 15, 2026: fairness thesis built end to end on one machine
+
+All levels below are compiled, run and network-tested on loopback only, on
+Linux with Godot 4.4.1. Not tested across machines, not rendered, not played.
+
+- **Transport (invariant 2):** DTLS with a per-match server certificate and a
+  per-player access token in HELLO. Refused before the kernel: wrong token,
+  identity claimed inside another session, plaintext packets, forged
+  positions.
+- **Netfox (decision 0001, accepted):** vendored; its 64 Hz tick loop drives
+  the kernel and reproduces the Python oracle digest.
+- **Detection (offline):** features from replayed demos, four explainable
+  rules, calibration that refuses to flag known-clean play, `stale_input`
+  excluded from suspicion, context-weighted review priority. No false flags
+  on 60 held-out clean matches.
+- **Community review:** blind cases with no identities, consensus of at least
+  three weighted reviewers, seeded ground truth that removes unreliable
+  reviewers. Banned database writes need a final decision and a moderator.
+- **Community servers:** `scripts/run_dedicated_server.py` runs a match,
+  checks the published kernel hash, then runs detection as a separate
+  process. End-to-end test flags only the attacker.
+- **Checks:** 27 tests pass with Godot present (13 skip without it);
+  `check_repo.py` passes and fails if the kernel hash, the session hook or the
+  `CLAUDE.md` reference is broken.
+- **Open:** licence (Joan), Netfox stage 2 across processes, prediction and
+  jitter buffer, token service and certificate distribution, internet
+  hosting, learned detectors (shadow mode only), anything playable.
+
 ## October 15, 2026: Godot headless spike
 
 - `godot/`: GDScript fairness kernel, strict intent-only protocol, headless
