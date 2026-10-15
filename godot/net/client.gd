@@ -11,7 +11,8 @@ extends SceneTree
 ##
 ## Role "attacker" is a controlled test fixture, not a cheat. It first sends a
 ## HELLO claiming "honest" with a wrong token, then authenticates as itself,
-## sends oversized movement and fire every tick, and from tick 32 every 16
+## sends oversized movement and fire every tick claiming it saw tick 0 (to
+## stretch lag compensation), and from tick 32 every 16
 ## ticks: a packet carrying a forged position, an intent claiming "honest"
 ## inside its own session, and a plaintext intent outside DTLS.
 ##
@@ -73,10 +74,11 @@ func _initialize() -> void:
 		session.poll()
 		var cmd: Dictionary
 		if role == "attacker":
-			cmd = Kernel.command(local_tick, 5000, -4000, 450000, true)
+			cmd = Kernel.command(local_tick, 5000, -4000, 450000, true, 0)
 		else:
 			var moving := (local_tick / 32) % 2 == 0
-			cmd = Kernel.command(local_tick, 1000 if moving else 0, 0, 90000, local_tick % 12 == 0)
+			cmd = Kernel.command(local_tick, 1000 if moving else 0, 0, 90000, local_tick % 12 == 0,
+				confirmed.get("tick", -1))
 		var packet := Protocol.encode_intent(player_id, cmd)
 		if jitter == "hold2" and local_tick % 8 == 3:
 			held.append(packet)

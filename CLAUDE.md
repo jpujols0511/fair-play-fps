@@ -58,6 +58,7 @@ review, and a community server runner. Proposed on `claude/jitter-buffer-v01`
 (decision 0002, waits for Joan): missing input is a neutral tick, plus a server
 jitter buffer. Built on top of it: `claude/netfox-enet-v01` (stage 2, ENet with DTLS and
 Netfox clock sync across processes), then `claude/prediction-v01` (stage 3,
-client prediction and reconciliation). Next: hit validation in the kernel,
-then lag compensation. No playable build exists; nothing has been tested
-across machines or by players.
+client prediction and reconciliation), then `claude/hits-lag-comp-v01`
+(decision 0003, hits and bounded lag compensation, Proposed). Next: send
+other players' positions to clients, with interpolation. No playable build
+exists; nothing has been tested across machines or by players.

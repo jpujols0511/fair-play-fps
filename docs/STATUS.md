@@ -1,5 +1,36 @@
 # Status
 
+## October 15, 2026: hits and bounded lag compensation (decision 0003, Proposed)
+
+Branch `claude/hits-lag-comp-v01`, on top of the prediction, ENet and
+jitter-buffer branches. Not merged; adds kernel rules with prototype values
+that wait for Joan. Compiled, run and network-tested on loopback only, Linux,
+Godot 4.4.1.
+
+- **Kernel (invariants 1 and 3):** every accepted shot is traced by the
+  server with integer rays. The closest living player within 400 mm of the
+  ray and 50 m takes 25 damage; four hits eliminate. Targets are rewound to
+  the tick the shooter saw, at most 13 ticks (about 200 ms). Older claims
+  are clamped (`rewind_limited`, never suspicion); future claims are not
+  used (`view_tick_invalid`).
+- **Parity:** a three-player combat stream gives the same digest in Python
+  and GDScript. Published kernel hash is now `45eb4be7…da93`.
+- **Protocol:** intents carry `view_tick` (strict length 21 bytes after the
+  id). Clients send the tick of the last snapshot they showed.
+- **Attack fixture:** claims every shot was aimed at tick 0; the server
+  holds it to 13 ticks and records the attempt.
+- **Prediction:** health is no longer compared, since damage comes from
+  others' shots that only the server resolves.
+- **Checks:** `check_repo.py` passes (45 files); 47 tests pass three runs in
+  a row with Godot. New: eight oracle tests for hits and rewind, combat
+  parity, forged old views bounded on the network.
+- **Not done:** maps and line of sight, other players' positions sent to
+  clients (clients cannot aim at anyone yet), respawn, hit-based detection
+  features, rendering, other machines, players.
+- **Next:** Joan reviews 0002 and 0003 and the prototype values. Then send
+  other players' positions in snapshots with interpolation, so a client can
+  aim and `view_tick` means what the player saw.
+
 ## October 15, 2026: client prediction and reconciliation (stage 3)
 
 Branch `claude/prediction-v01`, on top of `claude/netfox-enet-v01` and

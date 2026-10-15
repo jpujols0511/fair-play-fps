@@ -87,6 +87,12 @@ python3 -m unittest tests.test_godot_spike -v
    error 48 units (one tick of movement). Tests require every correction to
    have a server-side cause (underrun, late or trimmed input). Snapshots now
    carry yaw, health and the next legal fire tick so replay is exact.
+8. **Hits and bounded lag compensation (decision 0003, Proposed).** The
+   kernel traces every accepted shot with integer rays, rewinds targets to
+   the tick the shooter saw (at most 13 ticks) and applies damage and
+   elimination. Python and GDScript agree on a three-player combat stream.
+   Intents now carry `view_tick`; the attacker fixture claims tick 0 and is
+   held to 13 ticks of rewind.
 5. **The kernel is fingerprinted.** `kernel/KERNEL_SHA256` is published;
    every match records the hash it ran, and `scripts/check_repo.py` fails
    if the kernel changes without the published hash.

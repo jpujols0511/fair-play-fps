@@ -14,6 +14,26 @@ ACCELERATION = 8
 FRICTION = 6
 FIRE_INTERVAL_TICKS = 8
 MAGAZINE_SIZE = 12
+# Hits and lag compensation (decision 0003). Distances are millimetres.
+HIT_RADIUS = 400
+MAX_RANGE = 50_000
+DAMAGE = 25
+MAX_REWIND_TICKS = 13  # about 200 ms at 64 Hz
+TRIG_SCALE = 1_000_000
+# round(sin(k degrees) * TRIG_SCALE) for k = 0..90. Fixed integers so every
+# implementation computes the same rays; never recompute at runtime.
+SIN_TABLE = (
+    0, 17452, 34899, 52336, 69756, 87156, 104528, 121869, 139173, 156434,
+    173648, 190809, 207912, 224951, 241922, 258819, 275637, 292372, 309017, 325568,
+    342020, 358368, 374607, 390731, 406737, 422618, 438371, 453990, 469472, 484810,
+    500000, 515038, 529919, 544639, 559193, 573576, 587785, 601815, 615661, 629320,
+    642788, 656059, 669131, 681998, 694658, 707107, 719340, 731354, 743145, 754710,
+    766044, 777146, 788011, 798636, 809017, 819152, 829038, 838671, 848048, 857167,
+    866025, 874620, 882948, 891007, 898794, 906308, 913545, 920505, 927184, 933580,
+    939693, 945519, 951057, 956305, 961262, 965926, 970296, 974370, 978148, 981627,
+    984808, 987688, 990268, 992546, 994522, 996195, 997564, 998630, 999391, 999848,
+    1000000,
+)
 
 
 @dataclass(frozen=True)
@@ -23,6 +43,10 @@ class InputCommand:
     move_y: int = 0
     yaw_millidegrees: int = 0
     fire: bool = False
+    # Server tick the client was seeing when it acted (start-of-tick state, as
+    # in the snapshot it last received); -1 means now. Used only to rewind
+    # targets for lag compensation, never trusted beyond MAX_REWIND_TICKS.
+    view_tick: int = -1
 
 
 @dataclass
@@ -66,6 +90,29 @@ def _approach_zero(value: int, amount: int) -> int:
     return 0
 
 
+def _sin_quarter(millidegrees: int) -> int:
+    index, fraction = divmod(millidegrees, 1000)
+    if index >= 90:
+        return SIN_TABLE[90]
+    return SIN_TABLE[index] + (SIN_TABLE[index + 1] - SIN_TABLE[index]) * fraction // 1000
+
+
+def sin_scaled(millidegrees: int) -> int:
+    """sin(yaw) * TRIG_SCALE in integers: table plus linear interpolation."""
+    quadrant, rest = divmod(millidegrees % 360_000, 90_000)
+    if quadrant == 0:
+        return _sin_quarter(rest)
+    if quadrant == 1:
+        return _sin_quarter(90_000 - rest)
+    if quadrant == 2:
+        return -_sin_quarter(rest)
+    return -_sin_quarter(90_000 - rest)
+
+
+def cos_scaled(millidegrees: int) -> int:
+    return sin_scaled(millidegrees + 90_000)
+
+
 def _limit_vector(x: int, y: int, maximum: int) -> tuple[int, int]:
     magnitude = isqrt(x * x + y * y)
     if magnitude <= maximum or magnitude == 0:
@@ -82,6 +129,8 @@ class AuthoritativeServer:
         self.players = {player_id: PlayerState() for player_id in sorted(ids)}
         self.evidence: list[EvidenceEvent] = []
         self._queued: dict[str, InputCommand] = {}
+        # Start-of-tick positions for lag compensation: tick -> {id: (x, y)}.
+        self._history: dict[int, dict[str, tuple[int, int]]] = {}
 
     def submit(self, player_id: str, command: InputCommand) -> None:
         if player_id not in self.players:
@@ -97,6 +146,10 @@ class AuthoritativeServer:
         self._queued[player_id] = command
 
     def step(self) -> None:
+        self._history[self.tick] = {
+            player_id: (state.x, state.y) for player_id, state in self.players.items()
+        }
+        self._history.pop(self.tick - MAX_REWIND_TICKS - 1, None)
         for player_id in sorted(self.players):
             state = self.players[player_id]
             # A missing input is a neutral tick: no move, no fire, same facing,
@@ -149,9 +202,12 @@ class AuthoritativeServer:
         state.last_sequence = command.sequence
 
         if command.fire:
-            self._attempt_fire(player_id, state)
+            if state.health <= 0:
+                self._record(player_id, "eliminated_fire_rejected", {})
+            else:
+                self._attempt_fire(player_id, state, command.view_tick)
 
-    def _attempt_fire(self, player_id: str, state: PlayerState) -> None:
+    def _attempt_fire(self, player_id: str, state: PlayerState, view_tick: int = -1) -> None:
         if self.tick < state.next_fire_tick:
             self._record(
                 player_id,
@@ -174,6 +230,47 @@ class AuthoritativeServer:
                 "ammunition_after": state.ammunition,
             },
         )
+        self._resolve_hit(player_id, state, view_tick)
+
+    def _resolve_hit(self, player_id: str, state: PlayerState, view_tick: int) -> None:
+        """Lag compensation: rewind other players to the start of the tick the
+        shooter saw, at most MAX_REWIND_TICKS, then trace a ray along its yaw.
+        The closest living target within HIT_RADIUS and MAX_RANGE is hit."""
+        rewind = 0
+        if view_tick > self.tick:
+            self._record(player_id, "view_tick_invalid", {"view_tick": view_tick})
+        elif view_tick >= 0:
+            rewind = self.tick - view_tick
+            if rewind > MAX_REWIND_TICKS:
+                self._record(player_id, "rewind_limited", {"requested": rewind})
+                rewind = MAX_REWIND_TICKS
+        rewind = min(rewind, self.tick)
+        seen = self._history[self.tick - rewind]
+        dx, dy = cos_scaled(state.yaw_millidegrees), sin_scaled(state.yaw_millidegrees)
+        best = None
+        for target_id in sorted(self.players):
+            if target_id == player_id or self.players[target_id].health <= 0:
+                continue
+            tx, ty = seen[target_id]
+            vx, vy = tx - state.x, ty - state.y
+            along = vx * dx + vy * dy
+            if along < 0 or along > MAX_RANGE * TRIG_SCALE:
+                continue
+            if abs(vx * dy - vy * dx) > HIT_RADIUS * TRIG_SCALE:
+                continue
+            if best is None or along < best[1]:
+                best = (target_id, along)
+        if best is None:
+            return
+        target_id, along = best
+        target = self.players[target_id]
+        target.health = max(0, target.health - DAMAGE)
+        self._record(player_id, "hit_confirmed", {
+            "target": target_id, "damage": DAMAGE, "rewind_ticks": rewind,
+            "distance": along // TRIG_SCALE,
+        })
+        if target.health == 0:
+            self._record(target_id, "player_eliminated", {"by": player_id})
 
     def _record(
         self,

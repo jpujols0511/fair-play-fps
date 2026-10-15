@@ -14,7 +14,8 @@ extends SceneTree
 ##
 ## Role "attacker" is the same controlled test fixture as net/client.gd: a
 ## HELLO claiming "honest" with a wrong token first, oversized movement and
-## fire every tick, and from its 32nd tick every 16 ticks a forged position,
+## fire every tick claiming it saw tick 0 (to stretch lag compensation), and
+## from its 32nd tick every 16 ticks a forged position,
 ## an intent claiming "honest" inside its own session, and a plaintext intent
 ## outside DTLS. --jitter hold2 holds every eighth intent two ticks.
 
@@ -115,10 +116,10 @@ func _on_tick(_delta: float, tick: int) -> void:
 		return
 	var cmd: Dictionary
 	if role == "attacker":
-		cmd = Kernel.command(tick, 5000, -4000, 450000, true)
+		cmd = Kernel.command(tick, 5000, -4000, 450000, true, 0)
 	else:
 		var moving := (i / 32) % 2 == 0
-		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000, i % 12 == 0)
+		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000, i % 12 == 0, confirmed.get("tick", -1))
 	prediction.send(cmd)
 	var packet := Protocol.encode_intent(player_id, cmd)
 	if jitter == "hold2" and i % 8 == 3:

@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "prototype"))
 
 from fairplay_sim import (  # noqa: E402
+    MAX_REWIND_TICKS,
     AuthoritativeServer,
     InputCommand,
     controlled_attacker_commands,
@@ -50,6 +51,16 @@ def _mixed(n):
         }
 
 
+def _combat(n):
+    for t in range(n):
+        a_view = t + 3 if t % 24 == 8 else (t - 40 if t % 16 == 8 else t - 5)
+        yield {
+            "a": InputCommand(t, 0, 0, 0, t % 8 == 0, a_view),
+            "b": InputCommand(t, 1000 if t < 20 else 0, 0 if t < 20 else 1000, 180_000, t % 8 == 4, t - 2),
+            "c": InputCommand(t if t % 7 else t - 1, -700, -700, -135_000 + 1500 * t, t % 10 == 0, t - 1),
+        }
+
+
 def replay_demo(player_ids, demo):
     """Feed a server demo log (every submit, in order, per tick) to the oracle."""
     server = AuthoritativeServer(player_ids)
@@ -71,6 +82,7 @@ class GodotKernelParity(unittest.TestCase):
             "honest": run_commands(["honest"], honest_commands(32)).digest,
             "attacker": run_commands(["attacker"], controlled_attacker_commands(32)).digest,
             "mixed": run_commands(["attacker", "honest"], _mixed(48)).digest,
+            "combat": run_commands(["a", "b", "c"], _combat(96)).digest,
         }
         for scenario, digest in expected.items():
             self.assertEqual(rows[scenario]["digest"], digest, scenario)
@@ -287,6 +299,18 @@ class EnetNetfoxMatch(unittest.TestCase):
         self.assertGreater(stats["identity_mismatch"], 0, "intent claiming honest inside attacker session")
         applied = {pid for submits in self.demo for pid, cmd in submits if cmd["sequence"] >= 100000}
         self.assertEqual(applied, set(), "spoofed or plaintext intents reached the kernel")
+
+    def test_forged_old_view_cannot_stretch_lag_compensation(self):
+        # The attacker claims every shot was aimed at tick 0. Decision 0003:
+        # rewind stops at MAX_REWIND_TICKS and every hit records its rewind.
+        self.assertGreater(self.result["evidence_counts"]["attacker"].get("rewind_limited", 0), 0)
+        server = AuthoritativeServer(["attacker", "honest"])
+        for submits in self.demo:
+            for player_id, command in submits:
+                server.submit(player_id, InputCommand(**command))
+            server.step()
+        rewinds = [e.detail["rewind_ticks"] for e in server.evidence if e.category == "hit_confirmed"]
+        self.assertTrue(all(r <= MAX_REWIND_TICKS for r in rewinds), rewinds)
 
     def test_honest_under_injected_jitter_keeps_every_input(self):
         counts = self.result["evidence_counts"]["honest"]

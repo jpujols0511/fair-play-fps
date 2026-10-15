@@ -13,11 +13,32 @@ const ACCELERATION := 8
 const FRICTION := 6
 const FIRE_INTERVAL_TICKS := 8
 const MAGAZINE_SIZE := 12
+# Hits and lag compensation (decision 0003). Distances are millimetres.
+const HIT_RADIUS := 400
+const MAX_RANGE := 50000
+const DAMAGE := 25
+const MAX_REWIND_TICKS := 13
+const TRIG_SCALE := 1000000
+# round(sin(k degrees) * TRIG_SCALE) for k = 0..90, identical to the Python
+# oracle. Fixed integers so every implementation computes the same rays.
+const SIN_TABLE := [
+	0, 17452, 34899, 52336, 69756, 87156, 104528, 121869, 139173, 156434,
+	173648, 190809, 207912, 224951, 241922, 258819, 275637, 292372, 309017, 325568,
+	342020, 358368, 374607, 390731, 406737, 422618, 438371, 453990, 469472, 484810,
+	500000, 515038, 529919, 544639, 559193, 573576, 587785, 601815, 615661, 629320,
+	642788, 656059, 669131, 681998, 694658, 707107, 719340, 731354, 743145, 754710,
+	766044, 777146, 788011, 798636, 809017, 819152, 829038, 838671, 848048, 857167,
+	866025, 874620, 882948, 891007, 898794, 906308, 913545, 920505, 927184, 933580,
+	939693, 945519, 951057, 956305, 961262, 965926, 970296, 974370, 978148, 981627,
+	984808, 987688, 990268, 992546, 994522, 996195, 997564, 998630, 999391, 999848,
+	1000000,
+]
 
 var tick: int = 0
 var players: Dictionary = {}
 var evidence: Array = []
 var _queued: Dictionary = {}
+var _history: Dictionary = {}  # tick -> {player_id: [x, y]} at the start of that tick
 
 
 func _init(player_ids: Array) -> void:
@@ -35,11 +56,12 @@ static func new_state() -> Dictionary:
 	}
 
 
+## view_tick: the server tick the client was seeing when it acted; -1 is now.
 static func command(sequence: int, move_x: int = 0, move_y: int = 0,
-		yaw_millidegrees: int = 0, fire: bool = false) -> Dictionary:
+		yaw_millidegrees: int = 0, fire: bool = false, view_tick: int = -1) -> Dictionary:
 	return {
 		"sequence": sequence, "move_x": move_x, "move_y": move_y,
-		"yaw_millidegrees": yaw_millidegrees, "fire": fire,
+		"yaw_millidegrees": yaw_millidegrees, "fire": fire, "view_tick": view_tick,
 	}
 
 
@@ -60,6 +82,32 @@ static func isqrt(n: int) -> int:
 	while (r + 1) * (r + 1) <= n:
 		r += 1
 	return r
+
+
+static func _sin_quarter(millidegrees: int) -> int:
+	var index: int = millidegrees / 1000
+	var fraction: int = millidegrees % 1000
+	if index >= 90:
+		return SIN_TABLE[90]
+	return SIN_TABLE[index] + (SIN_TABLE[index + 1] - SIN_TABLE[index]) * fraction / 1000
+
+
+## sin(yaw) * TRIG_SCALE in integers: table plus linear interpolation.
+static func sin_scaled(millidegrees: int) -> int:
+	var m: int = posmod(millidegrees, 360000)
+	var quadrant: int = m / 90000
+	var rest: int = m % 90000
+	if quadrant == 0:
+		return _sin_quarter(rest)
+	if quadrant == 1:
+		return _sin_quarter(90000 - rest)
+	if quadrant == 2:
+		return -_sin_quarter(rest)
+	return -_sin_quarter(90000 - rest)
+
+
+static func cos_scaled(millidegrees: int) -> int:
+	return sin_scaled(millidegrees + 90000)
 
 
 static func approach_zero(value: int, amount: int) -> int:
@@ -85,6 +133,11 @@ func submit(player_id: String, cmd: Dictionary) -> bool:
 
 
 func step() -> void:
+	var seen := {}
+	for player_id in players:
+		seen[player_id] = [players[player_id]["x"], players[player_id]["y"]]
+	_history[tick] = seen
+	_history.erase(tick - MAX_REWIND_TICKS - 1)
 	var ids: Array = players.keys()
 	ids.sort()
 	for player_id in ids:
@@ -125,10 +178,13 @@ func _apply_input(player_id: String, state: Dictionary, cmd: Dictionary) -> void
 	state["yaw_millidegrees"] = posmod(cmd["yaw_millidegrees"], 360000)
 	state["last_sequence"] = cmd["sequence"]
 	if cmd["fire"]:
-		_attempt_fire(player_id, state)
+		if state["health"] <= 0:
+			_record(player_id, "eliminated_fire_rejected", {})
+		else:
+			_attempt_fire(player_id, state, cmd.get("view_tick", -1))
 
 
-func _attempt_fire(player_id: String, state: Dictionary) -> void:
+func _attempt_fire(player_id: String, state: Dictionary, view_tick: int = -1) -> void:
 	if tick < state["next_fire_tick"]:
 		_record(player_id, "fire_cadence_rejected", {"next_legal_tick": state["next_fire_tick"]})
 		return
@@ -142,6 +198,52 @@ func _attempt_fire(player_id: String, state: Dictionary) -> void:
 		"yaw_millidegrees": state["yaw_millidegrees"],
 		"ammunition_after": state["ammunition"],
 	})
+	_resolve_hit(player_id, state, view_tick)
+
+
+## Lag compensation: rewind other players to the start of the tick the
+## shooter saw, at most MAX_REWIND_TICKS, then trace a ray along its yaw.
+## The closest living target within HIT_RADIUS and MAX_RANGE is hit.
+func _resolve_hit(player_id: String, state: Dictionary, view_tick: int) -> void:
+	var rewind := 0
+	if view_tick > tick:
+		_record(player_id, "view_tick_invalid", {"view_tick": view_tick})
+	elif view_tick >= 0:
+		rewind = tick - view_tick
+		if rewind > MAX_REWIND_TICKS:
+			_record(player_id, "rewind_limited", {"requested": rewind})
+			rewind = MAX_REWIND_TICKS
+	rewind = mini(rewind, tick)
+	var seen: Dictionary = _history[tick - rewind]
+	var dx := cos_scaled(state["yaw_millidegrees"])
+	var dy := sin_scaled(state["yaw_millidegrees"])
+	var best := ""
+	var best_along := 0
+	var ids: Array = players.keys()
+	ids.sort()
+	for target_id in ids:
+		if target_id == player_id or players[target_id]["health"] <= 0:
+			continue
+		var vx: int = seen[target_id][0] - state["x"]
+		var vy: int = seen[target_id][1] - state["y"]
+		var along: int = vx * dx + vy * dy
+		if along < 0 or along > MAX_RANGE * TRIG_SCALE:
+			continue
+		if absi(vx * dy - vy * dx) > HIT_RADIUS * TRIG_SCALE:
+			continue
+		if best == "" or along < best_along:
+			best = target_id
+			best_along = along
+	if best == "":
+		return
+	var target: Dictionary = players[best]
+	target["health"] = maxi(0, target["health"] - DAMAGE)
+	_record(player_id, "hit_confirmed", {
+		"target": best, "damage": DAMAGE, "rewind_ticks": rewind,
+		"distance": best_along / TRIG_SCALE,
+	})
+	if target["health"] == 0:
+		_record(best, "player_eliminated", {"by": player_id})
 
 
 func _record(player_id: String, category: String, detail: Dictionary) -> void:

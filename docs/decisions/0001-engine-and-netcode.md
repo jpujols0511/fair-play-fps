@@ -116,7 +116,8 @@ candidate, keeping the fairness kernel in our own code.
    kernel is small and integer-exact, so the same code predicts exactly, and
    the rules stay in one place. This differs from the wording above and is
    open for Joan. Netfox rollback remains available for rendering other
-   players. The jitter buffer part is decision 0002. Still open: lag
-   compensation for hits, which needs hit validation in the kernel first.
+   players. The jitter buffer part is decision 0002. Hit validation and
+   bounded lag compensation are decision 0003 (branch
+   `claude/hits-lag-comp-v01`).
 
 Accepting this record does not change the licence, which stays open.

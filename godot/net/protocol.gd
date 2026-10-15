@@ -7,7 +7,8 @@ extends RefCounted
 ## DTLS session only if the token matches.
 ##
 ## After HELLO, client -> server carries intent only: sequence, two move axes,
-## yaw, fire. There is no field for position, health, damage, ammunition or
+## yaw, the server tick the client was seeing (for bounded lag compensation),
+## fire. There is no field for position, health, damage, ammunition or
 ## score, so a client cannot claim them (invariant 1). Any packet whose length
 ## or fields do not match exactly is rejected as malformed.
 
@@ -69,6 +70,7 @@ static func encode_intent(player_id: String, cmd: Dictionary) -> PackedByteArray
 	b.put_32(cmd["move_x"])
 	b.put_32(cmd["move_y"])
 	b.put_32(cmd["yaw_millidegrees"])
+	b.put_32(cmd.get("view_tick", -1))
 	b.put_u8(1 if cmd["fire"] else 0)
 	return b.data_array
 
@@ -78,7 +80,7 @@ static func decode_intent(packet: PackedByteArray) -> Dictionary:
 	if packet.size() < 3 or packet[0] != VERSION or packet[1] != KIND_INTENT:
 		return {}
 	var id_len: int = packet[2]
-	if id_len < 1 or id_len > MAX_ID or packet.size() != 3 + id_len + 17:
+	if id_len < 1 or id_len > MAX_ID or packet.size() != 3 + id_len + 21:
 		return {}
 	var player_id := packet.slice(3, 3 + id_len).get_string_from_ascii()
 	if player_id.length() != id_len or not _valid_id(player_id):
@@ -88,7 +90,7 @@ static func decode_intent(packet: PackedByteArray) -> Dictionary:
 	b.seek(3 + id_len)
 	var cmd := {
 		"sequence": b.get_32(), "move_x": b.get_32(), "move_y": b.get_32(),
-		"yaw_millidegrees": b.get_32(),
+		"yaw_millidegrees": b.get_32(), "view_tick": b.get_32(),
 	}
 	var fire_byte: int = b.get_u8()
 	if fire_byte > 1:

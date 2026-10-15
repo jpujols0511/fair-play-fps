@@ -17,7 +17,9 @@ extends RefCounted
 ## intents sent before the match starts.
 
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
-const COMPARED := ["x", "y", "velocity_x", "velocity_y", "yaw_millidegrees", "health",
+# Health is not predicted: damage comes from other players' shots, which only
+# the server resolves. The client shows the server's value.
+const COMPARED := ["x", "y", "velocity_x", "velocity_y", "yaw_millidegrees",
 	"ammunition", "next_fire_tick"]
 
 var player_id: String

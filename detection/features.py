@@ -10,8 +10,9 @@ WINDOW_TICKS = 128
 SNAP_MILLIDEGREES = 90_000  # more than 90 degrees of yaw in one tick
 FIRE_CATEGORIES = ("shot_accepted", "fire_cadence_rejected", "empty_fire_rejected")
 # Evidence caused by network conditions. Kept for diagnosis, never used as
-# suspicion: the Godot spike showed honest late packets produce stale_input.
-NEVER_SUSPICION = frozenset({"stale_input", "reordered_input"})
+# suspicion: the Godot spike showed honest late packets produce stale_input,
+# and a player far from the server honestly asks for more rewind than allowed.
+NEVER_SUSPICION = frozenset({"stale_input", "reordered_input", "rewind_limited"})
 
 
 @dataclass(frozen=True)
