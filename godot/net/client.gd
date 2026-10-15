@@ -78,12 +78,12 @@ func _initialize() -> void:
 		session.poll()
 		var cmd: Dictionary
 		if role == "attacker":
-			cmd = Kernel.command(local_tick, 5000, -4000, 450000, true)
+			cmd = Kernel.command(local_tick, 5000, -4000, 450000, true, 0)
 		else:
 			var moving := (local_tick / (tick_rate / 2)) % 2 == 0
 			var fire_interval: int = 12 * tick_rate / Kernel.TICK_RATE
 			cmd = Kernel.command(local_tick, 1000 if moving else 0, 0, 90000,
-				local_tick % fire_interval == 0)
+				local_tick % fire_interval == 0, confirmed.get("tick", -1))
 		var packet := Protocol.encode_intent(player_id, cmd)
 		if jitter == "hold2" and local_tick % 8 == 3:
 			held.append(packet)

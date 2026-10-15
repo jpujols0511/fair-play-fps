@@ -50,6 +50,18 @@ def _mixed(n):
         }
 
 
+def _combat(n):
+    for t in range(n):
+        a_view = t + 3 if t % 24 == 8 else (t - 40 if t % 16 == 8 else t - 5)
+        yield {
+            "a": InputCommand(t, 0, 0, 0, t % 8 == 0, a_view),
+            "b": InputCommand(t, 1000 if t < 20 else 0, 0 if t < 20 else 1000,
+                              180_000, t % 8 == 4, t - 2),
+            "c": InputCommand(t if t % 7 else t - 1, -700, -700,
+                              -135_000 + 1500 * t, t % 10 == 0, t - 1),
+        }
+
+
 def replay_demo(player_ids, demo, tick_rate=64):
     """Feed a server demo log (every submit, in order, per tick) to the oracle."""
     server = AuthoritativeServer(player_ids, tick_rate=tick_rate)
@@ -77,6 +89,9 @@ class GodotKernelParity(unittest.TestCase):
                 tick_rate=tick_rate).digest
             expected[f"mixed_{tick_rate}"] = run_commands(
                 ["attacker", "honest"], _mixed(tick_rate),
+                tick_rate=tick_rate).digest
+            expected[f"combat_{tick_rate}"] = run_commands(
+                ["a", "b", "c"], _combat(tick_rate),
                 tick_rate=tick_rate).digest
         for scenario, digest in expected.items():
             self.assertEqual(rows[scenario]["digest"], digest, scenario)
@@ -325,6 +340,17 @@ class EnetNetfoxMatch(unittest.TestCase):
                 self.assertGreater(result["stats"]["auth_failed"], 0)
                 self.assertGreater(result["stats"]["malformed"], 0)
                 self.assertGreater(result["stats"]["identity_mismatch"], 0)
+                self.assertGreater(
+                    result["evidence_counts"]["attacker"].get("rewind_limited", 0), 0
+                )
+                replayed = replay_demo(["attacker", "honest"], demo, tick_rate)
+                rewind_limit = 13 * tick_rate // 64
+                rewinds = [
+                    event.detail["rewind_ticks"]
+                    for event in replayed.evidence
+                    if event.category == "hit_confirmed"
+                ]
+                self.assertTrue(all(rewind <= rewind_limit for rewind in rewinds), rewinds)
                 self.assertNotIn("stale_input", result["evidence_counts"]["honest"])
                 self.assertEqual(result["buffer"]["honest"]["late"], 0)
                 for role in ("honest", "attacker"):

@@ -17,7 +17,9 @@ extends RefCounted
 ## intents sent before the match starts.
 
 const Kernel = preload("res://kernel/fairplay_kernel.gd")
-const COMPARED := ["x", "y", "velocity_x", "velocity_y", "yaw_millidegrees", "health",
+# Health is not predicted: damage comes from other players' shots, which only
+# the server resolves. The client shows the server's value.
+const COMPARED := ["x", "y", "velocity_x", "velocity_y", "yaw_millidegrees",
 	"ammunition", "next_fire_tick"]
 
 var player_id: String
@@ -54,8 +56,12 @@ func reconcile(snapshot: Dictionary) -> void:
 	if not first and predicted.has(last):
 		confirmed += 1
 		var guess: Dictionary = predicted[last]
+		# Damage and elimination are external authoritative events. A health
+		# transition can also reject a predicted shot in the same server tick;
+		# that is combat state arriving, not an input prediction correction.
+		var health_changed: bool = guess["health"] != snapshot["health"]
 		for key in COMPARED:
-			if guess[key] != snapshot[key]:
+			if guess[key] != snapshot[key] and not health_changed:
 				corrections += 1
 				max_error = maxi(max_error, absi(guess["x"] - snapshot["x"]) + absi(guess["y"] - snapshot["y"]))
 				break

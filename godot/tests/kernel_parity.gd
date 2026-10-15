@@ -16,6 +16,8 @@ func _initialize() -> void:
 			_attacker(tick_rate), tick_rate)
 		_report("mixed_%d" % tick_rate, ["attacker", "honest"],
 			_mixed(tick_rate), tick_rate)
+		_report("combat_%d" % tick_rate, ["a", "b", "c"],
+			_combat(tick_rate), tick_rate)
 	quit(0)
 
 
@@ -55,4 +57,21 @@ func _mixed(n: int) -> Array:
 		var honest := Kernel.command(t, -700 if t % 3 else 0, 300, -45000 * t, t % 9 == 0)
 		var attacker := Kernel.command(t if t % 10 else t - 2, -6000, 2500, -400000, true)
 		out.append({"honest": honest, "attacker": attacker})
+	return out
+
+
+## Three players shooting at each other: hits, rewinds, a view from the
+## future, rewinds past the limit, eliminations and every yaw quadrant.
+func _combat(n: int) -> Array:
+	var out := []
+	for t in n:
+		var a_view := t - 5
+		if t % 24 == 8:
+			a_view = t + 3
+		elif t % 16 == 8:
+			a_view = t - 40
+		var a := Kernel.command(t, 0, 0, 0, t % 8 == 0, a_view)
+		var b := Kernel.command(t, 1000 if t < 20 else 0, 0 if t < 20 else 1000, 180000, t % 8 == 4, t - 2)
+		var c := Kernel.command(t if t % 7 else t - 1, -700, -700, -135000 + 1500 * t, t % 10 == 0, t - 1)
+		out.append({"a": a, "b": b, "c": c})
 	return out
