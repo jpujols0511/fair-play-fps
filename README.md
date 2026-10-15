@@ -12,7 +12,7 @@ enforcement as native engine systems.
 
 - Original code, art, maps, names, characters, audio, and game identity
 - No Valve, Counter-Strike, or other third-party source code or assets
-- Private and proprietary by default
+- Open-source direction with explicit code, asset, and trademark boundaries
 - Separate from VEYR, Data Haunt, Pocket Boo, and Veridian
 - Server-authoritative competitive simulation
 - Evidence-based enforcement with privacy, review, and appeals
@@ -29,6 +29,17 @@ modernize, and test across the major competitive-shooter eras.
 The first executable work is a dependency-free
 [headless authoritative arena reference](prototype/README.md). It is a simulation
 and evidence laboratory, not a playable game or production engine.
+
+Run every current check locally with:
+
+    python3 scripts/local_verify.py
+
+The [Devin Local handoff](docs/DEVIN_LOCAL_HANDOFF.md) provides a bounded first
+session that works only in this repository and does not install dependencies.
+
+The repository is still private under its existing proprietary notice while the
+[open-source license boundary](docs/OPEN_SOURCE_READINESS.md) is selected and
+audited. Public visibility will follow the license commit, not precede it.
 
 ## Ownership
 

@@ -25,7 +25,10 @@ class AuthoritativeSimulationTests(unittest.TestCase):
     def test_honest_movement_stays_within_speed_limit(self):
         result = run_commands(["honest"], honest_commands(64))
         state = result.players["honest"]
-        self.assertLessEqual(state.velocity_x * state.velocity_x + state.velocity_y * state.velocity_y, MAX_SPEED * MAX_SPEED)
+        self.assertLessEqual(
+            state.velocity_x * state.velocity_x + state.velocity_y * state.velocity_y,
+            MAX_SPEED * MAX_SPEED,
+        )
         self.assertNotIn("input_clamped", [event.category for event in result.evidence])
 
     def test_impossible_input_is_clamped_and_recorded(self):
@@ -33,7 +36,10 @@ class AuthoritativeSimulationTests(unittest.TestCase):
         categories = [event.category for event in result.evidence]
         self.assertIn("input_clamped", categories)
         state = result.players["attacker"]
-        self.assertLessEqual(state.velocity_x * state.velocity_x + state.velocity_y * state.velocity_y, MAX_SPEED * MAX_SPEED)
+        self.assertLessEqual(
+            state.velocity_x * state.velocity_x + state.velocity_y * state.velocity_y,
+            MAX_SPEED * MAX_SPEED,
+        )
 
     def test_fire_cadence_is_server_enforced(self):
         result = run_commands(["attacker"], controlled_attacker_commands(FIRE_INTERVAL_TICKS))
@@ -53,6 +59,43 @@ class AuthoritativeSimulationTests(unittest.TestCase):
         first = run_commands(["honest"], honest_commands(64))
         second = run_commands(["honest"], honest_commands(64))
         self.assertEqual(first.digest, second.digest)
+
+    def test_64_and_128_tick_profiles_preserve_one_second_contract(self):
+        results = {
+            tick_rate: run_commands(
+                ["honest"],
+                honest_commands(tick_rate, tick_rate=tick_rate),
+                tick_rate=tick_rate,
+            )
+            for tick_rate in (64, 128)
+        }
+        sixty_four = results[64]
+        one_twenty_eight = results[128]
+        self.assertEqual(
+            sixty_four.players["honest"].x,
+            one_twenty_eight.players["honest"].x,
+        )
+        self.assertEqual(
+            sixty_four.players["honest"].velocity_x,
+            one_twenty_eight.players["honest"].velocity_x,
+        )
+        self.assertEqual(
+            sixty_four.players["honest"].ammunition,
+            one_twenty_eight.players["honest"].ammunition,
+        )
+        self.assertEqual(
+            sixty_four.position_remainders["honest"],
+            one_twenty_eight.position_remainders["honest"],
+        )
+        self.assertEqual(
+            [event.category for event in sixty_four.evidence],
+            [event.category for event in one_twenty_eight.evidence],
+        )
+        self.assertNotEqual(sixty_four.digest, one_twenty_eight.digest)
+
+    def test_unsupported_tick_rate_is_rejected(self):
+        with self.assertRaises(ValueError):
+            AuthoritativeServer(["player"], tick_rate=120)
 
 
 if __name__ == "__main__":

@@ -6,8 +6,11 @@ docs/ROADMAP.md before changing foundations.
 ## Working agreement
 
 - Joan Pujols owns product direction, creative acceptance, and final release.
-- Fair Play FPS is a private temporary project name for an original competitive
-  first-person shooter.
+- Fair Play FPS is a temporary project name for an original competitive
+  first-person shooter with an open-source release direction.
+- Keep the repository private until explicit code, asset, documentation, and
+  trademark terms replace the current proprietary notice and the public audit
+  passes.
 - Do not use Valve or Counter-Strike code, maps, assets, names, logos, sounds,
   characters, or branding.
 - Keep this project separate from VEYR, Data Haunt, Pocket Boo, and Veridian.

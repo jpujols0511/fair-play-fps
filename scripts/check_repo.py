@@ -13,8 +13,12 @@ REQUIRED = [
     'docs/THREAT_MODEL.md',
     'docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md',
     'docs/LINEAGE_MATRIX.md',
+    'docs/DEVIN_LOCAL_HANDOFF.md',
+    'docs/OPEN_SOURCE_READINESS.md',
     'prototype/README.md',
     'prototype/fairplay_sim.py',
+    'scripts/audit_public_release.py',
+    'scripts/local_verify.py',
     'tests/test_fairplay_sim.py',
 ]
 FORBIDDEN_FILES = {'.env', 'id_rsa', 'id_ed25519'}
