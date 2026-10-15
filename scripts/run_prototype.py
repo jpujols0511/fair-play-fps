@@ -19,7 +19,9 @@ def summary(name, result):
         categories[event.category] = categories.get(event.category, 0) + 1
     return {
         "scenario": name,
+        "tick_rate": result.tick_rate,
         "ticks": result.ticks,
+        "duration_seconds": result.ticks / result.tick_rate,
         "digest": result.digest,
         "players": {
             player_id: {
@@ -33,6 +35,22 @@ def summary(name, result):
     }
 
 
-honest = run_commands(["honest"], honest_commands(32))
-attacker = run_commands(["attacker"], controlled_attacker_commands(32))
-print(json.dumps([summary("honest", honest), summary("attacker", attacker)], indent=2))
+results = []
+for tick_rate in (64, 128):
+    honest = run_commands(
+        ["honest"],
+        honest_commands(tick_rate, tick_rate=tick_rate),
+        tick_rate=tick_rate,
+    )
+    attacker = run_commands(
+        ["attacker"],
+        controlled_attacker_commands(tick_rate),
+        tick_rate=tick_rate,
+    )
+    results.extend(
+        (
+            summary(f"honest_{tick_rate}", honest),
+            summary(f"attacker_{tick_rate}", attacker),
+        )
+    )
+print(json.dumps(results, indent=2))

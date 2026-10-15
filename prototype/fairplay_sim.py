@@ -8,6 +8,7 @@ from typing import Iterable
 
 
 TICK_RATE = 64
+SUPPORTED_TICK_RATES = (64, 128)
 INPUT_SCALE = 1000
 MAX_SPEED = 48
 ACCELERATION = 8
@@ -48,8 +49,10 @@ class EvidenceEvent:
 
 @dataclass
 class SimulationResult:
+    tick_rate: int
     ticks: int
     players: dict[str, PlayerState]
+    position_remainders: dict[str, tuple[int, int]]
     evidence: list[EvidenceEvent]
     digest: str
 
@@ -74,14 +77,20 @@ def _limit_vector(x: int, y: int, maximum: int) -> tuple[int, int]:
 
 
 class AuthoritativeServer:
-    def __init__(self, player_ids: Iterable[str]):
+    def __init__(self, player_ids: Iterable[str], tick_rate: int = TICK_RATE):
         ids = tuple(player_ids)
         if not ids or len(set(ids)) != len(ids):
             raise ValueError("player identifiers must be unique and non-empty")
+        if tick_rate not in SUPPORTED_TICK_RATES:
+            raise ValueError(f"tick rate must be one of {SUPPORTED_TICK_RATES}")
+        self.tick_rate = tick_rate
         self.tick = 0
         self.players = {player_id: PlayerState() for player_id in sorted(ids)}
         self.evidence: list[EvidenceEvent] = []
         self._queued: dict[str, InputCommand] = {}
+        self._position_remainders = {
+            player_id: [0, 0] for player_id in sorted(ids)
+        }
 
     def submit(self, player_id: str, command: InputCommand) -> None:
         if player_id not in self.players:
@@ -127,21 +136,42 @@ class AuthoritativeServer:
             )
 
         if move_x == 0:
-            state.velocity_x = _approach_zero(state.velocity_x, FRICTION)
+            state.velocity_x = _approach_zero(
+                state.velocity_x,
+                FRICTION * TICK_RATE // self.tick_rate,
+            )
         else:
-            state.velocity_x += ACCELERATION * move_x // INPUT_SCALE
+            state.velocity_x += (
+                ACCELERATION * TICK_RATE * move_x
+                // (self.tick_rate * INPUT_SCALE)
+            )
         if move_y == 0:
-            state.velocity_y = _approach_zero(state.velocity_y, FRICTION)
+            state.velocity_y = _approach_zero(
+                state.velocity_y,
+                FRICTION * TICK_RATE // self.tick_rate,
+            )
         else:
-            state.velocity_y += ACCELERATION * move_y // INPUT_SCALE
+            state.velocity_y += (
+                ACCELERATION * TICK_RATE * move_y
+                // (self.tick_rate * INPUT_SCALE)
+            )
         state.velocity_x, state.velocity_y = _limit_vector(
             state.velocity_x,
             state.velocity_y,
             MAX_SPEED,
         )
 
-        state.x += state.velocity_x
-        state.y += state.velocity_y
+        remainder = self._position_remainders[player_id]
+        remainder[0] += state.velocity_x * TICK_RATE
+        remainder[1] += state.velocity_y * TICK_RATE
+        delta_x, remainder[0] = _divide_with_remainder(
+            remainder[0], self.tick_rate
+        )
+        delta_y, remainder[1] = _divide_with_remainder(
+            remainder[1], self.tick_rate
+        )
+        state.x += delta_x
+        state.y += delta_y
         state.yaw_millidegrees = command.yaw_millidegrees % 360_000
         state.last_sequence = command.sequence
 
@@ -160,7 +190,7 @@ class AuthoritativeServer:
             self._record(player_id, "empty_fire_rejected", {})
             return
         state.ammunition -= 1
-        state.next_fire_tick = self.tick + FIRE_INTERVAL_TICKS
+        state.next_fire_tick = self.tick + self.fire_interval_ticks
         self._record(
             player_id,
             "shot_accepted",
@@ -189,26 +219,41 @@ class AuthoritativeServer:
 
     def result(self) -> SimulationResult:
         payload = {
+            "tick_rate": self.tick_rate,
             "ticks": self.tick,
             "players": {
                 key: asdict(value) for key, value in sorted(self.players.items())
+            },
+            "position_remainders": {
+                key: tuple(value)
+                for key, value in sorted(self._position_remainders.items())
             },
             "evidence": [asdict(event) for event in self.evidence],
         }
         encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
         return SimulationResult(
+            tick_rate=self.tick_rate,
             ticks=self.tick,
             players=self.players,
+            position_remainders={
+                key: tuple(value)
+                for key, value in sorted(self._position_remainders.items())
+            },
             evidence=self.evidence,
             digest=hashlib.sha256(encoded).hexdigest(),
         )
+
+    @property
+    def fire_interval_ticks(self) -> int:
+        return FIRE_INTERVAL_TICKS * self.tick_rate // TICK_RATE
 
 
 def run_commands(
     player_ids: Iterable[str],
     commands_by_tick: Iterable[dict[str, InputCommand]],
+    tick_rate: int = TICK_RATE,
 ) -> SimulationResult:
-    server = AuthoritativeServer(player_ids)
+    server = AuthoritativeServer(player_ids, tick_rate=tick_rate)
     for commands in commands_by_tick:
         for player_id, command in sorted(commands.items()):
             server.submit(player_id, command)
@@ -216,14 +261,19 @@ def run_commands(
     return server.result()
 
 
-def honest_commands(ticks: int, player_id: str = "honest"):
+def honest_commands(
+    ticks: int,
+    player_id: str = "honest",
+    tick_rate: int = TICK_RATE,
+):
+    fire_interval = FIRE_INTERVAL_TICKS * tick_rate // TICK_RATE
     for tick in range(ticks):
         yield {
             player_id: InputCommand(
                 sequence=tick,
                 move_x=INPUT_SCALE if tick < ticks // 2 else 0,
                 yaw_millidegrees=90_000,
-                fire=tick % FIRE_INTERVAL_TICKS == 0,
+                fire=tick % fire_interval == 0,
             )
         }
 
@@ -239,3 +289,10 @@ def controlled_attacker_commands(ticks: int, player_id: str = "attacker"):
                 fire=True,
             )
         }
+
+
+def _divide_with_remainder(value: int, divisor: int) -> tuple[int, int]:
+    quotient = abs(value) // divisor
+    if value < 0:
+        quotient = -quotient
+    return quotient, value - quotient * divisor

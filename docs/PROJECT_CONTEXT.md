@@ -44,9 +44,15 @@ VEYR production patterns may inform repository discipline, evidence, asset
 provenance, multiplayer validation, and native safety. VEYR code, assets,
 survival scope, Unreal decisions, and private history do not transfer by default.
 
+## Release direction
+
+The project is intended to remain publicly auditable and open source. Code,
+documentation, source assets, branding, and third-party dependencies need
+explicit compatible terms before repository visibility changes.
+
 ## Current non-goals
 
-- Public release
+- Public release before licensing and release gates pass
 - Valve compatibility or replacement
 - Kernel anti-cheat
 - Hardware bans

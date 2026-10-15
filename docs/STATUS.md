@@ -22,7 +22,17 @@
 - Client intent schema with no position, health, damage, ammunition, or score
 - Server-owned movement limits, fire cadence, ammunition, and shot evidence
 - Honest and controlled-attacker command fixtures
-- Deterministic result digest and six focused unit tests
+- Deterministic result digest and eight focused unit tests
+- Explicit 64 and 128 tick profiles with elapsed-time-normalized honest fixtures
+- One-command dependency-free local verification and Devin Local handoff
+
+## Open-source transition
+
+- Public and open-source direction is recorded.
+- Current tracked tree and Git history contain no known credentials, binaries,
+  third-party game content, or large blobs.
+- Repository remains private and proprietary until Joan selects code,
+  documentation, asset, and trademark terms.
 
 ## Unverified
 
@@ -35,9 +45,11 @@
 - Replay or validators
 - Performance, security, privacy, or accessibility
 
-## Current blocker
+## Current blockers
 
-No runtime stack has been selected. Do not claim a playable game.
+- No runtime stack has been selected. Do not claim a playable game.
+- The current proprietary notice cannot represent an open-source public release.
+- Joan must select the license boundary before visibility changes.
 
 ## Next step
 
