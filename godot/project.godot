@@ -1,0 +1,9 @@
+; Fair Play FPS — Godot 4 headless spike (decision 0001).
+; No scenes or assets yet: the kernel and network test run as headless scripts.
+
+config_version=5
+
+[application]
+
+config/name="Fair Play FPS spike"
+config/features=PackedStringArray("4.4")

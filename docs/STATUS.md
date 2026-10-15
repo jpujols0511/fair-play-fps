@@ -1,5 +1,23 @@
 # Status
 
+## October 15, 2026: Godot headless spike
+
+- `godot/`: GDScript fairness kernel, strict intent-only protocol, headless
+  UDP server and client. Godot 4.4.1-stable, Linux, headless.
+- Compiled and run; network-tested on loopback only. Kernel digests match the
+  Python oracle; the server demo replays to the same digest; forged positions
+  and spoofed identities never reached the kernel. `tests/test_godot_spike.py`
+  passed three consecutive runs (skipped when Godot is absent).
+- Finding: honest late inputs become `stale_input` (7 in 64 ticks under
+  loopback jitter). Must never count toward suspicion; M2 needs a jitter
+  buffer.
+- Read-on-entry is now enforced: `.claude/settings.json` injects
+  `docs/DESIGN.md` at every session start, and `scripts/check_repo.py` fails
+  if the hook or the `CLAUDE.md` reference is removed.
+- Not done: encryption and authentication (invariant 2), Netfox integration,
+  Asset Library framework review, cross-machine LAN test, rendering.
+- Next: Joan accepts or amends decision 0001 and chooses the licence.
+
 ## October 15, 2026: design thesis recorded
 
 - Added `docs/DESIGN.md`: Joan's fairness thesis and six kernel invariants.

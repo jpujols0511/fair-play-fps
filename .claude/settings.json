@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '%s\\n\\n' '=== Fair Play FPS: required reading on entry (docs/DESIGN.md) ===' && cat \"$CLAUDE_PROJECT_DIR/docs/DESIGN.md\""
+          }
+        ]
+      }
+    ]
+  }
+}
