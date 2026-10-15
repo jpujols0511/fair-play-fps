@@ -132,6 +132,7 @@ func _send_intent() -> void:
 		int(round(move.y * Kernel.INPUT_SCALE)),
 		int(round(fposmod(rad_to_deg(_yaw), 360.0) * 1000.0)),
 		_fire_queued,
+		_last_confirmed.get("tick", -1),
 	)
 	_session.put_packet(Protocol.encode_intent(_player_id, command))
 	_fire_queued = false

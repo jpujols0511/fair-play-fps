@@ -120,11 +120,12 @@ func _on_tick(_delta: float, tick: int) -> void:
 		return
 	var cmd: Dictionary
 	if role == "attacker":
-		cmd = Kernel.command(tick, 5000, -4000, 450000, true)
+		cmd = Kernel.command(tick, 5000, -4000, 450000, true, 0)
 	else:
 		var moving := (i / 32) % 2 == 0
 		var fire_interval := ceili(float(Kernel.FIRE_INTERVAL_TICKS) * tick_rate / Kernel.TICK_RATE)
-		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000, i % fire_interval == 0)
+		cmd = Kernel.command(tick, 1000 if moving else 0, 0, 90000,
+			i % fire_interval == 0, confirmed.get("tick", -1))
 	prediction.send(cmd)
 	var packet := Protocol.encode_intent(player_id, cmd)
 	if jitter == "hold2" and i % 8 == 3:

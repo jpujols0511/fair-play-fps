@@ -56,7 +56,9 @@ Built and tested on one Linux machine (loopback): DTLS transport with
 per-player tokens, Netfox-driven kernel ticks, offline detection, community
 review, and a community server runner. Proposed on `claude/jitter-buffer-v01`
 (decision 0002, waits for Joan): missing input is a neutral tick, plus a server
-jitter buffer. The staged integration branch adds Netfox stage 2, ENet with
-DTLS and clock sync across processes, while preserving raw DTLS and both tick
-profiles. Next: stage 3, presentation-only client prediction and
-reconciliation. No cross-machine or human playtest has been completed.
+jitter buffer. The staged integration branch adds ENet with DTLS and Netfox
+clock sync, presentation-only prediction, and proposed server-authoritative
+combat with profile-scaled bounded rewind. Raw DTLS and both tick profiles
+remain intact; the combined Linux loopback suite and shipping smoke pass.
+Next: review the staged branch without merging `main`. No cross-machine or
+human playtest has been completed.
