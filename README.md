@@ -24,7 +24,8 @@ M1 authoritative arena integration. A render-capable Godot graybox now connects
 two intent-only clients to the DTLS server, but it is not yet a complete or
 human-playtested game slice.
 
-Start with [the design thesis](docs/DESIGN.md), then [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md).
+Start with [the design thesis](docs/DESIGN.md), then [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md)
+and [the Godot engine guide](docs/GODOT_ENGINE_GUIDE.md).
 The [lineage matrix](docs/LINEAGE_MATRIX.md) records what to keep, reject,
 modernize, and test across the major competitive-shooter eras.
 
