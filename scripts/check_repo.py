@@ -6,6 +6,9 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
     'AGENTS.md',
     'README.md',
+    'CLAUDE.md',
+    'docs/DESIGN.md',
+    'docs/decisions/0001-engine-and-netcode.md',
     'LICENSE.txt',
     'docs/PROJECT_CONTEXT.md',
     'docs/ROADMAP.md',

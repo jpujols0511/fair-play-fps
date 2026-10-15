@@ -7,7 +7,8 @@
 - Threat model
 - Native safety policy
 - Validation script
-- Decision record for prototype language and libraries
+- Decision record for prototype language and libraries (proposed: `decisions/0001-engine-and-netcode.md`)
+- Design thesis and kernel invariants (`DESIGN.md`)
 
 Exit: repository checks pass and Joan accepts the bounded prototype contract.
 
