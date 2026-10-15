@@ -1,0 +1,25 @@
+# Build output
+build/
+dist/
+out/
+
+# Local tools and IDE state
+.cache/
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Logs and crash output
+*.log
+crash/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+secrets/
+
+# Large generated captures
+captures/
+replays/generated/

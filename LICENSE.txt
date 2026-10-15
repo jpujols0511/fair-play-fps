@@ -1,0 +1,19 @@
+Fair Play FPS — Proprietary Software Notice
+
+Copyright (c) 2026 Joan Pujols. All rights reserved.
+
+This project is proprietary software and is not offered under an open-source
+license. This notice applies to the source code, original artwork,
+documentation, game design, engine design, and other project materials to the
+extent the copyright holder owns those rights.
+
+Except as permitted by applicable law or separately authorized in writing by
+the copyright holder, no permission is granted to copy, modify, distribute,
+sublicense, sell, or create derivative works from these materials. Access to
+this repository does not itself grant those permissions or transfer ownership.
+
+Third-party names and trademarks are the property of their respective owners.
+References used for research, comparison, or compatibility do not imply
+affiliation, endorsement, or ownership of third-party intellectual property.
+
+For permission beyond those terms, contact the copyright holder, Joan Pujols.
