@@ -7,6 +7,7 @@ extends RefCounted
 ## movement, cadence, ammunition and evidence.
 
 const TICK_RATE := 64
+const SUPPORTED_TICK_RATES := [64, 128]
 const INPUT_SCALE := 1000
 const MAX_SPEED := 48
 const ACCELERATION := 8
@@ -15,16 +16,22 @@ const FIRE_INTERVAL_TICKS := 8
 const MAGAZINE_SIZE := 12
 
 var tick: int = 0
+var tick_rate: int = TICK_RATE
 var players: Dictionary = {}
 var evidence: Array = []
 var _queued: Dictionary = {}
+var _position_remainders: Dictionary = {}
 
 
-func _init(player_ids: Array) -> void:
+func _init(player_ids: Array, requested_tick_rate: int = TICK_RATE) -> void:
+	assert(SUPPORTED_TICK_RATES.has(requested_tick_rate),
+		"tick rate must be 64 or 128")
+	tick_rate = requested_tick_rate
 	var ids: Array = player_ids.duplicate()
 	ids.sort()
 	for player_id in ids:
 		players[player_id] = new_state()
+		_position_remainders[player_id] = [0, 0]
 
 
 static func new_state() -> Dictionary:
@@ -104,21 +111,32 @@ func _apply_input(player_id: String, state: Dictionary, cmd: Dictionary) -> void
 			"accepted_x": move_x, "accepted_y": move_y,
 		})
 	if move_x == 0:
-		state["velocity_x"] = approach_zero(state["velocity_x"], FRICTION)
+		state["velocity_x"] = approach_zero(
+			state["velocity_x"], FRICTION * TICK_RATE / tick_rate)
 	else:
-		state["velocity_x"] += floor_div(ACCELERATION * move_x, INPUT_SCALE)
+		state["velocity_x"] += floor_div(
+			ACCELERATION * TICK_RATE * move_x, tick_rate * INPUT_SCALE)
 	if move_y == 0:
-		state["velocity_y"] = approach_zero(state["velocity_y"], FRICTION)
+		state["velocity_y"] = approach_zero(
+			state["velocity_y"], FRICTION * TICK_RATE / tick_rate)
 	else:
-		state["velocity_y"] += floor_div(ACCELERATION * move_y, INPUT_SCALE)
+		state["velocity_y"] += floor_div(
+			ACCELERATION * TICK_RATE * move_y, tick_rate * INPUT_SCALE)
 	var vx: int = state["velocity_x"]
 	var vy: int = state["velocity_y"]
 	var magnitude: int = isqrt(vx * vx + vy * vy)
 	if magnitude > MAX_SPEED and magnitude != 0:
 		state["velocity_x"] = floor_div(vx * MAX_SPEED, magnitude)
 		state["velocity_y"] = floor_div(vy * MAX_SPEED, magnitude)
-	state["x"] += state["velocity_x"]
-	state["y"] += state["velocity_y"]
+	var remainder: Array = _position_remainders[player_id]
+	remainder[0] += state["velocity_x"] * TICK_RATE
+	remainder[1] += state["velocity_y"] * TICK_RATE
+	var x_step := divide_with_remainder(remainder[0], tick_rate)
+	var y_step := divide_with_remainder(remainder[1], tick_rate)
+	state["x"] += x_step[0]
+	state["y"] += y_step[0]
+	remainder[0] = x_step[1]
+	remainder[1] = y_step[1]
 	state["yaw_millidegrees"] = posmod(cmd["yaw_millidegrees"], 360000)
 	state["last_sequence"] = cmd["sequence"]
 	if cmd["fire"]:
@@ -133,7 +151,7 @@ func _attempt_fire(player_id: String, state: Dictionary) -> void:
 		_record(player_id, "empty_fire_rejected", {})
 		return
 	state["ammunition"] -= 1
-	state["next_fire_tick"] = tick + FIRE_INTERVAL_TICKS
+	state["next_fire_tick"] = tick + fire_interval_ticks()
 	_record(player_id, "shot_accepted", {
 		"origin_x": state["x"], "origin_y": state["y"],
 		"yaw_millidegrees": state["yaw_millidegrees"],
@@ -145,9 +163,24 @@ func _record(player_id: String, category: String, detail: Dictionary) -> void:
 	evidence.append({"tick": tick, "player_id": player_id, "category": category, "detail": detail})
 
 
+func fire_interval_ticks() -> int:
+	return FIRE_INTERVAL_TICKS * tick_rate / TICK_RATE
+
+
+static func divide_with_remainder(value: int, divisor: int) -> Array:
+	var quotient: int = value / divisor
+	return [quotient, value - quotient * divisor]
+
+
 ## Same canonical form as the Python oracle: sorted keys, no whitespace.
 func digest() -> String:
-	var payload := {"ticks": tick, "players": players, "evidence": evidence}
+	var payload := {
+		"tick_rate": tick_rate,
+		"ticks": tick,
+		"players": players,
+		"position_remainders": _position_remainders,
+		"evidence": evidence,
+	}
 	return JSON.stringify(payload, "", true).sha256_text()
 
 

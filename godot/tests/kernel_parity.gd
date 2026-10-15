@@ -9,28 +9,34 @@ const Kernel = preload("res://kernel/fairplay_kernel.gd")
 
 
 func _initialize() -> void:
-	_report("honest", ["honest"], _honest(32))
-	_report("attacker", ["attacker"], _attacker(32))
-	_report("mixed", ["attacker", "honest"], _mixed(48))
+	for tick_rate in Kernel.SUPPORTED_TICK_RATES:
+		_report("honest_%d" % tick_rate, ["honest"],
+			_honest(tick_rate, tick_rate), tick_rate)
+		_report("attacker_%d" % tick_rate, ["attacker"],
+			_attacker(tick_rate), tick_rate)
+		_report("mixed_%d" % tick_rate, ["attacker", "honest"],
+			_mixed(tick_rate), tick_rate)
 	quit(0)
 
 
-func _report(scenario: String, ids: Array, ticks: Array) -> void:
-	var kernel = Kernel.new(ids)
+func _report(scenario: String, ids: Array, ticks: Array, tick_rate: int) -> void:
+	var kernel = Kernel.new(ids, tick_rate)
 	for commands in ticks:
 		var keys: Array = commands.keys()
 		keys.sort()
 		for player_id in keys:
 			kernel.submit(player_id, commands[player_id])
 		kernel.step()
-	print(JSON.stringify({"scenario": scenario, "digest": kernel.digest(), "ticks": kernel.tick}, "", true))
+	print(JSON.stringify({"scenario": scenario, "digest": kernel.digest(),
+		"ticks": kernel.tick, "tick_rate": kernel.tick_rate}, "", true))
 
 
-func _honest(n: int, player_id: String = "honest") -> Array:
+func _honest(n: int, tick_rate: int, player_id: String = "honest") -> Array:
 	var out := []
+	var fire_interval: int = Kernel.FIRE_INTERVAL_TICKS * tick_rate / Kernel.TICK_RATE
 	for t in n:
 		out.append({player_id: Kernel.command(t, Kernel.INPUT_SCALE if t < n / 2 else 0, 0, 90000,
-			t % Kernel.FIRE_INTERVAL_TICKS == 0)})
+			t % fire_interval == 0)})
 	return out
 
 

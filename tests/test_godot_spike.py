@@ -50,9 +50,9 @@ def _mixed(n):
         }
 
 
-def replay_demo(player_ids, demo):
+def replay_demo(player_ids, demo, tick_rate=64):
     """Feed a server demo log (every submit, in order, per tick) to the oracle."""
-    server = AuthoritativeServer(player_ids)
+    server = AuthoritativeServer(player_ids, tick_rate=tick_rate)
     for submits in demo:
         for player_id, command in submits:
             server.submit(player_id, InputCommand(**command))
@@ -67,11 +67,17 @@ class GodotKernelParity(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stderr)
         rows = {r["scenario"]: r for r in (json.loads(line) for line in proc.stdout.splitlines()
                                            if line.startswith("{"))}
-        expected = {
-            "honest": run_commands(["honest"], honest_commands(32)).digest,
-            "attacker": run_commands(["attacker"], controlled_attacker_commands(32)).digest,
-            "mixed": run_commands(["attacker", "honest"], _mixed(48)).digest,
-        }
+        expected = {}
+        for tick_rate in (64, 128):
+            expected[f"honest_{tick_rate}"] = run_commands(
+                ["honest"], honest_commands(tick_rate, tick_rate=tick_rate),
+                tick_rate=tick_rate).digest
+            expected[f"attacker_{tick_rate}"] = run_commands(
+                ["attacker"], controlled_attacker_commands(tick_rate),
+                tick_rate=tick_rate).digest
+            expected[f"mixed_{tick_rate}"] = run_commands(
+                ["attacker", "honest"], _mixed(tick_rate),
+                tick_rate=tick_rate).digest
         for scenario, digest in expected.items():
             self.assertEqual(rows[scenario]["digest"], digest, scenario)
 
@@ -126,12 +132,14 @@ class GodotLoopbackMatch(unittest.TestCase):
     def test_server_completed_over_dtls(self):
         self.assertTrue(self.result["ok"], self.result)
         self.assertEqual(self.result["ticks"], 64)
+        self.assertEqual(self.result["tick_rate"], 64)
         self.assertEqual(self.result["transport"], "DTLS")
         published = (PROJECT / "kernel" / "KERNEL_SHA256").read_text().split()[0]
         self.assertEqual(self.result["kernel_sha256"], published)
 
     def test_demo_replays_to_same_digest(self):
-        replay = replay_demo(["attacker", "honest"], self.demo)
+        replay = replay_demo(
+            ["attacker", "honest"], self.demo, self.result["tick_rate"])
         self.assertEqual(replay.digest, self.result["digest"])
 
     def test_attacker_intent_is_bounded_by_server(self):
@@ -160,7 +168,9 @@ class GodotLoopbackMatch(unittest.TestCase):
         for role in ("honest", "attacker"):
             confirmed = self.client_out[role]["last_confirmed"]
             self.assertGreaterEqual(confirmed["tick"], 48, role)
-            truth = replay_demo(["attacker", "honest"], self.demo[:confirmed["tick"]]).players[role]
+            truth = replay_demo(
+                ["attacker", "honest"], self.demo[:confirmed["tick"]],
+                self.result["tick_rate"]).players[role]
             self.assertEqual(
                 (confirmed["x"], confirmed["y"], confirmed["ammunition"], confirmed["last_sequence"]),
                 (truth.x, truth.y, truth.ammunition, truth.last_sequence), role)
@@ -175,11 +185,13 @@ class CommunityServerRunner(unittest.TestCase):
         port = str(48000 + os.getpid() % 90)
         proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "run_dedicated_server.py"),
                                "--godot", GODOT, "--players", "attacker,honest", "--ticks", "128",
+                               "--tick-rate", "128",
                                "--port", port, "--out", str(out), "--demo-clients"],
                               capture_output=True, text=True, timeout=300)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         summary = json.loads(proc.stdout.strip().splitlines()[-1])
         self.assertEqual(summary["server"], "done")
+        self.assertEqual(summary["tick_rate"], 128)
         self.assertGreater(summary["flags"]["attacker"], 0)
         self.assertEqual(summary["flags"]["honest"], 0)
         self.assertEqual(oct((out / "tokens.json").stat().st_mode & 0o777), "0o600")

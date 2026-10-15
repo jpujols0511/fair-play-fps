@@ -5,13 +5,19 @@ October 15, 2026. Steps 1 to 3 of the spike in
 step 4. Status levels reached: **compiled and run headless, network-tested on
 loopback**. Not playtested, not rendered, not tested across machines.
 
+The fairness kernel accepts explicit 64 and 128 Hz profiles. Python and
+GDScript produce identical deterministic digests for honest, attacker, and
+mixed one-second fixtures at both rates. The dedicated server and thin clients
+accept `--tick-rate 64` or `--tick-rate 128`; every participant in a match must
+use the same profile.
+
 ## What it is
 
 | File | Role |
 | --- | --- |
 | `kernel/fairplay_kernel.gd` | Integer-exact GDScript port of `prototype/fairplay_sim.py`: fixed tick, intent-only commands, movement limits, fire cadence, ammunition, evidence, digest. |
 | `net/protocol.gd` | Strict binary wire format. Client to server carries intent only; there is no field for position, health, damage, ammunition or score. Wrong length or fields means malformed and dropped. |
-| `net/server.gd` | Headless authoritative server over DTLS. Authenticates each player's access token, binds the identity to that encrypted session, runs 64 Hz, sends each client its confirmed state, writes a demo log of every submit, and records the kernel hash it ran. |
+| `net/server.gd` | Headless authoritative server over DTLS. Authenticates each player's access token, binds the identity to that encrypted session, runs at the selected 64 or 128 Hz profile, sends each client its confirmed state, writes a demo log of every submit, and records the kernel hash it ran. |
 | `net/client.gd` | Thin headless client: sends one intent per tick and keeps the last server-confirmed state. Role `attacker` is a controlled test fixture, not a cheat. |
 | `tests/netfox_tick.gd` | Netfox's tick loop driving the kernel; digest must match the oracle. |
 | `addons/netfox*` | Vendored Netfox, MIT. Provenance in `docs/THIRD_PARTY.md`. |
@@ -40,6 +46,8 @@ python3 -m unittest tests.test_godot_spike -v
   kernel.
 - **Server truth:** every state a client displays equals the oracle's state at
   that snapshot's tick.
+- **Tick profiles:** the dedicated server, thin clients, replay detector, and
+  community-server runner complete over loopback at 64 and 128 Hz.
 - Test suite passed three consecutive runs.
 
 ## Findings to carry forward

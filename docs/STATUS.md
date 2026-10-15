@@ -67,9 +67,9 @@ Linux with Godot 4.4.1. Not tested across machines, not rendered, not played.
 - Proprietary ownership notice names Joan Pujols.
 - Project is separated from other repositories.
 
-## Authored, not implemented
+## Authored, not yet playable
 
-- Native fair-play engine architecture
+- Fair-play engine architecture
 - Product context
 - Roadmap
 - Repository rules
@@ -85,6 +85,13 @@ Linux with Godot 4.4.1. Not tested across machines, not rendered, not played.
 - Deterministic result digest and eight focused unit tests
 - Explicit 64 and 128 tick profiles with elapsed-time-normalized honest fixtures
 - One-command dependency-free local verification and Devin Local handoff
+- Python and Godot kernel parity at 64 and 128 Hz for honest, attacker, and
+  mixed one-second fixtures
+- Godot 4.4.1 headless authoritative kernel with Netfox-driven 64 Hz timing
+- DTLS loopback server and thin clients at both 64 and 128 Hz
+- Deterministic demo replay, asynchronous detection, and blind community review
+- Twenty-nine passing Python, Godot, loopback, detection, and review tests on
+  Linux x86_64 with the official Godot 4.4.1 stable headless build
 
 ## Open-source transition
 
@@ -96,23 +103,19 @@ Linux with Godot 4.4.1. Not tested across machines, not rendered, not played.
 
 ## Unverified
 
-- Language, libraries, compiler, and build system
-- Linux server or client compilation
-- Native runtime simulation
-- LAN multiplayer
+- Cross-machine LAN multiplayer
 - Prediction or reconciliation
 - Weapons or maps
-- Replay or validators
-- Performance, security, privacy, or accessibility
+- Rendered client or player input
+- Performance under load, security audit, privacy audit, or accessibility
 
 ## Current blockers
 
-- No runtime stack has been selected. Do not claim a playable game.
+- The current headless stack is not a playable game.
 - The current proprietary notice cannot represent an open-source public release.
 - Joan must select the license boundary before visibility changes.
 
 ## Next step
 
-Complete the threat model and bounded M1 technical proposal before writing the
-native simulation kernel. Use the Python reference to settle contracts, not as a
-claim of a production engine.
+Build the bounded M1 graybox client around the authoritative kernel, then prove
+two-client LAN behavior before expanding weapons, maps, or content.

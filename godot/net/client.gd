@@ -28,7 +28,11 @@ func _initialize() -> void:
 	var player_id: String = args.get("player", "honest")
 	var role: String = args.get("role", "honest")
 	var token: String = args.get("token", "")
-	var total_ticks: int = int(float(args.get("seconds", "3")) * Kernel.TICK_RATE)
+	var tick_rate: int = int(args.get("tick-rate", str(Kernel.TICK_RATE)))
+	if not Kernel.SUPPORTED_TICK_RATES.has(tick_rate):
+		_finish({"client": player_id, "error": "tick rate must be 64 or 128"}, 1)
+		return
+	var total_ticks: int = int(float(args.get("seconds", "3")) * tick_rate)
 
 	var cert := X509Certificate.new()
 	if cert.load(args.get("cert", "")) != OK:
@@ -57,7 +61,7 @@ func _initialize() -> void:
 	var sent := 0
 	var snapshots := 0
 	var confirmed := {}
-	var tick_usec: int = 1000000 / Kernel.TICK_RATE
+	var tick_usec: int = 1000000 / tick_rate
 	var next_tick: int = Time.get_ticks_usec()
 
 	for local_tick in total_ticks:
@@ -69,11 +73,14 @@ func _initialize() -> void:
 		if role == "attacker":
 			cmd = Kernel.command(local_tick, 5000, -4000, 450000, true)
 		else:
-			var moving := (local_tick / 32) % 2 == 0
-			cmd = Kernel.command(local_tick, 1000 if moving else 0, 0, 90000, local_tick % 12 == 0)
+			var moving := (local_tick / (tick_rate / 2)) % 2 == 0
+			var fire_interval: int = 12 * tick_rate / Kernel.TICK_RATE
+			cmd = Kernel.command(local_tick, 1000 if moving else 0, 0, 90000,
+				local_tick % fire_interval == 0)
 		session.put_packet(Protocol.encode_intent(player_id, cmd))
 		sent += 1
-		if role == "attacker" and local_tick >= 32 and local_tick % 16 == 0:
+		if role == "attacker" and local_tick >= tick_rate / 2 \
+				and local_tick % (tick_rate / 4) == 0:
 			var teleport := Protocol.encode_intent(player_id, cmd)
 			var claim := StreamPeerBuffer.new()
 			claim.put_32(99999)
@@ -90,7 +97,8 @@ func _initialize() -> void:
 				snapshots += 1
 				confirmed = snap
 
-	_finish({"client": player_id, "role": role, "sent": sent, "forged": forged,
+	_finish({"client": player_id, "role": role, "tick_rate": tick_rate,
+		"sent": sent, "forged": forged,
 		"snapshots": snapshots, "last_confirmed": confirmed}, 0)
 
 

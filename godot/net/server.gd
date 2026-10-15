@@ -23,6 +23,11 @@ func _initialize() -> void:
 	var args := _parse(OS.get_cmdline_user_args())
 	var port: int = int(args.get("port", "47911"))
 	var ticks: int = int(args.get("ticks", "64"))
+	var tick_rate: int = int(args.get("tick-rate", str(Kernel.TICK_RATE)))
+	if not Kernel.SUPPORTED_TICK_RATES.has(tick_rate):
+		push_error("tick rate must be 64 or 128")
+		quit(2)
+		return
 	var out_dir: String = args.get("out", "user://run")
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var tokens: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(args.get("tokens", "")))
@@ -63,9 +68,9 @@ func _initialize() -> void:
 		quit(3)
 		return
 
-	var kernel = Kernel.new(expected)
+	var kernel = Kernel.new(expected, tick_rate)
 	var demo: Array = []
-	var tick_usec: int = 1000000 / Kernel.TICK_RATE
+	var tick_usec: int = 1000000 / tick_rate
 	var next_tick: int = Time.get_ticks_usec()
 	for _t in ticks:
 		next_tick += tick_usec
@@ -86,7 +91,7 @@ func _initialize() -> void:
 	var summary := {
 		"ok": true, "engine": Engine.get_version_info()["string"], "transport": "DTLS",
 		"kernel_sha256": FileAccess.get_sha256("res://kernel/fairplay_kernel.gd"),
-		"ticks": kernel.tick, "digest": kernel.digest(), "stats": stats,
+		"tick_rate": tick_rate, "ticks": kernel.tick, "digest": kernel.digest(), "stats": stats,
 		"players": kernel.players, "evidence_counts": {},
 	}
 	for player_id in expected:
