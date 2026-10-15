@@ -96,7 +96,10 @@ func step() -> void:
 	ids.sort()
 	for player_id in ids:
 		var state: Dictionary = players[player_id]
-		var cmd: Dictionary = _queued.get(player_id, command(state["last_sequence"] + 1))
+		# A missing input is a neutral tick: no move, no fire, same facing, and
+		# no sequence number consumed (decision 0002).
+		var cmd: Dictionary = _queued.get(player_id,
+			command(state["last_sequence"], 0, 0, state["yaw_millidegrees"]))
 		_queued.erase(player_id)
 		_apply_input(player_id, state, cmd)
 	tick += 1

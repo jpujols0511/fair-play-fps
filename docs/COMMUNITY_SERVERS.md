@@ -22,9 +22,12 @@ python3 scripts/run_dedicated_server.py --godot /path/to/Godot_v4.4.1-stable_lin
 
 1. Gives each player a random access token in `<out>/tokens.json` (mode
    0600). Send each player only their own token. Never publish the file.
-2. Starts the headless server: DTLS, 64 Hz, server-authoritative.
-3. Writes `demo.json` (every accepted input) and `result.json` (digest,
-   kernel hash, evidence counts).
+2. Starts the headless server: DTLS, 64 or 128 Hz, server-authoritative, with
+   a per-player jitter buffer of `--jitter-ticks` (default 3) so
+   honest late or reordered packets are not discarded (decision 0002,
+   implemented; product acceptance pending).
+3. Writes `demo.json` (every input the kernel received, in order) and
+   `result.json` (digest, kernel hash, evidence counts, buffer counts).
 4. After the match, runs detection as a separate process and writes
    `detection.json`. Detection never runs inside the live server.
 

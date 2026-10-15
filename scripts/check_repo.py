@@ -9,6 +9,7 @@ REQUIRED = [
     'CLAUDE.md',
     'docs/DESIGN.md',
     'docs/decisions/0001-engine-and-netcode.md',
+    'docs/decisions/0002-missing-input-and-jitter-buffer.md',
     'LICENSE.txt',
     'docs/PROJECT_CONTEXT.md',
     'docs/ROADMAP.md',

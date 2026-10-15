@@ -108,9 +108,12 @@ class AuthoritativeServer:
     def step(self) -> None:
         for player_id in sorted(self.players):
             state = self.players[player_id]
+            # A missing input is a neutral tick: no move, no fire, same facing,
+            # and no sequence number consumed, so the real input still counts
+            # if it arrives late (decision 0002).
             command = self._queued.pop(
                 player_id,
-                InputCommand(sequence=state.last_sequence + 1),
+                InputCommand(sequence=state.last_sequence, yaw_millidegrees=state.yaw_millidegrees),
             )
             self._apply_input(player_id, state, command)
         self.tick += 1

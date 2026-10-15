@@ -55,6 +55,20 @@ class AuthoritativeSimulationTests(unittest.TestCase):
         self.assertEqual(server.players["player"].last_sequence, 1)
         self.assertIn("reordered_input", [event.category for event in server.evidence])
 
+    def test_missing_input_is_neutral_and_consumes_no_sequence(self):
+        # Decision 0002: a tick with no input keeps facing, does not move or
+        # fire, and leaves the sequence free so a late input still counts.
+        server = AuthoritativeServer(["player"])
+        server.submit("player", InputCommand(sequence=0, yaw_millidegrees=45_000))
+        server.step()
+        server.step()
+        state = server.players["player"]
+        self.assertEqual((state.last_sequence, state.yaw_millidegrees), (0, 45_000))
+        server.submit("player", InputCommand(sequence=1, move_x=INPUT_SCALE, yaw_millidegrees=46_000))
+        server.step()
+        self.assertEqual(server.players["player"].last_sequence, 1)
+        self.assertNotIn("stale_input", [event.category for event in server.evidence])
+
     def test_same_commands_produce_same_digest(self):
         first = run_commands(["honest"], honest_commands(64))
         second = run_commands(["honest"], honest_commands(64))

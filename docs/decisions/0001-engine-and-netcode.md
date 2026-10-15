@@ -104,7 +104,7 @@ candidate, keeping the fairness kernel in our own code.
    Netfox's clock synchronization runs across processes; server stays the
    only place outcomes are decided.
 3. **Then.** Client prediction and reconciliation with Netfox rollback for
-   the local player only, plus a jitter buffer so honest late inputs are
-   not discarded.
+   the local player only. The jitter buffer part is proposed separately in
+   decision 0002 (branch `claude/jitter-buffer-v01`).
 
 Accepting this record does not change the licence, which stays open.
