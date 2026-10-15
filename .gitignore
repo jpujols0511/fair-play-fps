@@ -25,6 +25,7 @@ secrets/
 # Large generated captures
 captures/
 replays/generated/
+matches/
 
 # Godot editor and import cache
 godot/.godot/

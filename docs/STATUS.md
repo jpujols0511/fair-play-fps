@@ -1,5 +1,22 @@
 # Status
 
+## October 15, 2026: authoritative Godot graybox client
+
+- **Authored:** original procedural room, first-person camera, lighting,
+  crosshair and server-confirmation HUD in the Godot 4.4.1 main scene.
+- **Authority:** clients serialize only movement, yaw and fire intent through
+  the existing strict protocol. The camera rig's position is assigned only
+  from authenticated DTLS snapshots; there is no local movement prediction.
+- **Two-client proof:** two main-scene processes authenticated to one headless
+  server over Linux loopback at 64 and 128 Hz. Each moved independently, each
+  scene position equaled its last server snapshot, and both demos replayed to
+  the server digest.
+- **Procedure:** `scripts/run_graybox_clients.py --headless-proof`, one second
+  per profile, default three-tick jitter buffer, no injected loss or latency.
+- **Not yet verified:** pixels and controls by a human, cross-machine LAN,
+  collision, jumping, crouching, weapons, remote-player rendering, prediction
+  and reconciliation.
+
 ## October 15, 2026: missing input and jitter buffer (decision 0002)
 
 Integrated with the 64 and 128 tick profiles on `main`; product acceptance is
@@ -23,7 +40,7 @@ pending. Compiled, run and network-tested on loopback only, Linux, Godot
 - **Measured:** with the same fault, a buffer of 3 gives zero stale inputs,
   zero underruns and 11 of 11 shots; 0 and 1 still lose 16. The table is in
   the decision record.
-- **Checks:** the integrated 32-test suite passes with Godot. New tests:
+- **Checks:** the integrated 33-test suite passes with Godot. New tests:
   neutral missing input (Python), the
   fault without and with a buffer (Godot), no honest `stale_input` on the
   loopback match.
@@ -121,32 +138,36 @@ Linux with Godot 4.4.1. Not tested across machines, not rendered, not played.
 - Godot 4.4.1 headless authoritative kernel with Netfox-driven 64 Hz timing
 - DTLS loopback server and thin clients at both 64 and 128 Hz
 - Deterministic demo replay, asynchronous detection, and blind community review
-- Twenty-nine passing Python, Godot, loopback, detection, and review tests on
+- Thirty-three passing Python, Godot, loopback, detection, and review tests on
   Linux x86_64 with the official Godot 4.4.1 stable headless build
+- Render-capable first-person graybox and two-client launcher; scene instances
+  verified against server-confirmed snapshots at 64 and 128 Hz
 
 ## Open-source transition
 
 - Public and open-source direction is recorded.
 - Current tracked tree and Git history contain no known credentials, binaries,
   third-party game content, or large blobs.
-- Repository remains private and proprietary until Joan selects code,
-  documentation, asset, and trademark terms.
+- AGPL-3.0-only code, CC BY-SA 4.0 original assets and documentation, and a
+  reserved project trademark are the selected direction; applying the terms
+  and changing visibility are deferred by Joan.
 
 ## Unverified
 
 - Cross-machine LAN multiplayer
 - Prediction or reconciliation
 - Weapons or maps
-- Rendered client or player input
+- Visual presentation and controls by a human playtester
+- Remote-player rendering, collision, jump, crouch, health and respawn
 - Performance under load, security audit, privacy audit, or accessibility
 
 ## Current blockers
 
-- The current headless stack is not a playable game.
+- The graybox lacks the remaining M1 gameplay rules and has not been played.
 - The current proprietary notice cannot represent an open-source public release.
-- Joan must select the license boundary before visibility changes.
+- The selected license boundary must be applied before visibility changes.
 
 ## Next step
 
-Build the bounded M1 graybox client around the authoritative kernel, then prove
-two-client LAN behavior before expanding weapons, maps, or content.
+Verify the two-client scene visually and across two LAN machines, then add the
+remaining server-owned M1 movement and combat rules.

@@ -1,9 +1,10 @@
-# Godot 4 headless spike (decision 0001)
+# Godot 4 authoritative graybox
 
 October 15, 2026. Steps 1 to 3 of the spike in
 `docs/decisions/0001-engine-and-netcode.md`, plus a metadata-level look at
-step 4. Status levels reached: **compiled and run headless, network-tested on
-loopback**. Not playtested, not rendered, not tested across machines.
+step 4. Status levels reached: **compiled, scene-instantiated headless, and
+network-tested on loopback**. The render-capable scene is authored but has not
+been visually playtested or tested across machines.
 
 The fairness kernel accepts explicit 64 and 128 Hz profiles. Python and
 GDScript produce identical deterministic digests for honest, attacker, and
@@ -16,6 +17,7 @@ use the same profile.
 | File | Role |
 | --- | --- |
 | `kernel/fairplay_kernel.gd` | Integer-exact GDScript port of `prototype/fairplay_sim.py`: fixed tick, intent-only commands, movement limits, fire cadence, ammunition, evidence, digest. |
+| `client/graybox_client.tscn` | Render-capable first-person graybox. Sends intent only and assigns world position only from authenticated snapshots. |
 | `net/protocol.gd` | Strict binary wire format. Client to server carries intent only; there is no field for position, health, damage, ammunition or score. Wrong length or fields means malformed and dropped. |
 | `net/server.gd` | Headless authoritative server over DTLS. Authenticates each player's access token, binds the identity to that encrypted session, runs at the selected 64 or 128 Hz profile, sends each client its confirmed state, writes a demo log of every submit, and records the kernel hash it ran. |
 | `net/client.gd` | Thin headless client: sends one intent per tick and keeps the last server-confirmed state. Role `attacker` is a controlled test fixture, not a cheat. |
@@ -25,6 +27,20 @@ use the same profile.
 | `../tests/test_godot_spike.py` | Python checks; skipped unless `FAIRPLAY_GODOT` points to a Godot binary. |
 
 ## Run
+
+Interactive two-client graybox:
+
+```sh
+python3 scripts/run_graybox_clients.py \
+    --godot /path/to/Godot_v4.4.1-stable_linux.x86_64 \
+    --out matches/graybox-demo
+```
+
+This opens two clients against one authoritative DTLS server for 30 seconds.
+Use `--tick-rate 128` for that profile. The automated path adds
+`--headless-proof` and verifies both scene positions against server snapshots.
+
+Test suite:
 
 ```sh
 # Godot 4.4.1-stable, Linux x86_64, official build 49a5bc7b6

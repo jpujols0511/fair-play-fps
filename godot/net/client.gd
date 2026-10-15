@@ -29,6 +29,7 @@ func _initialize() -> void:
 	for i in range(0, user_args.size() - 1, 2):
 		args[user_args[i].substr(2)] = user_args[i + 1]
 	var port: int = int(args.get("port", "47911"))
+	var host: String = args.get("host", "127.0.0.1")
 	var player_id: String = args.get("player", "honest")
 	var role: String = args.get("role", "honest")
 	var token: String = args.get("token", "")
@@ -44,7 +45,7 @@ func _initialize() -> void:
 		_finish({"client": player_id, "error": "cannot load server certificate"}, 1)
 		return
 	var udp := PacketPeerUDP.new()
-	udp.connect_to_host("127.0.0.1", port)
+	udp.connect_to_host(host, port)
 	var session := PacketPeerDTLS.new()
 	session.connect_to_peer(udp, Protocol.SERVER_NAME, TLSOptions.client(cert))
 	var handshake_deadline := Time.get_ticks_msec() + 10000
@@ -62,7 +63,7 @@ func _initialize() -> void:
 	session.put_packet(Protocol.encode_hello(player_id, token))
 
 	var plaintext := PacketPeerUDP.new()
-	plaintext.connect_to_host("127.0.0.1", port)
+	plaintext.connect_to_host(host, port)
 	var sent := 0
 	var snapshots := 0
 	var confirmed := {}

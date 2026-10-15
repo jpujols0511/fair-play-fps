@@ -32,6 +32,7 @@ const PRIME_TIMEOUT_MSEC := 2000
 func _initialize() -> void:
 	var args := _parse(OS.get_cmdline_user_args())
 	var port: int = int(args.get("port", "47911"))
+	var bind_host: String = args.get("bind", "127.0.0.1")
 	var ticks: int = int(args.get("ticks", "64"))
 	var tick_rate: int = int(args.get("tick-rate", str(Kernel.TICK_RATE)))
 	if not Kernel.SUPPORTED_TICK_RATES.has(tick_rate):
@@ -54,8 +55,8 @@ func _initialize() -> void:
 	var cert := crypto.generate_self_signed_certificate(key,
 		"CN=%s,O=Fair Play FPS,C=US" % Protocol.SERVER_NAME)
 	var udp_server := UDPServer.new()
-	if udp_server.listen(port, "127.0.0.1") != OK:
-		push_error("listen failed on port %d" % port)
+	if udp_server.listen(port, bind_host) != OK:
+		push_error("listen failed on %s:%d" % [bind_host, port])
 		quit(2)
 		return
 	var dtls := DTLSServer.new()
@@ -111,6 +112,7 @@ func _initialize() -> void:
 
 	var summary := {
 		"ok": true, "engine": Engine.get_version_info()["string"], "transport": "DTLS",
+		"bind": bind_host,
 		"jitter_ticks": jitter_ticks,
 		"kernel_sha256": FileAccess.get_sha256("res://kernel/fairplay_kernel.gd"),
 		"tick_rate": tick_rate, "ticks": kernel.tick, "digest": kernel.digest(), "stats": stats,

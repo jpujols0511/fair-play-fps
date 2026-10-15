@@ -34,6 +34,16 @@ python3 scripts/run_dedicated_server.py --godot /path/to/Godot_v4.4.1-stable_lin
 Add `--demo-clients` to start one honest and one controlled attacker test
 client on the same machine as a smoke test.
 
+For the render-capable two-client graybox instead, run:
+
+```sh
+python3 scripts/run_graybox_clients.py --godot /path/to/Godot_v4.4.1 \
+    --out matches/graybox-demo
+```
+
+The default is loopback. `--bind 0.0.0.0 --host <server-lan-ip>` exposes the
+same DTLS server to a LAN, but that cross-machine topology is not yet verified.
+
 ## What operators send upstream
 
 Flags and demos, not punishments. A flag goes to blind community review; only

@@ -229,6 +229,43 @@ class JitterBuffer(unittest.TestCase):
 
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class GrayboxClients(unittest.TestCase):
+    """The main scene runs twice against one authoritative DTLS server."""
+
+    def test_two_clients_render_server_confirmed_state_at_both_tick_rates(self):
+        for index, tick_rate in enumerate((64, 128)):
+            with self.subTest(tick_rate=tick_rate):
+                out = Path(tempfile.mkdtemp(prefix=f"fairplay-graybox-{tick_rate}-"))
+                port = str(48300 + (os.getpid() % 40) * 2 + index)
+                proc = subprocess.run([
+                    sys.executable, str(ROOT / "scripts" / "run_graybox_clients.py"),
+                    "--godot", GODOT, "--out", str(out), "--seconds", "1",
+                    "--port", port, "--tick-rate", str(tick_rate), "--headless-proof",
+                ], capture_output=True, text=True, timeout=120)
+                self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+                proof = json.loads((out / "graybox_proof.json").read_text())
+                result = json.loads((out / "result.json").read_text())
+                demo = json.loads((out / "demo.json").read_text())
+                self.assertTrue(proof["ok"], proof)
+                self.assertEqual(proof["network"], "loopback")
+                self.assertEqual(proof["tick_rate"], tick_rate)
+                self.assertEqual(set(proof["clients"]), {"alpha", "bravo"})
+                self.assertEqual(
+                    replay_demo(["alpha", "bravo"], demo, tick_rate).digest,
+                    result["digest"],
+                )
+                for player, report in proof["clients"].items():
+                    confirmed = report["last_confirmed"]
+                    truth = replay_demo(
+                        ["alpha", "bravo"], demo[:confirmed["tick"]], tick_rate
+                    ).players[player]
+                    self.assertEqual(report["authority"], "server_snapshots_only")
+                    self.assertEqual(
+                        (confirmed["x"], confirmed["y"], confirmed["last_sequence"]),
+                        (truth.x, truth.y, truth.last_sequence),
+                    )
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
 class CommunityServerRunner(unittest.TestCase):
     """scripts/run_dedicated_server.py: match, kernel check, offline detection."""
 
