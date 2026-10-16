@@ -50,6 +50,18 @@ def _mixed(n):
         }
 
 
+def _combat(n):
+    for t in range(n):
+        a_view = t + 3 if t % 24 == 8 else (t - 40 if t % 16 == 8 else t - 5)
+        yield {
+            "a": InputCommand(t, 0, 0, 0, t % 8 == 0, a_view),
+            "b": InputCommand(t, 1000 if t < 20 else 0, 0 if t < 20 else 1000,
+                              180_000, t % 8 == 4, t - 2),
+            "c": InputCommand(t if t % 7 else t - 1, -700, -700,
+                              -135_000 + 1500 * t, t % 10 == 0, t - 1),
+        }
+
+
 def replay_demo(player_ids, demo, tick_rate=64):
     """Feed a server demo log (every submit, in order, per tick) to the oracle."""
     server = AuthoritativeServer(player_ids, tick_rate=tick_rate)
@@ -77,6 +89,9 @@ class GodotKernelParity(unittest.TestCase):
                 tick_rate=tick_rate).digest
             expected[f"mixed_{tick_rate}"] = run_commands(
                 ["attacker", "honest"], _mixed(tick_rate),
+                tick_rate=tick_rate).digest
+            expected[f"combat_{tick_rate}"] = run_commands(
+                ["a", "b", "c"], _combat(tick_rate),
                 tick_rate=tick_rate).digest
         for scenario, digest in expected.items():
             self.assertEqual(rows[scenario]["digest"], digest, scenario)
@@ -264,6 +279,86 @@ class GrayboxClients(unittest.TestCase):
                         (confirmed["x"], confirmed["y"], confirmed["last_sequence"]),
                         (truth.x, truth.y, truth.last_sequence),
                     )
+
+@unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
+class EnetNetfoxMatch(unittest.TestCase):
+    """ENet+DTLS and Netfox preserve authority at both supported profiles."""
+
+    def test_transport_profiles_authentication_and_replay(self):
+        import secrets
+
+        for index, tick_rate in enumerate((64, 128)):
+            with self.subTest(tick_rate=tick_rate):
+                out = Path(tempfile.mkdtemp(prefix=f"fairplay-enet-{tick_rate}-"))
+                port = str(48500 + (os.getpid() % 40) * 2 + index)
+                tokens = {"honest": secrets.token_hex(32), "attacker": secrets.token_hex(32)}
+                token_file = out / "tokens.json"
+                token_file.write_text(json.dumps(tokens))
+                token_file.chmod(0o600)
+                base = [GODOT, "--headless", "--path", str(PROJECT), "--script"]
+                server = subprocess.Popen(
+                    base + ["res://net/enet_server.gd", "--", "--port", port,
+                            "--ticks", "128", "--tick-rate", str(tick_rate),
+                            "--tokens", str(token_file), "--out", str(out)],
+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                )
+                cert = out / "server_cert.crt"
+                deadline = time.time() + 30
+                while not cert.exists() and time.time() < deadline:
+                    time.sleep(0.1)
+                self.assertTrue(cert.exists(), "ENet server did not create its certificate")
+                time.sleep(0.2)
+                clients = [
+                    subprocess.Popen(
+                        base + ["res://net/enet_client.gd", "--", "--port", port,
+                                "--player", role, "--role", role, "--token", tokens[role],
+                                "--cert", str(cert), "--seconds", str(128 / tick_rate + 2),
+                                "--tick-rate", str(tick_rate), "--jitter",
+                                "hold2" if role == "honest" else "none"],
+                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                    )
+                    for role in ("honest", "attacker")
+                ]
+                client_reports = {}
+                for role, proc in zip(("honest", "attacker"), clients):
+                    output, _ = proc.communicate(timeout=90)
+                    self.assertEqual(proc.returncode, 0, output)
+                    client_reports[role] = next(
+                        json.loads(line) for line in output.splitlines() if line.startswith('{"client"')
+                    )
+                server_output, _ = server.communicate(timeout=90)
+                self.assertEqual(server.returncode, 0, server_output)
+                result = json.loads((out / "result.json").read_text())
+                demo = json.loads((out / "demo.json").read_text())
+
+                self.assertTrue(result["ok"], result)
+                self.assertEqual(result["transport"], "ENet+DTLS")
+                self.assertEqual(result["tick_rate"], tick_rate)
+                self.assertEqual(result["clock"]["tickrate"], tick_rate)
+                self.assertEqual(replay_demo(["attacker", "honest"], demo, tick_rate).digest,
+                                 result["digest"])
+                self.assertGreater(result["stats"]["auth_failed"], 0)
+                self.assertGreater(result["stats"]["malformed"], 0)
+                self.assertGreater(result["stats"]["identity_mismatch"], 0)
+                self.assertGreater(
+                    result["evidence_counts"]["attacker"].get("rewind_limited", 0), 0
+                )
+                replayed = replay_demo(["attacker", "honest"], demo, tick_rate)
+                rewind_limit = 13 * tick_rate // 64
+                rewinds = [
+                    event.detail["rewind_ticks"]
+                    for event in replayed.evidence
+                    if event.category == "hit_confirmed"
+                ]
+                self.assertTrue(all(rewind <= rewind_limit for rewind in rewinds), rewinds)
+                self.assertNotIn("stale_input", result["evidence_counts"]["honest"])
+                self.assertEqual(result["buffer"]["honest"]["late"], 0)
+                for role in ("honest", "attacker"):
+                    self.assertEqual(client_reports[role]["tick_rate"], tick_rate)
+                    self.assertGreater(client_reports[role]["snapshots"], 0)
+                    self.assertGreater(client_reports[role]["prediction"]["confirmed"], 0)
+                self.assertEqual(client_reports["honest"]["prediction"]["corrections"], 0)
+
 
 @unittest.skipUnless(GODOT and Path(GODOT).is_file(), "set FAIRPLAY_GODOT to a Godot 4 binary")
 class CommunityServerRunner(unittest.TestCase):

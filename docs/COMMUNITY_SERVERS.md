@@ -17,12 +17,14 @@ commit, so a kernel change is always a deliberate, reviewable act.
 
 ```sh
 python3 scripts/run_dedicated_server.py --godot /path/to/Godot_v4.4.1-stable_linux.x86_64 \
-    --players alice,bob --ticks 640 --out matches/my-first-match
+    --players alice,bob --ticks 640 --tick-rate 64 --transport enet \
+    --out matches/my-first-match
 ```
 
 1. Gives each player a random access token in `<out>/tokens.json` (mode
    0600). Send each player only their own token. Never publish the file.
-2. Starts the headless server: DTLS, 64 or 128 Hz, server-authoritative, with
+2. Starts the headless server: ENet with DTLS and Netfox clock sync by
+   default, or raw DTLS with `--transport dtls`, at 64 or 128 Hz, with
    a per-player jitter buffer of `--jitter-ticks` (default 3) so
    honest late or reordered packets are not discarded (decision 0002,
    implemented; product acceptance pending).

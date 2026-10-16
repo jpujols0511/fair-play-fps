@@ -7,11 +7,12 @@ extends RefCounted
 ## DTLS session only if the token matches.
 ##
 ## After HELLO, client -> server carries intent only: sequence, two move axes,
-## yaw, fire. There is no field for position, health, damage, ammunition or
+## yaw, the server tick the client was seeing (for bounded lag compensation),
+## fire. There is no field for position, health, damage, ammunition or
 ## score, so a client cannot claim them (invariant 1). Any packet whose length
 ## or fields do not match exactly is rejected as malformed.
 
-const VERSION := 1
+const VERSION := 3
 const KIND_INTENT := 1
 const KIND_SNAPSHOT := 2
 const KIND_HELLO := 3
@@ -69,6 +70,7 @@ static func encode_intent(player_id: String, cmd: Dictionary) -> PackedByteArray
 	b.put_32(cmd["move_x"])
 	b.put_32(cmd["move_y"])
 	b.put_32(cmd["yaw_millidegrees"])
+	b.put_32(cmd.get("view_tick", -1))
 	b.put_u8(1 if cmd["fire"] else 0)
 	return b.data_array
 
@@ -78,7 +80,7 @@ static func decode_intent(packet: PackedByteArray) -> Dictionary:
 	if packet.size() < 3 or packet[0] != VERSION or packet[1] != KIND_INTENT:
 		return {}
 	var id_len: int = packet[2]
-	if id_len < 1 or id_len > MAX_ID or packet.size() != 3 + id_len + 17:
+	if id_len < 1 or id_len > MAX_ID or packet.size() != 3 + id_len + 21:
 		return {}
 	var player_id := packet.slice(3, 3 + id_len).get_string_from_ascii()
 	if player_id.length() != id_len or not _valid_id(player_id):
@@ -88,7 +90,7 @@ static func decode_intent(packet: PackedByteArray) -> Dictionary:
 	b.seek(3 + id_len)
 	var cmd := {
 		"sequence": b.get_32(), "move_x": b.get_32(), "move_y": b.get_32(),
-		"yaw_millidegrees": b.get_32(),
+		"yaw_millidegrees": b.get_32(), "view_tick": b.get_32(),
 	}
 	var fire_byte: int = b.get_u8()
 	if fire_byte > 1:
@@ -97,25 +99,30 @@ static func decode_intent(packet: PackedByteArray) -> Dictionary:
 	return {"player_id": player_id, "command": cmd}
 
 
+## Server -> client: the player's own confirmed state after a kernel tick.
+## Carries every field the client needs to replay its unconfirmed intents.
+const SNAPSHOT_KEYS := ["tick", "x", "y", "velocity_x", "velocity_y", "yaw_millidegrees",
+	"health", "ammunition", "next_fire_tick", "last_sequence", "remainder_x", "remainder_y"]
+
+
 static func encode_snapshot(tick: int, state: Dictionary) -> PackedByteArray:
 	var b := StreamPeerBuffer.new()
 	b.put_u8(VERSION)
 	b.put_u8(KIND_SNAPSHOT)
-	for value in [tick, state["x"], state["y"], state["velocity_x"], state["velocity_y"],
-			state["ammunition"], state["last_sequence"]]:
-		b.put_32(value)
+	b.put_32(tick)
+	for key in SNAPSHOT_KEYS.slice(1):
+		b.put_32(state[key])
 	return b.data_array
 
 
 static func decode_snapshot(packet: PackedByteArray) -> Dictionary:
-	if packet.size() != 2 + 7 * 4 or packet[0] != VERSION or packet[1] != KIND_SNAPSHOT:
+	if packet.size() != 2 + SNAPSHOT_KEYS.size() * 4 or packet[0] != VERSION or packet[1] != KIND_SNAPSHOT:
 		return {}
 	var b := StreamPeerBuffer.new()
 	b.data_array = packet
 	b.seek(2)
-	var keys := ["tick", "x", "y", "velocity_x", "velocity_y", "ammunition", "last_sequence"]
 	var out := {}
-	for key in keys:
+	for key in SNAPSHOT_KEYS:
 		out[key] = b.get_32()
 	return out
 
