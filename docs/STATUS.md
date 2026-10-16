@@ -1,5 +1,21 @@
 # Status
 
+## October 16, 2026: handout documents (docs only)
+
+Branch `claude/handout-docs-v01`, from Game Builder's handout. No code was
+changed or run. Authored only; nothing here is accepted by Joan.
+
+- Added `SCORE_AND_ROUND_RULES.md`, `CLIENT_PREDICTION.md`,
+  `REMOTE_PLAYER_SMOOTHING.md`, `LICENCE_SUMMARY.md`, `DOCS_GAP_ANALYSIS.md`
+  and `BOT-DIFFICULTY.md` (new; it did not exist to expand).
+- **Handout did not match the repository.** `m1-movement-combat`, Devin's PR
+  \#1, `LICENSE` and `LICENSE-ASSETS.md` are not in the remote. The documents
+  are written from `main` and the proposal branches; Devin should compare.
+- **Found:** same-tick duels are decided by player-id order in the hit code
+  (branches, decision 0003); proposed fix in `SCORE_AND_ROUND_RULES.md`.
+- **Estimated, not measured:** the rewind budget in `CLIENT_PREDICTION.md`.
+- Decisions for Joan are marked `DECISION FOR JOAN` in each document.
+
 ## October 15, 2026: authoritative Godot graybox client
 
 - **Authored:** original procedural room, first-person camera, lighting,
