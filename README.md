@@ -25,3 +25,7 @@ The target is Linux: CachyOS and other distros, through Steam on Linux. No Windo
 ## Where it comes from
 
 Built from pieces of Counter-Strike 1.6 through CS2, including Condition Zero and Source. A new game that learns from what made those games durable, and leaves behind what broke them.
+
+---
+
+Fair Play FPS is created and owned by Joan Pujols.
