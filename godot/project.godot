@@ -53,7 +53,12 @@ InterpolationServer="*res://addons/netfox/servers/interpolation-server.gd"
 [netfox]
 
 time/tickrate=64
+time/sync_to_physics=true
 time/suppress_offline_peer_warning=true
+
+[physics]
+
+common/physics_ticks_per_second=64
 
 [editor_plugins]
 

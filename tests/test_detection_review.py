@@ -25,6 +25,11 @@ DETECTOR = Detector.calibrate(CLEAN, "test")
 
 
 class Detection(unittest.TestCase):
+    def test_network_and_rewind_diagnostics_never_create_suspicion(self):
+        self.assertTrue(
+            {"stale_input", "reordered_input", "rewind_limited"}.issubset(NEVER_SUSPICION)
+        )
+
     def test_no_flags_on_held_out_clean_play(self):
         held_out = [timeline(fixtures.honest(512, s)) for s in range(1000, 1060)]
         self.assertEqual([f for t in held_out for f in DETECTOR.flags(t)], [])

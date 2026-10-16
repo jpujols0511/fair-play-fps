@@ -1,5 +1,46 @@
 # Status
 
+## October 15, 2026: staged transport, prediction, and combat integration
+
+- **Integrated on the staged branch:** ENet with DTLS and Netfox clock sync
+  is an opt-in transport alongside the preserved raw DTLS graybox path.
+- **Profiles:** both 64 and 128 Hz configure Netfox explicitly and construct
+  the existing profile-aware kernel without changing its digest contract.
+- **Diagnostics:** the shared bounded input buffer now reports reordered
+  arrivals separately; network timing remains diagnostic evidence only.
+- **Verified:** Godot 4.4.1 on Linux loopback, server plus two headless clients
+  at both profiles. Authentication failures, malformed and identity-spoofed
+  packets were refused; honest injected two-tick jitter produced no stale
+  input; each demo replayed to the server digest.
+- **Not verified:** cross-machine LAN, internet conditions, rendered ENet
+  client, human playtest, or production deployment.
+- **Prediction integrated:** the ENet client predicts only local presentation,
+  replaces it with every newer server snapshot, and replays only unconfirmed
+  intents. Snapshots include movement remainders for exact reconciliation at
+  both profiles; no predicted state is sent to the server.
+- **Combat staged:** the authoritative Python and GDScript kernels resolve
+  integer-ray hits, damage, health and elimination. Client intent supplies
+  only `view_tick`; the server bounds rewind to about 200 ms at both profiles
+  (13 ticks at 64 Hz, 26 at 128 Hz).
+- **Protocol:** combat intent and expanded snapshots are explicit protocol
+  version 3; incompatible packets are rejected rather than misdecoded.
+- **Safety:** `stale_input`, `reordered_input`, and `rewind_limited` remain
+  diagnostic evidence and never become suspicion categories.
+- **Decision status:** combat constants remain proposed for Joan's acceptance;
+  this branch is a shipping-test candidate, not an approval or deployment.
+- **Combined verification:** 44 tests passed in 61.710 seconds with Godot
+  4.4.1 on Linux. Python/GDScript combat digests match at 64 and 128 Hz;
+  current, past, future, and over-limit views are covered. Raw DTLS, ENet with
+  DTLS, graybox authority, replay, authentication rejection, jitter, and
+  presentation prediction remain green.
+- **Shipping smoke:** the community runner completed two-player ENet+DTLS
+  loopback matches for four simulated seconds at each profile (256 ticks at
+  64 Hz; 512 at 128 Hz). Both replays matched the server digest; detection
+  produced three attacker flags and zero honest flags.
+- **Still unverified:** cross-machine LAN or internet, impaired networks,
+  rendered ENet play, human controls/visuals, and production deployment.
+- **Next:** publish this staged branch for review without merging `main`.
+
 ## October 15, 2026: authoritative Godot graybox client
 
 - **Authored:** original procedural room, first-person camera, lighting,
