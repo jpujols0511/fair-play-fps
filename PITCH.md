@@ -33,7 +33,3 @@ Counter-Strike: Source is the bought study reference. The lineage also runs thro
 ## Priority and scope
 
 Fair Play FPS comes first, then the other existing projects in order. No new games, no new game ideas. Everything is built from the foundations that already exist.
-
-## Streaming
-
-Live dev sessions at night, when the connection is best. The build process out in the open: writing it, testing it, and how I actually talk to my software.
