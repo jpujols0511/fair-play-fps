@@ -1,56 +1,31 @@
 # Fair Play FPS
 
-Private pre-production research and engineering project owned by Joan Pujols.
+> **Valve took Counter-Strike in a direction that broke it. We're building the game that puts the mechanics — and fair play — back at the center.**
 
-Fair Play FPS is a temporary internal name for an original competitive
-first-person shooter. The project studies the readable movement, map language,
-weapon feedback, teamwork, and round structure that made classic tactical
-shooters durable, while designing authoritative simulation and fair-play
-enforcement as native engine systems.
+Fair Play FPS is a new competitive first-person shooter built around the feel and mechanics of Counter-Strike, from 1.6 through CS2, with Condition Zero and Source in the mix. It's not a clone. It's a new experiment, built from pieces of all those games and engines, with fair play as the foundation everything else sits on.
 
-## Boundaries
+## Valve built a casino and forgot the game
 
-- Original code, art, maps, names, characters, audio, and game identity
-- No Valve, Counter-Strike, or other third-party source code or assets
-- Open-source direction with explicit code, asset, and trademark boundaries
-- Separate from VEYR, Data Haunt, Pocket Boo, and Veridian
-- Server-authoritative competitive simulation
-- Evidence-based enforcement with privacy, review, and appeals
-- Controlled adaptive learning, never unreviewed self-modifying production code
+Valve turned Counter-Strike into a gambling site and a bank — skins, their own currency, the whole psychological hook machine — and forgot the mechanics. The game feels smooth and triple-A, but underneath that the mechanics are gone: things were forgotten or left half-finished, and the anti-cheat is still miles from perfect. People don't stick around because the game got better. They stick around because of sunk cost and the money locked in their skins.
 
-## Current phase
+Fair Play FPS answers all three at once: mechanics first, a custom anti-cheat built from the inside out as the core instead of bolted on, and no greed. The game serves the players, not a casino.
 
-M1 authoritative arena integration. A render-capable Godot graybox now connects
-two intent-only clients to the DTLS server, but it is not yet a complete or
-human-playtested game slice.
+## Fair play is the core, not a patch
 
-Start with [the design thesis](docs/DESIGN.md), then [the engine architecture](docs/FAIR_PLAY_ENGINE_ARCHITECTURE.md)
-and [the Godot engine guide](docs/GODOT_ENGINE_GUIDE.md).
-The [lineage matrix](docs/LINEAGE_MATRIX.md) records what to keep, reject,
-modernize, and test across the major competitive-shooter eras.
+The anti-cheat isn't Valve's, and it isn't bolted on after the fact. It's built from the inside out, as the thing the whole game is designed around. Certain ledgers are zero-touch. Scripts are allowed only to a limited extent. Servers are plugin-based, with hard restrictions around the anti-cheat so the community can build without ever weakening it.
 
-The first executable work is a dependency-free
-[headless authoritative arena reference](prototype/README.md). It is a simulation
-and evidence laboratory, not a playable game or production engine.
+## Community-driven and open source
 
-Run the two-client Godot graybox with:
+Skins and guns are community-based. Servers are plugin-based. This is built for hardcore CS players — the people who put thousands of hours in — not for newcomers. Open source, owned by the people who play it.
 
-    python3 scripts/run_graybox_clients.py --godot /path/to/Godot_v4.4.1 \
-        --out matches/graybox-demo
+## Linux-only, on purpose
 
-Run every current check locally with:
+The target is Linux: CachyOS and other distros, through Steam on Linux. No Windows support. That choice is what keeps the game honest about the kernel it runs on, and it's a home the big studios gave up on.
 
-    python3 scripts/local_verify.py
+## Where it comes from
 
-The [Devin Local handoff](docs/DEVIN_LOCAL_HANDOFF.md) provides a bounded first
-session that works only in this repository and does not install dependencies.
+Built from pieces of Counter-Strike 1.6 through CS2, including Condition Zero and Source. A new game that learns from what made those games durable, and leaves behind what broke them.
 
-The repository is still private under its existing proprietary notice while the
-[open-source license boundary](docs/OPEN_SOURCE_READINESS.md) is selected and
-audited. Public visibility will follow the license commit, not precede it.
+---
 
-## Ownership
-
-Copyright (c) 2026 Joan Pujols. All rights reserved.
-
-See [LICENSE.txt](LICENSE.txt).
+Fair Play FPS is created and owned by Joan Pujols.
