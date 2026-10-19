@@ -1,6 +1,6 @@
 # Bot spec v0.1
 
-*Game Builder, October 17 2026. Not public yet. Fills `specs/bot_spec_v0.0_skeleton.md` (kept as history).*
+*Game Builder, October 17 2026. Public as of Oct 19 2026 (CD-r9). Fills `specs/bot_spec_v0.0_skeleton.md` (kept as history).*
 *Follows: CD-r3. Canonical values live in `specs/CURRENT_DECISIONS.md` §bots; if this file conflicts, CURRENT_DECISIONS wins.*
 
 **Status:** DECIDED by Joan (Oct 17 2026): bots are **server-side**, use the **same input path** as players, and do **radio as text/sound events**. The **7-step build order** below is Joan's dictation. Numbers marked PROPOSED are Game Builder's until Joan or playtests change them. Floats everywhere in math.
@@ -19,7 +19,7 @@
 
 ### Step 1. Server-side controller: reads snapshots, writes input commands, no special netcode path
 - Input: the **decoded snapshot view for its slot** (what a client would get after culling) + its own `PlayerState`. Output: exactly one `InputCmd` per tick via the slot's local enqueue.
-- **Overlap:** Claude's mega handoff **Phase 8** ("bot input driver: same input path", `claude/bot-driver`, `server/bots/bot_driver.gd`, `enqueue_local`) already builds the controller/driver half (waypoint driving, same path, 0 rejects, same-path bit-identical proof). **Step 1 = review and merge Claude's P8** once her stack (P6 transport → P7 server tick) lands. The "reads the culled snapshot view" part is the seam for step 2: the driver exposes a per-slot `BotView` (own state + culled entities + teammates) built from the same data the snapshot encoder uses for that slot.
+- **Overlap:** the build plan's **Phase 8** ("bot input driver: same input path", `claude/bot-driver`, `server/bots/bot_driver.gd`, `enqueue_local`) already builds the controller/driver half (waypoint driving, same path, 0 rejects, same-path bit-identical proof). **Step 1 = review and merge Claude's P8** once her stack (P6 transport → P7 server tick) lands. The "reads the culled snapshot view" part is the seam for step 2: the driver exposes a per-slot `BotView` (own state + culled entities + teammates) built from the same data the snapshot encoder uses for that slot.
 
 ### Step 2. Five-state machine
 - **States** (from `hard_mode_design_v0.1.md` §6): **IDLE, PATROL, ENGAGE, RETREAT, FLANK.**

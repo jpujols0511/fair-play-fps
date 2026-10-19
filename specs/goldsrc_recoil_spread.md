@@ -1,4 +1,4 @@
-# CS 1.6 Recoil & Spread — Behavior Spec (private)
+# CS 1.6 Recoil & Spread — Behavior Spec
 
 Written in plain language from reading public sources (s1lentq/ReGameDLL_CS `regamedll/dlls/wpn_shared/wpn_{ak47,m4a1,awp,deagle}.cpp`, `weapons.cpp`, `weapons.h`, `pm_shared.cpp`; ValveSoftware/source-sdk-2013 `src/game/shared/gamemovement.cpp`). No code copied. Sim: `goldsrc_recoil_spread_sim.py` (written from scratch), output: `sim_recoil_results.txt`.
 

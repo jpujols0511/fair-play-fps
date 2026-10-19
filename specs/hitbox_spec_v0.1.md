@@ -1,6 +1,6 @@
 # Hitbox spec v0.1
 
-*Prepared for Game Builder. Private, nothing public.*
+*Prepared for Game Builder. Public as of Oct 19 2026 (CD-r9).*
 
 ## 1. Philosophy
 

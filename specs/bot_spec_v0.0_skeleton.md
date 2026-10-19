@@ -2,7 +2,7 @@
 
 > SUPERSEDED by CURRENT_DECISIONS.md CD-r3 §bots (filled into `specs/bot_spec_v0.1.md`)
 
-*Game Builder, October 17 2026. Not public yet. Headings and TODOs — not a buildable spec yet.*
+*Game Builder, October 17 2026. Public as of Oct 19 2026 (CD-r9). Headings and TODOs — not a buildable spec yet.*
 *Owner of this skeleton: Game Builder. Implementation owner: TBD (not Devin Phase 6; not blocked on Rust evidence).*
 
 **Status:** skeleton. Fill sections when Joan asks. All gameplay math in **floats**. Bots are **server-side only**.

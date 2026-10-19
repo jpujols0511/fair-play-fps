@@ -1,6 +1,6 @@
-# Prediction-Loop Prototype — Scope (private)
+# Prediction-Loop Prototype — Scope
 
-Status: scope only. No prototype code written yet. Private folder only; nothing goes in the public repo.
+Status: scope only. No prototype code written yet. Public as of Oct 19 2026 (CD-r9).
 Context: `netcode_design.md` (step 1 of "next steps", decisions D2, D3, D7, D13) and `goldsrc_movement.md` (movement rules + Python reference sim).
 
 ## 1. What this prototype is for
@@ -39,7 +39,7 @@ It's a single Godot project. A fake "server" and a "client" both run on one mach
 - Demo file format (the replay file here is a throwaway test format).
 
 ## 4. Proposed file/scene layout
-Lives in the private folder, e.g. `/workspace/private/fair-play-fps/prototypes/prediction_loop/` (a standalone Godot 4 project — not the public repo).
+Lives in `prototypes/prediction_loop/` (a standalone Godot 4 project).
 ```
 project.godot              physics_ticks_per_second = 128, physics interpolation off
 main.tscn                  root scene

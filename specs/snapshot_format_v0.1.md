@@ -1,7 +1,7 @@
 # Snapshot format v0.1 (PROPOSED)
 
-*Written by Claude, Phase 2 of the mega handoff. PROPOSED: Joan and Game Builder have not approved it. Not public yet.*
-Context: `specs/netcode_design.md` Section 4 (D4, D5) and `handouts/CLAUDE_MEGA_HANDOFF.md` Phase 2.
+*Written by Claude, Phase 2 of the build plan. PROPOSED: Joan and Game Builder have not approved it. Public as of Oct 19 2026 (CD-r9).*
+Context: `specs/netcode_design.md` Section 4 (D4, D5) and build plan Phase 2.
 
 ## Summary (plain words)
 The server tells each player what is going on 64 times a second. A snapshot holds your own player in full precision, plus the other players you are allowed to see, rounded to 1/8 unit. To save bytes the server sends only what changed since the last snapshot you confirmed (a "delta"). If you have not confirmed one recently, it sends everything (a "full" snapshot). A lost snapshot costs nothing: the next one is still a delta from something you definitely have.

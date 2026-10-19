@@ -1,7 +1,7 @@
 # Remote-player interpolation v0.1 (PROPOSED)
 
-*Written by Claude, Phase 3 of the mega handoff. PROPOSED; Joan and Game Builder have not approved it. Not public yet.*
-Context: `specs/netcode_design.md` D8 and Section 9, `handouts/CLAUDE_MEGA_HANDOFF.md` Phase 3.
+*Written by Claude, Phase 3 of the build plan. PROPOSED; Joan and Game Builder have not approved it. Public as of Oct 19 2026 (CD-r9).*
+Context: `specs/netcode_design.md` D8 and Section 9, build plan Phase 3.
 
 ## Summary (plain words)
 Other players arrive in snapshots 64 times a second. The client does not draw them at the newest snapshot (that would stutter). It draws them a few ticks in the past (`INTERP_TICKS`, default 4 = 31.25 ms) and slides smoothly between the two snapshots around that moment. If the snapshot it needs has not arrived (it was lost) the player simply freezes in place for a moment; nothing is guessed unless Joan turns extrapolation on. A player who respawns or teleports appears at the new place at once, never sliding across the map. A player the server stopped sending (culled, left, dead and hidden) disappears the same tick.

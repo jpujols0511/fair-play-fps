@@ -1,6 +1,6 @@
 # Round loop prototype (step 1: phases + economy)
 
-*Game Builder, Oct 17 2026. Not public yet. Branch `gamebuilder/round-loop`, not merged.*
+*Game Builder, Oct 17 2026. Public as of Oct 19 2026 (CD-r9). Merged into main.*
 Builds `specs/round_loop_spec_v0.1.md` (Joan) in his order: **(1) phase enum + transitions, (2) economy math.** Buy menu UI (3) and bomb-site geometry (4) come next; the server-side buy validation and plant/defuse timing they need are already here.
 
 ## Files

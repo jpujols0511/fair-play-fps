@@ -1,4 +1,4 @@
-# Bots prototype (private)
+# Bots prototype
 
 Follows: CD-r3. Spec: `specs/bot_spec_v0.1.md`. Canonical values: `specs/CURRENT_DECISIONS.md` §bots.
 

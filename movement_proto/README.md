@@ -1,4 +1,4 @@
-# Movement parity prototype (PRIVATE)
+# Movement parity prototype
 
 Minimal Godot 4.4 project, GDScript only. `movement.gd` holds the pure movement math; the
 Python reference sim in `../specs/goldsrc_movement_sim.py` produces the expected values.

@@ -112,7 +112,7 @@ All values are **placeholders until the game is adapted toward Source / CZ / CS:
 
 ## §process
 - **Floats only** in math (no int literals). **GDScript only** (Rust after a benchmark). **No Godot physics bodies.** **No Valve or GPL code**; Valve sources read-only; no reverse-engineering of Valve binaries. *(Joan)*
-- **Nothing public until Joan signs off.** *(Joan)*
+- **Public as of Oct 19 2026 (CD-r9):** Joan signed off on publishing. *(Joan)*
 - **Game Builder reviews and merges Claude's and Devin's PRs when green** (all suites pass on Godot 4.4.1, sim byte-identical, no open blockers; merge commits, no squash, no force-push). *(Joan, Oct 17 2026)*
 - Every PR/branch declares **`Follows: CD-rN`** and has a root **`DECISIONS_REVISION`** file. *(Joan approved, Oct 17 2026)*
 

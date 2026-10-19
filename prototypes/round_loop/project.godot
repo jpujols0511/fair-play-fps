@@ -1,5 +1,5 @@
 ; Engine configuration file.
-; Fair Play FPS — round loop prototype (private). Godot 4.4.1-stable. Headless tests only.
+; Fair Play FPS — round loop prototype. Godot 4.4.1-stable. Headless tests only.
 
 config_version=5
 

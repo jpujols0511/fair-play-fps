@@ -1,6 +1,6 @@
 # Hitbox spec v0.2 (PROPOSED)
 
-*Written by Game Builder, October 17, 2026. Not public yet.*
+*Written by Game Builder, October 17, 2026. Public as of Oct 19 2026 (CD-r9).*
 *Built from `specs/hitbox_spec_v0.1.md`, which stays unchanged. v0.2 replaces v0.1 only after Joan approves.*
 
 **Status: proposed — Joan to approve.** Devin builds hitbox code from this file only after Joan approves the items marked **DECISION FOR JOAN**.
@@ -137,7 +137,7 @@ The v0.1 table says the shin is 34 long, the thigh 32, the stomach 16, the chest
 - [ ] All 11 boxes have a size, a bone anchor, and standing, crouched and jump placement (Sections 2–4). **Done in this draft.**
 - [ ] The crouch numbers agree with each other (Section 3 decision).
 - [ ] The rewind matches the 200 ms cap (Section 7). **Done: 25 ticks.**
-- [ ] Game Builder sign-off, then Devin gets the go for hitbox code (`DEVIN_HANDOUT_v2.md` Task 2).
+- [ ] Game Builder sign-off, then Devin gets the go for hitbox code (build plan Task 2).
 
 ---
 
@@ -199,4 +199,4 @@ Joan's final answer: **keep 2 units.** This amends Section 5 (hit rules). It doe
 3. **Order of rules is unchanged:** a ray that enters any padded box is a hit on the box it enters first (entry distance first; the crouched head overlap rule `CROUCH_HEAD_OVERLAP_RULE` still applies to the padded boxes). Overlaps grow by the padding; tests must document the new head/chest overlap band at stand and crouch.
 4. **Near misses for tuning:** a shot that hits no padded box but passes within **4.0 units** of a padded box surface is logged as a near miss (SHOT record, evidence spec). Name: `NEAR_MISS_LOG_UNITS = 4.0` in hit-test config. It replaces the 1.0 in Section 5 rule 4 for logging; the `near_miss_units: 1.0` field already in `skeleton_constants.json` is left as is (changing it would change the SHA) and should be dropped or updated at the next deliberate SHA revision.
 5. **Status: PROVISIONAL** pending near-miss data. When there's data, Joan decides the per-bone values (can go to 0.0 for some bones).
-6. Owner: Devin (`DEVIN_MEGA_HANDOFF.md` Addendum 4). Reconciliation item 12.
+6. Owner: Devin (build plan Addendum 4). Reconciliation item 12.

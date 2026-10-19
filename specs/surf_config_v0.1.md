@@ -1,6 +1,6 @@
 # Surf config v0.1
 
-*Joan's dictation, October 17 2026, recorded by Game Builder. Not public yet.*
+*Joan's dictation, October 17 2026, recorded by Game Builder. Public as of Oct 19 2026 (CD-r9).*
 *Status: **Joan's doc** (Sections 1–8 are his words, kept faithful). Review notes at the end are Game Builder's, verified against code on Claude's branches; they are **proposals** until Joan decides.*
 
 ---
@@ -124,12 +124,12 @@ Until those land, Section 3's "doesn't require new code" and Section 7's "no cod
 ### Cross-links
 
 - Hard mode design v0.1 open question 1 (`specs/hard_mode_design_v0.1.md` §10) is the same surf/aa question; this doc is Joan's fuller treatment.
-- Reconciliation: item **24** in `specs/SPEC_RECONCILIATION.md`.
+- Reconciliation: item **24**.
 
 ---
 
 ## Decision (Oct 17 2026)
 
-- **Queued:** Joan: "Yes, always all the time queue it". Work is Phase 11 of `handouts/CLAUDE_MEGA_HANDOFF.md` (airaccelerate setting 10.0–100.0 default 10.0, plane/slope collision with ClipVelocity, `normal.z < 0.7` = not ground (PROPOSED), edge friction 2, Python reference first, parity tests, 45° test ramp measurement, per-mode AIM_KIN note for Devin).
+- **Queued:** Joan: "Yes, always all the time queue it". Work is Phase 11 of the build plan (airaccelerate setting 10.0–100.0 default 10.0, plane/slope collision with ClipVelocity, `normal.z < 0.7` = not ground (PROPOSED), edge friction 2, Python reference first, parity tests, 45° test ramp measurement, per-mode AIM_KIN note for Devin).
 - **§8 answer (Game Builder recommendation, Joan said queue it):** surf launches as a **limited-time event first** to test demand before committing permanent server slots. Default `sv_airaccelerate` stays `10.0` everywhere else.
 - §§3/7 "no code changes" remains superseded by the review notes above until Phase 11 lands.

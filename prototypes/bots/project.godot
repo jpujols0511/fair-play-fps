@@ -1,5 +1,5 @@
 ; Engine configuration file.
-; Fair Play FPS — bots prototype (private). Godot 4.4.1-stable. Headless tests only.
+; Fair Play FPS — bots prototype. Godot 4.4.1-stable. Headless tests only.
 ; Follows: CD-r3
 
 config_version=5

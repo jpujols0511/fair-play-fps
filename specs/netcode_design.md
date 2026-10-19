@@ -1,8 +1,8 @@
 # Fair Play FPS — Netcode Design (v0.1, private)
 
-Status: design draft. Nothing here is built yet. Research was read-only on public sources; no Valve or GPL code was copied. Every idea below is described in my own words so we can write fresh code. PRIVATE — not for the public repo.
+Status: design draft. Nothing here is built yet. Research was read-only on public sources; no Valve or GPL code was copied. Every idea below is described in my own words so we can write fresh code. Public as of Oct 19 2026 (CD-r9).
 
-Read with: `specs/goldsrc_movement.md` (movement rules), `../PERF_OPTIMIZATION.md` (performance plan), `../REA_RE_WORKFLOW.md` (legal/RE rules).
+Read with: `specs/goldsrc_movement.md` (movement rules), `../PERF_OPTIMIZATION.md` (performance plan).
 
 ---
 

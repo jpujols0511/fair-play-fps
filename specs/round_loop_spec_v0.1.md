@@ -1,9 +1,9 @@
 # Round loop spec v0.1
 
-*Joan's dictation, October 17 2026, recorded by Game Builder. Not public yet.*
+*Joan's dictation, October 17 2026, recorded by Game Builder. Public as of Oct 19 2026 (CD-r9).*
 *Status: **Joan's spec** (Sections 1–5 are his words, kept faithful). Review notes at the end are Game Builder's and are **proposals** until Joan decides.*
 
-**Supersedes `specs/round_loop_brief_v0.1.md` wherever they differ** (timers, plant/defuse times, state names, economy numbers, owner). The brief stays as history. Where this spec is silent, the brief's structure (server-authoritative, float timers, config switches) still applies.
+**Supersedes the earlier round loop brief (v0.1) wherever they differ** (timers, plant/defuse times, state names, economy numbers, owner). The brief stays as history. Where this spec is silent, the brief's structure (server-authoritative, float timers, config switches) still applies.
 
 **House rules:** floats everywhere (no int literals in timer or money math), GDScript first, server-authoritative.
 

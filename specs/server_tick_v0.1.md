@@ -1,6 +1,6 @@
 # Server tick v0.1 (PROPOSED)
 
-*Written by Claude, Phase 7 of the mega handoff. PROPOSED; Joan and Game Builder have not approved it. Not public yet.*
+*Written by Claude, Phase 7 of the build plan. PROPOSED; Joan and Game Builder have not approved it. Public as of Oct 19 2026 (CD-r9).*
 Context: `specs/netcode_design.md` Sections 0, 3, 5, 6, 9, 12.3; `specs/prediction_loop_scope.md`; Devin's tick order (movement, then history, then shots).
 
 ## Summary (plain words)

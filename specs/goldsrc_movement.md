@@ -1,4 +1,4 @@
-# GoldSrc / CS 1.6 movement — behaviour spec (PRIVATE)
+# GoldSrc / CS 1.6 movement — behaviour spec
 
 Written Oct 16 2026 in our own words from *reading* public sources (no code copied):
 ValveSoftware/halflife `pm_shared/pm_shared.c`, s1lentq/ReGameDLL_CS `regamedll/pm_shared/pm_shared.cpp` + `pm_shared.h` + `dlls/game.cpp`,
@@ -71,7 +71,7 @@ Takeaways:
 
 ## Crouch (PROPOSED, Oct 17 2026)
 
-*Appended by Claude for Phase 1 of the mega handoff. Nothing above was changed. K1 and K2 are locked by the approved hitbox spec v0.2 (half-height crouch). K3 to K10 are PROPOSED and come from reading GoldSrc behaviour, not from this spec, so Joan can veto them. Each switch lives in `movement.gd` and defaults to the proposal.*
+*Appended by Claude for Phase 1 of the build plan. Nothing above was changed. K1 and K2 are locked by the approved hitbox spec v0.2 (half-height crouch). K3 to K10 are PROPOSED and come from reading GoldSrc behaviour, not from this spec, so Joan can veto them. Each switch lives in `movement.gd` and defaults to the proposal.*
 
 | # | Rule | Number | Status |
 |---|---|---|---|

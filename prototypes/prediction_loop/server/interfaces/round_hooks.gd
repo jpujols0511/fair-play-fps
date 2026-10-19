@@ -1,6 +1,6 @@
 class_name RoundHooks
 extends RefCounted
-## Round loop seam (not mine to build: specs/round_loop_brief_v0.1.md, for whoever builds the round loop).
+## Round loop seam (not mine to build: see specs/round_loop_spec_v0.1.md, for whoever builds the round loop).
 ## NULL stub: movement always allowed, nothing happens on a tick.
 
 ## Server tick step 2: may this slot move at tick T? (freeze time: false). Commands are still consumed.

@@ -1,6 +1,6 @@
 # Visibility culling v0 (PROPOSED)
 
-*Written by Claude, Phase 5 of the mega handoff. PROPOSED; Joan and Game Builder have not approved it. If Game Builder later adds `specs/visibility_culling_v0.1.md`, that file wins where it differs and the differences go in the progress log. Not public yet.*
+*Written by Claude, Phase 5 of the build plan. PROPOSED; Joan and Game Builder have not approved it. If Game Builder later adds `specs/visibility_culling_v0.1.md`, that file wins where it differs and the differences go in the progress log. Public as of Oct 19 2026 (CD-r9).*
 Context: `specs/netcode_design.md` Section 6, `specs/evidence_logging_spec.md` Sections 2.4 and 5.3 to 5.5, `specs/hitbox_spec_v0.2.md` Section 2 and the approved half-height crouch note.
 
 ## Summary (plain words)

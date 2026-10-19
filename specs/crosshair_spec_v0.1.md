@@ -1,6 +1,6 @@
 # Crosshair spec v0.1
 
-*Dictated by Joan, October 17, 2026. Written up by Game Builder. Not public yet.*
+*Dictated by Joan, October 17, 2026. Written up by Game Builder. Public as of Oct 19 2026 (CD-r9).*
 
 Sections 1–5 are Joan's spec, cleaned of transcription errors only. The review notes after them are **proposals, Joan to approve**. They don't change Sections 1–5.
 

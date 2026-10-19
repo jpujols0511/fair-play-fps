@@ -1,7 +1,7 @@
 # Evidence logging spec v0.1 (PROPOSED)
 
-*Written by Game Builder, October 17, 2026. Not public yet.*
-*Covers two jobs in one file: (1) the near-miss and hit log, and (2) the "aimed at an enemy the server never sent" flag. It replaces the two separate files the old Game Builder handout planned (`evidence_log_v0.1.md` and `unsent_enemy_flag_v0.1.md`).*
+*Written by Game Builder, October 17, 2026. Public as of Oct 19 2026 (CD-r9).*
+*Covers two jobs in one file: (1) the near-miss and hit log, and (2) the "aimed at an enemy the server never sent" flag. It replaces the two separate files an earlier plan proposed (`evidence_log_v0.1.md` and `unsent_enemy_flag_v0.1.md`).*
 
 **Status: proposed — Joan to approve.**
 
@@ -15,7 +15,7 @@ Builds on `specs/hitbox_spec_v0.2.md` (Section 5, near miss at 1.0 unit; Section
 2. **Avoiding false positives comes first.** When in doubt, the analyzer doesn't flag.
 3. **The server writes, the client never does.** Clients can't see, change or send any of this.
 4. **Append-only and tamper-evident.** Records are only ever added. Checkpoints chain hashes, so any edit or deletion shows up.
-5. **Plugins can't touch it.** This is a "zero-touch ledger" (`CS_REFERENCE.md` Section 5).
+5. **Plugins can't touch it.** This is a "zero-touch ledger".
 
 ## 1. Files, one set per match
 
@@ -41,7 +41,7 @@ All numbers are little-endian and packed (no padding between fields). `f32`/`f64
 | tick_rate | u16 | 128 (or 64/100) |
 | match_id | 16 bytes | UUID v4 |
 | start_unix_ms | u64 | server wall clock at match start |
-| kernel_sha256 | 32 bytes | `KERNEL_SHA256` (definition in `specs/SPEC_RECONCILIATION.md`, item 5) |
+| kernel_sha256 | 32 bytes | `KERNEL_SHA256` (definition pending, reconciliation item 5) |
 | skeleton_sha256 | 32 bytes | `SKELETON_SHA256` (hitbox v0.2, Section 8) |
 | build_id | 20 bytes | git commit (SHA-1) of the server build |
 | map_name_len | u8 | then that many UTF-8 bytes of map name |
@@ -261,7 +261,7 @@ Replay `server.demo` from V's point of view, with culling re-run, so the reviewe
 
 ## 8. Who builds what
 
-- **Devin:** the SHOT record writer inside the hitbox code (`DEVIN_HANDOUT_v2.md` Task 2), first in GDScript as JSON Lines with the same fields, then binary.
+- **Devin:** the SHOT record writer inside the hitbox code (build plan Task 2), first in GDScript as JSON Lines with the same fields, then binary.
 - **Game Builder:** the culling design that fills VIS records (`specs/visibility_culling_v0.1.md`, coming).
 - **Later (whoever owns the anti-cheat tools):** the `fpev export` tool and the offline analyzer.
 
@@ -278,7 +278,7 @@ Replay `server.demo` from V's point of view, with culling re-run, so the reviewe
 
 ### 10.1 New record type
 
-This adds one value to the `type` list in Section 2.2: **5 = REWIND_DECISION**. Types 1–4 keep their meaning. **Type 6 is reserved for AIM_KIN** (view-angle kinematics around each logged shot, 48-byte record), which is proposed in `specs/crosshair_spec_v0.1.md` review note (c) and `SPEC_RECONCILIATION.md` item 11. It isn't defined in this file until Joan approves it.
+This adds one value to the `type` list in Section 2.2: **5 = REWIND_DECISION**. Types 1–4 keep their meaning. **Type 6 is reserved for AIM_KIN** (view-angle kinematics around each logged shot, 48-byte record), which is proposed in `specs/crosshair_spec_v0.1.md` review note (c) and reconciliation item 11. It isn't defined in this file until Joan approves it.
 
 ### 10.2 REWIND_DECISION record (type 5)
 

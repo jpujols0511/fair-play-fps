@@ -1,4 +1,4 @@
-# Prediction-loop prototype (PRIVATE)
+# Prediction-loop prototype
 
 One Godot 4.4.1 project, GDScript only, one process. Answers one question:
 **does client prediction plus reconciliation feel instant and stay correct at 128 tick with 80 ms ping and 2% packet loss?**
