@@ -1,0 +1,18 @@
+$ python3 tools/hitreg_ref.py --self-test
+hitreg_ref self-test passed 24 named/random assertions
+$ python3 tools/hitreg_ref.py --emit-cases <temporary-file> --seed 4242 --count 2000
+wrote /var/folders/__/fdsztqk10x31y443lcvp4g8c0000gn/T/hitreg-cases.we2sZW4vKp
+21 named scenario cases; 2000 seeded random shots
+scenario counts {'1': 1, '2': 1, '3': 3, '4': 1, '5': 4, '6': 1, '7': 2, '8': 3, '9': 1, '10': 2, '11': 2}
+case counts {'named': 21, 'random': 2000}
+PASS  regenerated hitreg cases are byte-identical
+PASS  21 named cases cover scenarios 1-11
+PASS  2000 random shots have 1-11 targets and five recorded draws
+
+
+P5 Addendum 2/4 Python oracle output
+hitreg_ref self-test passed 30 named/random assertions
+wrote weapons_proto/tests/hitreg_cases.json
+22 named scenario cases; 2000 seeded random shots
+scenario counts {'1': 1, '2': 1, '3': 3, '4': 1, '5': 5, '6': 1, '7': 2, '8': 3, '9': 1, '10': 2, '11': 2}
+case counts {'named': 22, 'random': 2000}

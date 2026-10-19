@@ -1,0 +1,37 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:27990 with udp (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=udp C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+PASS  600 garbage / oversized / right-id-random datagrams: no crash, no client created, malformed counted  599 malformed
+PASS  truncated HELLO, wrong version, 4-command INPUT, a WELCOME and a CHALLENGE sent to the server: ignored  
+PASS  HELLO without a cookie: the reply is one 9-byte CHALLENGE (smaller than the HELLO, nothing to amplify), no slot allocated  reply 9 bytes vs HELLO 45
+PASS  HELLO with a wrong cookie: another CHALLENGE, still no slot  
+SERVER client 2 joined as slot 0 (team 1)
+PASS  HELLO with the right cookie: WELCOME and one slot  
+PASS  a cookie replayed from another address is rejected (CHALLENGE, no slot)  
+PASS  forged acks (never-sent seqs 40000 and 65535) are rejected and counted; ack_snap_seq does not move  rejected 2, ack -1 -> -1
+PASS  an impossible ack_delay (negative RTT sample) is ignored  
+PASS  INPUT with seq 0x7FFFFFFF: dropped, counted RATE_ABUSE, the player does not move extra  dropped 3, executed 0 more
+SERVER_STATS tick=1280 clients=1 tick_us_median=0 tick_us_p99=0 overruns=0 rx_B_per_s=48791 tx_B_per_s=8034 cmds_fully_lost=1 rtt_ms=-1.0 malformed=601 mem_MB=20.47
+PASS  hostile 0xFFFFFFFF for 140 ticks then the real stream: 1173 of the next 1,300 commands run (next_seq stays bounded)  resyncs 1, next_seq - real seq = 0
+SERVER_STATS tick=2560 clients=1 tick_us_median=0 tick_us_p99=0 overruns=0 rx_B_per_s=3584 tx_B_per_s=8384 cmds_fully_lost=5 rtt_ms=-1.0 malformed=601 mem_MB=20.48
+PASS  hostile 0x7FFFFFFF for 140 ticks then the real stream: 1304 of the next 1,300 commands run (next_seq stays bounded)  resyncs 2, next_seq - real seq = 0
+PASS  BYE and INPUT from an address that never joined do nothing  
+SERVER client 2 (slot 0) dropped: bye
+SERVER_MASKS slot=0 changes=54:0
+PASS  BYE from the real client removes its slot and forgets its address  
+PASS  200 HELLOs from 200 source ports: unverified peers capped at 64, the rest refused, no slots  64 unverified, 137 refused
+PASS  unverified peers older than 5 s are pruned  64 pruned
+PASS  the server binds to loopback unless --bind-all is given  
+Godot 4.4.1-stable (official)
+SERVER listening on *:27991 with udp (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=udp C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+PASS  --bind-all binds all interfaces  
+PASS  ServerMain.arg_value on a last flag with no value returns "" instead of reading past the end  
+
+18 passed, 0 failed
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2378)
+ERROR: 8 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:614)

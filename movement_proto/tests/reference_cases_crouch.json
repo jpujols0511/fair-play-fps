@@ -1,0 +1,449 @@
+{
+ "tolerance": 0.01,
+ "constants": {
+  "crouch_scale": 0.5,
+  "duck_time_s": 0.4,
+  "duck_speed_factor": 0.333,
+  "air_duck_lift": 18.0,
+  "stand_body": 72.0,
+  "stand_eye": 64.0,
+  "duck_body": 36.0,
+  "duck_eye": 32.0
+ },
+ "transition": [
+  {
+   "tick": 64,
+   "complete_tick": 26,
+   "eye": [
+    64.0,
+    62.75,
+    61.5,
+    60.25,
+    59.0,
+    57.75,
+    56.5,
+    55.25,
+    54.0,
+    52.75,
+    51.5,
+    50.25,
+    49.0,
+    47.75,
+    46.5,
+    45.25,
+    44.0,
+    42.75,
+    41.5,
+    40.25,
+    39.0,
+    37.75,
+    36.5,
+    35.25,
+    34.0,
+    32.75,
+    32.0,
+    32.0,
+    32.0
+   ]
+  },
+  {
+   "tick": 100,
+   "complete_tick": 40,
+   "eye": [
+    64.0,
+    63.2,
+    62.4,
+    61.6,
+    60.8,
+    60.0,
+    59.2,
+    58.4,
+    57.6,
+    56.8,
+    56.0,
+    55.2,
+    54.4,
+    53.6,
+    52.8,
+    52.0,
+    51.2,
+    50.4,
+    49.6,
+    48.8,
+    48.0,
+    47.2,
+    46.400000000000006,
+    45.6,
+    44.8,
+    44.0,
+    43.2,
+    42.4,
+    41.599999999999994,
+    40.800000000000004,
+    40.0,
+    39.2,
+    38.400000000000006,
+    37.6,
+    36.8,
+    36.0,
+    35.2,
+    34.400000000000006,
+    33.6,
+    32.8,
+    32.0,
+    32.0,
+    32.0
+   ]
+  },
+  {
+   "tick": 128,
+   "complete_tick": 52,
+   "eye": [
+    64.0,
+    63.375,
+    62.75,
+    62.125,
+    61.5,
+    60.875,
+    60.25,
+    59.625,
+    59.0,
+    58.375,
+    57.75,
+    57.125,
+    56.5,
+    55.875,
+    55.25,
+    54.625,
+    54.0,
+    53.375,
+    52.75,
+    52.125,
+    51.5,
+    50.875,
+    50.25,
+    49.625,
+    49.0,
+    48.375,
+    47.75,
+    47.125,
+    46.5,
+    45.875,
+    45.25,
+    44.625,
+    44.0,
+    43.375,
+    42.75,
+    42.125,
+    41.5,
+    40.875,
+    40.25,
+    39.625,
+    39.0,
+    38.375,
+    37.75,
+    37.125,
+    36.5,
+    35.875,
+    35.25,
+    34.625,
+    34.0,
+    33.375,
+    32.75,
+    32.125,
+    32.0,
+    32.0,
+    32.0
+   ]
+  }
+ ],
+ "ducked_run": [
+  {
+   "tick": 64,
+   "first_reached_tick": 12,
+   "steady": 83.25,
+   "samples": [
+    {
+     "after_ticks": 1,
+     "speed": 13.0078125
+    },
+    {
+     "after_ticks": 5,
+     "speed": 40.0390625
+    },
+    {
+     "after_ticks": 10,
+     "speed": 73.828125
+    },
+    {
+     "after_ticks": 20,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 50,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 100,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 200,
+     "speed": 83.25
+    }
+   ]
+  },
+  {
+   "tick": 100,
+   "first_reached_tick": 19,
+   "steady": 83.25,
+   "samples": [
+    {
+     "after_ticks": 1,
+     "speed": 8.325
+    },
+    {
+     "after_ticks": 5,
+     "speed": 25.624999999999996
+    },
+    {
+     "after_ticks": 10,
+     "speed": 47.25
+    },
+    {
+     "after_ticks": 20,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 50,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 100,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 200,
+     "speed": 83.25
+    }
+   ]
+  },
+  {
+   "tick": 128,
+   "first_reached_tick": 24,
+   "steady": 83.25,
+   "samples": [
+    {
+     "after_ticks": 1,
+     "speed": 6.50390625
+    },
+    {
+     "after_ticks": 5,
+     "speed": 20.01953125
+    },
+    {
+     "after_ticks": 10,
+     "speed": 36.9140625
+    },
+    {
+     "after_ticks": 20,
+     "speed": 70.703125
+    },
+    {
+     "after_ticks": 50,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 100,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 200,
+     "speed": 83.25
+    }
+   ]
+  }
+ ],
+ "stamina_duck": [
+  {
+   "tick": 64,
+   "timer_ms": 1315.789429,
+   "samples": [
+    {
+     "after_ticks": 1,
+     "speed": 9.794476428795704
+    },
+    {
+     "after_ticks": 5,
+     "speed": 24.358551577572268
+    },
+    {
+     "after_ticks": 10,
+     "speed": 43.43252673912892
+    },
+    {
+     "after_ticks": 20,
+     "speed": 67.38046945679251
+    },
+    {
+     "after_ticks": 50,
+     "speed": 74.7949225817925
+    },
+    {
+     "after_ticks": 100,
+     "speed": 83.25
+    },
+    {
+     "after_ticks": 200,
+     "speed": 83.25
+    }
+   ]
+  },
+  {
+   "tick": 100,
+   "timer_ms": 1315.789429,
+   "samples": [
+    {
+     "after_ticks": 1,
+     "speed": 6.259567570679251
+    },
+    {
+     "after_ticks": 5,
+     "speed": 15.45601285339625
+    },
+    {
+     "after_ticks": 10,
+     "speed": 27.30746320679251
+    },
+    {
+     "after_ticks": 20,
+     "speed": 52.19667641358502
+    },
+    {
+     "after_ticks": 50,
+     "speed": 70.3462507067925
+    },
+    {
+     "after_ticks": 100,
+     "speed": 78.25500070679252
+    },
+    {
+     "after_ticks": 200,
+     "speed": 83.25
+    }
+   ]
+  },
+  {
+   "tick": 128,
+   "timer_ms": 1315.789429,
+   "samples": [
+    {
+     "after_ticks": 1,
+     "speed": 4.887583978558008
+    },
+    {
+     "after_ticks": 5,
+     "speed": 12.03446225118848
+    },
+    {
+     "after_ticks": 10,
+     "speed": 21.185280398373052
+    },
+    {
+     "after_ticks": 20,
+     "speed": 40.21098438073048
+    },
+    {
+     "after_ticks": 50,
+     "speed": 68.6162116442925
+    },
+    {
+     "after_ticks": 100,
+     "speed": 74.7949225817925
+    },
+    {
+     "after_ticks": 200,
+     "speed": 83.25
+    }
+   ]
+  }
+ ],
+ "crouch_jump": [
+  {
+   "tick": 64,
+   "plain_apex": 44.97877036405424,
+   "crouch_apex": 62.978770364054256,
+   "duck_tick": 1
+  },
+  {
+   "tick": 100,
+   "plain_apex": 44.99157348199141,
+   "crouch_apex": 62.991573481991416,
+   "duck_tick": 1
+  },
+  {
+   "tick": 128,
+   "plain_apex": 44.99988878046031,
+   "crouch_apex": 62.999888780460324,
+   "duck_tick": 1
+  }
+ ],
+ "cancel": [
+  {
+   "tick": 64,
+   "hold_ticks": 13,
+   "eye_before_release": 47.75,
+   "eye_on_release": 64.0
+  },
+  {
+   "tick": 100,
+   "hold_ticks": 20,
+   "eye_before_release": 48.0,
+   "eye_on_release": 64.0
+  },
+  {
+   "tick": 128,
+   "hold_ticks": 26,
+   "eye_before_release": 47.75,
+   "eye_on_release": 64.0
+  }
+ ],
+ "headroom": [
+  {
+   "feet": 0.0,
+   "bottom": 40.0,
+   "top": 128.0,
+   "fits": false
+  },
+  {
+   "feet": 0.0,
+   "bottom": 30.0,
+   "top": 128.0,
+   "fits": false
+  },
+  {
+   "feet": 4.0,
+   "bottom": 72.0,
+   "top": 128.0,
+   "fits": false
+  },
+  {
+   "feet": 0.0,
+   "bottom": 72.0,
+   "top": 128.0,
+   "fits": true
+  },
+  {
+   "feet": 0.0,
+   "bottom": 71.9,
+   "top": 128.0,
+   "fits": false
+  },
+  {
+   "feet": 50.0,
+   "bottom": 0.0,
+   "top": 40.0,
+   "fits": true
+  }
+ ]
+}

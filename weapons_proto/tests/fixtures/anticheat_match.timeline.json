@@ -1,0 +1,33 @@
+{
+  "match_id": "6f1c2b0e-8a43-4d7e-9c1a-2f0b9d3e5a71",
+  "server_metadata": {"mode": "surf"},
+  "tick_rate": 128,
+  "end_tick": 399,
+  "evidence_file": "../golden/match_small.fpev",
+  "expected_final_chain_sha256": "a32c1c8cc67c2a771b77790d3922a627c1603d1173aa4628cb184bc49f9876bb",
+  "round_spans": [
+    {"start_tick": 0, "end_tick": 49, "round": 1},
+    {"start_tick": 50, "end_tick": 119, "round": 2},
+    {"start_tick": 120, "end_tick": 239, "round": 3},
+    {"start_tick": 240, "end_tick": 399, "round": 4}
+  ],
+  "players": [
+    {"slot": 0, "team": 1, "path": {"kind": "linear", "start": [0.0, 0.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 1, "team": 1, "path": {"kind": "linear", "start": [0.0, -100.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 2, "team": 1, "path": {"kind": "linear", "start": [-100.0, 0.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 3, "team": 1, "path": {"kind": "linear", "start": [0.0, 100.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 4, "team": 1, "path": {"kind": "linear", "start": [-100.0, -100.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 5, "team": 2, "path": {"kind": "linear", "start": [500.0, 180.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 6, "team": 2, "path": {"kind": "linear", "start": [500.0, 0.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 7, "team": 2, "path": {"kind": "linear", "start": [600.0, 200.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 8, "team": 2, "path": {"kind": "linear", "start": [700.0, -250.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0},
+    {"slot": 9, "team": 2, "path": {"kind": "linear", "start": [900.0, 350.0, 0.0], "velocity_ups": [0.0, 0.0, 0.0]}, "stance": 0, "map_area": "range", "default_view_yaw": 90.0}
+  ],
+  "aim_windows": [
+    {"viewer_slot": 0, "target_slot": 6, "start_tick": 60, "end_tick": 91, "part": 0},
+    {"viewer_slot": 0, "target_slot": 6, "start_tick": 180, "end_tick": 211, "part": 0},
+    {"viewer_slot": 0, "target_slot": 6, "start_tick": 300, "end_tick": 331, "part": 0}
+  ],
+  "sound_events": [],
+  "preaim_spots": []
+}

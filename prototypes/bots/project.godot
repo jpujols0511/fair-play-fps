@@ -1,0 +1,14 @@
+; Engine configuration file.
+; Fair Play FPS — bots prototype (private). Godot 4.4.1-stable. Headless tests only.
+; Follows: CD-r3
+
+config_version=5
+
+[application]
+
+config/name="Fair Play Bots Prototype"
+config/features=PackedStringArray("4.4")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

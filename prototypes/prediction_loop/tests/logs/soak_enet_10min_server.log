@@ -1,0 +1,69 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:27091 with enet (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=enet C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0
+SERVER_STATS tick=1280 clients=1 tick_us_median=160 tick_us_p99=311 overruns=0 rx_B_per_s=7943 tx_B_per_s=7888 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.17
+SERVER_STATS tick=2560 clients=1 tick_us_median=178 tick_us_p99=352 overruns=0 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.17
+SERVER_STATS tick=3840 clients=1 tick_us_median=167 tick_us_p99=367 overruns=0 rx_B_per_s=8395 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.2 malformed=0 mem_MB=20.17
+SERVER_STATS tick=5120 clients=1 tick_us_median=161 tick_us_p99=351 overruns=0 rx_B_per_s=8435 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.4 malformed=0 mem_MB=20.17
+SERVER_STATS tick=6400 clients=1 tick_us_median=166 tick_us_p99=380 overruns=0 rx_B_per_s=8435 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.3 malformed=0 mem_MB=20.18
+SERVER_STATS tick=7680 clients=1 tick_us_median=170 tick_us_p99=458 overruns=0 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=5.3 malformed=0 mem_MB=20.18
+SERVER_STATS tick=8960 clients=1 tick_us_median=163 tick_us_p99=351 overruns=2 rx_B_per_s=8428 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.0 malformed=0 mem_MB=20.18
+SERVER_STATS tick=10240 clients=1 tick_us_median=168 tick_us_p99=330 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.3 malformed=0 mem_MB=20.18
+SERVER_STATS tick=11520 clients=1 tick_us_median=167 tick_us_p99=360 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.9 malformed=0 mem_MB=20.18
+SERVER_STATS tick=12800 clients=1 tick_us_median=162 tick_us_p99=327 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.1 malformed=0 mem_MB=20.18
+SERVER_STATS tick=14080 clients=1 tick_us_median=156 tick_us_p99=315 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.3 malformed=0 mem_MB=20.18
+SERVER_STATS tick=15360 clients=1 tick_us_median=169 tick_us_p99=444 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=8.1 malformed=0 mem_MB=20.18
+SERVER_STATS tick=16640 clients=1 tick_us_median=255 tick_us_p99=607 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=8.1 malformed=0 mem_MB=20.18
+SERVER_STATS tick=17920 clients=1 tick_us_median=181 tick_us_p99=475 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.4 malformed=0 mem_MB=20.18
+SERVER_STATS tick=19200 clients=1 tick_us_median=158 tick_us_p99=389 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=12.7 malformed=0 mem_MB=20.18
+SERVER_STATS tick=20480 clients=1 tick_us_median=156 tick_us_p99=340 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.9 malformed=0 mem_MB=20.18
+SERVER_STATS tick=21760 clients=1 tick_us_median=154 tick_us_p99=377 overruns=2 rx_B_per_s=8435 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=10.5 malformed=0 mem_MB=20.18
+SERVER_STATS tick=23040 clients=1 tick_us_median=163 tick_us_p99=349 overruns=2 rx_B_per_s=8276 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.9 malformed=0 mem_MB=20.19
+SERVER_STATS tick=24320 clients=1 tick_us_median=165 tick_us_p99=378 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.4 malformed=0 mem_MB=20.19
+SERVER_STATS tick=25600 clients=1 tick_us_median=167 tick_us_p99=385 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.3 malformed=0 mem_MB=20.19
+SERVER_STATS tick=26880 clients=1 tick_us_median=173 tick_us_p99=370 overruns=2 rx_B_per_s=8435 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.4 malformed=0 mem_MB=20.19
+SERVER_STATS tick=28160 clients=1 tick_us_median=169 tick_us_p99=317 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=8.3 malformed=0 mem_MB=20.19
+SERVER_STATS tick=29440 clients=1 tick_us_median=174 tick_us_p99=352 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.0 malformed=0 mem_MB=20.19
+SERVER_STATS tick=30720 clients=1 tick_us_median=168 tick_us_p99=388 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.2 malformed=0 mem_MB=20.19
+SERVER_STATS tick=32000 clients=1 tick_us_median=165 tick_us_p99=413 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=10.7 malformed=0 mem_MB=20.19
+SERVER_STATS tick=33280 clients=1 tick_us_median=164 tick_us_p99=368 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.3 malformed=0 mem_MB=20.19
+SERVER_STATS tick=34560 clients=1 tick_us_median=168 tick_us_p99=362 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.7 malformed=0 mem_MB=20.19
+SERVER_STATS tick=35840 clients=1 tick_us_median=169 tick_us_p99=367 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.19
+SERVER_STATS tick=37120 clients=1 tick_us_median=174 tick_us_p99=337 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.19
+SERVER_STATS tick=38400 clients=1 tick_us_median=174 tick_us_p99=349 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.19
+SERVER_STATS tick=39680 clients=1 tick_us_median=165 tick_us_p99=288 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.19
+SERVER_STATS tick=40960 clients=1 tick_us_median=168 tick_us_p99=292 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.20
+SERVER_STATS tick=42240 clients=1 tick_us_median=172 tick_us_p99=438 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.4 malformed=0 mem_MB=20.20
+SERVER_STATS tick=43520 clients=1 tick_us_median=166 tick_us_p99=333 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=4.9 malformed=0 mem_MB=20.20
+SERVER_STATS tick=44800 clients=1 tick_us_median=165 tick_us_p99=321 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.1 malformed=0 mem_MB=20.20
+SERVER_STATS tick=46080 clients=1 tick_us_median=168 tick_us_p99=401 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.2 malformed=0 mem_MB=20.20
+SERVER_STATS tick=47360 clients=1 tick_us_median=169 tick_us_p99=335 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.1 malformed=0 mem_MB=20.20
+SERVER_STATS tick=48640 clients=1 tick_us_median=165 tick_us_p99=341 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=5.2 malformed=0 mem_MB=20.20
+SERVER_STATS tick=49920 clients=1 tick_us_median=173 tick_us_p99=342 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.20
+SERVER_STATS tick=51200 clients=1 tick_us_median=163 tick_us_p99=322 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=8.0 malformed=0 mem_MB=20.20
+SERVER_STATS tick=52480 clients=1 tick_us_median=169 tick_us_p99=333 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.1 malformed=0 mem_MB=20.20
+SERVER_STATS tick=53760 clients=1 tick_us_median=167 tick_us_p99=347 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.20
+SERVER_STATS tick=55040 clients=1 tick_us_median=177 tick_us_p99=370 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.20
+SERVER_STATS tick=56320 clients=1 tick_us_median=177 tick_us_p99=320 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.20
+SERVER_STATS tick=57600 clients=1 tick_us_median=171 tick_us_p99=374 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=58880 clients=1 tick_us_median=167 tick_us_p99=378 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=60160 clients=1 tick_us_median=178 tick_us_p99=319 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=61440 clients=1 tick_us_median=171 tick_us_p99=325 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=62720 clients=1 tick_us_median=167 tick_us_p99=316 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=64000 clients=1 tick_us_median=173 tick_us_p99=472 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.9 malformed=0 mem_MB=20.21
+SERVER_STATS tick=65280 clients=1 tick_us_median=169 tick_us_p99=390 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=5.9 malformed=0 mem_MB=20.21
+SERVER_STATS tick=66560 clients=1 tick_us_median=162 tick_us_p99=302 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.1 malformed=0 mem_MB=20.21
+SERVER_STATS tick=67840 clients=1 tick_us_median=158 tick_us_p99=321 overruns=2 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.4 malformed=0 mem_MB=20.21
+SERVER_STATS tick=69120 clients=1 tick_us_median=163 tick_us_p99=390 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=4.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=70400 clients=1 tick_us_median=173 tick_us_p99=390 overruns=2 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.1 malformed=0 mem_MB=20.21
+SERVER_STATS tick=71680 clients=1 tick_us_median=157 tick_us_p99=303 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.9 malformed=0 mem_MB=20.21
+SERVER_STATS tick=72960 clients=1 tick_us_median=172 tick_us_p99=358 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=8.2 malformed=0 mem_MB=20.21
+SERVER_STATS tick=74240 clients=1 tick_us_median=174 tick_us_p99=418 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=9.8 malformed=0 mem_MB=20.21
+SERVER_STATS tick=75520 clients=1 tick_us_median=167 tick_us_p99=459 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.3 malformed=0 mem_MB=20.22
+SERVER_STATS tick=76800 clients=1 tick_us_median=167 tick_us_p99=326 overruns=2 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=8.7 malformed=0 mem_MB=20.22
+SERVER client 1 (slot 0) dropped: bye
+SERVER_EXIT last client left (bye)
+SERVER_FINAL ticks=76876 overruns=2 overrun_pct=0.0026 dropped_silent=0 byes=1 malformed=0 oversize_refused=0 acks_rejected=1 cookies_rejected=1 mem_MB=19.82

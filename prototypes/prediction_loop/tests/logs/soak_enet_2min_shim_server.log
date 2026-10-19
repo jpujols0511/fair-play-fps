@@ -1,0 +1,21 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:27102 with enet (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=enet C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0 (team 1)
+SERVER_STATS tick=1280 clients=1 tick_us_median=179 tick_us_p99=399 overruns=0 rx_B_per_s=7692 tx_B_per_s=7849 cmds_fully_lost=0 rtt_ms=100.5 malformed=0 mem_MB=20.51
+SERVER_STATS tick=2560 clients=1 tick_us_median=185 tick_us_p99=364 overruns=0 rx_B_per_s=8342 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=99.7 malformed=0 mem_MB=20.51
+SERVER_STATS tick=3840 clients=1 tick_us_median=203 tick_us_p99=585 overruns=0 rx_B_per_s=8290 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=107.2 malformed=0 mem_MB=20.51
+SERVER_STATS tick=5120 clients=1 tick_us_median=198 tick_us_p99=473 overruns=0 rx_B_per_s=8283 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=108.0 malformed=0 mem_MB=20.51
+SERVER_STATS tick=6400 clients=1 tick_us_median=195 tick_us_p99=429 overruns=0 rx_B_per_s=8257 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=100.0 malformed=0 mem_MB=20.51
+SERVER_STATS tick=7680 clients=1 tick_us_median=197 tick_us_p99=436 overruns=0 rx_B_per_s=8329 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=100.4 malformed=0 mem_MB=20.51
+SERVER_STATS tick=8960 clients=1 tick_us_median=192 tick_us_p99=503 overruns=0 rx_B_per_s=8197 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=99.8 malformed=0 mem_MB=20.52
+SERVER_STATS tick=10240 clients=1 tick_us_median=189 tick_us_p99=424 overruns=0 rx_B_per_s=8290 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=98.3 malformed=0 mem_MB=20.52
+SERVER_STATS tick=11520 clients=1 tick_us_median=194 tick_us_p99=456 overruns=0 rx_B_per_s=8263 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=99.8 malformed=0 mem_MB=20.52
+SERVER_STATS tick=12800 clients=1 tick_us_median=189 tick_us_p99=484 overruns=0 rx_B_per_s=8290 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=101.2 malformed=0 mem_MB=20.52
+SERVER_STATS tick=14080 clients=1 tick_us_median=203 tick_us_p99=678 overruns=0 rx_B_per_s=8323 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=100.8 malformed=0 mem_MB=20.52
+SERVER_STATS tick=15360 clients=1 tick_us_median=193 tick_us_p99=414 overruns=0 rx_B_per_s=8316 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=87.9 malformed=0 mem_MB=20.52
+SERVER client 1 (slot 0) dropped: disconnect
+SERVER_EXIT last client left (disconnect)
+SERVER_FINAL ticks=15460 overruns=0 overrun_pct=0.0000 dropped_silent=0 byes=0 malformed=0 oversize_refused=0 acks_rejected=2 cookies_rejected=1 mem_MB=20.17

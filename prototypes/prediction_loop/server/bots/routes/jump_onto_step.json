@@ -1,0 +1,2 @@
+{"name": "jump_onto_step", "world": "default", "spawn": [-300.0, 0.0], "loop": true,
+ "waypoints": [{"x": -230.0, "z": 0.0, "jump": true}, {"x": -150.0, "z": 0.0}, {"x": -300.0, "z": 0.0}]}

@@ -1,0 +1,14 @@
+$ python3 tools/fpev_ref.py write match_small.json <temporary-file>
+wrote /var/folders/__/fdsztqk10x31y443lcvp4g8c0000gn/T/fpev-final.OfvsorJ4jH (8320 bytes)
+final_chain_sha256=06b111ba1f1569e17a4aef0bef4248dd9cd1e3caaa30823e97dbe98522b2d89e
+CHAIN OK
+PASS  Python writer matches committed 8,320-byte golden
+
+$ python3 tools/fpev_ref.py verify match_small.fpev --expected-final-hash <fixture hash>
+CHAIN OK
+
+$ python3 tools/fpev_ref.py export match_small.fpev --jsonl-out <temporary-file> --quiet
+CHAIN OK
+PASS  Python JSONL matches committed export
+PASS  108 records by type {2: 12, 3: 12, 5: 20, 1: 40, 6: 20, 4: 4}
+final_chain_sha256=06b111ba1f1569e17a4aef0bef4248dd9cd1e3caaa30823e97dbe98522b2d89e

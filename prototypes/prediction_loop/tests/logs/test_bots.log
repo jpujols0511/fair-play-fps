@@ -1,0 +1,31 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  default arrive_radius is 16.0 when the route omits it  
+PASS  BTN_JUMP is a fresh press: exactly one command carries it, the previous tick does not  jump at tick [153]
+PASS  wait_ticks 5: five commands without FORWARD, DUCK held  idle from tick 312
+PASS  a route without loop finishes and stands still  
+PASS  route step_loop: reaches every waypoint within 3,840 ticks  
+PASS  route step_loop: final PlayerState.hex() identical across two runs; 0 rejects, 0 repeats  5269377aa23357c000000000...
+PASS  route box_circuit: reaches every waypoint within 3,840 ticks  
+PASS  route box_circuit: final PlayerState.hex() identical across two runs; 0 rejects, 0 repeats  6f52ea5ff213734000000000...
+PASS  route jump_onto_step: reaches every waypoint within 3,840 ticks  
+PASS  route jump_onto_step: final PlayerState.hex() identical across two runs; 0 rejects, 0 repeats  3d4d33c9640566c000000000...
+PASS  route crouch_overhang: reaches every waypoint within 3,840 ticks  
+PASS  route crouch_overhang: final PlayerState.hex() identical across two runs; 0 rejects, 0 repeats  000000000040834000000000...
+PASS  route cover_peek: reaches every waypoint within 3,840 ticks  
+PASS  route cover_peek: final PlayerState.hex() identical across two runs; 0 rejects, 0 repeats  000000000020874000000000...
+PASS  K7 crouch_overhang: every tick spent under the 40-high overhang (x 516 to 584) is ducked  1567 of 1567 ticks
+PASS  K7 crouch_overhang: passes under and out again (laps >= 4 in 3,840 ticks)  15 passes
+PASS  K7 crouch_overhang: after clearing the overhang DUCK is released and the stance is standing again  
+PASS  same path: bot stream and the identical stream over encode_input/parse/enqueue_net give a bit-identical state after 3,840 ticks  3d4d33c9640566c000000000...
+PASS  same path: same executed count, no repeats, no rejects on either side  3840 commands
+PASS  same path: states equal every 128 ticks in lockstep (30 checkpoints)  
+PASS  the driver references no object except its own slot (no ServerTick, no other slots)  []
+PASS  bot_driver.gd source never mentions server internals  []
+PASS  10 bots x 7,680 ticks: 0 rejects  0 rejects, 0 duplicates, 0 abuse drops, 0 resyncs, 0 repeats
+PASS  10 bots x 7,680 ticks: every command executed exactly once  76800 executed
+PASS  cover_peek: the bot flips in and out of the viewer's sent mask once per 64-tick phase  20 flips in 1,280 ticks
+PASS  cover_peek: the mask equals the blended-height visibility rule on every snapshot tick  0 mismatches
+PASS  cover_peek: standing is always sent, fully ducked (fraction 1.0) is never sent, half ducked is sent (its crown is above the cover)  70 fully ducked snapshot ticks hidden, 200 half-ducked ticks visible
+
+27 passed, 0 failed

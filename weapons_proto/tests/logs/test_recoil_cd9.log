@@ -1,0 +1,180 @@
+P1c CD-r9 stock accuracy/recovery parity — Godot 4.4.1
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  AK47/stand/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/stand/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/crouch/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/crouch/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/run/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/run/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/air/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK47/air/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/stand/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/stand/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/crouch/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/crouch/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/run/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/run/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/air/64 time, kicks and raw RNG draws unchanged  got true want true
+PASS  M4A1/air/128 time, kicks and raw RNG draws unchanged  got true want true
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  all 16 required and extended sprays tested  got 16 want 16
+PASS  AK47 stock accuracy after shot 1  got 0.350000 want 0.350000
+PASS  M4A1 stock accuracy after shot 1  got 0.300000 want 0.300000
+PASS  AK47 stock accuracy after shot 2  got 0.350000 want 0.350000
+PASS  M4A1 stock accuracy after shot 2  got 0.300000 want 0.300000
+PASS  AK47 stock accuracy after shot 3  got 0.350000 want 0.350000
+PASS  M4A1 stock accuracy after shot 3  got 0.300000 want 0.300000
+PASS  AK47 stock accuracy after shot 4  got 0.350000 want 0.350000
+PASS  M4A1 stock accuracy after shot 4  got 0.300000 want 0.300000
+PASS  AK47 stock accuracy after shot 5  got 0.350000 want 0.350000
+PASS  M4A1 stock accuracy after shot 5  got 0.300000 want 0.300000
+PASS  AK47 stock accuracy after shot 6  got 1.250000 want 1.250000
+PASS  M4A1 stock accuracy after shot 6  got 0.300000 want 0.300000
+PASS  AK47 stock accuracy after shot 7  got 1.250000 want 1.250000
+PASS  M4A1 stock accuracy after shot 7  got 1.000000 want 1.000000
+PASS  AK47 stock accuracy after shot 8  got 1.250000 want 1.250000
+PASS  M4A1 stock accuracy after shot 8  got 1.000000 want 1.000000
+PASS  AK47 stock accuracy after shot 9  got 1.250000 want 1.250000
+PASS  M4A1 stock accuracy after shot 9  got 1.000000 want 1.000000
+PASS  AK47 stock accuracy after shot 10  got 1.250000 want 1.250000
+PASS  M4A1 stock accuracy after shot 10  got 1.000000 want 1.000000
+PASS  legacy smooth accuracy function remains available  got 0.670000 want 0.670000
+PASS  AK47 pre-shot accuracy spread 1  got 0.005500 want 0.005500
+PASS  AK47 pre-shot accuracy spread 2  got 0.009625 want 0.009625
+PASS  AK47 pre-shot accuracy spread 3  got 0.009625 want 0.009625
+PASS  AK47 pre-shot accuracy spread 4  got 0.009625 want 0.009625
+PASS  AK47 pre-shot accuracy spread 5  got 0.009625 want 0.009625
+PASS  AK47 pre-shot accuracy spread 6  got 0.009625 want 0.009625
+PASS  AK47 pre-shot accuracy spread 7  got 0.034375 want 0.034375
+PASS  M4A1 pre-shot accuracy spread 1  got 0.005000 want 0.005000
+PASS  M4A1 pre-shot accuracy spread 2  got 0.007500 want 0.007500
+PASS  M4A1 pre-shot accuracy spread 3  got 0.007500 want 0.007500
+PASS  M4A1 pre-shot accuracy spread 4  got 0.007500 want 0.007500
+PASS  M4A1 pre-shot accuracy spread 5  got 0.007500 want 0.007500
+PASS  M4A1 pre-shot accuracy spread 6  got 0.007500 want 0.007500
+PASS  M4A1 pre-shot accuracy spread 7  got 0.007500 want 0.007500
+PASS  M4A1 pre-shot accuracy spread 8  got 0.025000 want 0.025000
+PASS  AK47 stand first spread  got 0.005500 want 0.005500
+PASS  AK47 stand max spread  got 0.034375 want 0.034375
+PASS  AK47 crouch first spread  got 0.005500 want 0.005500
+PASS  AK47 crouch max spread  got 0.034375 want 0.034375
+PASS  AK47 run first spread  got 0.054000 want 0.054000
+PASS  AK47 run max spread  got 0.127500 want 0.127500
+PASS  AK47 air first spread  got 0.120000 want 0.120000
+PASS  AK47 air max spread  got 0.540000 want 0.540000
+PASS  M4A1 stand first spread  got 0.005000 want 0.005000
+PASS  M4A1 stand max spread  got 0.025000 want 0.025000
+PASS  M4A1 crouch first spread  got 0.005000 want 0.005000
+PASS  M4A1 crouch max spread  got 0.025000 want 0.025000
+PASS  M4A1 run first spread  got 0.049000 want 0.049000
+PASS  M4A1 run max spread  got 0.105000 want 0.105000
+PASS  M4A1 air first spread  got 0.115000 want 0.115000
+PASS  M4A1 air max spread  got 0.435000 want 0.435000
+PASS  M4A1 unsilenced standing table entry  got 0.004000 want 0.004000
+PASS  ReplayRng rejects a wrong draw kind  got true want true
+PASS  ReplayRng rejects an extra draw  got true want true
+PASS  GodotRng seeded uniform replay  got -0.191082 want -0.191082
+PASS  GodotRng seeded integer replay  got true want true
+PASS  AK47:64 peak kick_up  got 4.606133 want 4.610000
+PASS  AK47:64 spray duration  got 2.781250 want 2.781000
+PASS  AK47:128 peak kick_up  got 4.608323 want 4.610000
+PASS  AK47:128 spray duration  got 2.773438 want 2.773000
+PASS  M4A1:64 peak kick_up  got 2.718419 want 2.720000
+PASS  M4A1:64 spray duration  got 2.546875 want 2.547000
+PASS  M4A1:128 peak kick_up  got 2.643580 want 2.640000
+PASS  M4A1:128 spray duration  got 2.539062 want 2.539000
+PASS  kick decay 64 tick  got 3.664442 want 3.664442
+PASS  kick decay 128 tick  got 3.759801 want 3.759801
+PASS  2 degree kick recovery steps 64 tick  got 13 want 13
+PASS  2 degree kick recovery seconds 64 tick  got 0.203125 want 0.203125
+PASS  2 degree kick recovery steps 100 tick  got 20 want 20
+PASS  2 degree kick recovery seconds 100 tick  got 0.200000 want 0.200000
+PASS  2 degree kick recovery steps 128 tick  got 25 want 25
+PASS  2 degree kick recovery seconds 128 tick  got 0.195312 want 0.195312
+PASS  CD-r9 30-shot counter is capped at release  got 15 want 15
+PASS  Python sim 30-shot first-drop tick 64 Hz  got 26 want 26
+PASS  Python sim 30-shot reset tick 64 Hz  got 54 want 54
+PASS  CD-r9 30-shot first-drop tick 64 Hz  got 26 want 26
+PASS  CD-r9 30-shot first-drop seconds 64 Hz  got 0.406250 want 0.406250
+PASS  CD-r9 30-shot counter reaches zero at tick 64 Hz  got 54 want 54
+PASS  CD-r9 30-shot reset seconds 64 Hz  got 0.843750 want 0.843750
+PASS  Python sim 3-shot tap reset tick 64 Hz  got 30 want 30
+PASS  CD-r9 3-shot tap reset tick 64 Hz  got 30 want 30
+PASS  CD-r9 30-shot counter is capped at release  got 15 want 15
+PASS  Python sim 30-shot first-drop tick 100 Hz  got 41 want 41
+PASS  Python sim 30-shot reset tick 100 Hz  got 83 want 83
+PASS  CD-r9 30-shot first-drop tick 100 Hz  got 41 want 41
+PASS  CD-r9 30-shot first-drop seconds 100 Hz  got 0.410000 want 0.410000
+PASS  CD-r9 30-shot counter reaches zero at tick 100 Hz  got 83 want 83
+PASS  CD-r9 30-shot reset seconds 100 Hz  got 0.830000 want 0.830000
+PASS  Python sim 3-shot tap reset tick 100 Hz  got 47 want 47
+PASS  CD-r9 3-shot tap reset tick 100 Hz  got 47 want 47
+PASS  CD-r9 30-shot counter is capped at release  got 15 want 15
+PASS  Python sim 30-shot first-drop tick 128 Hz  got 52 want 52
+PASS  Python sim 30-shot reset tick 128 Hz  got 94 want 94
+PASS  CD-r9 30-shot first-drop tick 128 Hz  got 52 want 52
+PASS  CD-r9 30-shot first-drop seconds 128 Hz  got 0.406250 want 0.406250
+PASS  CD-r9 30-shot counter reaches zero at tick 128 Hz  got 94 want 94
+PASS  CD-r9 30-shot reset seconds 128 Hz  got 0.734375 want 0.734375
+PASS  Python sim 3-shot tap reset tick 128 Hz  got 58 want 58
+PASS  CD-r9 3-shot tap reset tick 128 Hz  got 58 want 58
+PASS  CD-r9 100 Hz tick 40 has no recovery drop  got 15 want 15
+PASS  CD-r9 100 Hz first drop is tick 41  got 14 want 14
+PASS  one-per-tick stock path drops only once for large dt  got 14 want 14
+PASS  CD-r9 stock release cap default  got 15.000000 want 15.000000
+PASS  CD-r9 recovery delay defaults from release  got release want release
+PASS  CD-r9 first drop is strictly after the delay  got false want false
+PASS  CD-r9 recovery is limited to one drop per tick  got true want true
+PASS  CD-r9 release edge caps 30-shot counter at 15  got 15 want 15
+PASS  trigger release edge applies the stock cap  got 15 want 15
+PASS  trigger release edge resets stock delay  got 0.000000 want 0.000000
+PASS  held trigger does not recover shot counter  got 30 want 30
+PASS  legacy switches preserve 30-shot 1.075 s reset  got 0 want 0
+PASS  legacy 30-shot elapsed time  got 1.075000 want 1.075000
+PASS  legacy switches preserve 3-shot 0.4675 s reset  got 0 want 0
+PASS  legacy 3-shot elapsed time  got 0.467500 want 0.467500
+PASS  J2 on uses moving kick in air  got -1.500000 want -1.500000
+PASS  J2 off uses air kick  got -2.000000 want -2.000000
+PASS  J3 off uses 1..k and flips on one  got true want true
+PASS  J3 alternative recorded exact roll bounds  got true want true
+PASS  J1 fixed stub starts without a flip  got true want true
+PASS  J1 fixed stub follows deterministic sequence  got false want false
+PASS  J4 stock recovery keeps cap accuracy  got 1.250000 want 1.250000
+PASS  J4 six-shot AK accuracy is capped before recovery  got 1.250000 want 1.250000
+PASS  J4 next AK shot uses stored cap accuracy  got 0.034375 want 0.034375
+PASS  J4 reset alternative restores starting accuracy  got 0.200000 want 0.200000
+PASS  J4 reset alternative returns to first-shot spread  got 0.005500 want 0.005500
+4975 passed, 0 failed

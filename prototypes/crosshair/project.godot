@@ -1,0 +1,20 @@
+; Engine configuration file.
+; Fair Play FPS — crosshair prototype (private). Godot 4.4.1-stable.
+
+config_version=5
+
+[application]
+
+config/name="Fair Play Crosshair Prototype"
+run/main_scene="res://demo.tscn"
+config/features=PackedStringArray("4.4")
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="disabled"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

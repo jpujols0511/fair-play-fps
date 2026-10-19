@@ -1,0 +1,30 @@
+P8 CD-r7 evidence-gate / angle-adapter smoke — Godot 4.4.1
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  evidence writer disabled by default
+PASS  offline review disabled by default
+PASS  default range session starts without an evidence writer
+PASS  default range has no writer
+PASS  range shot simulation still runs with evidence off
+PASS  range shot does not create evidence writer
+PASS  L reports evidence disabled
+PASS  K reports review disabled
+PASS  range scene instantiates
+Evidence verification: CHAIN OK
+PASS  first smoke run passes
+PASS  first run tick count
+PASS  first run has 50 rewind decisions
+PASS  first run has exactly five claimed-time rejects
+PASS  first run writes AIM_KIN for every SHOT command with records
+PASS  first run has a hit
+PASS  first run has a near miss
+PASS  first run records server AIM_KIN snapback
+PASS  first run writes JSONL
+PASS  first run writes review JSON
+PASS  range review remains review-only
+PASS  range review confirms evidence chain
+Evidence verification: CHAIN OK
+PASS  second smoke run passes
+PASS  smoke evidence is deterministic
+PASS  Python verifies smoke evidence
+24 passed, 0 failed

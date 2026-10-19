@@ -1,0 +1,121 @@
+P5 Addendum 2/4 validation — Godot 4.4.1.stable.official.49a5bc7b6
+
+=== Python hitreg reference ===
+hitreg_ref self-test passed 30 named/random assertions
+wrote weapons_proto/tests/hitreg_cases.json
+22 named scenario cases; 2000 seeded random shots
+scenario counts {'1': 1, '2': 1, '3': 3, '4': 1, '5': 5, '6': 1, '7': 2, '8': 3, '9': 1, '10': 2, '11': 2}
+case counts {'named': 22, 'random': 2000}
+
+=== GDScript test_hitreg.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  scenario1 one hit record  got 1 want 1
+PASS  scenario1 outcome hit  got 0 want 0
+PASS  scenario1 head box  got 0 want 0
+PASS  scenario1 head region  got 0 want 0
+PASS  scenario1 hit distance  got 0.000000000 want 0.000000000
+PASS  scenario1 padded trace entry distance  got 494.000000142 want 494.000000142
+PASS  scenario1 padded hit ray point  got (494.000000000, 0.000000000, 64.011840595)
+PASS  scenario1 padded hit box point  got (494.000000000, 0.000000000, 64.011840595)
+PASS  scenario1 rewind zero  got 0 want 0
+PASS  scenario1 rewind flags zero  got 0 want 0
+PASS  scenario1 no input reject  got <null> want <null>
+PASS  scenario2 chosen rewind  got 14.240000000 want 14.240000000
+PASS  scenario2 chest hit  got 1 want 1
+PASS  scenario2 chest part  got 1 want 1
+PASS  scenario2 chest region  got 1 want 1
+PASS  scenario2 without rewind is a clean miss  got none want none
+PASS  scenario5 z 74.50 record count  got 1 want 1
+PASS  scenario5 z 74.50 near miss  got 1 want 1
+PASS  scenario5 z 74.50 distance  got 0.511840595 want 0.511840595
+PASS  scenario5 z 74.99 record count  got 1 want 1
+PASS  scenario5 z 74.99 near miss  got 1 want 1
+PASS  scenario5 z 74.99 distance  got 1.001840595 want 1.001840595
+PASS  scenario5 z 75.00 record count  got 1 want 1
+PASS  scenario5 z 75.00 near miss  got 1 want 1
+PASS  scenario5 z 75.00 distance  got 1.011840595 want 1.011840595
+PASS  scenario5 z 77.98 record count  got 1 want 1
+PASS  scenario5 z 77.98 near miss  got 1 want 1
+PASS  scenario5 z 77.98 distance  got 3.991840594 want 3.991840595
+PASS  scenario5 z 78.00 record count  got 0 want 0
+PASS  scenario3 rewound peeker is hit  got 1 want 1
+PASS  scenario3 open peek hits chest  got 1 want 1
+PASS  scenario3 open ray clears wall  got false want false
+PASS  scenario3 target is behind wall at now  got true want true
+PASS  scenario3 hidden ray is world blocked  got true want true
+PASS  scenario3 wall-blocked shot has no SHOT  got 0 want 0
+PASS  scenario3 wall-block still records rewind  got true want true
+PASS  J14 off permits hidden target hit  got true want true
+PASS  J14 off logs THROUGH_WORLD  got 4 want 4
+PASS  scenario4 backtrack clamp reason  got 1 want 1
+PASS  scenario4 backtrack input reject  got 1 want 1
+PASS  scenario4 padded boundary remains logged  got 1 want 1
+PASS  scenario4 old head position is a near miss  got 1 want 1
+PASS  scenario4 near miss is inside 4-unit logger  got true want true
+PASS  scenario6 spread produces one hit  got 1 want 1
+PASS  scenario6 spread moves head aim to chest  got 1 want 1
+PASS  scenario6 downward vertical offset  got -0.005500000 want -0.005500000
+PASS  scenario6 zero spread remains a headshot  got 0 want 0
+PASS  scenario7 z=33.0 crouched head hits head  got 0 want 0
+PASS  scenario7 crouched head distance  got 0.000000000 want 0.000000000
+PASS  scenario7 padded head entry  got 494.000000142 want 494.000000142
+PASS  scenario7 z=27.25 entry-first selects chest  got 1 want 1
+PASS  scenario7 padded chest trace entry distance  got 490.000000141 want 490.000000141
+PASS  scenario7 configured overlap alternative selects head  got 0 want 0
+PASS  scenario7 alternative padded head entry  got 494.000000142 want 494.000000142
+PASS  scenario8 behind target ignored after first hit  got 1 want 1
+PASS  scenario8 first target is hit  got 1 want 1
+PASS  scenario8 front graze creates two records  got 2 want 2
+PASS  scenario8 front target is near miss  got 1 want 1
+PASS  scenario8 hit records share shot index  got 1 want 1
+PASS  J13 penetration alternative reaches rear target  got 2 want 2
+PASS  scenario9 teammate is traced  got 1 want 1
+PASS  scenario9 same-team marker  got true want true
+PASS  scenario10 dead target not traced  got 0 want 0
+PASS  scenario10 missing-history target still traced  got 1 want 1
+PASS  scenario10 missing-history rewind reason  got 6 want 6
+PASS  scenario10 missing-history flag bit  got 32 want 32
+PASS  scenario10 missing-history target not in mask  got 0 want 0
+PASS  scenario10 uses oldest target origin  got 500.000000000 want 500.000000000
+PASS  scenario11 shooter command has no seed  got false want false
+PASS  scenario11 different server seed can change result  got true want true
+PASS  J12 placeholder base damage  got 0.000000000 want 0.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J13 non-penetration default  got false want false
+PASS  J14 world-block default  got true want true
+PASS  damage region for box 0  got 0 want 0
+PASS  damage region for box 1  got 1 want 1
+PASS  damage region for box 2  got 2 want 2
+PASS  damage region for box 3  got 3 want 3
+PASS  damage region for box 4  got 3 want 3
+PASS  damage region for box 5  got 3 want 3
+PASS  damage region for box 6  got 3 want 3
+PASS  damage region for box 7  got 4 want 4
+PASS  damage region for box 8  got 4 want 4
+PASS  damage region for box 9  got 4 want 4
+PASS  damage region for box 10  got 4 want 4
+PASS  hitreg named cases present  got 22 want 22
+PASS  hitreg random cases present  got 2000 want 2000
+PASS  hitreg total cases present  got 2022 want 2022
+PASS  Python reference includes scenario 1  got true want true
+PASS  Python reference includes scenario 2  got true want true
+PASS  Python reference includes scenario 3  got true want true
+PASS  Python reference includes scenario 4  got true want true
+PASS  Python reference includes scenario 5  got true want true
+PASS  Python reference includes scenario 6  got true want true
+PASS  Python reference includes scenario 7  got true want true
+PASS  Python reference includes scenario 8  got true want true
+PASS  Python reference includes scenario 9  got true want true
+PASS  Python reference includes scenario 10  got true want true
+PASS  Python reference includes scenario 11  got true want true
+PASS  hitreg golden category named count  got 22 want 22
+PASS  hitreg golden category random count  got 2000 want 2000
+Hitreg golden summary: 2022 cases; max numeric error 0.000000815252
+PASS  hitreg golden maximum error  got 0.000000815 want 0.000000000
+106 passed, 0 failed

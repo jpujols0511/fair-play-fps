@@ -1,0 +1,142 @@
+P4 Addendum 3 duck-fraction validation — Godot 4.4.1.stable.official.49a5bc7b6
+
+=== Python reference ===
+lagcomp_ref self-test passed 13 named/policy/duck assertions
+wrote weapons_proto/tests/lagcomp_cases.json
+5000 random + 15 named cases
+case counts {'linear_rate_100': 542, 'circle_rate_128': 546, 'circle_rate_100': 572, 'peek_rate_128': 523, 'peek_rate_64': 556, 'peek_rate_100': 583, 'circle_rate_64': 553, 'linear_rate_64': 564, 'linear_rate_128': 561, 'rtt_80_interp_4': 1, 'claim_plus_0_9': 1, 'claim_plus_1_0_inclusive': 1, 'claim_plus_1_1': 1, 'backtrack_minus_5': 1, 'full_cap_164ms': 1, 'over_cap_170ms': 1, 'reason_3_both_clamps': 1, 'reason_4_negative_in_window': 1, 'reason_5_claim_and_negative': 1, 'reason_6_missing_history': 1, 'circle_shortest_yaw': 1, 'peek_path': 1, 'stance_toggle_path': 1, 'dead_target': 1}
+
+=== GDScript test_lagcomp.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  history 64-tick rewind cap  got 12 want 12
+PASS  history 64-tick capacity  got 13 want 13
+PASS  history 100-tick rewind cap  got 20 want 20
+PASS  history 100-tick capacity  got 21 want 21
+PASS  history 128-tick rewind cap  got 25 want 25
+PASS  history 128-tick capacity  got 26 want 26
+PASS  all 1,000 sequential samples accepted  got true want true
+PASS  ring retains exactly 26 samples  got 26 want 26
+PASS  ring newest tick  got 999 want 999
+PASS  oldest retained tick  got 974.0 want 974
+PASS  oldest retained sample is present  got false want false
+PASS  expired history returns oldest tick  got 974 want 974
+PASS  expired history is marked missing  got true want true
+PASS  out-of-range slot rejects sample  got false want false
+PASS  all 1,601 fractional queries have history  got true want true
+PASS  linear path max error for 1601 fractional queries  got 0.000000000 want 0.000000000
+PASS  shortest yaw arc halfway  got 0.000000000 want 0.000000000
+PASS  origin linear interpolation  got 4.000000000 want 4.000000000
+PASS  nearer old stance before midpoint  got 1 want 1
+PASS  nearer new stance after midpoint  got 0 want 0
+PASS  older stance wins exact midpoint  got 1 want 1
+PASS  alive if both samples alive  got true want true
+PASS  interpolated sample dead if either endpoint dead  got false want false
+PASS  missing-history sample uses oldest tick  got 995 want 995
+PASS  missing-history flag set  got true want true
+PASS  missing-history uses oldest origin  got 995.000000000 want 995.000000000
+PASS  rewind targets alive slots only  got [1, 3] want [1, 3]
+PASS  shooter and dead slots excluded  got 0 want 0
+PASS  missing history target not in mask  got 0 want 0
+PASS  complete-history target in mask  got 2 want 2
+PASS  one target has missing history  got 1 want 1
+PASS  only complete-history target rewound  got 1 want 1
+PASS  rewound boxes match exact linear path  got 0.000000000 want 0.000000000
+PASS  A3 64 tick mid-duck history fraction  got 0.500000000 want 0.500000000
+PASS  A3 64 tick mid-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 64 tick mid-duck eye height  got 48.000000000 want 48.000000000
+PASS  A3 64 tick mid-duck head height hits head  got 0 want 0
+PASS  A3 64 tick stand height is not a head hit  got false want false
+PASS  A3 64 tick crouch height misses mid-duck ray  got none want none
+PASS  A3 100 tick mid-duck history fraction  got 0.500000000 want 0.500000000
+PASS  A3 100 tick mid-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 100 tick mid-duck eye height  got 48.000000000 want 48.000000000
+PASS  A3 100 tick mid-duck head height hits head  got 0 want 0
+PASS  A3 100 tick stand height is not a head hit  got false want false
+PASS  A3 100 tick crouch height misses mid-duck ray  got none want none
+PASS  A3 128 tick mid-duck history fraction  got 0.500000000 want 0.500000000
+PASS  A3 128 tick mid-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 128 tick mid-duck eye height  got 48.000000000 want 48.000000000
+PASS  A3 128 tick mid-duck head height hits head  got 0 want 0
+PASS  A3 128 tick stand height is not a head hit  got false want false
+PASS  A3 128 tick crouch height misses mid-duck ray  got none want none
+PASS  J10 default interpolation ticks  got 4 want 4
+PASS  J11 rewind cap 64 tick  got 12 want 12
+PASS  J11 rewind cap 100 tick  got 20 want 20
+PASS  J11 rewind cap 128 tick  got 25 want 25
+PASS  80ms/interp4 wanted rewind  got 14.240000000 want 14.240000000
+PASS  80ms/interp4 whole rewind  got 14 want 14
+PASS  80ms/interp4 fraction  got 15729 want 15729
+PASS  80ms/interp4 reason  got 0 want 0
+PASS  80ms/interp4 flags  got 0 want 0
+PASS  80ms/interp4 accepts expected claim  got false want false
+PASS  chosen tick matches encoded rewind  got 985.759994507 want 985.759994507
+PASS  80ms/interp2 wanted rewind  got 12.240000000 want 12.240000000
+PASS  80ms/interp3 wanted rewind  got 13.240000000 want 13.240000000
+PASS  claimed-time +0.9 accepted  got false want false
+PASS  claimed-time +1.0 inclusive  got false want false
+PASS  claimed-time +1.1 rejected  got true want true
+PASS  claimed-time reason 1  got 1 want 1
+PASS  claimed-time flag bit 1  got 2 want 2
+PASS  claimed-time clamped to plus one  got 986.760000000 want 986.760000000
+PASS  backtrack claim clamps to minus one  got 1 want 1
+PASS  backtrack clamped claim  got 984.760000000 want 984.760000000
+PASS  full compensation limit is 25 ticks  got 25.000000000 want 25.000000000
+PASS  exact cap not flagged  got 0 want 0
+PASS  170ms wanted rewind  got 25.760000000 want 25.760000000
+PASS  over-cap clamps to 25  got 25 want 25
+PASS  over-cap fraction clears  got 0 want 0
+PASS  over-cap reason 2  got 2 want 2
+PASS  over-cap flag bit 0  got 1 want 1
+PASS  full compensation interp2 limit  got 25.000000000 want 25.000000000
+PASS  full compensation interp3 limit  got 25.000000000 want 25.000000000
+PASS  negative rewind clamps to zero  got 0 want 0
+PASS  negative rewind combined reason 5  got 5 want 5
+PASS  negative rewind has claim flag  got 2 want 2
+PASS  negative rewind has negative flag  got 16 want 16
+PASS  both clamps reason 3  got 3 want 3
+PASS  both clamps flags 0 and 1  got 3 want 3
+PASS  missing-only reason 6  got 6 want 6
+PASS  missing-history flag bit 5  got 32 want 32
+PASS  missing history preserves clamp reason  got 1 want 1
+PASS  missing history adds flag to clamp  got 32 want 32
+PASS  fraction rounding carries whole tick  got 11 want 11
+PASS  fraction rounding carry clears remainder  got 0 want 0
+PASS  ScriptedPath linear speed  got 250.000000000 want 250.000000000
+PASS  ScriptedPath circle endpoint  got (-20.000000000, 0.000000000, 0.000000000) want (-20.000000000, 0.000000000, 0.000000000)
+PASS  ScriptedPath circle tangent yaw  got 270.000000000 want 270.000000000
+PASS  ScriptedPath peek starts in cover  got 60.000000000 want 60.000000000
+PASS  ScriptedPath peek returns to cover  got 60.000000000 want 60.000000000
+PASS  ScriptedPath stance toggle  got 1 want 1
+PASS  ScriptedPath spawn marker  got true want true
+PASS  ScriptedPath death marker  got false want false
+PASS  lag-comp golden case total  got 5015 want 5015
+PASS  lag-comp random case count  got 5000 want 5000
+Lag-comp summary: 5015 cases; maximum pose absolute error 0.000000000000
+PASS  lag-comp golden category linear_rate_100 count  got 542 want 542
+PASS  lag-comp golden category circle_rate_128 count  got 546 want 546
+PASS  lag-comp golden category circle_rate_100 count  got 572 want 572
+PASS  lag-comp golden category peek_rate_128 count  got 523 want 523
+PASS  lag-comp golden category peek_rate_64 count  got 556 want 556
+PASS  lag-comp golden category peek_rate_100 count  got 583 want 583
+PASS  lag-comp golden category circle_rate_64 count  got 553 want 553
+PASS  lag-comp golden category linear_rate_64 count  got 564 want 564
+PASS  lag-comp golden category linear_rate_128 count  got 561 want 561
+PASS  lag-comp golden category rtt_80_interp_4 count  got 1 want 1
+PASS  lag-comp golden category claim_plus_0_9 count  got 1 want 1
+PASS  lag-comp golden category claim_plus_1_0_inclusive count  got 1 want 1
+PASS  lag-comp golden category claim_plus_1_1 count  got 1 want 1
+PASS  lag-comp golden category backtrack_minus_5 count  got 1 want 1
+PASS  lag-comp golden category full_cap_164ms count  got 1 want 1
+PASS  lag-comp golden category over_cap_170ms count  got 1 want 1
+PASS  lag-comp golden category reason_3_both_clamps count  got 1 want 1
+PASS  lag-comp golden category reason_4_negative_in_window count  got 1 want 1
+PASS  lag-comp golden category reason_5_claim_and_negative count  got 1 want 1
+PASS  lag-comp golden category reason_6_missing_history count  got 1 want 1
+PASS  lag-comp golden category circle_shortest_yaw count  got 1 want 1
+PASS  lag-comp golden category peek_path count  got 1 want 1
+PASS  lag-comp golden category stance_toggle_path count  got 1 want 1
+PASS  lag-comp golden category dead_target count  got 1 want 1
+PASS  lag-comp golden max pose error  got 0.000000000 want 0.000000000
+128 passed, 0 failed

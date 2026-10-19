@@ -1,0 +1,36 @@
+
+=== 64 tick (dt=15.62 ms) ===
+raw air accel per tick: 39.06 u/s (cap 30)
+  ideal strafe gain at 250 u/s: 1.794 u/s/tick = 114.8 u/s per second
+  ideal strafe gain at 300 u/s: 1.496 u/s/tick = 95.8 u/s per second
+  ideal strafe gain at 400 u/s: 1.123 u/s/tick = 71.9 u/s per second
+jump airtime: 43 ticks; first jump vz 268.3, chained vz 235.5
+speed at end of each air phase (first 6): [318.1, 303.0, 303.0, 303.0, 303.0, 303.0]
+steady top chained-bhop speed: 303.0 u/s (cropped back to 240 on each jump while >300)
+  landing at 240: after 1 ground tick 225.0, after 100 ms 162.9, stop in 30 ticks (469 ms)
+  landing at 300: after 1 ground tick 281.2, after 100 ms 203.7, stop in 34 ticks (531 ms)
+  landing at 400: after 1 ground tick 375.0, after 100 ms 271.6, stop in 38 ticks (594 ms)
+
+=== 100 tick (dt=10.00 ms) ===
+raw air accel per tick: 25.00 u/s (cap 30)
+  ideal strafe gain at 250 u/s: 1.744 u/s/tick = 174.4 u/s per second
+  ideal strafe gain at 300 u/s: 1.455 u/s/tick = 145.5 u/s per second
+  ideal strafe gain at 400 u/s: 1.092 u/s/tick = 109.2 u/s per second
+jump airtime: 68 ticks; first jump vz 268.3, chained vz 235.9
+speed at end of each air phase (first 6): [349.3, 330.5, 329.2, 329.2, 329.2, 329.2]
+steady top chained-bhop speed: 329.2 u/s (cropped back to 240 on each jump while >300)
+  landing at 240: after 1 ground tick 230.4, after 100 ms 159.6, stop in 47 ticks (470 ms)
+  landing at 300: after 1 ground tick 288.0, after 100 ms 199.4, stop in 52 ticks (520 ms)
+  landing at 400: after 1 ground tick 384.0, after 100 ms 265.9, stop in 59 ticks (590 ms)
+
+=== 128 tick (dt=7.81 ms) ===
+raw air accel per tick: 19.53 u/s (cap 30)
+  ideal strafe gain at 250 u/s: 1.576 u/s/tick = 201.7 u/s per second
+  ideal strafe gain at 300 u/s: 1.314 u/s/tick = 168.3 u/s per second
+  ideal strafe gain at 400 u/s: 0.987 u/s/tick = 126.3 u/s per second
+jump airtime: 86 ticks; first jump vz 268.3, chained vz 235.5
+speed at end of each air phase (first 6): [361.2, 343.0, 341.9, 340.7, 340.7, 340.7]
+steady top chained-bhop speed: 340.7 u/s (cropped back to 240 on each jump while >300)
+  landing at 240: after 1 ground tick 232.5, after 100 ms 164.0, stop in 60 ticks (469 ms)
+  landing at 300: after 1 ground tick 290.6, after 100 ms 205.0, stop in 67 ticks (523 ms)
+  landing at 400: after 1 ground tick 387.5, after 100 ms 273.3, stop in 76 ticks (594 ms)

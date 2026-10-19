@@ -1,0 +1,11 @@
+P6 Python reference — evidence logging explicitly enabled
+$ python3 tools/fpev_ref.py write --enable-evidence-log weapons_proto/tests/golden/match_small.json /tmp/match_small_cd2_ref.fpev
+wrote /tmp/match_small_cd2_ref.fpev (8320 bytes)
+final_chain_sha256=a32c1c8cc67c2a771b77790d3922a627c1603d1173aa4628cb184bc49f9876bb
+CHAIN OK
+$ python3 tools/fpev_ref.py verify --enable-evidence-log weapons_proto/tests/golden/match_small.fpev --expected-final-hash a32c1c8cc67c2a771b77790d3922a627c1603d1173aa4628cb184bc49f9876bb
+CHAIN OK
+$ python3 tools/fpev_ref.py export --enable-evidence-log weapons_proto/tests/golden/match_small.fpev --quiet --jsonl-out /tmp/match_small_cd2_ref.jsonl
+CHAIN OK
+PASS Python writer output matches committed CD-r2 golden
+PASS Python JSONL matches committed CD-r2 golden

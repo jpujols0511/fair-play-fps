@@ -30,3 +30,10 @@ matches/
 # Godot editor and import cache
 godot/.godot/
 *.import
+
+# Synced from private main (prototypes)
+.~lock.*#
+.godot/
+prototypes/prediction_loop/recordings/last_run.json
+prototypes/prediction_loop/recordings/live_*
+prototypes/prediction_loop/.godot/

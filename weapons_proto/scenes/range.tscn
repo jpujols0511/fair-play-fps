@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/range.gd" id="1_range"]
+[ext_resource type="Script" path="res://scenes/range_hud.gd" id="2_hud"]
+
+[node name="Range" type="Node3D"]
+script = ExtResource("1_range")
+
+[node name="ShooterCamera" type="Camera3D" parent="."]
+current = true
+fov = 78.0
+near = 0.05
+far = 2500.0
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.95, 0.4, 0.0)
+light_color = Color(0.77, 0.87, 0.76, 1)
+light_energy = 0.75
+shadow_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("2_hud")

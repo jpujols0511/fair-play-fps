@@ -1,0 +1,15 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+== wallhack bait: 1280 ticks per run ==
+PASS  1. enemy standing still behind the tall box: present in 0 of 640 decoded snapshots  present in 0
+PASS  2. enemy crouched behind the 40-unit cover: present in 0 of 640 decoded snapshots  present in 0
+PASS  3. enemy walking back and forth behind the tall box, never exposed: 0 of 640  present in 0
+PASS  4. teammate behind the tall box: 640 of 640 (always sent)  
+PASS  5. enemy exposed in the open: 640 of 640  
+PASS  6. enemy crouch-toggling behind the 40 cover: sent in 550 snapshots, reference (the same rule with the duck fraction) 550, within +-1 per edge (20 edges)  
+PASS  no pop-in at ping 0 ms: first snapshot with the enemy at tick 56, first margin-free ray clear at tick 62: lead 6 ticks (>= 2)  
+PASS  no pop-in at ping 80 ms: first snapshot with the enemy at tick 52, first margin-free ray clear at tick 62: lead 10 ticks (>= 2)  
+PASS  no pop-in at ping 150 ms: first snapshot with the enemy at tick 46, first margin-free ray clear at tick 62: lead 16 ticks (>= 2)  
+PASS  leak back: REMOVED goes out on the first snapshot after the last tick the rule said visible (tick 482) and the client buffer drops it on arrival (tick 488 = 482 + 6)  last visible-by-rule snapshot tick 480
+
+10 passed, 0 failed

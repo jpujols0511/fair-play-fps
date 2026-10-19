@@ -1,0 +1,95 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot 4.4.1-stable (official)
+
+== S1 Determinism: client == server bit for bit, 10,000 ticks, 0 ms, no loss ==
+  run     executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  strafe  executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  bhop    executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  turns   executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  wall    executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  step    executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  crouch  executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  mixed   executed  9999 cmds, mismatching seqs 0, corrections 0, server==client at seq 9999: true
+  CSV twice, same seed: true (sha256 f58179efe1ced61d...)   different seed differs: true
+GATE S1 determinism PASS  79992 commands compared, 0 differences expected
+
+== S2 Parity with the Python sim (tolerance 0.01) ==
+  one movement.gd (prototype == movement_proto): true
+  strafe gain @250, 128 tick: 201.7090 u/s per second (want 201.71)   top bhop @128 tick: 340.7198 (want 340.72)
+  test_parity.gd exit 0: 456 passed, 0 failed
+  test_parity_phase3.gd exit 0: 41 passed, 0 failed
+GATE S2 parity PASS  340.72 / 201.71 within 0.01
+
+== S3 Accuracy at 80 ms ping, 2% loss (jitter off) ==
+  snapshots (real bytes, own block f64, no remotes yet): 240000 sent (169 full), bytes min 126 / mean 126.0 / max 126; client dropped for a missing baseline: 0
+  480000 ticks over 24 runs; 479856 cmds executed; fully lost (all 3 copies): 4 (0.000834% of cmds; 0.02^3 = 0.0008%)
+  reconciles: 234849 matched exactly (error 0.0), 2 corrected (2 explained by a lost cmd/teleport, 0 unexplained)
+  per-seq error vs server: p50 0.0000 p99 0.0000 max 2.5884 units;  error at correction: max 0.7618;  longest replay 12 ticks;  ring overflows 0
+GATE S3 accuracy PASS  p99 0.0000 units (<1), max 2.5884 (<8), unexplained corrections 0 (0 expected), every reconcile with no lost command: error 0.0
+
+== S4 No visible jitter (jitter ON: +/-5 ms) ==
+  snapshots (real bytes, own block f64, no remotes yet): 240000 sent (155 full), bytes min 126 / mean 126.0 / max 126; client dropped for a missing baseline: 0
+  480000 ticks over 24 runs; 479866 cmds executed; fully lost (all 3 copies): 4 (0.000834% of cmds; 0.02^3 = 0.0008%)
+  reconciles: 233842 matched exactly (error 0.0), 2 corrected (2 explained by a lost cmd/teleport, 0 unexplained)
+  per-seq error vs server: p50 0.0000 p99 0.0000 max 2.1320 units;  error at correction: max 0.6095;  longest replay 12 ticks;  ring overflows 0
+  visual motion not explained by predicted motion: max 0.1640 units/tick (<=1);  max sign flips in 13 ticks: 0 (<3)
+  forced 6-unit corrections (120 shoves, jitter on): visual unexplained max 0.6823 units/tick, max flips 1
+GATE S4 no visible jitter PASS  max 0.6823 units/tick beyond simulated motion, <3 flips. Human playtest still needed (main.tscn, key J = jitter).
+
+== S5 Zero added input latency ==
+  key->visual latency in ticks (5 seeds): [0, 0, 0, 0, 0]   jump same tick: true
+  visual vs standalone local sim (no netcode), 7 bots: 0 differing ticks (0 expected: nothing added between key and visual)
+GATE S5 zero input latency PASS  visual changes on the tick the key is read
+
+== S6 Loss stability ==
+  loss 2%:
+  snapshots (real bytes, own block f64, no remotes yet): 240000 sent (169 full), bytes min 126 / mean 126.0 / max 126; client dropped for a missing baseline: 0
+  480000 ticks over 24 runs; 479856 cmds executed; fully lost (all 3 copies): 4 (0.000834% of cmds; 0.02^3 = 0.0008%)
+  reconciles: 234849 matched exactly (error 0.0), 2 corrected (2 explained by a lost cmd/teleport, 0 unexplained)
+  per-seq error vs server: p50 0.0000 p99 0.0000 max 2.5884 units;  error at correction: max 0.7618;  longest replay 12 ticks;  ring overflows 0
+    fully lost: expected 3.8 events (0.000800%), measured 4 (0.000834%); pass if within expected + 4 sigma + 1
+    stable: unexplained 0, overflows 0, corrections that needed a >64-unit snap 0  ->  true
+  loss 10%:
+  snapshots (real bytes, own block f64, no remotes yet): 240000 sent (170 full), bytes min 126 / mean 126.0 / max 126; client dropped for a missing baseline: 0
+  480000 ticks over 24 runs; 479852 cmds executed; fully lost (all 3 copies): 444 (0.092529% of cmds; 0.02^3 = 0.0008%)
+  reconciles: 213588 matched exactly (error 0.0), 208 corrected (208 explained by a lost cmd/teleport, 0 unexplained)
+  per-seq error vs server: p50 0.0000 p99 0.0000 max 27.2067 units;  error at correction: max 9.4336;  longest replay 13 ticks;  ring overflows 0
+    fully lost: expected 479.9 events (0.100000%), measured 444 (0.092529%); pass if within expected + 4 sigma + 1
+    stable: unexplained 0, overflows 0, corrections that needed a >64-unit snap 0  ->  true
+GATE S6 loss stability (2% and 10%) PASS  no unexplained corrections, no ring overflow, no snaps
+
+== S7 Big corrections snap ==
+  run   flagged teleport at tick 1000: correction applied at tick 1006 (arrival), ticks with a visible slide afterwards: 0
+      unflagged 100-unit shove: snapped (ok)
+      unflagged 6-unit shove: faded over ~13 ticks (ok)
+  bhop  flagged teleport at tick 1000: correction applied at tick 1006 (arrival), ticks with a visible slide afterwards: 0
+      unflagged 100-unit shove: snapped (ok)
+      unflagged 6-unit shove: faded over ~13 ticks (ok)
+  wall  flagged teleport at tick 1000: correction applied at tick 1006 (arrival), ticks with a visible slide afterwards: 0
+      unflagged 100-unit shove: snapped (ok)
+      unflagged 6-unit shove: faded over ~13 ticks (ok)
+GATE S7 snap on teleports PASS  snap happens on the tick the correction arrives, no 100 ms slide
+
+== S8 Replay cost: 32 ticks in GDScript ==
+  replay of 32 ticks (Movement.step x32 incl. ring writes), 1000 runs: median 244 us, p99 285 us, worst 336 us   (limit 1000 us)
+  full reconcile() with a 31-tick replay: median 397 us, worst 5138 us
+  per Movement.step: 7.6 us
+GATE S8 replay cost PASS  median 244 us, worst 336 us for 32 ticks (verdict on the median; worst reported)
+
+== S9 Recording replays headless to the same final state ==
+  saved last_run.json (6000 ticks, 6000 cmds): true
+  replayed from file: final state identical true, CSV sha256 identical true (b0952e7145247bc7...)
+GATE S9 replay PASS  final server+client state bit-identical after replay
+
+==================== SUMMARY ====================
+PASS  S1 determinism
+PASS  S2 parity
+PASS  S3 accuracy
+PASS  S4 no visible jitter
+PASS  S5 zero input latency
+PASS  S6 loss stability (2% and 10%)
+PASS  S7 snap on teleports
+PASS  S8 replay cost
+PASS  S9 replay
+9 of 9 gates passed

@@ -1,0 +1,28 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  rays per pair: 72 worst case (6 sample points with the crown), same as the Python reference  
+PASS  golden: 5000 configurations: sent flag matches Python (3422 sent)  0 differ
+PASS  golden: the first clearing ray index matches Python on every case  0 differ
+PASS  named grazing cases: face, edge and top-face touches are clear; interior is blocked (8 cases)  
+PASS  half-height payoff: crouched enemy behind the 40-unit cover is NOT sent (head line crosses x = 700 at y = 31.49 < 40.0)  
+PASS  the same enemy standing IS sent (head line crosses at y = 65.91 > 40.0)  first clear ray index 0
+PASS  viewer raised 16 units (eye 80.0), enemy still crouched: still NOT sent (line crosses at y = 32.19 < 40.0)  
+PASS  a crouched viewer (eye 32.0) sees a standing enemy's head over the cover (line crosses at y = 64.51)  
+PASS  no vertical margin: crouched enemy right behind the cover (feet x = 716.5) stays hidden  
+PASS  in the full crouch_test_world the tall box (x 300..364) hides even a standing enemy at x = 732  
+PASS  crown point: a sliver of head above a wall edge is sent (the clearing ray is the crown, point 1), with no vertical margin  ray 3, point 1
+PASS  ... and the same wall 1.0 higher than the crown hides the target completely  
+PASS  a crouched target (crown 36.0) behind the same edge is hidden  
+PASS  sample heights blend with the duck fraction: f = 0.0 sent, f = 0.5 and 1.0 hidden behind the edge  
+PASS  blend at f = 1.0 reproduces the crouched heights exactly  
+PASS  sent_mask_for(viewer, t) equals the mask actually encoded, for every t in the last 640 ticks  640 ticks checked against the decoded bytes, 0 differ
+PASS  masks: hidden enemy (slot 1) never, open enemy (slot 2) and teammate (slot 3) always: mask = 0b1100 = 12  mask 12
+PASS  older than the history -> -1; the future -> -1  
+PASS  sound_only_mask_for is always 0 in v0  
+PASS  bit layout: u16, bit n = slot n (mask fits in 16 bits)  
+PASS  evidence: one keyframe per viewer at tick 0 and one at 1,280 (no round start called), no change records for a constant mask  keyframes at [0, 1280], 0 change records
+PASS  evidence: a peeking enemy gives change records on the way out and on the way back (and only then)  2 change records
+PASS  round-start hook adds a keyframe  
+PASS  evidence is in memory only: no file appeared under user://  0 files before, 0 after
+
+24 passed, 0 failed

@@ -1,0 +1,13 @@
+$ python3 tools/fpev_ref.py write tests/golden/match_small.json <temporary-file>
+wrote /var/folders/__/fdsztqk10x31y443lcvp4g8c0000gn/T/fpev-python.G6SAjIt15V (8300 bytes)
+final_chain_sha256=9fcaa27dd9658ab1bb93274592407be65e6a7d37e476cb05f44975e12f9c0a5a
+CHAIN OK
+PASS  Python writer byte-identical to committed golden
+
+$ python3 tools/fpev_ref.py verify tests/golden/match_small.fpev --expected-final-hash from fixture
+CHAIN OK
+
+$ python3 tools/fpev_ref.py export tests/golden/match_small.fpev --quiet --jsonl-out <temporary-file>
+CHAIN OK
+PASS  Python export byte-identical to committed JSONL
+PASS  Python reader validates 107 records: {2: 11, 3: 12, 5: 20, 1: 40, 6: 20, 4: 4}

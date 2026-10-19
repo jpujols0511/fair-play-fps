@@ -1,0 +1,2 @@
+{"name": "cover_peek", "world": "crouch", "spawn": [740.0, 0.0], "loop": true,
+ "waypoints": [{"x": 740.0, "z": 0.0, "duck": true, "wait_ticks": 64}, {"x": 740.0, "z": 0.0, "duck": false, "wait_ticks": 64}]}

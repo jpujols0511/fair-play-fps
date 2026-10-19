@@ -1,0 +1,46 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  INPUT with 3 commands = 5 + 4 + 57 = 66 bytes  66 bytes
+PASS  INPUT round trip: seq, tick, buttons (incl. duck 32), yaw, pitch and view_tick + fraction  
+PASS  HELLO is 45 bytes: version 1, tick rate 128, cookie u32, 32 zero bytes of kernel_sha256 (placeholder)  
+PASS  WELCOME carries slot, server tick, interp ticks (server dictates C1) and snapshot_every (C4)  
+PASS  SNAPSHOT wraps the snapshot bytes; BYE is 5 bytes  
+PASS  view_tick is ignored by Movement.step (S1 unaffected)  
+PASS  fuzz (seed 7601): 10,000 random / truncated / corrupted datagrams, 0 crashes, every rejected one counted  8288 rejected and counted, 1712 still valid
+PASS  cmd_count over 3 is malformed  
+PASS  unknown protocol id is malformed  
+PASS  oversize send refused: 1,201 bytes refused and counted, 1,200 allowed  
+PASS  [enet] server listens, client connects  
+PASS  [enet] handshake: HELLO then WELCOME  
+PASS  [enet] 1,000 INPUT datagrams round trip, byte-identical  1000 received
+PASS  [enet] 1,000 SNAPSHOT datagrams round trip, byte-identical  1000 received, 1000 parse as snapshots
+PASS  [enet] a 1,200-byte datagram arrives whole  
+PASS  [enet] 200 garbage datagrams over the real socket: all counted malformed (200), server unharmed  
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:28103 with enet (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=enet C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0 (team 1)
+PASS  [enet] server-measured RTT on clean loopback < 2 ticks  1.00 ticks = 7.8 ms
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:28104 with enet (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=enet C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0 (team 1)
+PASS  [enet] server-measured RTT on the shim at 80 ms = 10 to 13 ticks (about 80 to 100 ms; the shim quantizes to 6 ticks each way)  13.00 ticks = 101.6 ms
+PASS  [udp] server listens, client connects  
+PASS  [udp] handshake: HELLO then WELCOME  
+PASS  [udp] 1,000 INPUT datagrams round trip, byte-identical  1000 received
+PASS  [udp] 1,000 SNAPSHOT datagrams round trip, byte-identical  1000 received, 1000 parse as snapshots
+PASS  [udp] a 1,200-byte datagram arrives whole  
+PASS  [udp] 200 garbage datagrams over the real socket: all counted malformed (200), server unharmed  
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:28108 with udp (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=udp C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0 (team 1)
+PASS  [udp] server-measured RTT on clean loopback < 2 ticks  1.00 ticks = 7.8 ms
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:28109 with udp (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=udp C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0 (team 1)
+PASS  [udp] server-measured RTT on the shim at 80 ms = 10 to 13 ticks (about 80 to 100 ms; the shim quantizes to 6 ticks each way)  13.00 ticks = 101.6 ms
+
+26 passed, 0 failed

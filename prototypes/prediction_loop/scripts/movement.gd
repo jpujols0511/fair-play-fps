@@ -1,0 +1,1 @@
+../../../movement_proto/movement.gd

@@ -1,0 +1,34 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  crouch-walk under the overhang passes  x = 650.443 after 396 ticks, ducked true, never blocked
+PASS  standing walk into the overhang is blocked at 484.0  x = 484.000000
+PASS  duck at the overhang: blocked at 484.0 until the transition completes, then walks under  after 30 ticks x = 484.0 (in transition), after 430 ticks x = 684.000
+PASS  release duck under the overhang: stays ducked every tick, unducks on the first clear tick  unducked on tick 117 at x = 617.401 (hull clears at x >= 616.0)
+PASS  while ducked under it, speed stays at the ducked 83.25  speed 99.656 at the unduck tick
+PASS  a standing hull is never inside the overhang  
+PASS  in-air duck lifts the feet 18.0 on the press tick  difference 18.000000000
+PASS  unduck in the air lowers the feet 18.0  difference 18.000000000
+PASS  unduck in the air near the floor lands on it, never under  y = 0.000000 on_ground true
+PASS  unduck in the air with no room stays ducked  feet 19.976
+PASS  a ducked jump under the overhang stops at the underside  highest feet 4.000000 (bottom 40.0 - hull 36.0 = 4.0)
+PASS  stance: stand = 0  
+PASS  stance: during the ground transition stays 0 (hull still 72)  duck_ticks 10
+PASS  stance: ducked on ground = 1  
+PASS  stance: airborne standing = 2  
+PASS  stance: airborne ducked = 3  
+PASS  move_state: stand = 0  
+PASS  move_state: crouched = 1  
+PASS  move_state: exactly 140.0 is NOT running  
+PASS  move_state: just over 140.0 is running (beats crouch)  
+PASS  move_state: air beats run  
+PASS  move_state: diagonal speed 141.4 counts (horizontal speed)  
+PASS  eye: standing 64.0  
+PASS  eye: linear in between, 32.0 once ducked  worst deviation 0.000000000, completes on tick 52, ducked true
+PASS  40-unit cover blocks a standing player at 684.0  x = 684.000
+PASS  40-unit cover blocks a crouched player at 684.0  x = 684.000
+PASS  default_world() is unchanged: 2 boxes, 5 values each  
+PASS  PlayerState copies and compares the duck fields  
+PASS  equals() sees a duck_ticks difference  
+PASS  to_packed() has 13 fields (10 old + 3 duck), old ones first  
+
+30 passed, 0 failed

@@ -1,0 +1,1500 @@
+$ Godot 4.4.1 --headless --import
+Error: Can't run project: no main scene defined in the project.
+
+
+Corrected regression run from weapons_proto/
+$ Godot 4.4.1 --headless --import (project directory: weapons_proto/)
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+first_scan_filesystem: begin: Project initialization steps: 5
+	first_scan_filesystem: step 0: Scanning file structure...
+	first_scan_filesystem: step 1: Loading global class names...
+	first_scan_filesystem: step 2: Verifying GDExtensions...
+	first_scan_filesystem: step 3: Creating autoload scripts...
+	first_scan_filesystem: step 4: Initializing plugins...
+	first_scan_filesystem: step 5: Starting file scan...
+first_scan_filesystem: end
+loading_editor_layout: begin: Loading editor steps: 5
+	loading_editor_layout: step 0: Loading editor layout...
+loading_editor_layout: end
+
+$ Godot 4.4.1 --headless --script res://tests/test_recoil_parity.gd
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  AK4764#01 time  got 0.000000 want 0.000000
+PASS  AK4764#01 spread  got 0.005500 want 0.005500
+PASS  AK4764#01 kick_up  got -0.000000 want -0.000000
+PASS  AK4764#01 kick_side  got 0.000000 want 0.000000
+PASS  AK4764#01 aim_up  got 0.005938 want 0.005938
+PASS  AK4764#01 aim_side  got -0.005736 want -0.005736
+PASS  AK4764#02 time  got 0.109375 want 0.109375
+PASS  AK4764#02 spread  got 0.009763 want 0.009763
+PASS  AK4764#02 kick_up  got 0.000000 want 0.000000
+PASS  AK4764#02 kick_side  got 0.000000 want 0.000000
+PASS  AK4764#02 aim_up  got -0.229573 want -0.229573
+PASS  AK4764#02 aim_side  got 0.130445 want 0.130445
+PASS  AK4764#03 time  got 0.203125 want 0.203125
+PASS  AK4764#03 spread  got 0.010725 want 0.010725
+PASS  AK4764#03 kick_up  got 0.415742 want 0.415742
+PASS  AK4764#03 kick_side  got 0.138581 want 0.138581
+PASS  AK4764#03 aim_up  got 0.535598 want 0.535598
+PASS  AK4764#03 aim_side  got 0.055078 want 0.055078
+PASS  AK4764#04 time  got 0.296875 want 0.296875
+PASS  AK4764#04 spread  got 0.013338 want 0.013338
+PASS  AK4764#04 kick_up  got 0.976552 want 0.976552
+PASS  AK4764#04 kick_side  got 0.315034 want 0.315034
+PASS  AK4764#04 aim_up  got 1.276858 want 1.276858
+PASS  AK4764#04 aim_side  got 0.286120 want 0.286120
+PASS  AK4764#05 time  got 0.390625 want 0.390625
+PASS  AK4764#05 spread  got 0.018425 want 0.018425
+PASS  AK4764#05 kick_up  got 1.636951 want 1.636951
+PASS  AK4764#05 kick_side  got -0.128413 want -0.128413
+PASS  AK4764#05 aim_up  got 1.179704 want 1.179704
+PASS  AK4764#05 aim_side  got -0.200180 want -0.200180
+PASS  AK4764#06 time  got 0.484375 want 0.484375
+PASS  AK4764#06 spread  got 0.026812 want 0.026812
+PASS  AK4764#06 kick_up  got 2.448422 want 2.448422
+PASS  AK4764#06 kick_side  got -0.481683 want -0.481683
+PASS  AK4764#06 aim_up  got 2.837826 want 2.837826
+PASS  AK4764#06 aim_side  got 0.525259 want 0.525259
+PASS  AK4764#07 time  got 0.578125 want 0.578125
+PASS  AK4764#07 spread  got 0.034375 want 0.034375
+PASS  AK4764#07 kick_up  got 3.397735 want 3.397735
+PASS  AK4764#07 kick_side  got -0.817013 want -0.817013
+PASS  AK4764#07 aim_up  got 3.442146 want 3.442146
+PASS  AK4764#07 aim_side  got 0.151961 want 0.151961
+PASS  AK4764#08 time  got 0.671875 want 0.671875
+PASS  AK4764#08 spread  got 0.034375 want 0.034375
+PASS  AK4764#08 kick_up  got 4.474183 want 4.474183
+PASS  AK4764#08 kick_side  got -1.157401 want -1.157401
+PASS  AK4764#08 aim_up  got 5.128929 want 5.128929
+PASS  AK4764#08 aim_side  got 0.572810 want 0.572810
+PASS  AK4764#09 time  got 0.765625 want 0.765625
+PASS  AK4764#09 spread  got 0.034375 want 0.034375
+PASS  AK4764#09 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#09 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#09 aim_up  got 4.568389 want 4.568389
+PASS  AK4764#09 aim_side  got -1.050407 want -1.050407
+PASS  AK4764#10 time  got 0.875000 want 0.875000
+PASS  AK4764#10 spread  got 0.034375 want 0.034375
+PASS  AK4764#10 kick_up  got 4.420667 want 4.420667
+PASS  AK4764#10 kick_side  got -1.345420 want -1.345420
+PASS  AK4764#10 aim_up  got 5.342353 want 5.342353
+PASS  AK4764#10 aim_side  got 0.365264 want 0.365264
+PASS  AK4764#11 time  got 0.968750 want 0.968750
+PASS  AK4764#11 spread  got 0.034375 want 0.034375
+PASS  AK4764#11 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#11 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#11 aim_up  got 4.391353 want 4.391353
+PASS  AK4764#11 aim_side  got -0.416520 want -0.416520
+PASS  AK4764#12 time  got 1.062500 want 1.062500
+PASS  AK4764#12 spread  got 0.034375 want 0.034375
+PASS  AK4764#12 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#12 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#12 aim_up  got 3.864697 want 3.864697
+PASS  AK4764#12 aim_side  got -0.709643 want -0.709643
+PASS  AK4764#13 time  got 1.156250 want 1.156250
+PASS  AK4764#13 spread  got 0.034375 want 0.034375
+PASS  AK4764#13 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#13 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#13 aim_up  got 4.668897 want 4.668897
+PASS  AK4764#13 aim_side  got -1.110340 want -1.110340
+PASS  AK4764#14 time  got 1.250000 want 1.250000
+PASS  AK4764#14 spread  got 0.034375 want 0.034375
+PASS  AK4764#14 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#14 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#14 aim_up  got 3.171876 want 3.171876
+PASS  AK4764#14 aim_side  got -1.893796 want -1.893796
+PASS  AK4764#15 time  got 1.343750 want 1.343750
+PASS  AK4764#15 spread  got 0.034375 want 0.034375
+PASS  AK4764#15 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#15 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#15 aim_up  got 4.168606 want 4.168606
+PASS  AK4764#15 aim_side  got -1.198436 want -1.198436
+PASS  AK4764#16 time  got 1.437500 want 1.437500
+PASS  AK4764#16 spread  got 0.034375 want 0.034375
+PASS  AK4764#16 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#16 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#16 aim_up  got 3.108123 want 3.108123
+PASS  AK4764#16 aim_side  got -1.764749 want -1.764749
+PASS  AK4764#17 time  got 1.531250 want 1.531250
+PASS  AK4764#17 spread  got 0.034375 want 0.034375
+PASS  AK4764#17 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#17 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#17 aim_up  got 4.105779 want 4.105779
+PASS  AK4764#17 aim_side  got -0.614282 want -0.614282
+PASS  AK4764#18 time  got 1.625000 want 1.625000
+PASS  AK4764#18 spread  got 0.034375 want 0.034375
+PASS  AK4764#18 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#18 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#18 aim_up  got 5.600873 want 5.600873
+PASS  AK4764#18 aim_side  got -1.936757 want -1.936757
+PASS  AK4764#19 time  got 1.734375 want 1.734375
+PASS  AK4764#19 spread  got 0.034375 want 0.034375
+PASS  AK4764#19 kick_up  got 4.420667 want 4.420667
+PASS  AK4764#19 kick_side  got -1.345420 want -1.345420
+PASS  AK4764#19 aim_up  got 6.179124 want 6.179124
+PASS  AK4764#19 aim_side  got -0.871483 want -0.871483
+PASS  AK4764#20 time  got 1.828125 want 1.828125
+PASS  AK4764#20 spread  got 0.034375 want 0.034375
+PASS  AK4764#20 kick_up  got 4.567223 want 4.567223
+PASS  AK4764#20 kick_side  got -0.204866 want -0.204866
+PASS  AK4764#20 aim_up  got 4.542502 want 4.542502
+PASS  AK4764#20 aim_side  got 0.440758 want 0.440758
+PASS  AK4764#21 time  got 1.921875 want 1.921875
+PASS  AK4764#21 spread  got 0.034375 want 0.034375
+PASS  AK4764#21 kick_up  got 4.577850 want 4.577850
+PASS  AK4764#21 kick_side  got 0.732563 want 0.732563
+PASS  AK4764#21 aim_up  got 5.553496 want 5.553496
+PASS  AK4764#21 aim_side  got 0.428937 want 0.428937
+PASS  AK4764#22 time  got 2.015625 want 2.015625
+PASS  AK4764#22 spread  got 0.034375 want 0.034375
+PASS  AK4764#22 kick_up  got 4.568859 want 4.568859
+PASS  AK4764#22 kick_side  got -0.341621 want -0.341621
+PASS  AK4764#22 aim_up  got 4.341489 want 4.341489
+PASS  AK4764#22 aim_side  got -0.653367 want -0.653367
+PASS  AK4764#23 time  got 2.109375 want 2.109375
+PASS  AK4764#23 spread  got 0.034375 want 0.034375
+PASS  AK4764#23 kick_up  got 4.597662 want 4.597662
+PASS  AK4764#23 kick_side  got -1.232670 want -1.232670
+PASS  AK4764#23 aim_up  got 3.429523 want 3.429523
+PASS  AK4764#23 aim_side  got -2.244670 want -2.244670
+PASS  AK4764#24 time  got 2.203125 want 2.203125
+PASS  AK4764#24 spread  got 0.034375 want 0.034375
+PASS  AK4764#24 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#24 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#24 aim_up  got 5.814337 want 5.814337
+PASS  AK4764#24 aim_side  got -0.103278 want -0.103278
+PASS  AK4764#25 time  got 2.296875 want 2.296875
+PASS  AK4764#25 spread  got 0.034375 want 0.034375
+PASS  AK4764#25 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#25 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#25 aim_up  got 4.485068 want 4.485068
+PASS  AK4764#25 aim_side  got -1.449078 want -1.449078
+PASS  AK4764#26 time  got 2.390625 want 2.390625
+PASS  AK4764#26 spread  got 0.034375 want 0.034375
+PASS  AK4764#26 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#26 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#26 aim_up  got 3.343954 want 3.343954
+PASS  AK4764#26 aim_side  got -1.854563 want -1.854563
+PASS  AK4764#27 time  got 2.484375 want 2.484375
+PASS  AK4764#27 spread  got 0.034375 want 0.034375
+PASS  AK4764#27 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#27 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#27 aim_up  got 3.989701 want 3.989701
+PASS  AK4764#27 aim_side  got -2.555984 want -2.555984
+PASS  AK4764#28 time  got 2.593750 want 2.593750
+PASS  AK4764#28 spread  got 0.034375 want 0.034375
+PASS  AK4764#28 kick_up  got 4.420667 want 4.420667
+PASS  AK4764#28 kick_side  got -1.345420 want -1.345420
+PASS  AK4764#28 aim_up  got 4.414991 want 4.414991
+PASS  AK4764#28 aim_side  got -0.745009 want -0.745009
+PASS  AK4764#29 time  got 2.687500 want 2.687500
+PASS  AK4764#29 spread  got 0.034375 want 0.034375
+PASS  AK4764#29 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#29 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#29 aim_up  got 4.226953 want 4.226953
+PASS  AK4764#29 aim_side  got -2.391649 want -2.391649
+PASS  AK4764#30 time  got 2.781250 want 2.781250
+PASS  AK4764#30 spread  got 0.034375 want 0.034375
+PASS  AK4764#30 kick_up  got 4.606133 want 4.606133
+PASS  AK4764#30 kick_side  got -1.401866 want -1.401866
+PASS  AK4764#30 aim_up  got 5.998109 want 5.998109
+PASS  AK4764#30 aim_side  got -2.363151 want -2.363151
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  AK47128#01 time  got 0.000000 want 0.000000
+PASS  AK47128#01 spread  got 0.005500 want 0.005500
+PASS  AK47128#01 kick_up  got -0.000000 want -0.000000
+PASS  AK47128#01 kick_side  got 0.000000 want 0.000000
+PASS  AK47128#01 aim_up  got 0.005938 want 0.005938
+PASS  AK47128#01 aim_side  got -0.005736 want -0.005736
+PASS  AK47128#02 time  got 0.101562 want 0.101562
+PASS  AK47128#02 spread  got 0.009763 want 0.009763
+PASS  AK47128#02 kick_up  got 0.021405 want 0.021405
+PASS  AK47128#02 kick_side  got 0.008027 want 0.008027
+PASS  AK47128#02 aim_up  got -0.208168 want -0.208168
+PASS  AK47128#02 aim_side  got 0.138471 want 0.138471
+PASS  AK47128#03 time  got 0.195312 want 0.195312
+PASS  AK47128#03 spread  got 0.010725 want 0.010725
+PASS  AK47128#03 kick_up  got 0.438124 want 0.438124
+PASS  AK47128#03 kick_side  got 0.146326 want 0.146326
+PASS  AK47128#03 aim_up  got 0.557980 want 0.557980
+PASS  AK47128#03 aim_side  got 0.062824 want 0.062824
+PASS  AK47128#04 time  got 0.289062 want 0.289062
+PASS  AK47128#04 spread  got 0.013338 want 0.013338
+PASS  AK47128#04 kick_up  got 0.999822 want 0.999822
+PASS  AK47128#04 kick_side  got 0.322809 want 0.322809
+PASS  AK47128#04 aim_up  got 1.300127 want 1.300127
+PASS  AK47128#04 aim_side  got 0.293895 want 0.293895
+PASS  AK47128#05 time  got 0.382812 want 0.382812
+PASS  AK47128#05 spread  got 0.018425 want 0.018425
+PASS  AK47128#05 kick_up  got 1.660896 want 1.660896
+PASS  AK47128#05 kick_side  got -0.124386 want -0.124386
+PASS  AK47128#05 aim_up  got 1.203649 want 1.203649
+PASS  AK47128#05 aim_side  got -0.196153 want -0.196153
+PASS  AK47128#06 time  got 0.484375 want 0.484375
+PASS  AK47128#06 spread  got 0.026812 want 0.026812
+PASS  AK47128#06 kick_up  got 2.386535 want 2.386535
+PASS  AK47128#06 kick_side  got -0.463610 want -0.463610
+PASS  AK47128#06 aim_up  got 2.775939 want 2.775939
+PASS  AK47128#06 aim_side  got 0.543331 want 0.543331
+PASS  AK47128#07 time  got 0.578125 want 0.578125
+PASS  AK47128#07 spread  got 0.034375 want 0.034375
+PASS  AK47128#07 kick_up  got 3.340649 want 3.340649
+PASS  AK47128#07 kick_side  got -0.800884 want -0.800884
+PASS  AK47128#07 aim_up  got 3.385061 want 3.385061
+PASS  AK47128#07 aim_side  got 0.168091 want 0.168091
+PASS  AK47128#08 time  got 0.671875 want 0.671875
+PASS  AK47128#08 spread  got 0.034375 want 0.034375
+PASS  AK47128#08 kick_up  got 4.421864 want 4.421864
+PASS  AK47128#08 kick_side  got -1.142784 want -1.142784
+PASS  AK47128#08 aim_up  got 5.076609 want 5.076609
+PASS  AK47128#08 aim_side  got 0.587427 want 0.587427
+PASS  AK47128#09 time  got 0.765625 want 0.765625
+PASS  AK47128#09 spread  got 0.034375 want 0.034375
+PASS  AK47128#09 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#09 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#09 aim_up  got 4.570580 want 4.570580
+PASS  AK47128#09 aim_side  got -1.051073 want -1.051073
+PASS  AK47128#10 time  got 0.867188 want 0.867188
+PASS  AK47128#10 spread  got 0.034375 want 0.034375
+PASS  AK47128#10 kick_up  got 4.515582 want 4.515582
+PASS  AK47128#10 kick_side  got -1.374307 want -1.374307
+PASS  AK47128#10 aim_up  got 5.437268 want 5.437268
+PASS  AK47128#10 aim_side  got 0.336377 want 0.336377
+PASS  AK47128#11 time  got 0.960938 want 0.960938
+PASS  AK47128#11 spread  got 0.034375 want 0.034375
+PASS  AK47128#11 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#11 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#11 aim_up  got 4.393544 want 4.393544
+PASS  AK47128#11 aim_side  got -0.417187 want -0.417187
+PASS  AK47128#12 time  got 1.054688 want 1.054688
+PASS  AK47128#12 spread  got 0.034375 want 0.034375
+PASS  AK47128#12 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#12 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#12 aim_up  got 3.866887 want 3.866887
+PASS  AK47128#12 aim_side  got -0.710310 want -0.710310
+PASS  AK47128#13 time  got 1.148438 want 1.148438
+PASS  AK47128#13 spread  got 0.034375 want 0.034375
+PASS  AK47128#13 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#13 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#13 aim_up  got 4.671087 want 4.671087
+PASS  AK47128#13 aim_side  got -1.111006 want -1.111006
+PASS  AK47128#14 time  got 1.242188 want 1.242188
+PASS  AK47128#14 spread  got 0.034375 want 0.034375
+PASS  AK47128#14 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#14 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#14 aim_up  got 3.174066 want 3.174066
+PASS  AK47128#14 aim_side  got -1.894463 want -1.894463
+PASS  AK47128#15 time  got 1.343750 want 1.343750
+PASS  AK47128#15 spread  got 0.034375 want 0.034375
+PASS  AK47128#15 kick_up  got 4.515582 want 4.515582
+PASS  AK47128#15 kick_side  got -1.374307 want -1.374307
+PASS  AK47128#15 aim_up  got 4.078056 want 4.078056
+PASS  AK47128#15 aim_side  got -1.170877 want -1.170877
+PASS  AK47128#16 time  got 1.437500 want 1.437500
+PASS  AK47128#16 spread  got 0.034375 want 0.034375
+PASS  AK47128#16 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#16 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#16 aim_up  got 3.110313 want 3.110313
+PASS  AK47128#16 aim_side  got -1.765416 want -1.765416
+PASS  AK47128#17 time  got 1.531250 want 1.531250
+PASS  AK47128#17 spread  got 0.034375 want 0.034375
+PASS  AK47128#17 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#17 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#17 aim_up  got 4.107969 want 4.107969
+PASS  AK47128#17 aim_side  got -0.614949 want -0.614949
+PASS  AK47128#18 time  got 1.625000 want 1.625000
+PASS  AK47128#18 spread  got 0.034375 want 0.034375
+PASS  AK47128#18 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#18 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#18 aim_up  got 5.603064 want 5.603064
+PASS  AK47128#18 aim_side  got -1.937423 want -1.937423
+PASS  AK47128#19 time  got 1.726562 want 1.726562
+PASS  AK47128#19 spread  got 0.034375 want 0.034375
+PASS  AK47128#19 kick_up  got 4.515582 want 4.515582
+PASS  AK47128#19 kick_side  got -1.374307 want -1.374307
+PASS  AK47128#19 aim_up  got 6.274039 want 6.274039
+PASS  AK47128#19 aim_side  got -0.900370 want -0.900370
+PASS  AK47128#20 time  got 1.820312 want 1.820312
+PASS  AK47128#20 spread  got 0.034375 want 0.034375
+PASS  AK47128#20 kick_up  got 4.569706 want 4.569706
+PASS  AK47128#20 kick_side  got -0.227935 want -0.227935
+PASS  AK47128#20 aim_up  got 4.544985 want 4.544985
+PASS  AK47128#20 aim_side  got 0.417690 want 0.417690
+PASS  AK47128#21 time  got 1.914062 want 1.914062
+PASS  AK47128#21 spread  got 0.034375 want 0.034375
+PASS  AK47128#21 kick_up  got 4.579534 want 4.579534
+PASS  AK47128#21 kick_side  got 0.714459 want 0.714459
+PASS  AK47128#21 aim_up  got 5.555180 want 5.555180
+PASS  AK47128#21 aim_side  got 0.410833 want 0.410833
+PASS  AK47128#22 time  got 2.007812 want 2.007812
+PASS  AK47128#22 spread  got 0.034375 want 0.034375
+PASS  AK47128#22 kick_up  got 4.571339 want 4.571339
+PASS  AK47128#22 kick_side  got -0.356199 want -0.356199
+PASS  AK47128#22 aim_up  got 4.343970 want 4.343970
+PASS  AK47128#22 aim_side  got -0.667945 want -0.667945
+PASS  AK47128#23 time  got 2.101562 want 2.101562
+PASS  AK47128#23 spread  got 0.034375 want 0.034375
+PASS  AK47128#23 kick_up  got 4.600433 want 4.600433
+PASS  AK47128#23 kick_side  got -1.245077 want -1.245077
+PASS  AK47128#23 aim_up  got 3.432294 want 3.432294
+PASS  AK47128#23 aim_side  got -2.257076 want -2.257076
+PASS  AK47128#24 time  got 2.203125 want 2.203125
+PASS  AK47128#24 spread  got 0.034375 want 0.034375
+PASS  AK47128#24 kick_up  got 4.515582 want 4.515582
+PASS  AK47128#24 kick_side  got -1.374307 want -1.374307
+PASS  AK47128#24 aim_up  got 5.723786 want 5.723786
+PASS  AK47128#24 aim_side  got -0.075719 want -0.075719
+PASS  AK47128#25 time  got 2.296875 want 2.296875
+PASS  AK47128#25 spread  got 0.034375 want 0.034375
+PASS  AK47128#25 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#25 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#25 aim_up  got 4.487259 want 4.487259
+PASS  AK47128#25 aim_side  got -1.449744 want -1.449744
+PASS  AK47128#26 time  got 2.390625 want 2.390625
+PASS  AK47128#26 spread  got 0.034375 want 0.034375
+PASS  AK47128#26 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#26 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#26 aim_up  got 3.346145 want 3.346145
+PASS  AK47128#26 aim_side  got -1.855229 want -1.855229
+PASS  AK47128#27 time  got 2.484375 want 2.484375
+PASS  AK47128#27 spread  got 0.034375 want 0.034375
+PASS  AK47128#27 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#27 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#27 aim_up  got 3.991892 want 3.991892
+PASS  AK47128#27 aim_side  got -2.556651 want -2.556651
+PASS  AK47128#28 time  got 2.585938 want 2.585938
+PASS  AK47128#28 spread  got 0.034375 want 0.034375
+PASS  AK47128#28 kick_up  got 4.515582 want 4.515582
+PASS  AK47128#28 kick_side  got -1.374307 want -1.374307
+PASS  AK47128#28 aim_up  got 4.509906 want 4.509906
+PASS  AK47128#28 aim_side  got -0.773896 want -0.773896
+PASS  AK47128#29 time  got 2.679688 want 2.679688
+PASS  AK47128#29 spread  got 0.034375 want 0.034375
+PASS  AK47128#29 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#29 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#29 aim_up  got 4.229144 want 4.229144
+PASS  AK47128#29 aim_side  got -2.392316 want -2.392316
+PASS  AK47128#30 time  got 2.773438 want 2.773438
+PASS  AK47128#30 spread  got 0.034375 want 0.034375
+PASS  AK47128#30 kick_up  got 4.608323 want 4.608323
+PASS  AK47128#30 kick_side  got -1.402533 want -1.402533
+PASS  AK47128#30 aim_up  got 6.000300 want 6.000300
+PASS  AK47128#30 aim_side  got -2.363818 want -2.363818
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  M4A164#01 time  got 0.000000 want 0.000000
+PASS  M4A164#01 spread  got 0.005000 want 0.005000
+PASS  M4A164#01 kick_up  got -0.000000 want -0.000000
+PASS  M4A164#01 kick_side  got 0.000000 want 0.000000
+PASS  M4A164#01 aim_up  got 0.005398 want 0.005398
+PASS  M4A164#01 aim_side  got -0.005214 want -0.005214
+PASS  M4A164#02 time  got 0.093750 want 0.093750
+PASS  M4A164#02 spread  got 0.007614 want 0.007614
+PASS  M4A164#02 kick_up  got -0.000000 want -0.000000
+PASS  M4A164#02 kick_side  got 0.000000 want 0.000000
+PASS  M4A164#02 aim_up  got -0.179041 want -0.179041
+PASS  M4A164#02 aim_side  got 0.101732 want 0.101732
+PASS  M4A164#03 time  got 0.187500 want 0.187500
+PASS  M4A164#03 spread  got 0.008409 want 0.008409
+PASS  M4A164#03 kick_up  got 0.224180 want 0.224180
+PASS  M4A164#03 kick_side  got 0.074077 want 0.074077
+PASS  M4A164#03 aim_up  got 0.318155 want 0.318155
+PASS  M4A164#03 aim_side  got 0.008606 want 0.008606
+PASS  M4A164#04 time  got 0.265625 want 0.265625
+PASS  M4A164#04 spread  got 0.010568 want 0.010568
+PASS  M4A164#04 kick_up  got 0.822781 want 0.822781
+PASS  M4A164#04 kick_side  got 0.237626 want 0.237626
+PASS  M4A164#04 aim_up  got 1.060734 want 1.060734
+PASS  M4A164#04 aim_side  got 0.214716 want 0.214716
+PASS  M4A164#05 time  got 0.359375 want 0.359375
+PASS  M4A164#05 spread  got 0.014773 want 0.014773
+PASS  M4A164#05 kick_up  got 1.441957 want 1.441957
+PASS  M4A164#05 kick_side  got -0.100517 want -0.100517
+PASS  M4A164#05 aim_up  got 1.075344 want 1.075344
+PASS  M4A164#05 aim_side  got -0.158058 want -0.158058
+PASS  M4A164#06 time  got 0.437500 want 0.437500
+PASS  M4A164#06 spread  got 0.021705 want 0.021705
+PASS  M4A164#06 kick_up  got 2.453634 want 2.453634
+PASS  M4A164#06 kick_side  got -0.385829 want -0.385829
+PASS  M4A164#06 aim_up  got 2.768856 want 2.768856
+PASS  M4A164#06 aim_side  got 0.429312 want 0.429312
+PASS  M4A164#07 time  got 0.531250 want 0.531250
+PASS  M4A164#07 spread  got 0.025000 want 0.025000
+PASS  M4A164#07 kick_up  got 2.444301 want 2.444301
+PASS  M4A164#07 kick_side  got -0.576736 want -0.576736
+PASS  M4A164#07 aim_up  got 2.476600 want 2.476600
+PASS  M4A164#07 aim_side  got 0.128005 want 0.128005
+PASS  M4A164#08 time  got 0.625000 want 0.625000
+PASS  M4A164#08 spread  got 0.025000 want 0.025000
+PASS  M4A164#08 kick_up  got 2.457247 want 2.457247
+PASS  M4A164#08 kick_side  got -0.724351 want -0.724351
+PASS  M4A164#08 aim_up  got 2.933435 want 2.933435
+PASS  M4A164#08 aim_side  got 0.534164 want 0.534164
+PASS  M4A164#09 time  got 0.703125 want 0.703125
+PASS  M4A164#09 spread  got 0.025000 want 0.025000
+PASS  M4A164#09 kick_up  got 2.637478 want 2.637478
+PASS  M4A164#09 kick_side  got -0.900022 want -0.900022
+PASS  M4A164#09 aim_up  got 2.610029 want 2.610029
+PASS  M4A164#09 aim_side  got -0.644413 want -0.644413
+PASS  M4A164#10 time  got 0.796875 want 0.796875
+PASS  M4A164#10 spread  got 0.025000 want 0.025000
+PASS  M4A164#10 kick_up  got 2.484231 want 2.484231
+PASS  M4A164#10 kick_side  got -0.983061 want -0.983061
+PASS  M4A164#10 aim_up  got 3.154575 want 3.154575
+PASS  M4A164#10 aim_side  got 0.261247 want 0.261247
+PASS  M4A164#11 time  got 0.875000 want 0.875000
+PASS  M4A164#11 spread  got 0.025000 want 0.025000
+PASS  M4A164#11 kick_up  got 2.657216 want 2.657216
+PASS  M4A164#11 kick_side  got -1.125947 want -1.125947
+PASS  M4A164#11 aim_up  got 3.700853 want 3.700853
+PASS  M4A164#11 aim_side  got -1.282150 want -1.282150
+PASS  M4A164#12 time  got 0.968750 want 0.968750
+PASS  M4A164#12 spread  got 0.025000 want 0.025000
+PASS  M4A164#12 kick_up  got 2.506678 want 2.506678
+PASS  M4A164#12 kick_side  got -1.175236 want -1.175236
+PASS  M4A164#12 aim_up  got 2.564180 want 2.564180
+PASS  M4A164#12 aim_side  got -1.714476 want -1.714476
+PASS  M4A164#13 time  got 1.062500 want 1.062500
+PASS  M4A164#13 spread  got 0.025000 want 0.025000
+PASS  M4A164#13 kick_up  got 2.512606 want 2.512606
+PASS  M4A164#13 kick_side  got -1.224168 want -1.224168
+PASS  M4A164#13 aim_up  got 3.455853 want 3.455853
+PASS  M4A164#13 aim_side  got -1.178521 want -1.178521
+PASS  M4A164#14 time  got 1.140625 want 1.140625
+PASS  M4A164#14 spread  got 0.025000 want 0.025000
+PASS  M4A164#14 kick_up  got 2.678973 want 2.678973
+PASS  M4A164#14 kick_side  got -1.354158 want -1.354158
+PASS  M4A164#14 aim_up  got 1.635775 want 1.635775
+PASS  M4A164#14 aim_side  got -1.711929 want -1.711929
+PASS  M4A164#15 time  got 1.234375 want 1.234375
+PASS  M4A164#15 spread  got 0.025000 want 0.025000
+PASS  M4A164#15 kick_up  got 2.532481 want 2.532481
+PASS  M4A164#15 kick_side  got -1.385020 want -1.385020
+PASS  M4A164#15 aim_up  got 2.214277 want 2.214277
+PASS  M4A164#15 aim_side  got -1.237070 want -1.237070
+PASS  M4A164#16 time  got 1.312500 want 1.312500
+PASS  M4A164#16 spread  got 0.025000 want 0.025000
+PASS  M4A164#16 kick_up  got 2.694325 want 2.694325
+PASS  M4A164#16 kick_side  got -1.508837 want -1.508837
+PASS  M4A164#16 aim_up  got 1.604746 want 1.604746
+PASS  M4A164#16 aim_side  got -1.772753 want -1.772753
+PASS  M4A164#17 time  got 1.406250 want 1.406250
+PASS  M4A164#17 spread  got 0.025000 want 0.025000
+PASS  M4A164#17 kick_up  got 2.550632 want 2.550632
+PASS  M4A164#17 kick_side  got -1.529532 want -1.529532
+PASS  M4A164#17 aim_up  got 2.186734 want 2.186734
+PASS  M4A164#17 aim_side  got -0.956726 want -0.956726
+PASS  M4A164#18 time  got 1.500000 want 1.500000
+PASS  M4A164#18 spread  got 0.025000 want 0.025000
+PASS  M4A164#18 kick_up  got 2.554185 want 2.554185
+PASS  M4A164#18 kick_side  got -1.557711 want -1.557711
+PASS  M4A164#18 aim_up  got 3.277667 want 3.277667
+PASS  M4A164#18 aim_side  got -1.946727 want -1.946727
+PASS  M4A164#19 time  got 1.578125 want 1.578125
+PASS  M4A164#19 spread  got 0.025000 want 0.025000
+PASS  M4A164#19 kick_up  got 2.712354 want 2.712354
+PASS  M4A164#19 kick_side  got -1.687635 want -1.687635
+PASS  M4A164#19 aim_up  got 3.991420 want 3.991420
+PASS  M4A164#19 aim_side  got -1.342949 want -1.342949
+PASS  M4A164#20 time  got 1.671875 want 1.671875
+PASS  M4A164#20 spread  got 0.025000 want 0.025000
+PASS  M4A164#20 kick_up  got 2.458686 want 2.458686
+PASS  M4A164#20 kick_side  got -0.739457 want -0.739457
+PASS  M4A164#20 aim_up  got 1.717053 want 1.717053
+PASS  M4A164#20 aim_side  got -0.624814 want -0.624814
+PASS  M4A164#21 time  got 1.750000 want 1.750000
+PASS  M4A164#21 spread  got 0.025000 want 0.025000
+PASS  M4A164#21 kick_up  got 2.596514 want 2.596514
+PASS  M4A164#21 kick_side  got -0.066364 want -0.066364
+PASS  M4A164#21 aim_up  got 2.581682 want 2.581682
+PASS  M4A164#21 aim_side  got -0.396043 want -0.396043
+PASS  M4A164#22 time  got 1.843750 want 1.843750
+PASS  M4A164#22 spread  got 0.025000 want 0.025000
+PASS  M4A164#22 kick_up  got 2.432889 want 2.432889
+PASS  M4A164#22 kick_side  got 0.416118 want 0.416118
+PASS  M4A164#22 aim_up  got 2.900633 want 2.900633
+PASS  M4A164#22 aim_side  got -0.420327 want -0.420327
+PASS  M4A164#23 time  got 1.937500 want 1.937500
+PASS  M4A164#23 spread  got 0.025000 want 0.025000
+PASS  M4A164#23 kick_up  got 2.461749 want 2.461749
+PASS  M4A164#23 kick_side  got 0.770962 want 0.770962
+PASS  M4A164#23 aim_up  got 1.612138 want 1.612138
+PASS  M4A164#23 aim_side  got 0.034926 want 0.034926
+PASS  M4A164#24 time  got 2.015625 want 2.015625
+PASS  M4A164#24 spread  got 0.025000 want 0.025000
+PASS  M4A164#24 kick_up  got 2.655978 want 2.655978
+PASS  M4A164#24 kick_side  got 1.112447 want 1.112447
+PASS  M4A164#24 aim_up  got 3.534733 want 3.534733
+PASS  M4A164#24 aim_side  got 2.056950 want 2.056950
+PASS  M4A164#25 time  got 2.109375 want 2.109375
+PASS  M4A164#25 spread  got 0.025000 want 0.025000
+PASS  M4A164#25 kick_up  got 2.523654 want 2.523654
+PASS  M4A164#25 kick_side  got 1.314064 want 1.314064
+PASS  M4A164#25 aim_up  got 2.435607 want 2.435607
+PASS  M4A164#25 aim_side  got 1.279729 want 1.279729
+PASS  M4A164#26 time  got 2.187500 want 2.187500
+PASS  M4A164#26 spread  got 0.025000 want 0.025000
+PASS  M4A164#26 kick_up  got 2.700821 want 2.700821
+PASS  M4A164#26 kick_side  got 1.573470 want 1.573470
+PASS  M4A164#26 aim_up  got 1.782803 want 1.782803
+PASS  M4A164#26 aim_side  got 1.244233 want 1.244233
+PASS  M4A164#27 time  got 2.281250 want 2.281250
+PASS  M4A164#27 spread  got 0.025000 want 0.025000
+PASS  M4A164#27 kick_up  got 2.565747 want 2.565747
+PASS  M4A164#27 kick_side  got 1.649409 want 1.649409
+PASS  M4A164#27 aim_up  got 2.117425 want 2.117425
+PASS  M4A164#27 aim_side  got 0.809997 want 0.809997
+PASS  M4A164#28 time  got 2.375000 want 2.375000
+PASS  M4A164#28 spread  got 0.025000 want 0.025000
+PASS  M4A164#28 kick_up  got 2.565747 want 2.565747
+PASS  M4A164#28 kick_side  got 1.649409 want 1.649409
+PASS  M4A164#28 aim_up  got 2.561619 want 2.561619
+PASS  M4A164#28 aim_side  got 2.086079 want 2.086079
+PASS  M4A164#29 time  got 2.453125 want 2.453125
+PASS  M4A164#29 spread  got 0.025000 want 0.025000
+PASS  M4A164#29 kick_up  got 2.718419 want 2.718419
+PASS  M4A164#29 kick_side  got 1.747555 want 1.747555
+PASS  M4A164#29 aim_up  got 2.442650 want 2.442650
+PASS  M4A164#29 aim_side  got 1.027679 want 1.027679
+PASS  M4A164#30 time  got 2.546875 want 2.546875
+PASS  M4A164#30 spread  got 0.025000 want 0.025000
+PASS  M4A164#30 kick_up  got 2.565747 want 2.565747
+PASS  M4A164#30 kick_side  got 1.649409 want 1.649409
+PASS  M4A164#30 aim_up  got 3.578187 want 3.578187
+PASS  M4A164#30 aim_side  got 0.950261 want 0.950261
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  M4A1128#01 time  got 0.000000 want 0.000000
+PASS  M4A1128#01 spread  got 0.005000 want 0.005000
+PASS  M4A1128#01 kick_up  got -0.000000 want -0.000000
+PASS  M4A1128#01 kick_side  got 0.000000 want 0.000000
+PASS  M4A1128#01 aim_up  got 0.005398 want 0.005398
+PASS  M4A1128#01 aim_side  got -0.005214 want -0.005214
+PASS  M4A1128#02 time  got 0.093750 want 0.093750
+PASS  M4A1128#02 spread  got 0.007614 want 0.007614
+PASS  M4A1128#02 kick_up  got -0.000000 want -0.000000
+PASS  M4A1128#02 kick_side  got 0.000000 want 0.000000
+PASS  M4A1128#02 aim_up  got -0.179041 want -0.179041
+PASS  M4A1128#02 aim_side  got 0.101732 want 0.101732
+PASS  M4A1128#03 time  got 0.179688 want 0.179688
+PASS  M4A1128#03 spread  got 0.008409 want 0.008409
+PASS  M4A1128#03 kick_up  got 0.301310 want 0.301310
+PASS  M4A1128#03 kick_side  got 0.099563 want 0.099563
+PASS  M4A1128#03 aim_up  got 0.395285 want 0.395285
+PASS  M4A1128#03 aim_side  got 0.034092 want 0.034092
+PASS  M4A1128#04 time  got 0.265625 want 0.265625
+PASS  M4A1128#04 spread  got 0.010568 want 0.010568
+PASS  M4A1128#04 kick_up  got 0.820333 want 0.820333
+PASS  M4A1128#04 kick_side  got 0.238467 want 0.238467
+PASS  M4A1128#04 aim_up  got 1.058286 want 1.058286
+PASS  M4A1128#04 aim_side  got 0.215557 want 0.215557
+PASS  M4A1128#05 time  got 0.351562 want 0.351562
+PASS  M4A1128#05 spread  got 0.014773 want 0.014773
+PASS  M4A1128#05 kick_up  got 1.525474 want 1.525474
+PASS  M4A1128#05 kick_side  got -0.105924 want -0.105924
+PASS  M4A1128#05 aim_up  got 1.158862 want 1.158862
+PASS  M4A1128#05 aim_side  got -0.163466 want -0.163466
+PASS  M4A1128#06 time  got 0.437500 want 0.437500
+PASS  M4A1128#06 spread  got 0.021705 want 0.021705
+PASS  M4A1128#06 kick_up  got 2.448286 want 2.448286
+PASS  M4A1128#06 kick_side  got -0.379467 want -0.379467
+PASS  M4A1128#06 aim_up  got 2.763508 want 2.763508
+PASS  M4A1128#06 aim_side  got 0.435674 want 0.435674
+PASS  M4A1128#07 time  got 0.531250 want 0.531250
+PASS  M4A1128#07 spread  got 0.025000 want 0.025000
+PASS  M4A1128#07 kick_up  got 2.445961 want 2.445961
+PASS  M4A1128#07 kick_side  got -0.572681 want -0.572681
+PASS  M4A1128#07 aim_up  got 2.478260 want 2.478260
+PASS  M4A1128#07 aim_side  got 0.132059 want 0.132059
+PASS  M4A1128#08 time  got 0.617188 want 0.617188
+PASS  M4A1128#08 spread  got 0.025000 want 0.025000
+PASS  M4A1128#08 kick_up  got 2.543865 want 2.543865
+PASS  M4A1128#08 kick_side  got -0.746938 want -0.746938
+PASS  M4A1128#08 aim_up  got 3.020053 want 3.020053
+PASS  M4A1128#08 aim_side  got 0.511578 want 0.511578
+PASS  M4A1128#09 time  got 0.703125 want 0.703125
+PASS  M4A1128#09 spread  got 0.025000 want 0.025000
+PASS  M4A1128#09 kick_up  got 2.556472 want 2.556472
+PASS  M4A1128#09 kick_side  got -0.888877 want -0.888877
+PASS  M4A1128#09 aim_up  got 2.529023 want 2.529023
+PASS  M4A1128#09 aim_side  got -0.633268 want -0.633268
+PASS  M4A1128#10 time  got 0.789062 want 0.789062
+PASS  M4A1128#10 spread  got 0.025000 want 0.025000
+PASS  M4A1128#10 kick_up  got 2.568003 want 2.568003
+PASS  M4A1128#10 kick_side  got -1.008034 want -1.008034
+PASS  M4A1128#10 aim_up  got 3.238347 want 3.238347
+PASS  M4A1128#10 aim_side  got 0.236274 want 0.236274
+PASS  M4A1128#11 time  got 0.875000 want 0.875000
+PASS  M4A1128#11 spread  got 0.025000 want 0.025000
+PASS  M4A1128#11 kick_up  got 2.578515 want 2.578515
+PASS  M4A1128#11 kick_side  got -1.110997 want -1.110997
+PASS  M4A1128#11 aim_up  got 3.622152 want 3.622152
+PASS  M4A1128#11 aim_side  got -1.267200 want -1.267200
+PASS  M4A1128#12 time  got 0.968750 want 0.968750
+PASS  M4A1128#12 spread  got 0.025000 want 0.025000
+PASS  M4A1128#12 kick_up  got 2.507219 want 2.507219
+PASS  M4A1128#12 kick_side  got -1.164780 want -1.164780
+PASS  M4A1128#12 aim_up  got 2.564722 want 2.564722
+PASS  M4A1128#12 aim_side  got -1.704020 want -1.704020
+PASS  M4A1128#13 time  got 1.054688 want 1.054688
+PASS  M4A1128#13 spread  got 0.025000 want 0.025000
+PASS  M4A1128#13 kick_up  got 2.593976 want 2.593976
+PASS  M4A1128#13 kick_side  got -1.256063 want -1.256063
+PASS  M4A1128#13 aim_up  got 3.537222 want 3.537222
+PASS  M4A1128#13 aim_side  got -1.210416 want -1.210416
+PASS  M4A1128#14 time  got 1.140625 want 1.140625
+PASS  M4A1128#14 spread  got 0.025000 want 0.025000
+PASS  M4A1128#14 kick_up  got 2.603126 want 2.603126
+PASS  M4A1128#14 kick_side  got -1.339541 want -1.339541
+PASS  M4A1128#14 aim_up  got 1.559928 want 1.559928
+PASS  M4A1128#14 aim_side  got -1.697312 want -1.697312
+PASS  M4A1128#15 time  got 1.226562 want 1.226562
+PASS  M4A1128#15 spread  got 0.025000 want 0.025000
+PASS  M4A1128#15 kick_up  got 2.611787 want 2.611787
+PASS  M4A1128#15 kick_side  got -1.417485 want -1.417485
+PASS  M4A1128#15 aim_up  got 2.293583 want 2.293583
+PASS  M4A1128#15 aim_side  got -1.269535 want -1.269535
+PASS  M4A1128#16 time  got 1.312500 want 1.312500
+PASS  M4A1128#16 spread  got 0.025000 want 0.025000
+PASS  M4A1128#16 kick_up  got 2.620093 want 2.620093
+PASS  M4A1128#16 kick_side  got -1.491570 want -1.491570
+PASS  M4A1128#16 aim_up  got 1.530515 want 1.530515
+PASS  M4A1128#16 aim_side  got -1.755486 want -1.755486
+PASS  M4A1128#17 time  got 1.406250 want 1.406250
+PASS  M4A1128#17 spread  got 0.025000 want 0.025000
+PASS  M4A1128#17 kick_up  got 2.550739 want 2.550739
+PASS  M4A1128#17 kick_side  got -1.517012 want -1.517012
+PASS  M4A1128#17 aim_up  got 2.186841 want 2.186841
+PASS  M4A1128#17 aim_side  got -0.944206 want -0.944206
+PASS  M4A1128#18 time  got 1.492188 want 1.492188
+PASS  M4A1128#18 spread  got 0.025000 want 0.025000
+PASS  M4A1128#18 kick_up  got 2.631837 want 2.631837
+PASS  M4A1128#18 kick_side  got -1.595655 want -1.595655
+PASS  M4A1128#18 aim_up  got 3.355319 want 3.355319
+PASS  M4A1128#18 aim_side  got -1.984671 want -1.984671
+PASS  M4A1128#19 time  got 1.578125 want 1.578125
+PASS  M4A1128#19 spread  got 0.025000 want 0.025000
+PASS  M4A1128#19 kick_up  got 2.640418 want 2.640418
+PASS  M4A1128#19 kick_side  got -1.671501 want -1.671501
+PASS  M4A1128#19 aim_up  got 3.919485 want 3.919485
+PASS  M4A1128#19 aim_side  got -1.326816 want -1.326816
+PASS  M4A1128#20 time  got 1.664062 want 1.664062
+PASS  M4A1128#20 spread  got 0.025000 want 0.025000
+PASS  M4A1128#20 kick_up  got 2.544418 want 2.544418
+PASS  M4A1128#20 kick_side  got -0.753512 want -0.753512
+PASS  M4A1128#20 aim_up  got 1.802785 want 1.802785
+PASS  M4A1128#20 aim_side  got -0.638869 want -0.638869
+PASS  M4A1128#21 time  got 1.750000 want 1.750000
+PASS  M4A1128#21 spread  got 0.025000 want 0.025000
+PASS  M4A1128#21 kick_up  got 2.510095 want 2.510095
+PASS  M4A1128#21 kick_side  got -0.074236 want -0.074236
+PASS  M4A1128#21 aim_up  got 2.495264 want 2.495264
+PASS  M4A1128#21 aim_side  got -0.403914 want -0.403914
+PASS  M4A1128#22 time  got 1.843750 want 1.843750
+PASS  M4A1128#22 spread  got 0.025000 want 0.025000
+PASS  M4A1128#22 kick_up  got 2.434597 want 2.434597
+PASS  M4A1128#22 kick_side  got 0.410935 want 0.410935
+PASS  M4A1128#22 aim_up  got 2.902341 want 2.902341
+PASS  M4A1128#22 aim_side  got -0.425511 want -0.425511
+PASS  M4A1128#23 time  got 1.929688 want 1.929688
+PASS  M4A1128#23 spread  got 0.025000 want 0.025000
+PASS  M4A1128#23 kick_up  got 2.547907 want 2.547907
+PASS  M4A1128#23 kick_side  got 0.794172 want 0.794172
+PASS  M4A1128#23 aim_up  got 1.698296 want 1.698296
+PASS  M4A1128#23 aim_side  got 0.058136 want 0.058136
+PASS  M4A1128#24 time  got 2.015625 want 2.015625
+PASS  M4A1128#24 spread  got 0.025000 want 0.025000
+PASS  M4A1128#24 kick_up  got 2.577004 want 2.577004
+PASS  M4A1128#24 kick_side  got 1.096458 want 1.096458
+PASS  M4A1128#24 aim_up  got 3.455760 want 3.455760
+PASS  M4A1128#24 aim_side  got 2.040962 want 2.040962
+PASS  M4A1128#25 time  got 2.101562 want 2.101562
+PASS  M4A1128#25 spread  got 0.025000 want 0.025000
+PASS  M4A1128#25 kick_up  got 2.603596 want 2.603596
+PASS  M4A1128#25 kick_side  got 1.343796 want 1.343796
+PASS  M4A1128#25 aim_up  got 2.515549 want 2.515549
+PASS  M4A1128#25 aim_side  got 1.309461 want 1.309461
+PASS  M4A1128#26 time  got 2.187500 want 2.187500
+PASS  M4A1128#26 spread  got 0.025000 want 0.025000
+PASS  M4A1128#26 kick_up  got 2.626992 want 2.626992
+PASS  M4A1128#26 kick_side  got 1.552775 want 1.552775
+PASS  M4A1128#26 aim_up  got 1.708974 want 1.708974
+PASS  M4A1128#26 aim_side  got 1.223538 want 1.223538
+PASS  M4A1128#27 time  got 2.281250 want 2.281250
+PASS  M4A1128#27 spread  got 0.025000 want 0.025000
+PASS  M4A1128#27 kick_up  got 2.567536 want 2.567536
+PASS  M4A1128#27 kick_side  got 1.650559 want 1.650559
+PASS  M4A1128#27 aim_up  got 2.119214 want 2.119214
+PASS  M4A1128#27 aim_side  got 0.811147 want 0.811147
+PASS  M4A1128#28 time  got 2.367188 want 2.367188
+PASS  M4A1128#28 spread  got 0.025000 want 0.025000
+PASS  M4A1128#28 kick_up  got 2.643580 want 2.643580
+PASS  M4A1128#28 kick_side  got 1.699444 want 1.699444
+PASS  M4A1128#28 aim_up  got 2.639452 want 2.639452
+PASS  M4A1128#28 aim_side  got 2.136114 want 2.136114
+PASS  M4A1128#29 time  got 2.453125 want 2.453125
+PASS  M4A1128#29 spread  got 0.025000 want 0.025000
+PASS  M4A1128#29 kick_up  got 2.643580 want 2.643580
+PASS  M4A1128#29 kick_side  got 1.699444 want 1.699444
+PASS  M4A1128#29 aim_up  got 2.367811 want 2.367811
+PASS  M4A1128#29 aim_side  got 0.979568 want 0.979568
+PASS  M4A1128#30 time  got 2.539062 want 2.539062
+PASS  M4A1128#30 spread  got 0.025000 want 0.025000
+PASS  M4A1128#30 kick_up  got 2.643580 want 2.643580
+PASS  M4A1128#30 kick_side  got 1.699444 want 1.699444
+PASS  M4A1128#30 aim_up  got 3.656020 want 3.656020
+PASS  M4A1128#30 aim_side  got 1.000297 want 1.000297
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  four required standing sprays present  got true want true
+PASS  AK47 stand first spread  got 0.005500 want 0.005500
+PASS  AK47 stand max spread  got 0.034375 want 0.034375
+PASS  AK47 crouch first spread  got 0.005500 want 0.005500
+PASS  AK47 crouch max spread  got 0.034375 want 0.034375
+PASS  AK47 run first spread  got 0.054000 want 0.054000
+PASS  AK47 run max spread  got 0.127500 want 0.127500
+PASS  AK47 air first spread  got 0.120000 want 0.120000
+PASS  AK47 air max spread  got 0.540000 want 0.540000
+PASS  M4A1 stand first spread  got 0.005000 want 0.005000
+PASS  M4A1 stand max spread  got 0.025000 want 0.025000
+PASS  M4A1 crouch first spread  got 0.005000 want 0.005000
+PASS  M4A1 crouch max spread  got 0.025000 want 0.025000
+PASS  M4A1 run first spread  got 0.049000 want 0.049000
+PASS  M4A1 run max spread  got 0.105000 want 0.105000
+PASS  M4A1 air first spread  got 0.115000 want 0.115000
+PASS  M4A1 air max spread  got 0.435000 want 0.435000
+PASS  M4A1 unsilenced standing table entry  got 0.004000 want 0.004000
+PASS  ReplayRng rejects a wrong draw kind  got true want true
+PASS  ReplayRng rejects an extra draw  got true want true
+PASS  GodotRng seeded uniform replay  got -0.191082 want -0.191082
+PASS  GodotRng seeded integer replay  got true want true
+PASS  AK47:64 peak kick_up  got 4.606133 want 4.610000
+PASS  AK47:64 spray duration  got 2.781250 want 2.781000
+PASS  AK47:128 peak kick_up  got 4.608323 want 4.610000
+PASS  AK47:128 spray duration  got 2.773438 want 2.773000
+PASS  M4A1:64 peak kick_up  got 2.718419 want 2.720000
+PASS  M4A1:64 spray duration  got 2.546875 want 2.547000
+PASS  M4A1:128 peak kick_up  got 2.643580 want 2.640000
+PASS  M4A1:128 spray duration  got 2.539062 want 2.539000
+PASS  kick decay 64 tick  got 3.664442 want 3.664442
+PASS  kick decay 128 tick  got 3.759801 want 3.759801
+PASS  2 degree kick recovery 64 tick  got 0.203125 want 0.203125
+PASS  2 degree kick recovery 100 tick  got 0.200000 want 0.200000
+PASS  2 degree kick recovery 128 tick  got 0.195312 want 0.195312
+PASS  burst 3 recovery 64 tick  got 0.468750 want 0.467500
+PASS  burst 30 recovery 64 tick  got 1.078125 want 1.075000
+PASS  burst 3 recovery 128 tick  got 0.468750 want 0.467500
+PASS  burst 30 recovery 128 tick  got 1.078125 want 1.075000
+PASS  burst recovery at-threshold alternative  got 0.445312 want 0.445000
+PASS  J2 on uses moving kick in air  got -1.500000 want -1.500000
+PASS  J2 off uses air kick  got -2.000000 want -2.000000
+PASS  J3 off uses 1..k and flips on one  got true want true
+PASS  J3 alternative recorded exact roll bounds  got true want true
+PASS  J1 fixed stub starts without a flip  got true want true
+PASS  J1 fixed stub follows deterministic sequence  got false want false
+PASS  J4 stock recovery keeps stored accuracy  got 0.390000 want 0.390000
+PASS  J4 reset alternative restores starting accuracy  got 0.200000 want 0.200000
+776 passed, 0 failed
+
+$ Godot 4.4.1 --headless --script res://tests/test_hitboxes.gd
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  standing returns 11 boxes  got true want true
+PASS  box 0 id  got true want true
+PASS  box 0 part  got true want true
+PASS  box 0 size  got (8.000000000, 8.000000000, 12.000000000) want (8.000000000, 8.000000000, 12.000000000)
+PASS  box 0 standing center  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  box 0 includes Vector3 view  got true want true
+PASS  box 1 id  got true want true
+PASS  box 1 part  got true want true
+PASS  box 1 size  got (16.000000000, 16.000000000, 11.000000000) want (16.000000000, 16.000000000, 11.000000000)
+PASS  box 1 standing center  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  box 1 includes Vector3 view  got true want true
+PASS  box 2 id  got true want true
+PASS  box 2 part  got true want true
+PASS  box 2 size  got (14.000000000, 14.000000000, 9.000000000) want (14.000000000, 14.000000000, 9.000000000)
+PASS  box 2 standing center  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  box 2 includes Vector3 view  got true want true
+PASS  box 3 id  got true want true
+PASS  box 3 part  got true want true
+PASS  box 3 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 3 standing center  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  box 3 includes Vector3 view  got true want true
+PASS  box 4 id  got true want true
+PASS  box 4 part  got true want true
+PASS  box 4 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 4 standing center  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  box 4 includes Vector3 view  got true want true
+PASS  box 5 id  got true want true
+PASS  box 5 part  got true want true
+PASS  box 5 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 5 standing center  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  box 5 includes Vector3 view  got true want true
+PASS  box 6 id  got true want true
+PASS  box 6 part  got true want true
+PASS  box 6 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 6 standing center  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  box 6 includes Vector3 view  got true want true
+PASS  box 7 id  got true want true
+PASS  box 7 part  got true want true
+PASS  box 7 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 7 standing center  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  box 7 includes Vector3 view  got true want true
+PASS  box 8 id  got true want true
+PASS  box 8 part  got true want true
+PASS  box 8 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 8 standing center  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  box 8 includes Vector3 view  got true want true
+PASS  box 9 id  got true want true
+PASS  box 9 part  got true want true
+PASS  box 9 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 9 standing center  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  box 9 includes Vector3 view  got true want true
+PASS  box 10 id  got true want true
+PASS  box 10 part  got true want true
+PASS  box 10 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 10 standing center  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  box 10 includes Vector3 view  got true want true
+PASS  standing box 0 bottom  got 60.000000000 want 60.000000000
+PASS  standing box 0 top  got 72.000000000 want 72.000000000
+PASS  standing box 1 bottom  got 49.000000000 want 49.000000000
+PASS  standing box 1 top  got 60.000000000 want 60.000000000
+PASS  standing box 2 bottom  got 40.000000000 want 40.000000000
+PASS  standing box 2 top  got 49.000000000 want 49.000000000
+PASS  standing box 3 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 3 top  got 58.000000000 want 58.000000000
+PASS  standing box 4 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 4 top  got 58.000000000 want 58.000000000
+PASS  standing box 5 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 5 top  got 42.000000000 want 42.000000000
+PASS  standing box 6 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 6 top  got 42.000000000 want 42.000000000
+PASS  standing box 7 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 7 top  got 40.000000000 want 40.000000000
+PASS  standing box 8 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 8 top  got 40.000000000 want 40.000000000
+PASS  standing box 9 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 9 top  got 21.000000000 want 21.000000000
+PASS  standing box 10 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 10 top  got 21.000000000 want 21.000000000
+PASS  standing segment stack  got 72.000000000 want 72.000000000
+PASS  head top equals stand height  got 72.000000000 want 72.000000000
+PASS  standing eye is inside head  got true want true
+PASS  left arm center beside chest  got 12.000000000 want 12.000000000
+PASS  right arm center beside chest  got -12.000000000 want -12.000000000
+PASS  thigh overlap  got 3.000000000 want 3.000000000
+PASS  crouched box 0 bottom  got 49.200000000 want 49.200000000
+PASS  crouched box 0 top  got 61.200000000 want 61.200000000
+PASS  crouched box 0 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 0 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 1 bottom  got 41.650000000 want 41.650000000
+PASS  crouched box 1 top  got 51.000000000 want 51.000000000
+PASS  crouched box 1 depth unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 1 width unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 2 bottom  got 34.000000000 want 34.000000000
+PASS  crouched box 2 top  got 41.650000000 want 41.650000000
+PASS  crouched box 2 depth unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 2 width unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 3 bottom  got 35.700000000 want 35.700000000
+PASS  crouched box 3 top  got 49.300000000 want 49.300000000
+PASS  crouched box 3 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 3 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 bottom  got 35.700000000 want 35.700000000
+PASS  crouched box 4 top  got 49.300000000 want 49.300000000
+PASS  crouched box 4 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 5 bottom  got 22.950000000 want 22.950000000
+PASS  crouched box 5 top  got 35.700000000 want 35.700000000
+PASS  crouched box 5 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 5 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 bottom  got 22.950000000 want 22.950000000
+PASS  crouched box 6 top  got 35.700000000 want 35.700000000
+PASS  crouched box 6 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 7 bottom  got 17.850000000 want 17.850000000
+PASS  crouched box 7 top  got 34.000000000 want 34.000000000
+PASS  crouched box 7 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 7 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 bottom  got 17.850000000 want 17.850000000
+PASS  crouched box 8 top  got 34.000000000 want 34.000000000
+PASS  crouched box 8 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 9 bottom  got 1.700000000 want 1.700000000
+PASS  crouched box 9 top  got 17.850000000 want 17.850000000
+PASS  crouched box 9 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 9 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 bottom  got 1.700000000 want 1.700000000
+PASS  crouched box 10 top  got 17.850000000 want 17.850000000
+PASS  crouched box 10 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched head remains 12 tall  got 12.000000000 want 12.000000000
+PASS  crouched eye height  got 54.400000000 want 54.400000000
+PASS  crouched eye is inside head  got true want true
+PASS  head/chest overlap  got 1.800000000 want 1.800000000
+PASS  J6 alternative crouched head top  got 60.000000000 want 60.000000000
+PASS  J6 default restored after alternative  got 61.200000000 want 61.200000000
+PASS  yaw 0.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 0.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 0.0 box 0 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 0.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 0.0 box 1 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 0.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 0.0 box 2 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 3 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 0.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 3 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 4 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 0.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 4 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 5 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 0.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 5 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 6 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 0.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 6 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 7 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 0.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 7 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 8 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 0.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 8 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 9 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 0.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 9 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 10 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 0.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 10 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 forward axis  got (1.000000000, 0.000000000, 0.000000000) want (1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 0.0 left axis  got (-0.000000000, 1.000000000, 0.000000000) want (-0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 0.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 90.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 90.0 box 0 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 90.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 90.0 box 1 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 90.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 90.0 box 2 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 3 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 3 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 4 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 4 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 5 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 5 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 6 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 6 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 7 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 7 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 8 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 8 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 9 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 9 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 10 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 10 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 forward axis  got (0.000000000, 1.000000000, 0.000000000) want (0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 90.0 left axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 90.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 180.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 180.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 180.0 box 0 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 180.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 180.0 box 1 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 180.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 180.0 box 2 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 3 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 180.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 3 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 4 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 180.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 4 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 5 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 180.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 5 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 6 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 180.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 6 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 7 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 180.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 7 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 8 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 180.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 8 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 9 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 180.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 9 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 10 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 180.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 10 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 forward axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 180.0 left axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 180.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 270.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 270.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 270.0 box 0 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 270.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 270.0 box 1 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 270.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 270.0 box 2 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 3 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 3 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 4 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 4 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 5 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 5 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 6 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 6 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 7 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 7 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 8 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 8 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 9 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 9 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 10 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 10 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 forward axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 270.0 left axis  got (1.000000000, -0.000000000, 0.000000000) want (1.000000000, -0.000000000, 0.000000000)
+PASS  yaw 270.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 37.5 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 37.5 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 37.5 box 0 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 37.5 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 37.5 box 1 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 37.5 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 37.5 box 2 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 3 center  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  yaw 37.5 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 3 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 4 center  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  yaw 37.5 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 4 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 5 center  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  yaw 37.5 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 5 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 6 center  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  yaw 37.5 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 6 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 7 center  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  yaw 37.5 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 7 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 8 center  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  yaw 37.5 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 8 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 9 center  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  yaw 37.5 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 9 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 10 center  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  yaw 37.5 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 10 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 forward axis  got (0.793353340, 0.608761429, 0.000000000) want (0.793353340, 0.608761429, 0.000000000)
+PASS  yaw 37.5 left axis  got (-0.608761429, 0.793353340, 0.000000000) want (-0.608761429, 0.793353340, 0.000000000)
+PASS  yaw 37.5 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90 left shoulder expected position  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  jump stand box 0 rigid shift  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  jump stand box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  crouch-jump box 0 rigid shift  got (10.000000000, 20.000000000, 88.700000000) want (10.000000000, 20.000000000, 88.700000000)
+PASS  crouch-jump box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  jump stand box 1 rigid shift  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  jump stand box 1 size unchanged  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  crouch-jump box 1 rigid shift  got (10.000000000, 20.000000000, 79.825000000) want (10.000000000, 20.000000000, 79.825000000)
+PASS  crouch-jump box 1 size unchanged  got (8.000000000, 8.000000000, 4.675000000) want (8.000000000, 8.000000000, 4.675000000)
+PASS  jump stand box 2 rigid shift  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  jump stand box 2 size unchanged  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  crouch-jump box 2 rigid shift  got (10.000000000, 20.000000000, 71.325000000) want (10.000000000, 20.000000000, 71.325000000)
+PASS  crouch-jump box 2 size unchanged  got (7.000000000, 7.000000000, 3.825000000) want (7.000000000, 7.000000000, 3.825000000)
+PASS  jump stand box 3 rigid shift  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  jump stand box 3 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 3 rigid shift  got (2.694862852, 29.520240083, 76.000000000) want (2.694862852, 29.520240083, 76.000000000)
+PASS  crouch-jump box 3 size unchanged  got (4.000000000, 4.000000000, 6.800000000) want (4.000000000, 4.000000000, 6.800000000)
+PASS  jump stand box 4 rigid shift  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  jump stand box 4 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 4 rigid shift  got (17.305137148, 10.479759917, 76.000000000) want (17.305137148, 10.479759917, 76.000000000)
+PASS  crouch-jump box 4 size unchanged  got (4.000000000, 4.000000000, 6.800000000) want (4.000000000, 4.000000000, 6.800000000)
+PASS  jump stand box 5 rigid shift  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  jump stand box 5 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 5 rigid shift  got (2.694862852, 29.520240083, 62.825000000) want (2.694862852, 29.520240083, 62.825000000)
+PASS  crouch-jump box 5 size unchanged  got (3.500000000, 3.500000000, 6.375000000) want (3.500000000, 3.500000000, 6.375000000)
+PASS  jump stand box 6 rigid shift  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  jump stand box 6 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 6 rigid shift  got (17.305137148, 10.479759917, 62.825000000) want (17.305137148, 10.479759917, 62.825000000)
+PASS  crouch-jump box 6 size unchanged  got (3.500000000, 3.500000000, 6.375000000) want (3.500000000, 3.500000000, 6.375000000)
+PASS  jump stand box 7 rigid shift  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  jump stand box 7 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 7 rigid shift  got (7.564954284, 23.173413361, 59.425000000) want (7.564954284, 23.173413361, 59.425000000)
+PASS  crouch-jump box 7 size unchanged  got (5.500000000, 5.500000000, 8.075000000) want (5.500000000, 5.500000000, 8.075000000)
+PASS  jump stand box 8 rigid shift  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  jump stand box 8 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 8 rigid shift  got (12.435045716, 16.826586639, 59.425000000) want (12.435045716, 16.826586639, 59.425000000)
+PASS  crouch-jump box 8 size unchanged  got (5.500000000, 5.500000000, 8.075000000) want (5.500000000, 5.500000000, 8.075000000)
+PASS  jump stand box 9 rigid shift  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  jump stand box 9 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 9 rigid shift  got (7.564954284, 23.173413361, 43.275000000) want (7.564954284, 23.173413361, 43.275000000)
+PASS  crouch-jump box 9 size unchanged  got (4.500000000, 4.500000000, 8.075000000) want (4.500000000, 4.500000000, 8.075000000)
+PASS  jump stand box 10 rigid shift  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  jump stand box 10 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 10 rigid shift  got (12.435045716, 16.826586639, 43.275000000) want (12.435045716, 16.826586639, 43.275000000)
+PASS  crouch-jump box 10 size unchanged  got (4.500000000, 4.500000000, 8.075000000) want (4.500000000, 4.500000000, 8.075000000)
+PASS  J5 radius multiplier  got 2.000000000 want 2.000000000
+PASS  J5 diameter mode  got diameter want diameter
+PASS  J6 config matches JSON  got 0.850000000 want 0.850000000
+PASS  J7 stand height matches JSON  got 72.000000000 want 72.000000000
+PASS  J7 eye height matches JSON  got 64.000000000 want 64.000000000
+PASS  J8 proposed length scale  got 0.570000000 want 0.570000000
+PASS  J8 uses rounded v0.2 table  got v0.2_rounded want v0.2_rounded
+PASS  J9 A-pose default  got a_pose want a_pose
+PASS  SKELETON_SHA256 matches canonical JSON  got 8f404c7cf647b3d6d2acbb6e975ee6ebc1eb2ab1cc158a8a9f824b5fda43e031 want 8f404c7cf647b3d6d2acbb6e975ee6ebc1eb2ab1cc158a8a9f824b5fda43e031
+PASS  SKELETON_SHA256 is 64 lowercase hex  got true want true
+369 passed, 0 failed
+
+$ Godot 4.4.1 --headless --script res://tests/test_ray_box.gd
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  rule1_axis-aligned hit  got true want true
+PASS  rule1 entry distance  got 4.000000000 want 4.000000000
+PASS  rule1 hit point  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  rule1 hit normal  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  rule1 parallel on face hits  got true want true
+PASS  rule1 parallel face entry  got 4.000000000 want 4.000000000
+PASS  rule1 parallel outside misses  got false want false
+PASS  rule1 segment ends before box  got false want false
+PASS  rule1 endpoint hit is inclusive  got true want true
+PASS  rule1 box behind shooter misses  got false want false
+PASS  rule1 yaw-frame slab hit  got true want true
+PASS  rule1 yaw-frame distance  got 4.000000000 want 4.000000000
+PASS  rule1 yaw-frame normal  got (-0.000000000, -1.000000000, 0.000000000) want (0.000000000, -1.000000000, 0.000000000)
+PASS  rule2 head wins within distance tolerance  got 0 want 0
+PASS  rule2 lower id wins within priority group  got 3 want 3
+PASS  rule2 smaller entry wins outside tolerance  got 1 want 1
+PASS  rule3 starts inside counts as hit  got true want true
+PASS  rule3 inside distance is zero  got 0.000000000 want 0.000000000
+PASS  rule3 inside point is origin  got (0.000000000, 0.000000000, 0.000000000) want (0.000000000, 0.000000000, 0.000000000)
+PASS  rule3 boundary start counts as inside  got true want true
+PASS  rule3 boundary start distance  got 0.000000000 want 0.000000000
+PASS  rule4 z 72.50 outcome  got near_miss want near_miss
+PASS  rule4 z 72.50 closest distance  got 0.500000000 want 0.500000000
+PASS  rule4 z 72.50 closest box  got 0 want 0
+PASS  rule4 z 72.50 ray point  got (496.000000000, 0.000000000, 72.500000000) want (496.000000000, 0.000000000, 72.500000000)
+PASS  rule4 z 72.50 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 72.99 outcome  got near_miss want near_miss
+PASS  rule4 z 72.99 closest distance  got 0.990000000 want 0.990000000
+PASS  rule4 z 72.99 closest box  got 0 want 0
+PASS  rule4 z 72.99 ray point  got (496.000000000, 0.000000000, 72.990000000) want (496.000000000, 0.000000000, 72.990000000)
+PASS  rule4 z 72.99 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 73.00 outcome  got near_miss want near_miss
+PASS  rule4 z 73.00 closest distance  got 1.000000000 want 1.000000000
+PASS  rule4 z 73.00 closest box  got 0 want 0
+PASS  rule4 z 73.00 ray point  got (496.000000000, 0.000000000, 73.000000000) want (496.000000000, 0.000000000, 73.000000000)
+PASS  rule4 z 73.00 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 73.01 outcome  got none want none
+PASS  rule4 z 73.01 closest distance  got 1.010000000 want 1.010000000
+PASS  rule4 z 73.01 closest box  got 0 want 0
+PASS  rule4 z 73.01 ray point  got (496.000000000, 0.000000000, 73.010000000) want (496.000000000, 0.000000000, 73.010000000)
+PASS  rule4 z 73.01 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  diagonal closest approach outcome  got near_miss want near_miss
+PASS  diagonal closest approach distance  got 0.707106781 want 0.707106781
+PASS  diagonal closest ray point  got (-1.000000000, 1.500000000, 1.500000000) want (-1.000000000, 1.500000000, 1.500000000)
+PASS  diagonal closest box point  got (-1.000000000, 1.000000000, 1.000000000) want (-1.000000000, 1.000000000, 1.000000000)
+PASS  near miss clips to segment endpoint  got 2.236067977 want 2.236067977
+PASS  clipped nearest ray point  got (-2.000000000, 3.000000000, 0.000000000) want (-2.000000000, 3.000000000, 0.000000000)
+PASS  clipped nearest box point  got (-1.000000000, 1.000000000, 0.000000000) want (-1.000000000, 1.000000000, 0.000000000)
+PASS  near-miss tie selects head priority  got 0 want 0
+PASS  near-miss repeated result is deterministic  got 0 want 0
+PASS  near-miss repeated distance is deterministic  got 0.500000000 want 0.500000000
+PASS  near-miss repeated ray point is deterministic  got (9.000000000, 1.500000000, 0.000000000) want (9.000000000, 1.500000000, 0.000000000)
+PASS  near-miss repeated box point is deterministic  got (9.000000000, 1.000000000, 0.000000000) want (9.000000000, 1.000000000, 0.000000000)
+PASS  standing skeleton ray hits head  got 0 want 0
+PASS  standing skeleton head distance  got 496.000000000 want 496.000000000
+PASS  standing skeleton hit point  got (496.000000000, 0.000000000, 64.000000000) want (496.000000000, 0.000000000, 64.000000000)
+PASS  J17 proposed weapon range  got 8192.000000000 want 8192.000000000
+PASS  golden case total  got 20012 want 20012
+PASS  required seeded random cases  got 20000 want 20000
+Canonical expected-results SHA-256: 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+PASS  Python/GDScript expected-results SHA-256  got 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3 want 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+Golden summary: 20012 cases; maximum absolute error 0.000000051619
+PASS  golden category aimed_hit count  got 6000 want 6000
+PASS  golden category near_miss count  got 6000 want 6000
+PASS  golden category parallel count  got 2000 want 2000
+PASS  golden category inside count  got 2000 want 2000
+PASS  golden category segment_short count  got 1000 want 1000
+PASS  golden category box_behind count  got 1000 want 1000
+PASS  golden category multi_box count  got 2000 want 2000
+PASS  golden category boundary_near_0_5 count  got 1 want 1
+PASS  golden category boundary_near_0_99 count  got 1 want 1
+PASS  golden category boundary_near_1_0 count  got 1 want 1
+PASS  golden category boundary_near_1_01 count  got 1 want 1
+PASS  golden category boundary_edge_graze count  got 1 want 1
+PASS  golden category boundary_thigh_overlap count  got 1 want 1
+PASS  golden category boundary_crouched_head_chest count  got 1 want 1
+PASS  golden category boundary_yaw_0.0 count  got 1 want 1
+PASS  golden category boundary_yaw_90.0 count  got 1 want 1
+PASS  golden category boundary_yaw_180.0 count  got 1 want 1
+PASS  golden category boundary_yaw_270.0 count  got 1 want 1
+PASS  golden category boundary_yaw_359.999 count  got 1 want 1
+PASS  golden maximum absolute error  got 0.000000052 want 0.000000000
+Deterministic result SHA-256: 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b
+PASS  golden suite rerun is byte-identical  got 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b want 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b
+81 passed, 0 failed
+
+$ Godot 4.4.1 --headless --script res://tests/test_lagcomp.gd
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  history 64-tick rewind cap  got 12 want 12
+PASS  history 64-tick capacity  got 13 want 13
+PASS  history 100-tick rewind cap  got 20 want 20
+PASS  history 100-tick capacity  got 21 want 21
+PASS  history 128-tick rewind cap  got 25 want 25
+PASS  history 128-tick capacity  got 26 want 26
+PASS  all 1,000 sequential samples accepted  got true want true
+PASS  ring retains exactly 26 samples  got 26 want 26
+PASS  ring newest tick  got 999 want 999
+PASS  oldest retained tick  got 974.0 want 974
+PASS  oldest retained sample is present  got false want false
+PASS  expired history returns oldest tick  got 974 want 974
+PASS  expired history is marked missing  got true want true
+PASS  out-of-range slot rejects sample  got false want false
+PASS  all 1,601 fractional queries have history  got true want true
+PASS  linear path max error for 1601 fractional queries  got 0.000000000 want 0.000000000
+PASS  shortest yaw arc halfway  got 0.000000000 want 0.000000000
+PASS  origin linear interpolation  got 4.000000000 want 4.000000000
+PASS  nearer old stance before midpoint  got 1 want 1
+PASS  nearer new stance after midpoint  got 0 want 0
+PASS  older stance wins exact midpoint  got 1 want 1
+PASS  alive if both samples alive  got true want true
+PASS  interpolated sample dead if either endpoint dead  got false want false
+PASS  missing-history sample uses oldest tick  got 995 want 995
+PASS  missing-history flag set  got true want true
+PASS  missing-history uses oldest origin  got 995.000000000 want 995.000000000
+PASS  rewind targets alive slots only  got [1, 3] want [1, 3]
+PASS  shooter and dead slots excluded  got 0 want 0
+PASS  missing history target not in mask  got 0 want 0
+PASS  complete-history target in mask  got 2 want 2
+PASS  one target has missing history  got 1 want 1
+PASS  only complete-history target rewound  got 1 want 1
+PASS  rewound boxes match exact linear path  got 0.000000000 want 0.000000000
+PASS  J10 default interpolation ticks  got 4 want 4
+PASS  J11 rewind cap 64 tick  got 12 want 12
+PASS  J11 rewind cap 100 tick  got 20 want 20
+PASS  J11 rewind cap 128 tick  got 25 want 25
+PASS  80ms/interp4 wanted rewind  got 14.240000000 want 14.240000000
+PASS  80ms/interp4 whole rewind  got 14 want 14
+PASS  80ms/interp4 fraction  got 15729 want 15729
+PASS  80ms/interp4 reason  got 0 want 0
+PASS  80ms/interp4 flags  got 0 want 0
+PASS  80ms/interp4 accepts expected claim  got false want false
+PASS  chosen tick matches encoded rewind  got 985.759994507 want 985.759994507
+PASS  80ms/interp2 wanted rewind  got 12.240000000 want 12.240000000
+PASS  80ms/interp3 wanted rewind  got 13.240000000 want 13.240000000
+PASS  claimed-time +0.9 accepted  got false want false
+PASS  claimed-time +1.0 inclusive  got false want false
+PASS  claimed-time +1.1 rejected  got true want true
+PASS  claimed-time reason 1  got 1 want 1
+PASS  claimed-time flag bit 1  got 2 want 2
+PASS  claimed-time clamped to plus one  got 986.760000000 want 986.760000000
+PASS  backtrack claim clamps to minus one  got 1 want 1
+PASS  backtrack clamped claim  got 984.760000000 want 984.760000000
+PASS  full compensation limit is 25 ticks  got 25.000000000 want 25.000000000
+PASS  exact cap not flagged  got 0 want 0
+PASS  170ms wanted rewind  got 25.760000000 want 25.760000000
+PASS  over-cap clamps to 25  got 25 want 25
+PASS  over-cap fraction clears  got 0 want 0
+PASS  over-cap reason 2  got 2 want 2
+PASS  over-cap flag bit 0  got 1 want 1
+PASS  full compensation interp2 limit  got 25.000000000 want 25.000000000
+PASS  full compensation interp3 limit  got 25.000000000 want 25.000000000
+PASS  negative rewind clamps to zero  got 0 want 0
+PASS  negative rewind combined reason 5  got 5 want 5
+PASS  negative rewind has claim flag  got 2 want 2
+PASS  negative rewind has negative flag  got 16 want 16
+PASS  both clamps reason 3  got 3 want 3
+PASS  both clamps flags 0 and 1  got 3 want 3
+PASS  missing-only reason 6  got 6 want 6
+PASS  missing-history flag bit 5  got 32 want 32
+PASS  missing history preserves clamp reason  got 1 want 1
+PASS  missing history adds flag to clamp  got 32 want 32
+PASS  fraction rounding carries whole tick  got 11 want 11
+PASS  fraction rounding carry clears remainder  got 0 want 0
+PASS  ScriptedPath linear speed  got 250.000000000 want 250.000000000
+PASS  ScriptedPath circle endpoint  got (-20.000000000, 0.000000000, 0.000000000) want (-20.000000000, 0.000000000, 0.000000000)
+PASS  ScriptedPath circle tangent yaw  got 270.000000000 want 270.000000000
+PASS  ScriptedPath peek starts in cover  got 60.000000000 want 60.000000000
+PASS  ScriptedPath peek returns to cover  got 60.000000000 want 60.000000000
+PASS  ScriptedPath stance toggle  got 1 want 1
+PASS  ScriptedPath spawn marker  got true want true
+PASS  ScriptedPath death marker  got false want false
+PASS  lag-comp golden case total  got 5015 want 5015
+PASS  lag-comp random case count  got 5000 want 5000
+Lag-comp summary: 5015 cases; maximum pose absolute error 0.000000000000
+PASS  lag-comp golden category linear_rate_100 count  got 542 want 542
+PASS  lag-comp golden category circle_rate_128 count  got 546 want 546
+PASS  lag-comp golden category circle_rate_100 count  got 572 want 572
+PASS  lag-comp golden category peek_rate_128 count  got 523 want 523
+PASS  lag-comp golden category peek_rate_64 count  got 556 want 556
+PASS  lag-comp golden category peek_rate_100 count  got 583 want 583
+PASS  lag-comp golden category circle_rate_64 count  got 553 want 553
+PASS  lag-comp golden category linear_rate_64 count  got 564 want 564
+PASS  lag-comp golden category linear_rate_128 count  got 561 want 561
+PASS  lag-comp golden category rtt_80_interp_4 count  got 1 want 1
+PASS  lag-comp golden category claim_plus_0_9 count  got 1 want 1
+PASS  lag-comp golden category claim_plus_1_0_inclusive count  got 1 want 1
+PASS  lag-comp golden category claim_plus_1_1 count  got 1 want 1
+PASS  lag-comp golden category backtrack_minus_5 count  got 1 want 1
+PASS  lag-comp golden category full_cap_164ms count  got 1 want 1
+PASS  lag-comp golden category over_cap_170ms count  got 1 want 1
+PASS  lag-comp golden category reason_3_both_clamps count  got 1 want 1
+PASS  lag-comp golden category reason_4_negative_in_window count  got 1 want 1
+PASS  lag-comp golden category reason_5_claim_and_negative count  got 1 want 1
+PASS  lag-comp golden category reason_6_missing_history count  got 1 want 1
+PASS  lag-comp golden category circle_shortest_yaw count  got 1 want 1
+PASS  lag-comp golden category peek_path count  got 1 want 1
+PASS  lag-comp golden category stance_toggle_path count  got 1 want 1
+PASS  lag-comp golden category dead_target count  got 1 want 1
+PASS  lag-comp golden max pose error  got 0.000000000 want 0.000000000
+110 passed, 0 failed
+
+$ Godot 4.4.1 --headless --script res://tests/test_hitreg.gd
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  scenario1 one hit record  got 1 want 1
+PASS  scenario1 outcome hit  got 0 want 0
+PASS  scenario1 head box  got 0 want 0
+PASS  scenario1 head region  got 0 want 0
+PASS  scenario1 hit distance  got 0.000000000 want 0.000000000
+PASS  scenario1 trace entry distance  got 496.000000000 want 496.000000000
+PASS  scenario1 hit ray point  got (496.000000000, 0.000000000, 64.000000000)
+PASS  scenario1 hit box point  got (496.000000000, 0.000000000, 64.000000000)
+PASS  scenario1 rewind zero  got 0 want 0
+PASS  scenario1 rewind flags zero  got 0 want 0
+PASS  scenario1 no input reject  got <null> want <null>
+PASS  scenario2 chosen rewind  got 14.240000000 want 14.240000000
+PASS  scenario2 chest hit  got 1 want 1
+PASS  scenario2 chest part  got 1 want 1
+PASS  scenario2 chest region  got 1 want 1
+PASS  scenario2 without rewind is a clean miss  got none want none
+PASS  scenario5 z 72.50 record count  got 1 want 1
+PASS  scenario5 z 72.50 near miss  got 1 want 1
+PASS  scenario5 z 72.50 distance  got 0.500000000 want 0.500000000
+PASS  scenario5 z 72.99 record count  got 1 want 1
+PASS  scenario5 z 72.99 near miss  got 1 want 1
+PASS  scenario5 z 72.99 distance  got 0.990000000 want 0.990000000
+PASS  scenario5 z 73.00 record count  got 1 want 1
+PASS  scenario5 z 73.00 near miss  got 1 want 1
+PASS  scenario5 z 73.00 distance  got 1.000000000 want 1.000000000
+PASS  scenario5 z 73.01 record count  got 0 want 0
+PASS  scenario3 rewound peeker is hit  got 1 want 1
+PASS  scenario3 open peek hits chest  got 1 want 1
+PASS  scenario3 open ray clears wall  got false want false
+PASS  scenario3 target is behind wall at now  got true want true
+PASS  scenario3 hidden ray is world blocked  got true want true
+PASS  scenario3 wall-blocked shot has no SHOT  got 0 want 0
+PASS  scenario3 wall-block still records rewind  got true want true
+PASS  J14 off permits hidden target hit  got true want true
+PASS  J14 off logs THROUGH_WORLD  got 4 want 4
+PASS  scenario4 backtrack clamp reason  got 1 want 1
+PASS  scenario4 backtrack input reject  got 1 want 1
+PASS  scenario4 old head position misses  got 0 want 0
+PASS  scenario6 spread produces one hit  got 1 want 1
+PASS  scenario6 spread moves head aim to chest  got 1 want 1
+PASS  scenario6 downward vertical offset  got -0.005500000 want -0.005500000
+PASS  scenario6 zero spread remains a headshot  got 0 want 0
+PASS  scenario7 crouched head center hits head  got 0 want 0
+PASS  scenario7 crouched head distance  got 0.000000000 want 0.000000000
+PASS  scenario7 chest enters before head  got 1 want 1
+PASS  scenario7 chest trace entry distance  got 492.000000000 want 492.000000000
+PASS  scenario8 behind target ignored after first hit  got 1 want 1
+PASS  scenario8 first target is hit  got 1 want 1
+PASS  scenario8 front graze creates two records  got 2 want 2
+PASS  scenario8 front target is near miss  got 1 want 1
+PASS  scenario8 hit records share shot index  got 1 want 1
+PASS  J13 penetration alternative reaches rear target  got 2 want 2
+PASS  scenario9 teammate is traced  got 1 want 1
+PASS  scenario9 same-team marker  got true want true
+PASS  scenario10 dead target not traced  got 0 want 0
+PASS  scenario10 missing-history target still traced  got 1 want 1
+PASS  scenario10 missing-history rewind reason  got 6 want 6
+PASS  scenario10 missing-history flag bit  got 32 want 32
+PASS  scenario10 missing-history target not in mask  got 0 want 0
+PASS  scenario10 uses oldest target origin  got 500.000000000 want 500.000000000
+PASS  scenario11 shooter command has no seed  got false want false
+PASS  scenario11 different server seed can change result  got true want true
+PASS  J12 placeholder base damage  got 0.000000000 want 0.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J13 non-penetration default  got false want false
+PASS  J14 world-block default  got true want true
+PASS  damage region for box 0  got 0 want 0
+PASS  damage region for box 1  got 1 want 1
+PASS  damage region for box 2  got 2 want 2
+PASS  damage region for box 3  got 3 want 3
+PASS  damage region for box 4  got 3 want 3
+PASS  damage region for box 5  got 3 want 3
+PASS  damage region for box 6  got 3 want 3
+PASS  damage region for box 7  got 4 want 4
+PASS  damage region for box 8  got 4 want 4
+PASS  damage region for box 9  got 4 want 4
+PASS  damage region for box 10  got 4 want 4
+PASS  hitreg named cases present  got 21 want 21
+PASS  hitreg random cases present  got 2000 want 2000
+PASS  hitreg total cases present  got 2021 want 2021
+PASS  Python reference includes scenario 1  got true want true
+PASS  Python reference includes scenario 2  got true want true
+PASS  Python reference includes scenario 3  got true want true
+PASS  Python reference includes scenario 4  got true want true
+PASS  Python reference includes scenario 5  got true want true
+PASS  Python reference includes scenario 6  got true want true
+PASS  Python reference includes scenario 7  got true want true
+PASS  Python reference includes scenario 8  got true want true
+PASS  Python reference includes scenario 9  got true want true
+PASS  Python reference includes scenario 10  got true want true
+PASS  Python reference includes scenario 11  got true want true
+PASS  hitreg golden category named count  got 21 want 21
+PASS  hitreg golden category random count  got 2000 want 2000
+Hitreg golden summary: 2021 cases; max numeric error 0.000000208288
+PASS  hitreg golden maximum error  got 0.000000208 want 0.000000000
+98 passed, 0 failed
+
+$ python3 ../tools/ray_box_ref.py --self-test
+ray_box_ref self-test passed 8 boundary assertions
+
+$ python3 ../tools/lagcomp_ref.py --self-test
+lagcomp_ref self-test passed 10 named policy assertions
+
+$ python3 ../specs/goldsrc_recoil_spread_sim.py | diff - ../specs/sim_recoil_results.txt
+PASS recoil simulator diff empty
+
+$ python3 ../specs/goldsrc_movement_sim.py | diff - ../specs/sim_results.txt
+PASS movement simulator diff empty

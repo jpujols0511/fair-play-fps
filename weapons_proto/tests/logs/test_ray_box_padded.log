@@ -1,0 +1,165 @@
+P3 Addendum 4 ray-box validation — Godot 4.4.1.stable.official.49a5bc7b6
+=== test_ray_box.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  rule1_axis-aligned hit  got true want true
+PASS  rule1 entry distance  got 4.000000000 want 4.000000000
+PASS  rule1 hit point  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  rule1 hit normal  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  rule1 parallel on face hits  got true want true
+PASS  rule1 parallel face entry  got 4.000000000 want 4.000000000
+PASS  rule1 parallel outside misses  got false want false
+PASS  rule1 segment ends before box  got false want false
+PASS  rule1 endpoint hit is inclusive  got true want true
+PASS  rule1 box behind shooter misses  got false want false
+PASS  rule1 yaw-frame slab hit  got true want true
+PASS  rule1 yaw-frame distance  got 4.000000000 want 4.000000000
+PASS  rule1 yaw-frame normal  got (-0.000000000, -1.000000000, 0.000000000) want (0.000000000, -1.000000000, 0.000000000)
+PASS  rule2 head wins within distance tolerance  got 0 want 0
+PASS  rule2 lower id wins within priority group  got 3 want 3
+PASS  rule2 smaller entry wins outside tolerance  got 1 want 1
+PASS  rule3 starts inside counts as hit  got true want true
+PASS  rule3 inside distance is zero  got 0.000000000 want 0.000000000
+PASS  rule3 inside point is origin  got (0.000000000, 0.000000000, 0.000000000) want (0.000000000, 0.000000000, 0.000000000)
+PASS  rule3 boundary start counts as inside  got true want true
+PASS  rule3 boundary start distance  got 0.000000000 want 0.000000000
+PASS  rule4 z 72.50 outcome  got near_miss want near_miss
+PASS  rule4 z 72.50 closest distance  got 0.500000000 want 0.500000000
+PASS  rule4 z 72.50 closest box  got 0 want 0
+PASS  rule4 z 72.50 ray point  got (496.000000000, 0.000000000, 72.500000000) want (496.000000000, 0.000000000, 72.500000000)
+PASS  rule4 z 72.50 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 72.99 outcome  got near_miss want near_miss
+PASS  rule4 z 72.99 closest distance  got 0.990000000 want 0.990000000
+PASS  rule4 z 72.99 closest box  got 0 want 0
+PASS  rule4 z 72.99 ray point  got (496.000000000, 0.000000000, 72.990000000) want (496.000000000, 0.000000000, 72.990000000)
+PASS  rule4 z 72.99 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 73.00 outcome  got near_miss want near_miss
+PASS  rule4 z 73.00 closest distance  got 1.000000000 want 1.000000000
+PASS  rule4 z 73.00 closest box  got 0 want 0
+PASS  rule4 z 73.00 ray point  got (496.000000000, 0.000000000, 73.000000000) want (496.000000000, 0.000000000, 73.000000000)
+PASS  rule4 z 73.00 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 73.01 outcome  got none want none
+PASS  rule4 z 73.01 closest distance  got 1.010000000 want 1.010000000
+PASS  rule4 z 73.01 closest box  got 0 want 0
+PASS  rule4 z 73.01 ray point  got (496.000000000, 0.000000000, 73.010000000) want (496.000000000, 0.000000000, 73.010000000)
+PASS  rule4 z 73.01 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  diagonal closest approach outcome  got near_miss want near_miss
+PASS  diagonal closest approach distance  got 0.707106781 want 0.707106781
+PASS  diagonal closest ray point  got (-1.000000000, 1.500000000, 1.500000000) want (-1.000000000, 1.500000000, 1.500000000)
+PASS  diagonal closest box point  got (-1.000000000, 1.000000000, 1.000000000) want (-1.000000000, 1.000000000, 1.000000000)
+PASS  near miss clips to segment endpoint  got 2.236067977 want 2.236067977
+PASS  clipped nearest ray point  got (-2.000000000, 3.000000000, 0.000000000) want (-2.000000000, 3.000000000, 0.000000000)
+PASS  clipped nearest box point  got (-1.000000000, 1.000000000, 0.000000000) want (-1.000000000, 1.000000000, 0.000000000)
+PASS  near-miss tie selects head priority  got 0 want 0
+PASS  near-miss repeated result is deterministic  got 0 want 0
+PASS  near-miss repeated distance is deterministic  got 0.500000000 want 0.500000000
+PASS  near-miss repeated ray point is deterministic  got (9.000000000, 1.500000000, 0.000000000) want (9.000000000, 1.500000000, 0.000000000)
+PASS  near-miss repeated box point is deterministic  got (9.000000000, 1.000000000, 0.000000000) want (9.000000000, 1.000000000, 0.000000000)
+PASS  standing skeleton ray hits head  got 0 want 0
+PASS  standing skeleton padded head distance  got 494.000000000 want 494.000000000
+PASS  standing skeleton padded hit point  got (494.000000000, 0.000000000, 64.000000000) want (494.000000000, 0.000000000, 64.000000000)
+PASS  zero-padding skeleton hit restores legacy distance  got 496.000000000 want 496.000000000
+PASS  zero-padding skeleton hit restores legacy point  got (496.000000000, 0.000000000, 64.000000000) want (496.000000000, 0.000000000, 64.000000000)
+PASS  J17 proposed weapon range  got 8192.000000000 want 8192.000000000
+PASS  A4 default hitbox padding  got 2.000000000 want 2.000000000
+PASS  A4 near-miss log threshold  got 4.000000000 want 4.000000000
+PASS  A4 per-bone padding 0  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 1  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 2  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 3  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 4  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 5  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 6  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 7  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 8  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 9  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 10  got 2.000000000 want 2.000000000
+PASS  A4 h+2 padded edge counts as a hit  got true want true
+PASS  A4 padded edge entry  got 2.000000000 want 2.000000000
+PASS  A4 h+2+1e-6 misses the padded box  got false want false
+PASS  A4 padded edge outside remains a near miss  got near_miss want near_miss
+PASS  A4 distance to padded edge  got 0.000001000 want 0.000001000
+PASS  A4 h+1 is outside raw box but inside padding  got true want true
+PASS  A4 zero padding restores raw entry  got 4.000000000 want 4.000000000
+PASS  A4 frontal padding moves entry 2 units closer  got 2.000000000 want 2.000000000
+PASS  A4 near miss at 4.0 is logged  got near_miss want near_miss
+PASS  A4 padded near-miss distance 4.0  got 4.000000000 want 4.000000000
+PASS  A4 near miss at 4.0+1e-6 is not logged  got none want none
+PASS  A4 over-threshold distance  got 4.000001000 want 4.000001000
+PASS  A2 test 7 z=33.0 selects crouched head  got 0 want 0
+PASS  A2 test 7 unpadded head entry  got 496.000000000 want 496.000000000
+PASS  A2 test 7 z=27.25 entry-first selects chest  got 1 want 1
+PASS  A2 test 7 unpadded chest entry  got 492.000000000 want 492.000000000
+PASS  A4 padded z=33.0 selects crouched head  got 0 want 0
+PASS  A4 padded z=33.0 head entry  got 494.000000000 want 494.000000000
+PASS  A4 padded entry-first z=27.25 selects chest  got 1 want 1
+PASS  A4 padded chest entry  got 490.000000000 want 490.000000000
+PASS  A2-b head-priority alternative wins padded overlap  got 0 want 0
+PASS  A2-b head-priority entry uses the head surface  got 494.000000000 want 494.000000000
+PASS  golden case total  got 20012 want 20012
+PASS  required seeded random cases  got 20000 want 20000
+Canonical expected-results SHA-256: 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+PASS  Python/GDScript expected-results SHA-256  got 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3 want 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+Golden summary: 20012 cases; maximum absolute error 0.000000051619
+PASS  golden category aimed_hit count  got 6000 want 6000
+PASS  golden category near_miss count  got 6000 want 6000
+PASS  golden category parallel count  got 2000 want 2000
+PASS  golden category inside count  got 2000 want 2000
+PASS  golden category segment_short count  got 1000 want 1000
+PASS  golden category box_behind count  got 1000 want 1000
+PASS  golden category multi_box count  got 2000 want 2000
+PASS  golden category boundary_near_0_5 count  got 1 want 1
+PASS  golden category boundary_near_0_99 count  got 1 want 1
+PASS  golden category boundary_near_1_0 count  got 1 want 1
+PASS  golden category boundary_near_1_01 count  got 1 want 1
+PASS  golden category boundary_edge_graze count  got 1 want 1
+PASS  golden category boundary_thigh_overlap count  got 1 want 1
+PASS  golden category boundary_crouched_head_chest count  got 1 want 1
+PASS  golden category boundary_yaw_0.0 count  got 1 want 1
+PASS  golden category boundary_yaw_90.0 count  got 1 want 1
+PASS  golden category boundary_yaw_180.0 count  got 1 want 1
+PASS  golden category boundary_yaw_270.0 count  got 1 want 1
+PASS  golden category boundary_yaw_359.999 count  got 1 want 1
+PASS  golden maximum absolute error  got 0.000000052 want 0.000000000
+Deterministic result SHA-256: 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b
+PASS  golden suite rerun is byte-identical  got 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b want 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b
+PASS  padded golden case total  got 20012 want 20012
+PASS  padded seeded random cases  got 20000 want 20000
+PASS  padded threshold is 4 units  got 4.0 want 4.0
+PASS  padded amount is 2 units  got 2.000000000 want 2.000000000
+Padded expected-results SHA-256: 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609
+PASS  padded Python/GDScript expected-results SHA-256  got 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609 want 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609
+Padded golden summary: 20012 cases; maximum absolute error 0.000000012905
+PASS  padded category aimed_hit count  got 6000 want 6000
+PASS  padded category near_miss count  got 6000 want 6000
+PASS  padded category parallel count  got 2000 want 2000
+PASS  padded category inside count  got 2000 want 2000
+PASS  padded category segment_short count  got 1000 want 1000
+PASS  padded category box_behind count  got 1000 want 1000
+PASS  padded category multi_box count  got 2000 want 2000
+PASS  padded category boundary_near_0_5 count  got 1 want 1
+PASS  padded category boundary_near_0_99 count  got 1 want 1
+PASS  padded category boundary_near_1_0 count  got 1 want 1
+PASS  padded category boundary_near_1_01 count  got 1 want 1
+PASS  padded category boundary_edge_graze count  got 1 want 1
+PASS  padded category boundary_thigh_overlap count  got 1 want 1
+PASS  padded category boundary_crouched_head_chest count  got 1 want 1
+PASS  padded category boundary_yaw_0.0 count  got 1 want 1
+PASS  padded category boundary_yaw_90.0 count  got 1 want 1
+PASS  padded category boundary_yaw_180.0 count  got 1 want 1
+PASS  padded category boundary_yaw_270.0 count  got 1 want 1
+PASS  padded category boundary_yaw_359.999 count  got 1 want 1
+PASS  padded golden maximum absolute error  got 0.000000013 want 0.000000000
+143 passed, 0 failed
+EXIT 0
+
+=== Python/static reference checks ===
+ray_box_ref self-test passed 16 boundary assertions
+generated skeleton constants are up to date
+56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0
+PASS Python reference, skeleton, and simulator checks
+wrote /tmp/ray_box_padded_verify.json
+20000 random + 12 boundary cases
+expected SHA-256 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609
+PASS padded golden regeneration is byte-identical

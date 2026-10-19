@@ -1,0 +1,463 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+== PHASE 1: friction, ground accel, air cap ==
+PASS  friction 64 tick, 0.0 u/s, 1 step(s)  got 0.0000 want 0.0000
+PASS  friction 64 tick, 50.0 u/s, 1 step(s)  got 43.7500 want 43.7500
+PASS  friction(Vector2) 64 tick, 50.0 u/s, 1 step(s)  got 43.7500 want 43.7500
+PASS  friction 64 tick, 99.0 u/s, 1 step(s)  got 92.7500 want 92.7500
+PASS  friction(Vector2) 64 tick, 99.0 u/s, 1 step(s)  got 92.7500 want 92.7500
+PASS  friction 64 tick, 100.0 u/s, 1 step(s)  got 93.7500 want 93.7500
+PASS  friction(Vector2) 64 tick, 100.0 u/s, 1 step(s)  got 93.7500 want 93.7500
+PASS  friction 64 tick, 240.0 u/s, 1 step(s)  got 225.0000 want 225.0000
+PASS  friction(Vector2) 64 tick, 240.0 u/s, 1 step(s)  got 225.0000 want 225.0000
+PASS  friction 64 tick, 300.0 u/s, 1 step(s)  got 281.2500 want 281.2500
+PASS  friction(Vector2) 64 tick, 300.0 u/s, 1 step(s)  got 281.2500 want 281.2500
+PASS  friction 64 tick, 400.0 u/s, 1 step(s)  got 375.0000 want 375.0000
+PASS  friction(Vector2) 64 tick, 400.0 u/s, 1 step(s)  got 375.0000 want 375.0000
+PASS  friction 64 tick, 240.0 u/s, 6 step(s)  got 162.9442 want 162.9442
+PASS  friction(Vector2) 64 tick, 240.0 u/s, 6 step(s)  got 162.9442 want 162.9442
+PASS  friction 64 tick, 300.0 u/s, 6 step(s)  got 203.6802 want 203.6802
+PASS  friction(Vector2) 64 tick, 300.0 u/s, 6 step(s)  got 203.6802 want 203.6802
+PASS  friction 64 tick, 400.0 u/s, 6 step(s)  got 271.5737 want 271.5737
+PASS  friction(Vector2) 64 tick, 400.0 u/s, 6 step(s)  got 271.5737 want 271.5737
+PASS  friction 100 tick, 0.0 u/s, 1 step(s)  got 0.0000 want 0.0000
+PASS  friction 100 tick, 50.0 u/s, 1 step(s)  got 46.0000 want 46.0000
+PASS  friction(Vector2) 100 tick, 50.0 u/s, 1 step(s)  got 46.0000 want 46.0000
+PASS  friction 100 tick, 99.0 u/s, 1 step(s)  got 95.0000 want 95.0000
+PASS  friction(Vector2) 100 tick, 99.0 u/s, 1 step(s)  got 95.0000 want 95.0000
+PASS  friction 100 tick, 100.0 u/s, 1 step(s)  got 96.0000 want 96.0000
+PASS  friction(Vector2) 100 tick, 100.0 u/s, 1 step(s)  got 96.0000 want 96.0000
+PASS  friction 100 tick, 240.0 u/s, 1 step(s)  got 230.4000 want 230.4000
+PASS  friction(Vector2) 100 tick, 240.0 u/s, 1 step(s)  got 230.4000 want 230.4000
+PASS  friction 100 tick, 300.0 u/s, 1 step(s)  got 288.0000 want 288.0000
+PASS  friction(Vector2) 100 tick, 300.0 u/s, 1 step(s)  got 288.0000 want 288.0000
+PASS  friction 100 tick, 400.0 u/s, 1 step(s)  got 384.0000 want 384.0000
+PASS  friction(Vector2) 100 tick, 400.0 u/s, 1 step(s)  got 384.0000 want 384.0000
+PASS  friction 100 tick, 240.0 u/s, 10 step(s)  got 159.5598 want 159.5598
+PASS  friction(Vector2) 100 tick, 240.0 u/s, 10 step(s)  got 159.5598 want 159.5598
+PASS  friction 100 tick, 300.0 u/s, 10 step(s)  got 199.4498 want 199.4498
+PASS  friction(Vector2) 100 tick, 300.0 u/s, 10 step(s)  got 199.4497 want 199.4498
+PASS  friction 100 tick, 400.0 u/s, 10 step(s)  got 265.9331 want 265.9331
+PASS  friction(Vector2) 100 tick, 400.0 u/s, 10 step(s)  got 265.9330 want 265.9331
+PASS  friction 128 tick, 0.0 u/s, 1 step(s)  got 0.0000 want 0.0000
+PASS  friction 128 tick, 50.0 u/s, 1 step(s)  got 46.8750 want 46.8750
+PASS  friction(Vector2) 128 tick, 50.0 u/s, 1 step(s)  got 46.8750 want 46.8750
+PASS  friction 128 tick, 99.0 u/s, 1 step(s)  got 95.8750 want 95.8750
+PASS  friction(Vector2) 128 tick, 99.0 u/s, 1 step(s)  got 95.8750 want 95.8750
+PASS  friction 128 tick, 100.0 u/s, 1 step(s)  got 96.8750 want 96.8750
+PASS  friction(Vector2) 128 tick, 100.0 u/s, 1 step(s)  got 96.8750 want 96.8750
+PASS  friction 128 tick, 240.0 u/s, 1 step(s)  got 232.5000 want 232.5000
+PASS  friction(Vector2) 128 tick, 240.0 u/s, 1 step(s)  got 232.5000 want 232.5000
+PASS  friction 128 tick, 300.0 u/s, 1 step(s)  got 290.6250 want 290.6250
+PASS  friction(Vector2) 128 tick, 300.0 u/s, 1 step(s)  got 290.6250 want 290.6250
+PASS  friction 128 tick, 400.0 u/s, 1 step(s)  got 387.5000 want 387.5000
+PASS  friction(Vector2) 128 tick, 400.0 u/s, 1 step(s)  got 387.5000 want 387.5000
+PASS  friction 128 tick, 240.0 u/s, 12 step(s)  got 163.9653 want 163.9653
+PASS  friction(Vector2) 128 tick, 240.0 u/s, 12 step(s)  got 163.9653 want 163.9653
+PASS  friction 128 tick, 300.0 u/s, 12 step(s)  got 204.9566 want 204.9566
+PASS  friction(Vector2) 128 tick, 300.0 u/s, 12 step(s)  got 204.9566 want 204.9566
+PASS  friction 128 tick, 400.0 u/s, 12 step(s)  got 273.2754 want 273.2754
+PASS  friction(Vector2) 128 tick, 400.0 u/s, 12 step(s)  got 273.2754 want 273.2754
+PASS  ground_accel 64 tick vel(0,0) wish(1.00,0.00) dx  got 39.0625 want 39.0625
+PASS  ground_accel 64 tick vel(0,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(0,0) wish(1.00,0.00) speed  got 39.0625 want 39.0625
+PASS  ground_accel 64 tick vel(100,0) wish(1.00,0.00) dx  got 39.0625 want 39.0625
+PASS  ground_accel 64 tick vel(100,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(100,0) wish(1.00,0.00) speed  got 139.0625 want 139.0625
+PASS  ground_accel 64 tick vel(240,0) wish(1.00,0.00) dx  got 10.0000 want 10.0000
+PASS  ground_accel 64 tick vel(240,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(240,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  ground_accel 64 tick vel(250,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(250,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(250,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  ground_accel 64 tick vel(300,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(300,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(300,0) wish(1.00,0.00) speed  got 300.0000 want 300.0000
+PASS  ground_accel 64 tick vel(100,50) wish(0.60,0.80) dx  got 23.4375 want 23.4375
+PASS  ground_accel 64 tick vel(100,50) wish(0.60,0.80) dy  got 31.2500 want 31.2500
+PASS  ground_accel 64 tick vel(100,50) wish(0.60,0.80) speed  got 147.7781 want 147.7781
+PASS  ground_accel 64 tick vel(200,0) wish(0.00,1.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(200,0) wish(0.00,1.00) dy  got 39.0625 want 39.0625
+PASS  ground_accel 64 tick vel(200,0) wish(0.00,1.00) speed  got 203.7790 want 203.7790
+PASS  ground_accel 64 tick vel(200,0) wish(-1.00,0.00) dx  got -39.0625 want -39.0625
+PASS  ground_accel 64 tick vel(200,0) wish(-1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 64 tick vel(200,0) wish(-1.00,0.00) speed  got 160.9375 want 160.9375
+PASS  ground_accel 64 tick vel(120,-30) wish(0.80,-0.60) dx  got 31.2500 want 31.2500
+PASS  ground_accel 64 tick vel(120,-30) wish(0.80,-0.60) dy  got -23.4375 want -23.4375
+PASS  ground_accel 64 tick vel(120,-30) wish(0.80,-0.60) speed  got 160.4124 want 160.4124
+PASS  ground_accel 100 tick vel(0,0) wish(1.00,0.00) dx  got 25.0000 want 25.0000
+PASS  ground_accel 100 tick vel(0,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(0,0) wish(1.00,0.00) speed  got 25.0000 want 25.0000
+PASS  ground_accel 100 tick vel(100,0) wish(1.00,0.00) dx  got 25.0000 want 25.0000
+PASS  ground_accel 100 tick vel(100,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(100,0) wish(1.00,0.00) speed  got 125.0000 want 125.0000
+PASS  ground_accel 100 tick vel(240,0) wish(1.00,0.00) dx  got 10.0000 want 10.0000
+PASS  ground_accel 100 tick vel(240,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(240,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  ground_accel 100 tick vel(250,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(250,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(250,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  ground_accel 100 tick vel(300,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(300,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(300,0) wish(1.00,0.00) speed  got 300.0000 want 300.0000
+PASS  ground_accel 100 tick vel(100,50) wish(0.60,0.80) dx  got 15.0000 want 15.0000
+PASS  ground_accel 100 tick vel(100,50) wish(0.60,0.80) dy  got 20.0000 want 20.0000
+PASS  ground_accel 100 tick vel(100,50) wish(0.60,0.80) speed  got 134.6291 want 134.6291
+PASS  ground_accel 100 tick vel(200,0) wish(0.00,1.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(200,0) wish(0.00,1.00) dy  got 25.0000 want 25.0000
+PASS  ground_accel 100 tick vel(200,0) wish(0.00,1.00) speed  got 201.5564 want 201.5564
+PASS  ground_accel 100 tick vel(200,0) wish(-1.00,0.00) dx  got -25.0000 want -25.0000
+PASS  ground_accel 100 tick vel(200,0) wish(-1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 100 tick vel(200,0) wish(-1.00,0.00) speed  got 175.0000 want 175.0000
+PASS  ground_accel 100 tick vel(120,-30) wish(0.80,-0.60) dx  got 20.0000 want 20.0000
+PASS  ground_accel 100 tick vel(120,-30) wish(0.80,-0.60) dy  got -15.0000 want -15.0000
+PASS  ground_accel 100 tick vel(120,-30) wish(0.80,-0.60) speed  got 147.0544 want 147.0544
+PASS  ground_accel 128 tick vel(0,0) wish(1.00,0.00) dx  got 19.5312 want 19.5312
+PASS  ground_accel 128 tick vel(0,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(0,0) wish(1.00,0.00) speed  got 19.5312 want 19.5312
+PASS  ground_accel 128 tick vel(100,0) wish(1.00,0.00) dx  got 19.5312 want 19.5312
+PASS  ground_accel 128 tick vel(100,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(100,0) wish(1.00,0.00) speed  got 119.5312 want 119.5312
+PASS  ground_accel 128 tick vel(240,0) wish(1.00,0.00) dx  got 10.0000 want 10.0000
+PASS  ground_accel 128 tick vel(240,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(240,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  ground_accel 128 tick vel(250,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(250,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(250,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  ground_accel 128 tick vel(300,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(300,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(300,0) wish(1.00,0.00) speed  got 300.0000 want 300.0000
+PASS  ground_accel 128 tick vel(100,50) wish(0.60,0.80) dx  got 11.7188 want 11.7188
+PASS  ground_accel 128 tick vel(100,50) wish(0.60,0.80) dy  got 15.6250 want 15.6250
+PASS  ground_accel 128 tick vel(100,50) wish(0.60,0.80) speed  got 129.5674 want 129.5674
+PASS  ground_accel 128 tick vel(200,0) wish(0.00,1.00) dx  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(200,0) wish(0.00,1.00) dy  got 19.5312 want 19.5312
+PASS  ground_accel 128 tick vel(200,0) wish(0.00,1.00) speed  got 200.9514 want 200.9514
+PASS  ground_accel 128 tick vel(200,0) wish(-1.00,0.00) dx  got -19.5312 want -19.5312
+PASS  ground_accel 128 tick vel(200,0) wish(-1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  ground_accel 128 tick vel(200,0) wish(-1.00,0.00) speed  got 180.4688 want 180.4688
+PASS  ground_accel 128 tick vel(120,-30) wish(0.80,-0.60) dx  got 15.6250 want 15.6250
+PASS  ground_accel 128 tick vel(120,-30) wish(0.80,-0.60) dy  got -11.7188 want -11.7188
+PASS  ground_accel 128 tick vel(120,-30) wish(0.80,-0.60) speed  got 141.8964 want 141.8964
+PASS  air_accel 64 tick vel(250,0) wish(0.00,1.00) dx  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(250,0) wish(0.00,1.00) dy  got 30.0000 want 30.0000
+PASS  air_accel 64 tick vel(250,0) wish(0.00,1.00) speed  got 251.7936 want 251.7936
+PASS  air_accel 64 tick vel(250,0) wish(0.10,0.99) dx  got 0.5000 want 0.5000
+PASS  air_accel 64 tick vel(250,0) wish(0.10,0.99) dy  got 4.9749 want 4.9749
+PASS  air_accel 64 tick vel(250,0) wish(0.10,0.99) speed  got 250.5494 want 250.5494
+PASS  air_accel 64 tick vel(300,0) wish(0.20,0.98) dx  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(300,0) wish(0.20,0.98) dy  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(300,0) wish(0.20,0.98) speed  got 300.0000 want 300.0000
+PASS  air_accel 64 tick vel(300,100) wish(0.60,0.80) dx  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(300,100) wish(0.60,0.80) dy  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(300,100) wish(0.60,0.80) speed  got 316.2278 want 316.2278
+PASS  air_accel 64 tick vel(400,0) wish(0.05,1.00) dx  got 0.5000 want 0.5000
+PASS  air_accel 64 tick vel(400,0) wish(0.05,1.00) dy  got 9.9875 want 9.9875
+PASS  air_accel 64 tick vel(400,0) wish(0.05,1.00) speed  got 400.6245 want 400.6245
+PASS  air_accel 64 tick vel(20,0) wish(1.00,0.00) dx  got 10.0000 want 10.0000
+PASS  air_accel 64 tick vel(20,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(20,0) wish(1.00,0.00) speed  got 30.0000 want 30.0000
+PASS  air_accel 64 tick vel(29,0) wish(1.00,0.00) dx  got 1.0000 want 1.0000
+PASS  air_accel 64 tick vel(29,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(29,0) wish(1.00,0.00) speed  got 30.0000 want 30.0000
+PASS  air_accel 64 tick vel(250,0) wish(-0.50,0.87) dx  got -19.5312 want -19.5312
+PASS  air_accel 64 tick vel(250,0) wish(-0.50,0.87) dy  got 33.8291 want 33.8291
+PASS  air_accel 64 tick vel(250,0) wish(-0.50,0.87) speed  got 232.9383 want 232.9383
+PASS  air_accel 64 tick vel(250,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(250,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(250,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  air_accel 64 tick vel(-100,250) wish(0.80,0.60) dx  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(-100,250) wish(0.80,0.60) dy  got 0.0000 want 0.0000
+PASS  air_accel 64 tick vel(-100,250) wish(0.80,0.60) speed  got 269.2582 want 269.2582
+PASS  air_accel 100 tick vel(250,0) wish(0.00,1.00) dx  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(250,0) wish(0.00,1.00) dy  got 25.0000 want 25.0000
+PASS  air_accel 100 tick vel(250,0) wish(0.00,1.00) speed  got 251.2469 want 251.2469
+PASS  air_accel 100 tick vel(250,0) wish(0.10,0.99) dx  got 0.5000 want 0.5000
+PASS  air_accel 100 tick vel(250,0) wish(0.10,0.99) dy  got 4.9749 want 4.9749
+PASS  air_accel 100 tick vel(250,0) wish(0.10,0.99) speed  got 250.5494 want 250.5494
+PASS  air_accel 100 tick vel(300,0) wish(0.20,0.98) dx  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(300,0) wish(0.20,0.98) dy  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(300,0) wish(0.20,0.98) speed  got 300.0000 want 300.0000
+PASS  air_accel 100 tick vel(300,100) wish(0.60,0.80) dx  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(300,100) wish(0.60,0.80) dy  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(300,100) wish(0.60,0.80) speed  got 316.2278 want 316.2278
+PASS  air_accel 100 tick vel(400,0) wish(0.05,1.00) dx  got 0.5000 want 0.5000
+PASS  air_accel 100 tick vel(400,0) wish(0.05,1.00) dy  got 9.9875 want 9.9875
+PASS  air_accel 100 tick vel(400,0) wish(0.05,1.00) speed  got 400.6245 want 400.6245
+PASS  air_accel 100 tick vel(20,0) wish(1.00,0.00) dx  got 10.0000 want 10.0000
+PASS  air_accel 100 tick vel(20,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(20,0) wish(1.00,0.00) speed  got 30.0000 want 30.0000
+PASS  air_accel 100 tick vel(29,0) wish(1.00,0.00) dx  got 1.0000 want 1.0000
+PASS  air_accel 100 tick vel(29,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(29,0) wish(1.00,0.00) speed  got 30.0000 want 30.0000
+PASS  air_accel 100 tick vel(250,0) wish(-0.50,0.87) dx  got -12.5000 want -12.5000
+PASS  air_accel 100 tick vel(250,0) wish(-0.50,0.87) dy  got 21.6506 want 21.6506
+PASS  air_accel 100 tick vel(250,0) wish(-0.50,0.87) speed  got 238.4848 want 238.4848
+PASS  air_accel 100 tick vel(250,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(250,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(250,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  air_accel 100 tick vel(-100,250) wish(0.80,0.60) dx  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(-100,250) wish(0.80,0.60) dy  got 0.0000 want 0.0000
+PASS  air_accel 100 tick vel(-100,250) wish(0.80,0.60) speed  got 269.2582 want 269.2582
+PASS  air_accel 128 tick vel(250,0) wish(0.00,1.00) dx  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(250,0) wish(0.00,1.00) dy  got 19.5312 want 19.5312
+PASS  air_accel 128 tick vel(250,0) wish(0.00,1.00) speed  got 250.7618 want 250.7618
+PASS  air_accel 128 tick vel(250,0) wish(0.10,0.99) dx  got 0.5000 want 0.5000
+PASS  air_accel 128 tick vel(250,0) wish(0.10,0.99) dy  got 4.9749 want 4.9749
+PASS  air_accel 128 tick vel(250,0) wish(0.10,0.99) speed  got 250.5494 want 250.5494
+PASS  air_accel 128 tick vel(300,0) wish(0.20,0.98) dx  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(300,0) wish(0.20,0.98) dy  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(300,0) wish(0.20,0.98) speed  got 300.0000 want 300.0000
+PASS  air_accel 128 tick vel(300,100) wish(0.60,0.80) dx  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(300,100) wish(0.60,0.80) dy  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(300,100) wish(0.60,0.80) speed  got 316.2278 want 316.2278
+PASS  air_accel 128 tick vel(400,0) wish(0.05,1.00) dx  got 0.5000 want 0.5000
+PASS  air_accel 128 tick vel(400,0) wish(0.05,1.00) dy  got 9.9875 want 9.9875
+PASS  air_accel 128 tick vel(400,0) wish(0.05,1.00) speed  got 400.6245 want 400.6245
+PASS  air_accel 128 tick vel(20,0) wish(1.00,0.00) dx  got 10.0000 want 10.0000
+PASS  air_accel 128 tick vel(20,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(20,0) wish(1.00,0.00) speed  got 30.0000 want 30.0000
+PASS  air_accel 128 tick vel(29,0) wish(1.00,0.00) dx  got 1.0000 want 1.0000
+PASS  air_accel 128 tick vel(29,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(29,0) wish(1.00,0.00) speed  got 30.0000 want 30.0000
+PASS  air_accel 128 tick vel(250,0) wish(-0.50,0.87) dx  got -9.7656 want -9.7656
+PASS  air_accel 128 tick vel(250,0) wish(-0.50,0.87) dy  got 16.9146 want 16.9146
+PASS  air_accel 128 tick vel(250,0) wish(-0.50,0.87) speed  got 240.8291 want 240.8291
+PASS  air_accel 128 tick vel(250,0) wish(1.00,0.00) dx  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(250,0) wish(1.00,0.00) dy  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(250,0) wish(1.00,0.00) speed  got 250.0000 want 250.0000
+PASS  air_accel 128 tick vel(-100,250) wish(0.80,0.60) dx  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(-100,250) wish(0.80,0.60) dy  got 0.0000 want 0.0000
+PASS  air_accel 128 tick vel(-100,250) wish(0.80,0.60) speed  got 269.2582 want 269.2582
+PASS  strafe gain/tick 64 tick @ 250  got 1.7936 want 1.7936
+PASS  strafe gain/sec  64 tick @ 250  got 114.7881 want 114.7882
+PASS  strafe gain/tick 64 tick @ 300  got 1.4963 want 1.4963
+PASS  strafe gain/sec  64 tick @ 300  got 95.7617 want 95.7612
+PASS  strafe gain/tick 64 tick @ 400  got 1.1234 want 1.1234
+PASS  strafe gain/sec  64 tick @ 400  got 71.8984 want 71.8990
+PASS  strafe gain/tick 100 tick @ 250  got 1.7439 want 1.7439
+PASS  strafe gain/sec  100 tick @ 250  got 174.3912 want 174.3918
+PASS  strafe gain/tick 100 tick @ 300  got 1.4548 want 1.4548
+PASS  strafe gain/sec  100 tick @ 300  got 145.4803 want 145.4806
+PASS  strafe gain/tick 100 tick @ 400  got 1.0923 want 1.0923
+PASS  strafe gain/sec  100 tick @ 400  got 109.2255 want 109.2259
+PASS  strafe gain/tick 128 tick @ 250  got 1.5759 want 1.5758
+PASS  strafe gain/sec  128 tick @ 250  got 201.7090 want 201.7080
+PASS  strafe gain/tick 128 tick @ 300  got 1.3145 want 1.3145
+PASS  strafe gain/sec  128 tick @ 300  got 168.2500 want 168.2512
+PASS  strafe gain/tick 128 tick @ 400  got 0.9868 want 0.9868
+PASS  strafe gain/sec  128 tick @ 400  got 126.3086 want 126.3090
+PHASE 1 PASSED
+== PHASE 2: stamina, jump, bhop cap ==
+PASS  stamina_ratio @ 0.0 ms  got 1.0000 want 1.0000
+PASS  stamina_ratio @ 1.0 ms  got 0.9998 want 0.9998
+PASS  stamina_ratio @ 100.0 ms  got 0.9810 want 0.9810
+PASS  stamina_ratio @ 500.0 ms  got 0.9050 want 0.9050
+PASS  stamina_ratio @ 1000.0 ms  got 0.8100 want 0.8100
+PASS  stamina_ratio @ 1315.8 ms  got 0.7500 want 0.7500
+PASS  stamina_ratio right after a jump is 0.75  got 0.7500 want 0.7500
+PASS  stamina_ratio floor at 0  got 0.0000 want 0.0000
+PASS  jump vz @ stamina 0.0 ms  got 268.3282 want 268.3282
+PASS  jump vz @ stamina 1.0 ms  got 268.2772 want 268.2772
+PASS  jump vz @ stamina 100.0 ms  got 263.2299 want 263.2299
+PASS  jump vz @ stamina 500.0 ms  got 242.8370 want 242.8370
+PASS  jump vz @ stamina 1000.0 ms  got 217.3458 want 217.3458
+PASS  jump vz @ stamina 1315.8 ms  got 201.2461 want 201.2461
+PASS  bhop_cap 0.0000  got 0.0000 want 0.0000
+PASS  bhop_cap 250.0000  got 250.0000 want 250.0000
+PASS  bhop_cap(Vector2) 250.0000  got 250.0000 want 250.0000
+PASS  bhop_cap 299.0000  got 299.0000 want 299.0000
+PASS  bhop_cap(Vector2) 299.0000  got 299.0000 want 299.0000
+PASS  bhop_cap 300.0000  got 300.0000 want 300.0000
+PASS  bhop_cap(Vector2) 300.0000  got 300.0000 want 300.0000
+PASS  bhop_cap 301.0000  got 240.0000 want 240.0000
+PASS  bhop_cap(Vector2) 301.0000  got 240.0000 want 240.0000
+PASS  bhop_cap 340.7198  got 240.0000 want 240.0000
+PASS  bhop_cap(Vector2) 340.7198  got 240.0000 want 240.0000
+PASS  bhop_cap 400.0000  got 240.0000 want 240.0000
+PASS  bhop_cap(Vector2) 400.0000  got 240.0000 want 240.0000
+PASS  bhop_cap 1000.0000  got 240.0000 want 240.0000
+PASS  bhop_cap(Vector2) 1000.0000  got 240.0000 want 240.0000
+PASS  chain 64 tick hop 1 vz  got 268.3282 want 268.3282
+PASS  chain 64 tick hop 1 air ticks  got 43.0000 want 43.0000
+PASS  chain 64 tick hop 1 end speed  got 318.1195 want 318.1195
+PASS  chain 64 tick hop 2 vz  got 235.4999 want 235.4999
+PASS  chain 64 tick hop 2 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 2 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 3 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 3 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 3 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 4 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 4 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 4 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 5 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 5 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 5 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 6 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 6 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 6 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 7 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 7 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 7 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 8 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 8 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 8 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 9 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 9 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 9 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 10 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 10 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 10 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 11 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 11 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 11 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 12 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 12 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 12 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 13 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 13 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 13 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 14 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 14 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 14 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 15 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 15 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 15 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 16 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 16 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 16 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 17 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 17 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 17 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 18 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 18 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 18 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 19 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 19 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 19 end speed  got 302.9853 want 302.9851
+PASS  chain 64 tick hop 20 vz  got 231.5169 want 231.5169
+PASS  chain 64 tick hop 20 air ticks  got 38.0000 want 38.0000
+PASS  chain 64 tick hop 20 end speed  got 302.9853 want 302.9851
+PASS  chain 100 tick hop 1 vz  got 268.3282 want 268.3282
+PASS  chain 100 tick hop 1 air ticks  got 68.0000 want 68.0000
+PASS  chain 100 tick hop 1 end speed  got 349.2852 want 349.2850
+PASS  chain 100 tick hop 2 vz  got 235.9141 want 235.9141
+PASS  chain 100 tick hop 2 air ticks  got 59.0000 want 59.0000
+PASS  chain 100 tick hop 2 end speed  got 330.4920 want 330.4921
+PASS  chain 100 tick hop 3 vz  got 231.3257 want 231.3257
+PASS  chain 100 tick hop 3 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 3 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 4 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 4 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 4 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 5 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 5 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 5 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 6 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 6 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 6 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 7 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 7 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 7 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 8 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 8 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 8 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 9 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 9 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 9 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 10 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 10 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 10 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 11 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 11 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 11 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 12 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 12 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 12 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 13 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 13 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 13 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 14 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 14 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 14 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 15 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 15 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 15 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 16 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 16 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 16 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 17 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 17 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 17 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 18 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 18 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 18 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 19 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 19 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 19 end speed  got 329.1655 want 329.1656
+PASS  chain 100 tick hop 20 vz  got 230.8159 want 230.8159
+PASS  chain 100 tick hop 20 air ticks  got 58.0000 want 58.0000
+PASS  chain 100 tick hop 20 end speed  got 329.1655 want 329.1656
+PASS  chain 128 tick hop 1 vz  got 268.3282 want 268.3282
+PASS  chain 128 tick hop 1 air ticks  got 86.0000 want 86.0000
+PASS  chain 128 tick hop 1 end speed  got 361.2131 want 361.2130
+PASS  chain 128 tick hop 2 vz  got 235.4999 want 235.4999
+PASS  chain 128 tick hop 2 air ticks  got 76.0000 want 76.0000
+PASS  chain 128 tick hop 2 end speed  got 343.0318 want 343.0318
+PASS  chain 128 tick hop 3 vz  got 231.5169 want 231.5169
+PASS  chain 128 tick hop 3 air ticks  got 75.0000 want 75.0000
+PASS  chain 128 tick hop 3 end speed  got 341.8778 want 341.8777
+PASS  chain 128 tick hop 4 vz  got 231.1186 want 231.1186
+PASS  chain 128 tick hop 4 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 4 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 5 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 5 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 5 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 6 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 6 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 6 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 7 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 7 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 7 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 8 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 8 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 8 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 9 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 9 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 9 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 10 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 10 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 10 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 11 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 11 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 11 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 12 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 12 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 12 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 13 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 13 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 13 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 14 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 14 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 14 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 15 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 15 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 15 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 16 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 16 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 16 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 17 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 17 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 17 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 18 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 18 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 18 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 19 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 19 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 19 end speed  got 340.7198 want 340.7198
+PASS  chain 128 tick hop 20 vz  got 230.7203 want 230.7203
+PASS  chain 128 tick hop 20 air ticks  got 74.0000 want 74.0000
+PASS  chain 128 tick hop 20 end speed  got 340.7198 want 340.7198
+PASS  TOP BHOP 128 tick (S2: 340.72)  got 340.7198 want 340.7200
+
+456 passed, 0 failed

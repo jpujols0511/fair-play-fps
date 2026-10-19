@@ -1,0 +1,1370 @@
+P2b hitbox geometry acceptance
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  standing returns 11 boxes  got true want true
+PASS  box 0 id  got true want true
+PASS  box 0 part  got true want true
+PASS  box 0 size  got (8.000000000, 8.000000000, 12.000000000) want (8.000000000, 8.000000000, 12.000000000)
+PASS  box 0 standing center  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  box 0 includes Vector3 view  got true want true
+PASS  box 1 id  got true want true
+PASS  box 1 part  got true want true
+PASS  box 1 size  got (16.000000000, 16.000000000, 11.000000000) want (16.000000000, 16.000000000, 11.000000000)
+PASS  box 1 standing center  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  box 1 includes Vector3 view  got true want true
+PASS  box 2 id  got true want true
+PASS  box 2 part  got true want true
+PASS  box 2 size  got (14.000000000, 14.000000000, 9.000000000) want (14.000000000, 14.000000000, 9.000000000)
+PASS  box 2 standing center  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  box 2 includes Vector3 view  got true want true
+PASS  box 3 id  got true want true
+PASS  box 3 part  got true want true
+PASS  box 3 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 3 standing center  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  box 3 includes Vector3 view  got true want true
+PASS  box 4 id  got true want true
+PASS  box 4 part  got true want true
+PASS  box 4 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 4 standing center  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  box 4 includes Vector3 view  got true want true
+PASS  box 5 id  got true want true
+PASS  box 5 part  got true want true
+PASS  box 5 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 5 standing center  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  box 5 includes Vector3 view  got true want true
+PASS  box 6 id  got true want true
+PASS  box 6 part  got true want true
+PASS  box 6 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 6 standing center  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  box 6 includes Vector3 view  got true want true
+PASS  box 7 id  got true want true
+PASS  box 7 part  got true want true
+PASS  box 7 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 7 standing center  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  box 7 includes Vector3 view  got true want true
+PASS  box 8 id  got true want true
+PASS  box 8 part  got true want true
+PASS  box 8 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 8 standing center  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  box 8 includes Vector3 view  got true want true
+PASS  box 9 id  got true want true
+PASS  box 9 part  got true want true
+PASS  box 9 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 9 standing center  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  box 9 includes Vector3 view  got true want true
+PASS  box 10 id  got true want true
+PASS  box 10 part  got true want true
+PASS  box 10 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 10 standing center  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  box 10 includes Vector3 view  got true want true
+PASS  standing box 0 bottom  got 60.000000000 want 60.000000000
+PASS  standing box 0 top  got 72.000000000 want 72.000000000
+PASS  standing box 1 bottom  got 49.000000000 want 49.000000000
+PASS  standing box 1 top  got 60.000000000 want 60.000000000
+PASS  standing box 2 bottom  got 40.000000000 want 40.000000000
+PASS  standing box 2 top  got 49.000000000 want 49.000000000
+PASS  standing box 3 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 3 top  got 58.000000000 want 58.000000000
+PASS  standing box 4 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 4 top  got 58.000000000 want 58.000000000
+PASS  standing box 5 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 5 top  got 42.000000000 want 42.000000000
+PASS  standing box 6 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 6 top  got 42.000000000 want 42.000000000
+PASS  standing box 7 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 7 top  got 40.000000000 want 40.000000000
+PASS  standing box 8 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 8 top  got 40.000000000 want 40.000000000
+PASS  standing box 9 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 9 top  got 21.000000000 want 21.000000000
+PASS  standing box 10 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 10 top  got 21.000000000 want 21.000000000
+PASS  standing segment stack  got 72.000000000 want 72.000000000
+PASS  head top equals stand height  got 72.000000000 want 72.000000000
+PASS  standing eye is inside head  got true want true
+PASS  left arm center beside chest  got 12.000000000 want 12.000000000
+PASS  right arm center beside chest  got -12.000000000 want -12.000000000
+PASS  thigh overlap  got 3.000000000 want 3.000000000
+PASS  crouched box 0 bottom  got 49.200000000 want 49.200000000
+PASS  crouched box 0 top  got 61.200000000 want 61.200000000
+PASS  crouched box 0 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 0 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 1 bottom  got 41.650000000 want 41.650000000
+PASS  crouched box 1 top  got 51.000000000 want 51.000000000
+PASS  crouched box 1 depth unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 1 width unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 2 bottom  got 34.000000000 want 34.000000000
+PASS  crouched box 2 top  got 41.650000000 want 41.650000000
+PASS  crouched box 2 depth unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 2 width unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 3 bottom  got 35.700000000 want 35.700000000
+PASS  crouched box 3 top  got 49.300000000 want 49.300000000
+PASS  crouched box 3 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 3 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 bottom  got 35.700000000 want 35.700000000
+PASS  crouched box 4 top  got 49.300000000 want 49.300000000
+PASS  crouched box 4 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 5 bottom  got 22.950000000 want 22.950000000
+PASS  crouched box 5 top  got 35.700000000 want 35.700000000
+PASS  crouched box 5 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 5 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 bottom  got 22.950000000 want 22.950000000
+PASS  crouched box 6 top  got 35.700000000 want 35.700000000
+PASS  crouched box 6 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 7 bottom  got 17.850000000 want 17.850000000
+PASS  crouched box 7 top  got 34.000000000 want 34.000000000
+PASS  crouched box 7 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 7 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 bottom  got 17.850000000 want 17.850000000
+PASS  crouched box 8 top  got 34.000000000 want 34.000000000
+PASS  crouched box 8 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 9 bottom  got 1.700000000 want 1.700000000
+PASS  crouched box 9 top  got 17.850000000 want 17.850000000
+PASS  crouched box 9 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 9 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 bottom  got 1.700000000 want 1.700000000
+PASS  crouched box 10 top  got 17.850000000 want 17.850000000
+PASS  crouched box 10 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched head remains 12 tall  got 12.000000000 want 12.000000000
+PASS  crouched eye height  got 54.400000000 want 54.400000000
+PASS  crouched eye is inside head  got true want true
+PASS  head/chest overlap  got 1.800000000 want 1.800000000
+PASS  J6 alternative crouched head top  got 60.000000000 want 60.000000000
+PASS  J6 default restored after alternative  got 61.200000000 want 61.200000000
+PASS  yaw 0.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 0.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 0.0 box 0 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 0.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 0.0 box 1 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 0.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 0.0 box 2 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 3 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 0.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 3 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 4 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 0.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 4 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 5 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 0.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 5 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 6 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 0.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 6 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 7 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 0.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 7 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 8 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 0.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 8 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 9 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 0.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 9 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 10 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 0.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 10 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 forward axis  got (1.000000000, 0.000000000, 0.000000000) want (1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 0.0 left axis  got (-0.000000000, 1.000000000, 0.000000000) want (-0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 0.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 90.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 90.0 box 0 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 90.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 90.0 box 1 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 90.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 90.0 box 2 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 3 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 3 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 4 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 4 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 5 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 5 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 6 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 6 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 7 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 7 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 8 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 8 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 9 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 9 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 10 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 10 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 forward axis  got (0.000000000, 1.000000000, 0.000000000) want (0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 90.0 left axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 90.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 180.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 180.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 180.0 box 0 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 180.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 180.0 box 1 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 180.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 180.0 box 2 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 3 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 180.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 3 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 4 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 180.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 4 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 5 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 180.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 5 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 6 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 180.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 6 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 7 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 180.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 7 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 8 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 180.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 8 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 9 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 180.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 9 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 10 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 180.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 10 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 forward axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 180.0 left axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 180.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 270.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 270.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 270.0 box 0 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 270.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 270.0 box 1 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 270.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 270.0 box 2 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 3 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 3 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 4 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 4 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 5 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 5 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 6 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 6 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 7 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 7 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 8 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 8 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 9 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 9 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 10 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 10 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 forward axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 270.0 left axis  got (1.000000000, -0.000000000, 0.000000000) want (1.000000000, -0.000000000, 0.000000000)
+PASS  yaw 270.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 37.5 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 37.5 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 37.5 box 0 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 37.5 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 37.5 box 1 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 37.5 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 37.5 box 2 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 3 center  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  yaw 37.5 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 3 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 4 center  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  yaw 37.5 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 4 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 5 center  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  yaw 37.5 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 5 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 6 center  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  yaw 37.5 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 6 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 7 center  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  yaw 37.5 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 7 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 8 center  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  yaw 37.5 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 8 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 9 center  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  yaw 37.5 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 9 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 10 center  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  yaw 37.5 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 10 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 forward axis  got (0.793353340, 0.608761429, 0.000000000) want (0.793353340, 0.608761429, 0.000000000)
+PASS  yaw 37.5 left axis  got (-0.608761429, 0.793353340, 0.000000000) want (-0.608761429, 0.793353340, 0.000000000)
+PASS  yaw 37.5 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90 left shoulder expected position  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  jump stand box 0 rigid shift  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  jump stand box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  crouch-jump box 0 rigid shift  got (10.000000000, 20.000000000, 88.700000000) want (10.000000000, 20.000000000, 88.700000000)
+PASS  crouch-jump box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  jump stand box 1 rigid shift  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  jump stand box 1 size unchanged  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  crouch-jump box 1 rigid shift  got (10.000000000, 20.000000000, 79.825000000) want (10.000000000, 20.000000000, 79.825000000)
+PASS  crouch-jump box 1 size unchanged  got (8.000000000, 8.000000000, 4.675000000) want (8.000000000, 8.000000000, 4.675000000)
+PASS  jump stand box 2 rigid shift  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  jump stand box 2 size unchanged  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  crouch-jump box 2 rigid shift  got (10.000000000, 20.000000000, 71.325000000) want (10.000000000, 20.000000000, 71.325000000)
+PASS  crouch-jump box 2 size unchanged  got (7.000000000, 7.000000000, 3.825000000) want (7.000000000, 7.000000000, 3.825000000)
+PASS  jump stand box 3 rigid shift  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  jump stand box 3 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 3 rigid shift  got (2.694862852, 29.520240083, 76.000000000) want (2.694862852, 29.520240083, 76.000000000)
+PASS  crouch-jump box 3 size unchanged  got (4.000000000, 4.000000000, 6.800000000) want (4.000000000, 4.000000000, 6.800000000)
+PASS  jump stand box 4 rigid shift  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  jump stand box 4 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 4 rigid shift  got (17.305137148, 10.479759917, 76.000000000) want (17.305137148, 10.479759917, 76.000000000)
+PASS  crouch-jump box 4 size unchanged  got (4.000000000, 4.000000000, 6.800000000) want (4.000000000, 4.000000000, 6.800000000)
+PASS  jump stand box 5 rigid shift  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  jump stand box 5 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 5 rigid shift  got (2.694862852, 29.520240083, 62.825000000) want (2.694862852, 29.520240083, 62.825000000)
+PASS  crouch-jump box 5 size unchanged  got (3.500000000, 3.500000000, 6.375000000) want (3.500000000, 3.500000000, 6.375000000)
+PASS  jump stand box 6 rigid shift  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  jump stand box 6 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 6 rigid shift  got (17.305137148, 10.479759917, 62.825000000) want (17.305137148, 10.479759917, 62.825000000)
+PASS  crouch-jump box 6 size unchanged  got (3.500000000, 3.500000000, 6.375000000) want (3.500000000, 3.500000000, 6.375000000)
+PASS  jump stand box 7 rigid shift  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  jump stand box 7 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 7 rigid shift  got (7.564954284, 23.173413361, 59.425000000) want (7.564954284, 23.173413361, 59.425000000)
+PASS  crouch-jump box 7 size unchanged  got (5.500000000, 5.500000000, 8.075000000) want (5.500000000, 5.500000000, 8.075000000)
+PASS  jump stand box 8 rigid shift  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  jump stand box 8 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 8 rigid shift  got (12.435045716, 16.826586639, 59.425000000) want (12.435045716, 16.826586639, 59.425000000)
+PASS  crouch-jump box 8 size unchanged  got (5.500000000, 5.500000000, 8.075000000) want (5.500000000, 5.500000000, 8.075000000)
+PASS  jump stand box 9 rigid shift  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  jump stand box 9 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 9 rigid shift  got (7.564954284, 23.173413361, 43.275000000) want (7.564954284, 23.173413361, 43.275000000)
+PASS  crouch-jump box 9 size unchanged  got (4.500000000, 4.500000000, 8.075000000) want (4.500000000, 4.500000000, 8.075000000)
+PASS  jump stand box 10 rigid shift  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  jump stand box 10 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 10 rigid shift  got (12.435045716, 16.826586639, 43.275000000) want (12.435045716, 16.826586639, 43.275000000)
+PASS  crouch-jump box 10 size unchanged  got (4.500000000, 4.500000000, 8.075000000) want (4.500000000, 4.500000000, 8.075000000)
+PASS  J5 radius multiplier  got 2.000000000 want 2.000000000
+PASS  J5 diameter mode  got diameter want diameter
+PASS  J6 config matches JSON  got 0.850000000 want 0.850000000
+PASS  J7 stand height matches JSON  got 72.000000000 want 72.000000000
+PASS  J7 eye height matches JSON  got 64.000000000 want 64.000000000
+PASS  J8 proposed length scale  got 0.570000000 want 0.570000000
+PASS  J8 uses rounded v0.2 table  got v0.2_rounded want v0.2_rounded
+PASS  J9 A-pose default  got a_pose want a_pose
+PASS  SKELETON_SHA256 matches canonical JSON  got 8f404c7cf647b3d6d2acbb6e975ee6ebc1eb2ab1cc158a8a9f824b5fda43e031 want 8f404c7cf647b3d6d2acbb6e975ee6ebc1eb2ab1cc158a8a9f824b5fda43e031
+PASS  SKELETON_SHA256 is 64 lowercase hex  got true want true
+369 passed, 0 failed
+
+
+P2 Addendum 2/3/4 validation: 490 passed, 0 failed
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  standing returns 11 boxes  got true want true
+PASS  box 0 id  got true want true
+PASS  box 0 part  got true want true
+PASS  box 0 size  got (8.000000000, 8.000000000, 12.000000000) want (8.000000000, 8.000000000, 12.000000000)
+PASS  box 0 standing center  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  box 0 includes Vector3 view  got true want true
+PASS  box 1 id  got true want true
+PASS  box 1 part  got true want true
+PASS  box 1 size  got (16.000000000, 16.000000000, 11.000000000) want (16.000000000, 16.000000000, 11.000000000)
+PASS  box 1 standing center  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  box 1 includes Vector3 view  got true want true
+PASS  box 2 id  got true want true
+PASS  box 2 part  got true want true
+PASS  box 2 size  got (14.000000000, 14.000000000, 9.000000000) want (14.000000000, 14.000000000, 9.000000000)
+PASS  box 2 standing center  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  box 2 includes Vector3 view  got true want true
+PASS  box 3 id  got true want true
+PASS  box 3 part  got true want true
+PASS  box 3 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 3 standing center  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  box 3 includes Vector3 view  got true want true
+PASS  box 4 id  got true want true
+PASS  box 4 part  got true want true
+PASS  box 4 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 4 standing center  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  box 4 includes Vector3 view  got true want true
+PASS  box 5 id  got true want true
+PASS  box 5 part  got true want true
+PASS  box 5 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 5 standing center  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  box 5 includes Vector3 view  got true want true
+PASS  box 6 id  got true want true
+PASS  box 6 part  got true want true
+PASS  box 6 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 6 standing center  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  box 6 includes Vector3 view  got true want true
+PASS  box 7 id  got true want true
+PASS  box 7 part  got true want true
+PASS  box 7 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 7 standing center  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  box 7 includes Vector3 view  got true want true
+PASS  box 8 id  got true want true
+PASS  box 8 part  got true want true
+PASS  box 8 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 8 standing center  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  box 8 includes Vector3 view  got true want true
+PASS  box 9 id  got true want true
+PASS  box 9 part  got true want true
+PASS  box 9 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 9 standing center  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  box 9 includes Vector3 view  got true want true
+PASS  box 10 id  got true want true
+PASS  box 10 part  got true want true
+PASS  box 10 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 10 standing center  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  box 10 includes Vector3 view  got true want true
+PASS  standing box 0 bottom  got 60.000000000 want 60.000000000
+PASS  standing box 0 top  got 72.000000000 want 72.000000000
+PASS  standing box 1 bottom  got 49.000000000 want 49.000000000
+PASS  standing box 1 top  got 60.000000000 want 60.000000000
+PASS  standing box 2 bottom  got 40.000000000 want 40.000000000
+PASS  standing box 2 top  got 49.000000000 want 49.000000000
+PASS  standing box 3 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 3 top  got 58.000000000 want 58.000000000
+PASS  standing box 4 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 4 top  got 58.000000000 want 58.000000000
+PASS  standing box 5 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 5 top  got 42.000000000 want 42.000000000
+PASS  standing box 6 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 6 top  got 42.000000000 want 42.000000000
+PASS  standing box 7 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 7 top  got 40.000000000 want 40.000000000
+PASS  standing box 8 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 8 top  got 40.000000000 want 40.000000000
+PASS  standing box 9 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 9 top  got 21.000000000 want 21.000000000
+PASS  standing box 10 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 10 top  got 21.000000000 want 21.000000000
+PASS  standing segment stack  got 72.000000000 want 72.000000000
+PASS  head top equals stand height  got 72.000000000 want 72.000000000
+PASS  standing eye is inside head  got true want true
+PASS  left arm center beside chest  got 12.000000000 want 12.000000000
+PASS  right arm center beside chest  got -12.000000000 want -12.000000000
+PASS  thigh overlap  got 3.000000000 want 3.000000000
+PASS  crouched box 0 bottom  got 24.000000000 want 24.000000000
+PASS  crouched box 0 top  got 36.000000000 want 36.000000000
+PASS  crouched box 0 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 0 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 1 bottom  got 24.500000000 want 24.500000000
+PASS  crouched box 1 top  got 30.000000000 want 30.000000000
+PASS  crouched box 1 depth unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 1 width unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 2 bottom  got 20.000000000 want 20.000000000
+PASS  crouched box 2 top  got 24.500000000 want 24.500000000
+PASS  crouched box 2 depth unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 2 width unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 3 bottom  got 21.000000000 want 21.000000000
+PASS  crouched box 3 top  got 29.000000000 want 29.000000000
+PASS  crouched box 3 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 3 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 bottom  got 21.000000000 want 21.000000000
+PASS  crouched box 4 top  got 29.000000000 want 29.000000000
+PASS  crouched box 4 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 5 bottom  got 13.500000000 want 13.500000000
+PASS  crouched box 5 top  got 21.000000000 want 21.000000000
+PASS  crouched box 5 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 5 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 bottom  got 13.500000000 want 13.500000000
+PASS  crouched box 6 top  got 21.000000000 want 21.000000000
+PASS  crouched box 6 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 7 bottom  got 10.500000000 want 10.500000000
+PASS  crouched box 7 top  got 20.000000000 want 20.000000000
+PASS  crouched box 7 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 7 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 bottom  got 10.500000000 want 10.500000000
+PASS  crouched box 8 top  got 20.000000000 want 20.000000000
+PASS  crouched box 8 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 9 bottom  got 1.000000000 want 1.000000000
+PASS  crouched box 9 top  got 10.500000000 want 10.500000000
+PASS  crouched box 9 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 9 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 bottom  got 1.000000000 want 1.000000000
+PASS  crouched box 10 top  got 10.500000000 want 10.500000000
+PASS  crouched box 10 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched head remains 12 tall  got 12.000000000 want 12.000000000
+PASS  crouched eye height  got 32.000000000 want 32.000000000
+PASS  crouched eye is inside head  got true want true
+PASS  head/chest overlap  got 6.000000000 want 6.000000000
+PASS  A2-a half crouch head top  got 36.000000000 want 36.000000000
+PASS  A2-a half crouch head center  got 30.000000000 want 30.000000000
+PASS  A2-a half crouch chest center  got 27.250000000 want 27.250000000
+PASS  A3 half-duck head bottom  got 42.000000000 want 42.000000000
+PASS  A3 half-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 half-duck eye  got 48.000000000 want 48.000000000
+PASS  A3 duck fraction zero reproduces standing box 0  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  A3 duck fraction zero reproduces standing size 0  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  A3 duck fraction one reproduces crouched box 0  got (0.000000000, 0.000000000, 30.000000000) want (0.000000000, 0.000000000, 30.000000000)
+PASS  A3 duck fraction one reproduces crouched size 0  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  A3 duck fraction zero reproduces standing box 1  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  A3 duck fraction zero reproduces standing size 1  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  A3 duck fraction one reproduces crouched box 1  got (0.000000000, 0.000000000, 27.250000000) want (0.000000000, 0.000000000, 27.250000000)
+PASS  A3 duck fraction one reproduces crouched size 1  got (8.000000000, 8.000000000, 2.750000000) want (8.000000000, 8.000000000, 2.750000000)
+PASS  A3 duck fraction zero reproduces standing box 2  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  A3 duck fraction zero reproduces standing size 2  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  A3 duck fraction one reproduces crouched box 2  got (0.000000000, 0.000000000, 22.250000000) want (0.000000000, 0.000000000, 22.250000000)
+PASS  A3 duck fraction one reproduces crouched size 2  got (7.000000000, 7.000000000, 2.250000000) want (7.000000000, 7.000000000, 2.250000000)
+PASS  A3 duck fraction zero reproduces standing box 3  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  A3 duck fraction zero reproduces standing size 3  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  A3 duck fraction one reproduces crouched box 3  got (0.000000000, 12.000000000, 25.000000000) want (0.000000000, 12.000000000, 25.000000000)
+PASS  A3 duck fraction one reproduces crouched size 3  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  A3 duck fraction zero reproduces standing box 4  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  A3 duck fraction zero reproduces standing size 4  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  A3 duck fraction one reproduces crouched box 4  got (0.000000000, -12.000000000, 25.000000000) want (0.000000000, -12.000000000, 25.000000000)
+PASS  A3 duck fraction one reproduces crouched size 4  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  A3 duck fraction zero reproduces standing box 5  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  A3 duck fraction zero reproduces standing size 5  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  A3 duck fraction one reproduces crouched box 5  got (0.000000000, 12.000000000, 17.250000000) want (0.000000000, 12.000000000, 17.250000000)
+PASS  A3 duck fraction one reproduces crouched size 5  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  A3 duck fraction zero reproduces standing box 6  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  A3 duck fraction zero reproduces standing size 6  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  A3 duck fraction one reproduces crouched box 6  got (0.000000000, -12.000000000, 17.250000000) want (0.000000000, -12.000000000, 17.250000000)
+PASS  A3 duck fraction one reproduces crouched size 6  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  A3 duck fraction zero reproduces standing box 7  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  A3 duck fraction zero reproduces standing size 7  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 7  got (0.000000000, 4.000000000, 15.250000000) want (0.000000000, 4.000000000, 15.250000000)
+PASS  A3 duck fraction one reproduces crouched size 7  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 8  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  A3 duck fraction zero reproduces standing size 8  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 8  got (0.000000000, -4.000000000, 15.250000000) want (0.000000000, -4.000000000, 15.250000000)
+PASS  A3 duck fraction one reproduces crouched size 8  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 9  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  A3 duck fraction zero reproduces standing size 9  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 9  got (0.000000000, 4.000000000, 5.750000000) want (0.000000000, 4.000000000, 5.750000000)
+PASS  A3 duck fraction one reproduces crouched size 9  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 10  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  A3 duck fraction zero reproduces standing size 10  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 10  got (0.000000000, -4.000000000, 5.750000000) want (0.000000000, -4.000000000, 5.750000000)
+PASS  A3 duck fraction one reproduces crouched size 10  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A3 eye stays strictly inside head f=0.00000  got true want true
+PASS  A3 eye stays strictly inside head f=0.01562  got true want true
+PASS  A3 eye stays strictly inside head f=0.03125  got true want true
+PASS  A3 eye stays strictly inside head f=0.04688  got true want true
+PASS  A3 eye stays strictly inside head f=0.06250  got true want true
+PASS  A3 eye stays strictly inside head f=0.07812  got true want true
+PASS  A3 eye stays strictly inside head f=0.09375  got true want true
+PASS  A3 eye stays strictly inside head f=0.10938  got true want true
+PASS  A3 eye stays strictly inside head f=0.12500  got true want true
+PASS  A3 eye stays strictly inside head f=0.14062  got true want true
+PASS  A3 eye stays strictly inside head f=0.15625  got true want true
+PASS  A3 eye stays strictly inside head f=0.17188  got true want true
+PASS  A3 eye stays strictly inside head f=0.18750  got true want true
+PASS  A3 eye stays strictly inside head f=0.20312  got true want true
+PASS  A3 eye stays strictly inside head f=0.21875  got true want true
+PASS  A3 eye stays strictly inside head f=0.23438  got true want true
+PASS  A3 eye stays strictly inside head f=0.25000  got true want true
+PASS  A3 eye stays strictly inside head f=0.26562  got true want true
+PASS  A3 eye stays strictly inside head f=0.28125  got true want true
+PASS  A3 eye stays strictly inside head f=0.29688  got true want true
+PASS  A3 eye stays strictly inside head f=0.31250  got true want true
+PASS  A3 eye stays strictly inside head f=0.32812  got true want true
+PASS  A3 eye stays strictly inside head f=0.34375  got true want true
+PASS  A3 eye stays strictly inside head f=0.35938  got true want true
+PASS  A3 eye stays strictly inside head f=0.37500  got true want true
+PASS  A3 eye stays strictly inside head f=0.39062  got true want true
+PASS  A3 eye stays strictly inside head f=0.40625  got true want true
+PASS  A3 eye stays strictly inside head f=0.42188  got true want true
+PASS  A3 eye stays strictly inside head f=0.43750  got true want true
+PASS  A3 eye stays strictly inside head f=0.45312  got true want true
+PASS  A3 eye stays strictly inside head f=0.46875  got true want true
+PASS  A3 eye stays strictly inside head f=0.48438  got true want true
+PASS  A3 eye stays strictly inside head f=0.50000  got true want true
+PASS  A3 eye stays strictly inside head f=0.51562  got true want true
+PASS  A3 eye stays strictly inside head f=0.53125  got true want true
+PASS  A3 eye stays strictly inside head f=0.54688  got true want true
+PASS  A3 eye stays strictly inside head f=0.56250  got true want true
+PASS  A3 eye stays strictly inside head f=0.57812  got true want true
+PASS  A3 eye stays strictly inside head f=0.59375  got true want true
+PASS  A3 eye stays strictly inside head f=0.60938  got true want true
+PASS  A3 eye stays strictly inside head f=0.62500  got true want true
+PASS  A3 eye stays strictly inside head f=0.64062  got true want true
+PASS  A3 eye stays strictly inside head f=0.65625  got true want true
+PASS  A3 eye stays strictly inside head f=0.67188  got true want true
+PASS  A3 eye stays strictly inside head f=0.68750  got true want true
+PASS  A3 eye stays strictly inside head f=0.70312  got true want true
+PASS  A3 eye stays strictly inside head f=0.71875  got true want true
+PASS  A3 eye stays strictly inside head f=0.73438  got true want true
+PASS  A3 eye stays strictly inside head f=0.75000  got true want true
+PASS  A3 eye stays strictly inside head f=0.76562  got true want true
+PASS  A3 eye stays strictly inside head f=0.78125  got true want true
+PASS  A3 eye stays strictly inside head f=0.79688  got true want true
+PASS  A3 eye stays strictly inside head f=0.81250  got true want true
+PASS  A3 eye stays strictly inside head f=0.82812  got true want true
+PASS  A3 eye stays strictly inside head f=0.84375  got true want true
+PASS  A3 eye stays strictly inside head f=0.85938  got true want true
+PASS  A3 eye stays strictly inside head f=0.87500  got true want true
+PASS  A3 eye stays strictly inside head f=0.89062  got true want true
+PASS  A3 eye stays strictly inside head f=0.90625  got true want true
+PASS  A3 eye stays strictly inside head f=0.92188  got true want true
+PASS  A3 eye stays strictly inside head f=0.93750  got true want true
+PASS  A3 eye stays strictly inside head f=0.95312  got true want true
+PASS  A3 eye stays strictly inside head f=0.96875  got true want true
+PASS  A3 eye stays strictly inside head f=0.98438  got true want true
+PASS  A3 eye stays strictly inside head f=1.00000  got true want true
+PASS  A2-b default overlap rule is entry first  got entry_first want entry_first
+PASS  A2-b head priority alternative is configurable  got head_priority_in_overlap want head_priority_in_overlap
+PASS  yaw 0.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 0.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 0.0 box 0 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 0.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 0.0 box 1 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 0.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 0.0 box 2 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 3 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 0.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 3 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 4 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 0.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 4 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 5 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 0.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 5 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 6 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 0.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 6 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 7 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 0.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 7 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 8 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 0.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 8 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 9 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 0.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 9 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 10 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 0.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 10 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 forward axis  got (1.000000000, 0.000000000, 0.000000000) want (1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 0.0 left axis  got (-0.000000000, 1.000000000, 0.000000000) want (-0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 0.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 90.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 90.0 box 0 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 90.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 90.0 box 1 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 90.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 90.0 box 2 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 3 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 3 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 4 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 4 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 5 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 5 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 6 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 6 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 7 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 7 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 8 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 8 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 9 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 9 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 10 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 10 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 forward axis  got (0.000000000, 1.000000000, 0.000000000) want (0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 90.0 left axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 90.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 180.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 180.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 180.0 box 0 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 180.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 180.0 box 1 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 180.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 180.0 box 2 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 3 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 180.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 3 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 4 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 180.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 4 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 5 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 180.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 5 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 6 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 180.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 6 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 7 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 180.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 7 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 8 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 180.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 8 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 9 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 180.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 9 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 10 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 180.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 10 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 forward axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 180.0 left axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 180.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 270.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 270.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 270.0 box 0 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 270.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 270.0 box 1 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 270.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 270.0 box 2 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 3 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 3 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 4 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 4 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 5 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 5 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 6 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 6 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 7 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 7 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 8 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 8 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 9 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 9 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 10 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 10 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 forward axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 270.0 left axis  got (1.000000000, -0.000000000, 0.000000000) want (1.000000000, -0.000000000, 0.000000000)
+PASS  yaw 270.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 37.5 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 37.5 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 37.5 box 0 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 37.5 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 37.5 box 1 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 37.5 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 37.5 box 2 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 3 center  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  yaw 37.5 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 3 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 4 center  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  yaw 37.5 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 4 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 5 center  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  yaw 37.5 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 5 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 6 center  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  yaw 37.5 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 6 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 7 center  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  yaw 37.5 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 7 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 8 center  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  yaw 37.5 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 8 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 9 center  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  yaw 37.5 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 9 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 10 center  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  yaw 37.5 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 10 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 forward axis  got (0.793353340, 0.608761429, 0.000000000) want (0.793353340, 0.608761429, 0.000000000)
+PASS  yaw 37.5 left axis  got (-0.608761429, 0.793353340, 0.000000000) want (-0.608761429, 0.793353340, 0.000000000)
+PASS  yaw 37.5 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90 left shoulder expected position  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  jump stand box 0 rigid shift  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  jump stand box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  crouch-jump box 0 rigid shift  got (10.000000000, 20.000000000, 63.500000000) want (10.000000000, 20.000000000, 63.500000000)
+PASS  crouch-jump box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  jump stand box 1 rigid shift  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  jump stand box 1 size unchanged  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  crouch-jump box 1 rigid shift  got (10.000000000, 20.000000000, 60.750000000) want (10.000000000, 20.000000000, 60.750000000)
+PASS  crouch-jump box 1 size unchanged  got (8.000000000, 8.000000000, 2.750000000) want (8.000000000, 8.000000000, 2.750000000)
+PASS  jump stand box 2 rigid shift  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  jump stand box 2 size unchanged  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  crouch-jump box 2 rigid shift  got (10.000000000, 20.000000000, 55.750000000) want (10.000000000, 20.000000000, 55.750000000)
+PASS  crouch-jump box 2 size unchanged  got (7.000000000, 7.000000000, 2.250000000) want (7.000000000, 7.000000000, 2.250000000)
+PASS  jump stand box 3 rigid shift  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  jump stand box 3 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 3 rigid shift  got (2.694862852, 29.520240083, 58.500000000) want (2.694862852, 29.520240083, 58.500000000)
+PASS  crouch-jump box 3 size unchanged  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  jump stand box 4 rigid shift  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  jump stand box 4 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 4 rigid shift  got (17.305137148, 10.479759917, 58.500000000) want (17.305137148, 10.479759917, 58.500000000)
+PASS  crouch-jump box 4 size unchanged  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  jump stand box 5 rigid shift  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  jump stand box 5 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 5 rigid shift  got (2.694862852, 29.520240083, 50.750000000) want (2.694862852, 29.520240083, 50.750000000)
+PASS  crouch-jump box 5 size unchanged  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  jump stand box 6 rigid shift  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  jump stand box 6 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 6 rigid shift  got (17.305137148, 10.479759917, 50.750000000) want (17.305137148, 10.479759917, 50.750000000)
+PASS  crouch-jump box 6 size unchanged  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  jump stand box 7 rigid shift  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  jump stand box 7 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 7 rigid shift  got (7.564954284, 23.173413361, 48.750000000) want (7.564954284, 23.173413361, 48.750000000)
+PASS  crouch-jump box 7 size unchanged  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  jump stand box 8 rigid shift  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  jump stand box 8 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 8 rigid shift  got (12.435045716, 16.826586639, 48.750000000) want (12.435045716, 16.826586639, 48.750000000)
+PASS  crouch-jump box 8 size unchanged  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  jump stand box 9 rigid shift  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  jump stand box 9 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 9 rigid shift  got (7.564954284, 23.173413361, 39.250000000) want (7.564954284, 23.173413361, 39.250000000)
+PASS  crouch-jump box 9 size unchanged  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  jump stand box 10 rigid shift  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  jump stand box 10 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 10 rigid shift  got (12.435045716, 16.826586639, 39.250000000) want (12.435045716, 16.826586639, 39.250000000)
+PASS  crouch-jump box 10 size unchanged  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A2-f game-to-spec position  got (12.500000000, 44.250000000, 64.000000000) want (12.500000000, 44.250000000, 64.000000000)
+PASS  A2-f spec-to-game y  got -44.250000000 want -44.250000000
+PASS  A2-f spec-to-game height  got 64.000000000 want 64.000000000
+PASS  A2-e/F yaw uses input_cmd wire quantization  got 127.501831055 want 127.500000000
+PASS  A2-e/F pitch is positive-up on wire, positive-down in spec  got -15.000686656 want -15.000000000
+PASS  A2-e pitch clamps to signed 16-bit range  got 65535 want 65535
+PASS  J5 radius multiplier  got 2.000000000 want 2.000000000
+PASS  J5 diameter mode  got diameter want diameter
+PASS  J6 config matches JSON  got 0.500000000 want 0.500000000
+PASS  J7 stand height matches JSON  got 72.000000000 want 72.000000000
+PASS  J7 eye height matches JSON  got 64.000000000 want 64.000000000
+PASS  J8 proposed length scale  got 0.570000000 want 0.570000000
+PASS  J8 uses rounded v0.2 table  got v0.2_rounded want v0.2_rounded
+PASS  J9 A-pose default  got a_pose want a_pose
+PASS  SKELETON_SHA256 matches canonical JSON  got 56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0 want 56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0
+PASS  SKELETON_SHA256 is 64 lowercase hex  got true want true
+490 passed, 0 failed
+
+
+P2 Addendum 2/3/4 final validation: 492 passed, 0 failed
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  standing returns 11 boxes  got true want true
+PASS  box 0 id  got true want true
+PASS  box 0 part  got true want true
+PASS  box 0 size  got (8.000000000, 8.000000000, 12.000000000) want (8.000000000, 8.000000000, 12.000000000)
+PASS  box 0 standing center  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  box 0 includes Vector3 view  got true want true
+PASS  box 1 id  got true want true
+PASS  box 1 part  got true want true
+PASS  box 1 size  got (16.000000000, 16.000000000, 11.000000000) want (16.000000000, 16.000000000, 11.000000000)
+PASS  box 1 standing center  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  box 1 includes Vector3 view  got true want true
+PASS  box 2 id  got true want true
+PASS  box 2 part  got true want true
+PASS  box 2 size  got (14.000000000, 14.000000000, 9.000000000) want (14.000000000, 14.000000000, 9.000000000)
+PASS  box 2 standing center  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  box 2 includes Vector3 view  got true want true
+PASS  box 3 id  got true want true
+PASS  box 3 part  got true want true
+PASS  box 3 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 3 standing center  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  box 3 includes Vector3 view  got true want true
+PASS  box 4 id  got true want true
+PASS  box 4 part  got true want true
+PASS  box 4 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 4 standing center  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  box 4 includes Vector3 view  got true want true
+PASS  box 5 id  got true want true
+PASS  box 5 part  got true want true
+PASS  box 5 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 5 standing center  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  box 5 includes Vector3 view  got true want true
+PASS  box 6 id  got true want true
+PASS  box 6 part  got true want true
+PASS  box 6 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 6 standing center  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  box 6 includes Vector3 view  got true want true
+PASS  box 7 id  got true want true
+PASS  box 7 part  got true want true
+PASS  box 7 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 7 standing center  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  box 7 includes Vector3 view  got true want true
+PASS  box 8 id  got true want true
+PASS  box 8 part  got true want true
+PASS  box 8 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 8 standing center  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  box 8 includes Vector3 view  got true want true
+PASS  box 9 id  got true want true
+PASS  box 9 part  got true want true
+PASS  box 9 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 9 standing center  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  box 9 includes Vector3 view  got true want true
+PASS  box 10 id  got true want true
+PASS  box 10 part  got true want true
+PASS  box 10 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 10 standing center  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  box 10 includes Vector3 view  got true want true
+PASS  standing box 0 bottom  got 60.000000000 want 60.000000000
+PASS  standing box 0 top  got 72.000000000 want 72.000000000
+PASS  standing box 1 bottom  got 49.000000000 want 49.000000000
+PASS  standing box 1 top  got 60.000000000 want 60.000000000
+PASS  standing box 2 bottom  got 40.000000000 want 40.000000000
+PASS  standing box 2 top  got 49.000000000 want 49.000000000
+PASS  standing box 3 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 3 top  got 58.000000000 want 58.000000000
+PASS  standing box 4 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 4 top  got 58.000000000 want 58.000000000
+PASS  standing box 5 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 5 top  got 42.000000000 want 42.000000000
+PASS  standing box 6 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 6 top  got 42.000000000 want 42.000000000
+PASS  standing box 7 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 7 top  got 40.000000000 want 40.000000000
+PASS  standing box 8 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 8 top  got 40.000000000 want 40.000000000
+PASS  standing box 9 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 9 top  got 21.000000000 want 21.000000000
+PASS  standing box 10 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 10 top  got 21.000000000 want 21.000000000
+PASS  standing segment stack  got 72.000000000 want 72.000000000
+PASS  head top equals stand height  got 72.000000000 want 72.000000000
+PASS  standing eye is inside head  got true want true
+PASS  left arm center beside chest  got 12.000000000 want 12.000000000
+PASS  right arm center beside chest  got -12.000000000 want -12.000000000
+PASS  thigh overlap  got 3.000000000 want 3.000000000
+PASS  crouched box 0 bottom  got 24.000000000 want 24.000000000
+PASS  crouched box 0 top  got 36.000000000 want 36.000000000
+PASS  crouched box 0 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 0 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 1 bottom  got 24.500000000 want 24.500000000
+PASS  crouched box 1 top  got 30.000000000 want 30.000000000
+PASS  crouched box 1 depth unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 1 width unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 2 bottom  got 20.000000000 want 20.000000000
+PASS  crouched box 2 top  got 24.500000000 want 24.500000000
+PASS  crouched box 2 depth unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 2 width unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 3 bottom  got 21.000000000 want 21.000000000
+PASS  crouched box 3 top  got 29.000000000 want 29.000000000
+PASS  crouched box 3 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 3 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 bottom  got 21.000000000 want 21.000000000
+PASS  crouched box 4 top  got 29.000000000 want 29.000000000
+PASS  crouched box 4 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 5 bottom  got 13.500000000 want 13.500000000
+PASS  crouched box 5 top  got 21.000000000 want 21.000000000
+PASS  crouched box 5 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 5 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 bottom  got 13.500000000 want 13.500000000
+PASS  crouched box 6 top  got 21.000000000 want 21.000000000
+PASS  crouched box 6 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 7 bottom  got 10.500000000 want 10.500000000
+PASS  crouched box 7 top  got 20.000000000 want 20.000000000
+PASS  crouched box 7 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 7 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 bottom  got 10.500000000 want 10.500000000
+PASS  crouched box 8 top  got 20.000000000 want 20.000000000
+PASS  crouched box 8 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 9 bottom  got 1.000000000 want 1.000000000
+PASS  crouched box 9 top  got 10.500000000 want 10.500000000
+PASS  crouched box 9 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 9 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 bottom  got 1.000000000 want 1.000000000
+PASS  crouched box 10 top  got 10.500000000 want 10.500000000
+PASS  crouched box 10 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched head remains 12 tall  got 12.000000000 want 12.000000000
+PASS  crouched eye height  got 32.000000000 want 32.000000000
+PASS  crouched eye is inside head  got true want true
+PASS  raw crouched head/chest overlap z=24.5..30  got 5.500000000 want 5.500000000
+PASS  raw crouched head-only top band  got 6.000000000 want 6.000000000
+PASS  raw crouched head-only bottom sliver  got 0.500000000 want 0.500000000
+PASS  A2-a half crouch head top  got 36.000000000 want 36.000000000
+PASS  A2-a half crouch head center  got 30.000000000 want 30.000000000
+PASS  A2-a half crouch chest center  got 27.250000000 want 27.250000000
+PASS  A3 half-duck head bottom  got 42.000000000 want 42.000000000
+PASS  A3 half-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 half-duck eye  got 48.000000000 want 48.000000000
+PASS  A3 duck fraction zero reproduces standing box 0  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  A3 duck fraction zero reproduces standing size 0  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  A3 duck fraction one reproduces crouched box 0  got (0.000000000, 0.000000000, 30.000000000) want (0.000000000, 0.000000000, 30.000000000)
+PASS  A3 duck fraction one reproduces crouched size 0  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  A3 duck fraction zero reproduces standing box 1  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  A3 duck fraction zero reproduces standing size 1  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  A3 duck fraction one reproduces crouched box 1  got (0.000000000, 0.000000000, 27.250000000) want (0.000000000, 0.000000000, 27.250000000)
+PASS  A3 duck fraction one reproduces crouched size 1  got (8.000000000, 8.000000000, 2.750000000) want (8.000000000, 8.000000000, 2.750000000)
+PASS  A3 duck fraction zero reproduces standing box 2  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  A3 duck fraction zero reproduces standing size 2  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  A3 duck fraction one reproduces crouched box 2  got (0.000000000, 0.000000000, 22.250000000) want (0.000000000, 0.000000000, 22.250000000)
+PASS  A3 duck fraction one reproduces crouched size 2  got (7.000000000, 7.000000000, 2.250000000) want (7.000000000, 7.000000000, 2.250000000)
+PASS  A3 duck fraction zero reproduces standing box 3  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  A3 duck fraction zero reproduces standing size 3  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  A3 duck fraction one reproduces crouched box 3  got (0.000000000, 12.000000000, 25.000000000) want (0.000000000, 12.000000000, 25.000000000)
+PASS  A3 duck fraction one reproduces crouched size 3  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  A3 duck fraction zero reproduces standing box 4  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  A3 duck fraction zero reproduces standing size 4  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  A3 duck fraction one reproduces crouched box 4  got (0.000000000, -12.000000000, 25.000000000) want (0.000000000, -12.000000000, 25.000000000)
+PASS  A3 duck fraction one reproduces crouched size 4  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  A3 duck fraction zero reproduces standing box 5  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  A3 duck fraction zero reproduces standing size 5  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  A3 duck fraction one reproduces crouched box 5  got (0.000000000, 12.000000000, 17.250000000) want (0.000000000, 12.000000000, 17.250000000)
+PASS  A3 duck fraction one reproduces crouched size 5  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  A3 duck fraction zero reproduces standing box 6  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  A3 duck fraction zero reproduces standing size 6  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  A3 duck fraction one reproduces crouched box 6  got (0.000000000, -12.000000000, 17.250000000) want (0.000000000, -12.000000000, 17.250000000)
+PASS  A3 duck fraction one reproduces crouched size 6  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  A3 duck fraction zero reproduces standing box 7  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  A3 duck fraction zero reproduces standing size 7  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 7  got (0.000000000, 4.000000000, 15.250000000) want (0.000000000, 4.000000000, 15.250000000)
+PASS  A3 duck fraction one reproduces crouched size 7  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 8  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  A3 duck fraction zero reproduces standing size 8  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 8  got (0.000000000, -4.000000000, 15.250000000) want (0.000000000, -4.000000000, 15.250000000)
+PASS  A3 duck fraction one reproduces crouched size 8  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 9  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  A3 duck fraction zero reproduces standing size 9  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 9  got (0.000000000, 4.000000000, 5.750000000) want (0.000000000, 4.000000000, 5.750000000)
+PASS  A3 duck fraction one reproduces crouched size 9  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 10  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  A3 duck fraction zero reproduces standing size 10  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 10  got (0.000000000, -4.000000000, 5.750000000) want (0.000000000, -4.000000000, 5.750000000)
+PASS  A3 duck fraction one reproduces crouched size 10  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A3 eye stays strictly inside head f=0.00000  got true want true
+PASS  A3 eye stays strictly inside head f=0.01562  got true want true
+PASS  A3 eye stays strictly inside head f=0.03125  got true want true
+PASS  A3 eye stays strictly inside head f=0.04688  got true want true
+PASS  A3 eye stays strictly inside head f=0.06250  got true want true
+PASS  A3 eye stays strictly inside head f=0.07812  got true want true
+PASS  A3 eye stays strictly inside head f=0.09375  got true want true
+PASS  A3 eye stays strictly inside head f=0.10938  got true want true
+PASS  A3 eye stays strictly inside head f=0.12500  got true want true
+PASS  A3 eye stays strictly inside head f=0.14062  got true want true
+PASS  A3 eye stays strictly inside head f=0.15625  got true want true
+PASS  A3 eye stays strictly inside head f=0.17188  got true want true
+PASS  A3 eye stays strictly inside head f=0.18750  got true want true
+PASS  A3 eye stays strictly inside head f=0.20312  got true want true
+PASS  A3 eye stays strictly inside head f=0.21875  got true want true
+PASS  A3 eye stays strictly inside head f=0.23438  got true want true
+PASS  A3 eye stays strictly inside head f=0.25000  got true want true
+PASS  A3 eye stays strictly inside head f=0.26562  got true want true
+PASS  A3 eye stays strictly inside head f=0.28125  got true want true
+PASS  A3 eye stays strictly inside head f=0.29688  got true want true
+PASS  A3 eye stays strictly inside head f=0.31250  got true want true
+PASS  A3 eye stays strictly inside head f=0.32812  got true want true
+PASS  A3 eye stays strictly inside head f=0.34375  got true want true
+PASS  A3 eye stays strictly inside head f=0.35938  got true want true
+PASS  A3 eye stays strictly inside head f=0.37500  got true want true
+PASS  A3 eye stays strictly inside head f=0.39062  got true want true
+PASS  A3 eye stays strictly inside head f=0.40625  got true want true
+PASS  A3 eye stays strictly inside head f=0.42188  got true want true
+PASS  A3 eye stays strictly inside head f=0.43750  got true want true
+PASS  A3 eye stays strictly inside head f=0.45312  got true want true
+PASS  A3 eye stays strictly inside head f=0.46875  got true want true
+PASS  A3 eye stays strictly inside head f=0.48438  got true want true
+PASS  A3 eye stays strictly inside head f=0.50000  got true want true
+PASS  A3 eye stays strictly inside head f=0.51562  got true want true
+PASS  A3 eye stays strictly inside head f=0.53125  got true want true
+PASS  A3 eye stays strictly inside head f=0.54688  got true want true
+PASS  A3 eye stays strictly inside head f=0.56250  got true want true
+PASS  A3 eye stays strictly inside head f=0.57812  got true want true
+PASS  A3 eye stays strictly inside head f=0.59375  got true want true
+PASS  A3 eye stays strictly inside head f=0.60938  got true want true
+PASS  A3 eye stays strictly inside head f=0.62500  got true want true
+PASS  A3 eye stays strictly inside head f=0.64062  got true want true
+PASS  A3 eye stays strictly inside head f=0.65625  got true want true
+PASS  A3 eye stays strictly inside head f=0.67188  got true want true
+PASS  A3 eye stays strictly inside head f=0.68750  got true want true
+PASS  A3 eye stays strictly inside head f=0.70312  got true want true
+PASS  A3 eye stays strictly inside head f=0.71875  got true want true
+PASS  A3 eye stays strictly inside head f=0.73438  got true want true
+PASS  A3 eye stays strictly inside head f=0.75000  got true want true
+PASS  A3 eye stays strictly inside head f=0.76562  got true want true
+PASS  A3 eye stays strictly inside head f=0.78125  got true want true
+PASS  A3 eye stays strictly inside head f=0.79688  got true want true
+PASS  A3 eye stays strictly inside head f=0.81250  got true want true
+PASS  A3 eye stays strictly inside head f=0.82812  got true want true
+PASS  A3 eye stays strictly inside head f=0.84375  got true want true
+PASS  A3 eye stays strictly inside head f=0.85938  got true want true
+PASS  A3 eye stays strictly inside head f=0.87500  got true want true
+PASS  A3 eye stays strictly inside head f=0.89062  got true want true
+PASS  A3 eye stays strictly inside head f=0.90625  got true want true
+PASS  A3 eye stays strictly inside head f=0.92188  got true want true
+PASS  A3 eye stays strictly inside head f=0.93750  got true want true
+PASS  A3 eye stays strictly inside head f=0.95312  got true want true
+PASS  A3 eye stays strictly inside head f=0.96875  got true want true
+PASS  A3 eye stays strictly inside head f=0.98438  got true want true
+PASS  A3 eye stays strictly inside head f=1.00000  got true want true
+PASS  A2-b default overlap rule is entry first  got entry_first want entry_first
+PASS  A2-b head priority alternative is configurable  got head_priority_in_overlap want head_priority_in_overlap
+PASS  yaw 0.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 0.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 0.0 box 0 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 0.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 0.0 box 1 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 0.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 0.0 box 2 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 3 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 0.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 3 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 4 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 0.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 4 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 5 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 0.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 5 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 6 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 0.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 6 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 7 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 0.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 7 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 8 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 0.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 8 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 9 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 0.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 9 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 10 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 0.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 10 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 forward axis  got (1.000000000, 0.000000000, 0.000000000) want (1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 0.0 left axis  got (-0.000000000, 1.000000000, 0.000000000) want (-0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 0.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 90.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 90.0 box 0 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 90.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 90.0 box 1 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 90.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 90.0 box 2 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 3 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 3 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 4 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 4 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 5 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 5 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 6 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 6 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 7 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 7 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 8 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 8 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 9 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 9 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 10 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 10 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 forward axis  got (0.000000000, 1.000000000, 0.000000000) want (0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 90.0 left axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 90.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 180.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 180.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 180.0 box 0 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 180.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 180.0 box 1 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 180.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 180.0 box 2 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 3 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 180.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 3 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 4 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 180.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 4 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 5 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 180.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 5 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 6 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 180.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 6 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 7 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 180.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 7 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 8 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 180.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 8 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 9 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 180.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 9 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 10 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 180.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 10 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 forward axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 180.0 left axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 180.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 270.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 270.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 270.0 box 0 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 270.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 270.0 box 1 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 270.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 270.0 box 2 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 3 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 3 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 4 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 4 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 5 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 5 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 6 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 6 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 7 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 7 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 8 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 8 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 9 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 9 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 10 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 10 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 forward axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 270.0 left axis  got (1.000000000, -0.000000000, 0.000000000) want (1.000000000, -0.000000000, 0.000000000)
+PASS  yaw 270.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 37.5 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 37.5 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 37.5 box 0 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 37.5 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 37.5 box 1 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 37.5 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 37.5 box 2 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 3 center  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  yaw 37.5 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 3 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 4 center  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  yaw 37.5 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 4 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 5 center  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  yaw 37.5 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 5 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 6 center  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  yaw 37.5 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 6 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 7 center  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  yaw 37.5 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 7 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 8 center  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  yaw 37.5 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 8 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 9 center  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  yaw 37.5 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 9 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 10 center  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  yaw 37.5 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 10 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 forward axis  got (0.793353340, 0.608761429, 0.000000000) want (0.793353340, 0.608761429, 0.000000000)
+PASS  yaw 37.5 left axis  got (-0.608761429, 0.793353340, 0.000000000) want (-0.608761429, 0.793353340, 0.000000000)
+PASS  yaw 37.5 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90 left shoulder expected position  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  jump stand box 0 rigid shift  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  jump stand box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  crouch-jump box 0 rigid shift  got (10.000000000, 20.000000000, 63.500000000) want (10.000000000, 20.000000000, 63.500000000)
+PASS  crouch-jump box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  jump stand box 1 rigid shift  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  jump stand box 1 size unchanged  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  crouch-jump box 1 rigid shift  got (10.000000000, 20.000000000, 60.750000000) want (10.000000000, 20.000000000, 60.750000000)
+PASS  crouch-jump box 1 size unchanged  got (8.000000000, 8.000000000, 2.750000000) want (8.000000000, 8.000000000, 2.750000000)
+PASS  jump stand box 2 rigid shift  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  jump stand box 2 size unchanged  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  crouch-jump box 2 rigid shift  got (10.000000000, 20.000000000, 55.750000000) want (10.000000000, 20.000000000, 55.750000000)
+PASS  crouch-jump box 2 size unchanged  got (7.000000000, 7.000000000, 2.250000000) want (7.000000000, 7.000000000, 2.250000000)
+PASS  jump stand box 3 rigid shift  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  jump stand box 3 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 3 rigid shift  got (2.694862852, 29.520240083, 58.500000000) want (2.694862852, 29.520240083, 58.500000000)
+PASS  crouch-jump box 3 size unchanged  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  jump stand box 4 rigid shift  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  jump stand box 4 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 4 rigid shift  got (17.305137148, 10.479759917, 58.500000000) want (17.305137148, 10.479759917, 58.500000000)
+PASS  crouch-jump box 4 size unchanged  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  jump stand box 5 rigid shift  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  jump stand box 5 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 5 rigid shift  got (2.694862852, 29.520240083, 50.750000000) want (2.694862852, 29.520240083, 50.750000000)
+PASS  crouch-jump box 5 size unchanged  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  jump stand box 6 rigid shift  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  jump stand box 6 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 6 rigid shift  got (17.305137148, 10.479759917, 50.750000000) want (17.305137148, 10.479759917, 50.750000000)
+PASS  crouch-jump box 6 size unchanged  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  jump stand box 7 rigid shift  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  jump stand box 7 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 7 rigid shift  got (7.564954284, 23.173413361, 48.750000000) want (7.564954284, 23.173413361, 48.750000000)
+PASS  crouch-jump box 7 size unchanged  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  jump stand box 8 rigid shift  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  jump stand box 8 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 8 rigid shift  got (12.435045716, 16.826586639, 48.750000000) want (12.435045716, 16.826586639, 48.750000000)
+PASS  crouch-jump box 8 size unchanged  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  jump stand box 9 rigid shift  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  jump stand box 9 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 9 rigid shift  got (7.564954284, 23.173413361, 39.250000000) want (7.564954284, 23.173413361, 39.250000000)
+PASS  crouch-jump box 9 size unchanged  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  jump stand box 10 rigid shift  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  jump stand box 10 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 10 rigid shift  got (12.435045716, 16.826586639, 39.250000000) want (12.435045716, 16.826586639, 39.250000000)
+PASS  crouch-jump box 10 size unchanged  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A2-f game-to-spec position  got (12.500000000, 44.250000000, 64.000000000) want (12.500000000, 44.250000000, 64.000000000)
+PASS  A2-f spec-to-game y  got -44.250000000 want -44.250000000
+PASS  A2-f spec-to-game height  got 64.000000000 want 64.000000000
+PASS  A2-e/F yaw uses input_cmd wire quantization  got 127.501831055 want 127.500000000
+PASS  A2-e/F pitch is positive-up on wire, positive-down in spec  got -15.000686656 want -15.000000000
+PASS  A2-e pitch clamps to signed 16-bit range  got 65535 want 65535
+PASS  J5 radius multiplier  got 2.000000000 want 2.000000000
+PASS  J5 diameter mode  got diameter want diameter
+PASS  J6 config matches JSON  got 0.500000000 want 0.500000000
+PASS  J7 stand height matches JSON  got 72.000000000 want 72.000000000
+PASS  J7 eye height matches JSON  got 64.000000000 want 64.000000000
+PASS  J8 proposed length scale  got 0.570000000 want 0.570000000
+PASS  J8 uses rounded v0.2 table  got v0.2_rounded want v0.2_rounded
+PASS  J9 A-pose default  got a_pose want a_pose
+PASS  SKELETON_SHA256 matches canonical JSON  got 56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0 want 56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0
+PASS  SKELETON_SHA256 is 64 lowercase hex  got true want true
+492 passed, 0 failed

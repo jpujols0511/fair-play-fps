@@ -1,0 +1,9 @@
+$ python3 tools/lagcomp_ref.py --self-test
+lagcomp_ref self-test passed 10 named policy assertions
+$ python3 tools/lagcomp_ref.py --emit-cases <temporary-file> --seed 4242 --count 5000
+wrote /var/folders/__/fdsztqk10x31y443lcvp4g8c0000gn/T/lagcomp-cases.NhIUBvR8x6
+5000 random + 15 named cases
+case counts {'linear_rate_100': 542, 'circle_rate_128': 546, 'circle_rate_100': 572, 'peek_rate_128': 523, 'peek_rate_64': 556, 'peek_rate_100': 583, 'circle_rate_64': 553, 'linear_rate_64': 564, 'linear_rate_128': 561, 'rtt_80_interp_4': 1, 'claim_plus_0_9': 1, 'claim_plus_1_0_inclusive': 1, 'claim_plus_1_1': 1, 'backtrack_minus_5': 1, 'full_cap_164ms': 1, 'over_cap_170ms': 1, 'reason_3_both_clamps': 1, 'reason_4_negative_in_window': 1, 'reason_5_claim_and_negative': 1, 'reason_6_missing_history': 1, 'circle_shortest_yaw': 1, 'peek_path': 1, 'stance_toggle_path': 1, 'dead_target': 1}
+PASS  generated lag-comp cases are byte-identical
+PASS  5,000 seeded + 15 named cases
+reason coverage: [0, 1, 2, 3, 4, 5, 6]

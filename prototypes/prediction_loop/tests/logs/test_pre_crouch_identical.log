@@ -1,0 +1,11 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  run     17/17 sample ticks bit-identical
+PASS  strafe  17/17 sample ticks bit-identical
+PASS  bhop    17/17 sample ticks bit-identical
+PASS  turns   17/17 sample ticks bit-identical
+PASS  wall    17/17 sample ticks bit-identical
+PASS  step    17/17 sample ticks bit-identical
+PASS  mixed   17/17 sample ticks bit-identical
+
+7 passed, 0 failed

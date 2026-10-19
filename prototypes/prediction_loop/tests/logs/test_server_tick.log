@@ -1,0 +1,45 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  order: for 1,000 ticks with 4 clients, every tick runs steps 1 to 7 in that order  
+PASS  every push_sample(..., T) comes after the last movement of T and before any process_shot of T  0 late pushes, 0 samples differing from the slot's final state
+PASS  lag-comp pushes: exactly one per slot per tick (4 x 1,000)  
+PASS  shots: process_shot called once per executed ATTACK command (800)  800 calls
+PASS  round hooks: on_tick(T) once per tick, in order  
+PASS  snapshots only on ticks divisible by C4 = 2  
+PASS  snapshots only on ticks divisible by C4 = 1  
+PASS  exactly once, in order: every seq executed once in order for 3 clients under 12% loss, jitter, duplicates (seed 7701)  1495 commands each, 2645 duplicates dropped
+PASS  repeats only for fully lost seqs, each counted (6)  
+PASS  a lost seq (all 3 copies gone) is repeated; later arrival of its real command is dropped as a duplicate  
+PASS  command budget: 20 queued commands drain as 8 (the burst) then 1 per tick (refill 1.0)  [8, 1, 1, 1]
+PASS  speedhack probe: 8x the commands never travels further than the honest client (+1%)  honest 2485.9, 8x 144.1 units over 1,280 ticks
+PASS  ... the excess is dropped and counted (10159) and logged RATE_ABUSE, nobody is kicked  
+PASS  one forged packet with seq 0x7FFFFFFF: that client's state equals the honest one's, 2 commands dropped  dropped 2
+PASS  forged seq 0xFFFFFFFF for 140 ticks then the real stream: 1173 of the next 1,300 commands run, next_seq within 2 of the real seq  resyncs 1
+PASS  forged seq 0x7FFFFFFF for 140 ticks then the real stream: 1304 of the next 1,300 commands run, next_seq within 2 of the real seq  resyncs 1
+PASS  forged seq 0x80000000 for 140 ticks then the real stream: 1304 of the next 1,300 commands run, next_seq within 2 of the real seq  resyncs 1
+PASS  forged seq 0x80000001 for 140 ticks then the real stream: 1304 of the next 1,300 commands run, next_seq within 2 of the real seq  resyncs 1
+PASS  a command stream crossing 2^32 executes every command once  
+PASS  shot ctx contains every Section 5.5 key and nothing else (no seed, no spread, no hit or position claim)  15 keys
+PASS  ctx: shooter slot, now, tick_rate  
+PASS  ctx: crouched eye 32.0 = post-command position + eye_height (spec frame z)  eye_z 32.000000
+PASS  ctx: view angles unconverted (q) and in the spec frame (degrees via frame.gd): yaw pi/2 -> 180, pitch up 10 -> -10  yaw 180.000 pitch -9.999
+PASS  ctx: claimed_view_tick = the command's view_tick + frac / 65536.0 (98.5)  
+PASS  ctx: teams per slot (16 entries) and the sent_mask_for callable (seam D4)  
+PASS  a repeated command (seq 2 filled in for a lost one) does not fire the shot again  1 shots, lost [2]
+PASS  lag-comp seam: after 1,000 ticks the stub holds exactly ticks T-25 .. T (26 samples) per slot  ticks 974 .. 999
+PASS  lag-comp seam: spec-frame values equal frame.gd of the server state, stance from D6  
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:28300 with udp (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=udp C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+PASS  malformed packets: INPUT_REJECT reason 4 logged for each (500), in memory, no crash  
+PASS  2x input rate: RATE_ABUSE (reason 3) logged (3 times, one stored record per second), the client is never kicked  
+PASS  input-rate check: 0 false positives for a normal client over 6,000 ticks at 80 ms / 2% loss with jitter on  
+PASS  rejects are in memory only: no file written under user://  
+PASS  per-viewer culling: A never gets the enemy B behind the wall, always gets teammate C; B never gets A  B seen by A 0, C seen by A 50 of 50, A seen by B 0
+PASS  an enemy in the open IS sent  10 of 10
+
+34 passed, 0 failed
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2378)
+ERROR: 12 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:614)

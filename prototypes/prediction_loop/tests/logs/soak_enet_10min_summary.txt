@@ -1,0 +1,16 @@
+server exit code: 0    client exit code: 0
+SERVER_FINAL ticks=76866 overruns=1 overrun_pct=0.0013 dropped_silent=0 byes=1 malformed=0 oversize_refused=0 mem_MB=19.64
+CLIENT_STATS ticks=76800 corrections=0 error_p99=0.0000 error_max=0.0000 snapshots=38396 snapshot_loss=0.0001 rtt_ms=7.8 rx_B_per_s=8063 tx_B_per_s=8448 overruns=1 overrun_pct=0.0013 dropped_missing_baseline=0 malformed=0 mem_start_MB=20.39 mem_minute_MB=20.56 mem_end_MB=20.56 mem_growth_after_minute_MB=0.00
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  no script errors in either log  0 error lines
+PASS  clean loopback: 0 unexplained corrections  0 corrections, 0 fully lost commands
+PASS  server overruns <= 0.1% of ticks  0.0013% (1 overruns in 76866 ticks)
+PASS  client overruns <= 0.1% of ticks  0.0013% (76800 ticks)
+PASS  client memory growth after minute 1 <= 5 MB  0.00 MB (minute-1 20.56 MB, end 20.56 MB)
+PASS  server memory growth after minute 1 <= 5 MB  19.99 MB -> 19.64 MB
+PASS  no datagram over 1,200 bytes was sent (refusals: server 0, client 0 in this build)  
+PASS  no malformed datagrams on a clean link  server 0, client 0
+REPORT  bytes/s: down (server -> client) 8063, up (client -> server) 8448; rtt 7.8 ms; snapshots 38396; snapshot loss 0.000
+
+SOAK PASS

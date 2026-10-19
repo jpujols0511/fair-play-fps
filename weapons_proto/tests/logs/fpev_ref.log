@@ -1,0 +1,19 @@
+$ python3 tools/fpev_ref.py write tests/golden/match_small.json <temporary-file>
+wrote /var/folders/__/fdsztqk10x31y443lcvp4g8c0000gn/T/fpev-python.VVSMlobM0e (8300 bytes)
+final_chain_sha256=9fcaa27dd9658ab1bb93274592407be65e6a7d37e476cb05f44975e12f9c0a5a
+CHAIN OK
+PASS  Python writer matches committed match_small.fpev
+
+$ python3 tools/fpev_ref.py verify tests/golden/match_small.fpev --expected-final-hash <database-hash>
+CHAIN BROKEN at record 107 (offset 8300): final_hash_mismatch
+
+$ python3 tools/fpev_ref.py export tests/golden/match_small.fpev --quiet --jsonl-out <temporary-file>
+CHAIN BROKEN at record 107 (offset 8300): final_hash_mismatch
+PASS  Python JSONL matches committed match_small.jsonl
+PASS  107 records by type {2: 11, 3: 12, 5: 20, 1: 40, 6: 20, 4: 4}
+PASS  final chain 9fcaa27dd9658ab1bb93274592407be65e6a7d37e476cb05f44975e12f9c0a5a
+
+Corrected verification: use the final-chain hash stored in match_small.json (9fcaa27dd9658ab1bb93274592407be65e6a7d37e476cb05f44975e12f9c0a5a)
+CHAIN OK
+CHAIN OK
+PASS  corrected Python JSONL matches fixture

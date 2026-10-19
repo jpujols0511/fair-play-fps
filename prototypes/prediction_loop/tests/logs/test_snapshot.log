@@ -1,0 +1,50 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  own-player field count comes from PlayerState.to_packed()  F = 13
+PASS  golden: GDScript decode of the Python bytes, then full re-encode == Python full bytes (base and target)  2000 pairs, 0 bad
+PASS  golden: GDScript delta bytes == Python delta bytes  2000 pairs, 0 differ
+PASS  golden: GDScript decodes the Python delta to the target (incl. sequence wraps 65535 -> 0)  2000 pairs, 0 differ
+PASS  named empty_delta: decoded values equal the Python input  
+PASS  named one_entity_x_only: decoded values equal the Python input  
+PASS  named add_and_remove: decoded values equal the Python input  
+PASS  named all_15_remote_slots: decoded values equal the Python input  
+PASS  named full_12_players: decoded values equal the Python input  
+PASS  named empty delta = 14 + 111 + 1 = 126 bytes  
+PASS  named empty delta has entity_count 0 and keeps every baseline entity  
+PASS  named one entity moved on x only = 126 + 2 + 2 bytes  
+PASS  named full 12-player snapshot = 280 bytes (< 400)  
+PASS  named all 15 remote slots full = 336 bytes (< 1,200)  336 bytes
+PASS  named add + remove: removed slot disappears, added slot appears  
+PASS  quantization: 1/8 grid, ties away from zero, clamps match Python  2162 position cases (incl. every x.0625 tie and the +-4096 edges)
+PASS  -4096.0 and 4095.875 encode; 4096.0 clamps and is counted  clamp_count = 1
+PASS  ties round away from zero: +0.0625 -> 1, -0.0625 -> -1  
+PASS  HUD quantization (accuracy u16, angle i16) matches Python  510 accuracy, 509 angle cases
+PASS  serial arithmetic: 0 is newer than 65535, not the reverse  
+PASS  serial arithmetic: equal is not newer; +32767 is newer, +32768 is not  
+PASS  a delta across the sequence wrap (65535 -> 0) decodes  
+PASS  no ack yet -> full snapshot  
+PASS  acked snapshot in the ring -> delta  
+PASS  acked snapshot 33 snapshots old -> full  kind 1
+PASS  acked snapshot 31 behind is still a delta (ring holds 32)  
+PASS  lost snapshots, acks of older ones: every received snapshot decodes exactly  40 decoded, 0 dropped
+PASS  delta without its baseline: dropped, counted, no crash  
+PASS  the next full snapshot recovers  
+PASS  an older snapshot is decoded but never moves newest_seq back  
+PASS  fuzz: 5,000 truncated / corrupted / random packets, no crash  3570 rejected, 1430 still valid
+PASS  duck fraction round trip: error <= 0.5 / 255.0  worst 0.001961 (limit 0.001961)
+PASS  duck fraction endpoints: 0.0 -> 0, 1.0 -> 255, clamped outside  
+PASS  a duck change alone is a 1-byte field: delta = 126 + 2 + 1 bytes  129 bytes
+PASS  duck_q survives the delta  
+PASS  forged acks for never-sent seqs: ack_snap_seq unchanged, all counted  ack 1, rejected 3
+PASS  the next snapshot still deltas from a real baseline (seq 1)  
+PASS  an ack for a seq that left the sent window is dropped and counted  
+PASS  ack -1 means no ack (not counted); any other negative ack is a forged one and is counted  
+PASS  ack out of the window: full snapshots are sent  
+PASS  ... and the first valid in-window ack recovers (next snapshot is a delta)  
+PASS  ack stuck 40,000 seqs back: a valid new ack is accepted (serial arithmetic cannot order them)  
+PASS  determinism: two identical runs give byte-identical snapshot streams  sha256 e2a6cb12a96f3111... (2000 snapshots)
+PASS  a different seed gives a different stream  
+PASS  wired in: client decodes every snapshot it receives and reconciles from it  decoded 1951, full 7, delta 1993, dropped(no baseline) 0
+PASS  snapshot size at 80 ms / 2% (no remotes): min 126 / mean 126.0 / max 126 bytes  
+
+46 passed, 0 failed

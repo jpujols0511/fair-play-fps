@@ -1,0 +1,29 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+== CROUCH PARITY ==
+PASS  constants  (10 checks, worst diff 0.000000000)
+PASS  duck completion tick @64 (want 26)  (1 checks, worst diff 0.000000000)
+PASS  eye every tick of the transition @64 (64.0 -> 32.0, 29 ticks)  (29 checks, worst diff 0.000000000)
+PASS  duck completion tick @100 (want 40)  (1 checks, worst diff 0.000000000)
+PASS  eye every tick of the transition @100 (64.0 -> 32.0, 43 ticks)  (43 checks, worst diff 0.000000000)
+PASS  duck completion tick @128 (want 52)  (1 checks, worst diff 0.000000000)
+PASS  eye every tick of the transition @128 (64.0 -> 32.0, 55 ticks)  (55 checks, worst diff 0.000000000)
+PASS  ducked run from standstill @64 (steady 83.25)  (9 checks, worst diff 0.000000000)
+PASS  tick the ducked speed is first reached @64 (sim: 12)  (1 checks, worst diff 0.000000000)
+PASS  ducked run from standstill @100 (steady 83.25)  (9 checks, worst diff 0.000000000)
+PASS  tick the ducked speed is first reached @100 (sim: 19)  (1 checks, worst diff 0.000000000)
+PASS  ducked run from standstill @128 (steady 83.25)  (9 checks, worst diff 0.000000000)
+PASS  tick the ducked speed is first reached @128 (sim: 24)  (1 checks, worst diff 0.000000000)
+PASS  stamina x duck after a landing @64  (7 checks, worst diff 0.000000000)
+PASS  stamina x duck after a landing @100  (7 checks, worst diff 0.000000000)
+PASS  stamina x duck after a landing @128  (7 checks, worst diff 0.000000000)
+PASS  jump apex @64: plain 44.9788, crouch-jump 62.9788 (= plain + 18.0)  (4 checks, worst diff 0.000029636)
+PASS  jump apex @100: plain 44.9916, crouch-jump 62.9916 (= plain + 18.0)  (4 checks, worst diff 0.000026518)
+PASS  jump apex @128: plain 44.9999, crouch-jump 62.9999 (= plain + 18.0)  (4 checks, worst diff 0.000011220)
+PASS  cancel mid-transition @64: eye 47.7500 while holding, 64.0 on release  (2 checks, worst diff 0.000000000)
+PASS  cancel mid-transition @100: eye 48.0000 while holding, 64.0 on release  (2 checks, worst diff 0.000000000)
+PASS  cancel mid-transition @128: eye 47.7500 while holding, 64.0 on release  (2 checks, worst diff 0.000000000)
+PASS  cancel through step() @128  (3 checks, worst diff 0.000000000)
+PASS  standing headroom (K7)  (6 checks, worst diff 0.000000000)
+
+218 passed, 0 failed

@@ -1,0 +1,32 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  signal snapshot_received exists with one Dictionary argument  
+PASS  signal remote_removed(slot) exists  
+PASS  get_latest() is {} before the first snapshot  
+PASS  get_latest() has exactly the 5 keys with the right types  { "server_tick": 52, "accuracy": 0.00549324788281, "punch_pitch": 0.0, "punch_yaw": 0.0, "move_state": 0 }
+PASS  a snapshot was emitted for each newest snapshot (every 2nd tick)  27 emitted in 60 ticks
+PASS  wire match with the crosshair prototype: same integers and same dequantized floats on 1,000 random values  0 differ
+PASS  air state reached the HUD  
+PASS  pixels at 1080p, stand: gap 3.955 (want 4.0 +-0.05), color ok  accuracy 0.005493 move_state 0
+PASS  pixels at 1080p, crouch: gap 3.955 (want 4.0 +-0.05), color ok  accuracy 0.005493 move_state 1
+PASS  pixels at 1080p, run: gap 38.870 (want 38.9 +-0.10), color ok  accuracy 0.053986 move_state 3
+PASS  pixels at 1080p, air: gap 86.397 (want 86.4 +-0.10), color ok  accuracy 0.119997 move_state 2
+PASS  newest-only: snapshots arriving as seq 10, 12, 11 emit for 10 and 12 only  [18, 22]
+PASS  standalone NetClient (own Client + endpoint) gives the same final player state as the Session-driven client  
+PASS  get_stats(): rtt about 12-13 ticks (94-100 ms), snapshot loss near 2%, bytes/s near 64 x 126  rtt 93.8 ms, loss 0.025, 7852 B/s, 1460 snapshots, 0 corrections
+PASS  standalone: one emit per newest snapshot  1460 emitted, 1460 snapshots decoded
+PASS  get_visual_position() follows the predicted position (no corrections needed)  visual is a 32-bit Vector3, so compared to 0.01 units
+PASS  latency stand -> run -> crosshair color, 80 ms, jitter off: 12 to 13 ticks (93.8 to 101.6 ms), expected 12 to 14  histogram (40 start phases): 12 ticks x20, 13 ticks x20
+PASS  latency stand -> run -> crosshair color, 0 ms (handout guessed 0-2; tick-order floor is 2-3): 2 to 3 ticks (15.6 to 23.4 ms), expected 2 to 3  histogram (40 start phases): 2 ticks x20, 3 ticks x20
+PASS  own movement unaffected: attaching NetClient leaves the predicted state bit-identical  
+PASS  get_remote_players(): slot 2 present with stance and alive  
+PASS  get_render_tick() = tick - one-way 6 - interp 4 = 290  
+PASS  remote_removed(slot) fires when the slot disappears; the list is then empty  [2]
+PASS  get_remote_players() has "duck" (the smooth 0.0..1.0 fraction): equals out_duck, reaches 1.0, passes through in-between values, rises by < 0.06 per tick  251 in-between draws, max rise 0.020
+PASS  an ack more than 255 commands old does not touch the RTT estimate  12.0000 -> 12.0000
+PASS  a repeated ack of the same command gives no second RTT sample  
+PASS  crosshair files are exactly the ones brought in from gamebuilder/crosshair (12 files, sha256)  0 differ
+PASS  git diff --exit-code origin/gamebuilder/crosshair -- prototypes/crosshair prints nothing  
+PASS  the crosshair's own test still passes from this branch  exit 0: RESULT: 27 passed, 0 failed
+
+28 passed, 0 failed

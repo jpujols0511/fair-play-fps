@@ -1,0 +1,9 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  standing jump airtime  86 ticks (want 86)
+PASS  ground accel tops out at 250  250.000 u/s
+PASS  friction stops the player  0.000 u/s
+PASS  air strafe gain  251.5759 u/s (want 251.5758)
+PASS  stamina slows ground speed  194.922 u/s after 20 ticks (reference 194.92)
+
+player step: OK

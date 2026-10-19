@@ -1,0 +1,9 @@
+$ python3 tools/ray_box_ref.py --self-test
+ray_box_ref self-test passed 8 boundary assertions
+$ python3 tools/ray_box_ref.py --emit-cases <temporary-file> --seed 1337 --count 20000
+wrote /var/folders/__/fdsztqk10x31y443lcvp4g8c0000gn/T/ray-box-cases.0F62sqexE7
+20000 random + 12 boundary cases
+expected SHA-256 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+PASS  generated golden cases are byte-identical
+PASS  20,000 seeded + 12 boundary cases; 19 categories
+expected SHA-256 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3

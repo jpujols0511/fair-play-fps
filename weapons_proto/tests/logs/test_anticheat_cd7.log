@@ -1,0 +1,97 @@
+P7 CD-r7 offline review/surf profile test — Godot 4.4.1
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  AIM_KIN constant delta within wire angle step  got 0.785522461 want 0.781250000
+PASS  AIM_KIN constant speed within wire angle step  got 100.546874971 want 100.000000000
+PASS  AIM_KIN constant acceleration bounded by quantization  got 89.999999974 want 0.000000000
+PASS  AIM_KIN constant turn never settles  got 255 want 255
+PASS  AIM_KIN constant turn has no flags  got 0 want 0
+PASS  AIM_KIN 16-bit speed within angle noise  got 100.546874971 want 100.000000000
+PASS  AIM_KIN fire-tick jump  got 4.998779295 want 5.000000000
+PASS  AIM_KIN snapback distance  got 4.998779295 want 5.000000000
+PASS  AIM_KIN snapback cosine  got -1.000000000 want -1.000000000
+PASS  AIM_KIN SNAPBACK flag  got 1 want 1
+PASS  AIM_KIN flick acceleration within wire noise  got 327689.999904903 want 327680.000000000
+PASS  AIM_KIN flick settles in one tick  got 1 want 1
+PASS  AIM_KIN FLICK_STOP_AT_FIRE flag  got 2 want 2
+PASS  AIM_KIN flick is not snapback  got 0 want 0
+PASS  AIM_KIN yaw wrap is one degree  got 0.999755859 want 1.000000000
+PASS  AIM_KIN yaw wrap is not a flick stop  got 0 want 0
+PASS  AIM_KIN excludes reset window  got true want true
+PASS  AIM_KIN reset has no flags  got 0 want 0
+PASS  AIM_KIN repeated fire tick has no snap  got 0 want 0
+PASS  AIM_KIN dead player is excluded  got true want true
+PASS  AIM_KIN orders by cmd_seq  got 100.546874971 want 100.546874971
+PASS  AIM_KIN human flick with overshoot is unflagged  got 0 want 0
+PASS  AIM_KIN 150ms out-of-order arrival preserves result  got 0 want 0
+PASS  AIM_KIN spray transfer is unflagged  got 0 want 0
+PASS  AIM_KIN slow precise adjustment is unflagged  got 0 want 0
+PASS  AIM_KIN multi-tick settle is not a flick-stop  got 0 want 0
+PASS  AIM_KIN multi-tick settle duration  got 2 want 2
+PASS  J15 default permits a large yaw flick  got true want true
+PASS  J15 finite alternative rejects yaw delta  got false want false
+PASS  J15 finite alternative reason 2  got 2 want 2
+PASS  J15 finite alternative includes its limit  got true want true
+PASS  J15 pitch outside +/-89 is malformed  got 4 want 4
+PASS  J15 non-finite angle is malformed  got 4 want 4
+PASS  offline anti-cheat review disabled by default  got false want false
+PASS  default analyzer reports disabled  got true want true
+PASS  default analyzer keeps auto action NONE  got NONE want NONE
+PASS  default analyzer produces no status rows  got 0 want 0
+PASS  default review writer refuses output  got review_disabled want review_disabled
+PASS  Python offline review requires explicit opt-in  got 2 want 2
+PASS  Python offline review explains default-off flags  got true want true
+PASS  unspecified match uses default AIM_KIN profile  got default want default
+PASS  server surf metadata selects surf AIM_KIN profile  got surf want surf
+PASS  client cannot select AIM_KIN profile  got default want default
+PASS  7A exactly 32 ticks at 2 degrees counts  got 1 want 1
+PASS  7A inclusive angle threshold  got 2.000000000 want 2.000000000
+PASS  7A 31 ticks does not count  got 0 want 0
+PASS  7A 2.01 degrees does not count  got 0 want 0
+PASS  7A exactly 3.0 weighted episodes  got 3.000000000 want 3.000000000
+PASS  7A 3.0 weighted episodes reaches review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7A teammate weight yields 2.75  got 2.750000000 want 2.750000000
+PASS  7A 2.75 weighted episodes stays unflagged  got NO_FLAG want NO_FLAG
+PASS  7A invalid evidence chain cannot raise a review flag  got NO_FLAG want NO_FLAG
+PASS  7A G=63-tick recent visibility drops episode  got 0.000000000 want 0.000000000
+PASS  7A G=65-tick visibility is outside grace  got 1.000000000 want 1.000000000
+PASS  7A S=1992ms sound explains aim  got 0.000000000 want 0.000000000
+PASS  7A S=2008ms sound is too old  got 1.000000000 want 1.000000000
+PASS  7A sound angle 4.1 degrees does not explain  got 1.000000000 want 1.000000000
+PASS  7A common pre-aim spot drops episode  got 0.000000000 want 0.000000000
+PASS  7A pre-aim spot outside radius counts  got 1.000000000 want 1.000000000
+PASS  7A teammate information weighs 0.25  got 0.250000000 want 0.250000000
+PASS  7A teammate explanation is recorded  got true want true
+PASS  7A dead viewer produces no episode  got 0 want 0
+PASS  7A same-team target is excluded  got 0 want 0
+PASS  7A tracking correlation fixture near 0.85  got 0.850200000 want 0.850000000
+PASS  7A correlation 0.85 is tracking  got tracking want tracking
+PASS  7A tracking correlation fixture near 0.75  got 0.750000000 want 0.750000000
+PASS  7A correlation 0.75 is aim only  got aim want aim
+PASS  7A two clean shots at unsent trigger review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7A one hit plus near misses do not trigger review  got NO_FLAG want NO_FLAG
+PASS  7A THROUGH_WORLD hits do not trigger review  got NO_FLAG want NO_FLAG
+PASS  7B three flagged rounds require review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7B three flick-stop rounds require review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7B three flags in one round do not require review  got NO_FLAG want NO_FLAG
+PASS  7B two flagged rounds do not require review  got NO_FLAG want NO_FLAG
+PASS  7B exports AIM_KIN review entries  got 3 want 3
+PASS  7B no shot produces no AIM_KIN  got 0 want 0
+PASS  review queue accepts review-only schema  got true want true
+PASS  review queue refuses non-NONE action  got false want false
+PASS  review queue refuses unsupported status  got false want false
+PASS  default review writer is disabled  got review_disabled want review_disabled
+PASS  invalid report is not written  got false want false
+PASS  valid review report writes  got true want true
+PASS  review queue creates review directory  got true want true
+PASS  anti-cheat source contains no action functions  got false want false
+PASS  P7 golden input evidence chain verifies  got true want true
+PASS  GDScript report matches committed golden JSON  10530 characters
+PASS  P7 golden output is review-only  got NONE want NONE
+PASS  P7 golden selects surf from server metadata  got surf want surf
+PASS  review queue writes analyzer output  got true want true
+PASS  review queue output matches golden bytes  10530 characters
+PASS  Python analyzer exits successfully  got 0 want 0
+PASS  Python report matches committed golden JSON  10530 characters
+92 passed, 0 failed

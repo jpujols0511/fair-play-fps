@@ -1,0 +1,1260 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+first_scan_filesystem: begin: Project initialization steps: 5
+	first_scan_filesystem: step 0: Scanning file structure...
+	first_scan_filesystem: step 1: Loading global class names...
+	first_scan_filesystem: step 2: Verifying GDExtensions...
+	first_scan_filesystem: step 3: Creating autoload scripts...
+	first_scan_filesystem: step 4: Initializing plugins...
+	first_scan_filesystem: step 5: Starting file scan...
+first_scan_filesystem: end
+loading_editor_layout: begin: Loading editor steps: 5
+	loading_editor_layout: step 0: Loading editor layout...
+loading_editor_layout: end
+
+=== test_recoil_parity.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  spray sim_recoil_results.txt AK47/64: 180/180 shot-by-shot numeric comparisons
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  spray sim_recoil_results.txt AK47/128: 180/180 shot-by-shot numeric comparisons
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) AK47/64: 180/180 shot-by-shot numeric comparisons
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) AK47/128: 180/180 shot-by-shot numeric comparisons
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) AK47/64: 180/180 shot-by-shot numeric comparisons
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) AK47/128: 180/180 shot-by-shot numeric comparisons
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) AK47/64: 180/180 shot-by-shot numeric comparisons
+PASS  AK4764 replay consumed all draws  got true want true
+PASS  AK4764 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) AK47/128: 180/180 shot-by-shot numeric comparisons
+PASS  AK47128 replay consumed all draws  got true want true
+PASS  AK47128 replay had no strictness error  got true want true
+PASS  spray sim_recoil_results.txt M4A1/64: 180/180 shot-by-shot numeric comparisons
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  spray sim_recoil_results.txt M4A1/128: 180/180 shot-by-shot numeric comparisons
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) M4A1/64: 180/180 shot-by-shot numeric comparisons
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) M4A1/128: 180/180 shot-by-shot numeric comparisons
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) M4A1/64: 180/180 shot-by-shot numeric comparisons
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) M4A1/128: 180/180 shot-by-shot numeric comparisons
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) M4A1/64: 180/180 shot-by-shot numeric comparisons
+PASS  M4A164 replay consumed all draws  got true want true
+PASS  M4A164 replay had no strictness error  got true want true
+PASS  spray extended (sim-generated, not in sim_recoil_results.txt) M4A1/128: 180/180 shot-by-shot numeric comparisons
+PASS  M4A1128 replay consumed all draws  got true want true
+PASS  M4A1128 replay had no strictness error  got true want true
+PASS  all 16 required and extended sprays tested  got 16 want 16
+PASS  AK47 stand first spread  got 0.005500 want 0.005500
+PASS  AK47 stand max spread  got 0.034375 want 0.034375
+PASS  AK47 crouch first spread  got 0.005500 want 0.005500
+PASS  AK47 crouch max spread  got 0.034375 want 0.034375
+PASS  AK47 run first spread  got 0.054000 want 0.054000
+PASS  AK47 run max spread  got 0.127500 want 0.127500
+PASS  AK47 air first spread  got 0.120000 want 0.120000
+PASS  AK47 air max spread  got 0.540000 want 0.540000
+PASS  M4A1 stand first spread  got 0.005000 want 0.005000
+PASS  M4A1 stand max spread  got 0.025000 want 0.025000
+PASS  M4A1 crouch first spread  got 0.005000 want 0.005000
+PASS  M4A1 crouch max spread  got 0.025000 want 0.025000
+PASS  M4A1 run first spread  got 0.049000 want 0.049000
+PASS  M4A1 run max spread  got 0.105000 want 0.105000
+PASS  M4A1 air first spread  got 0.115000 want 0.115000
+PASS  M4A1 air max spread  got 0.435000 want 0.435000
+PASS  M4A1 unsilenced standing table entry  got 0.004000 want 0.004000
+PASS  ReplayRng rejects a wrong draw kind  got true want true
+PASS  ReplayRng rejects an extra draw  got true want true
+PASS  GodotRng seeded uniform replay  got -0.191082 want -0.191082
+PASS  GodotRng seeded integer replay  got true want true
+PASS  AK47:64 peak kick_up  got 4.606133 want 4.610000
+PASS  AK47:64 spray duration  got 2.781250 want 2.781000
+PASS  AK47:128 peak kick_up  got 4.608323 want 4.610000
+PASS  AK47:128 spray duration  got 2.773438 want 2.773000
+PASS  M4A1:64 peak kick_up  got 2.718419 want 2.720000
+PASS  M4A1:64 spray duration  got 2.546875 want 2.547000
+PASS  M4A1:128 peak kick_up  got 2.643580 want 2.640000
+PASS  M4A1:128 spray duration  got 2.539062 want 2.539000
+PASS  kick decay 64 tick  got 3.664442 want 3.664442
+PASS  kick decay 128 tick  got 3.759801 want 3.759801
+PASS  2 degree kick recovery steps 64 tick  got 13 want 13
+PASS  2 degree kick recovery seconds 64 tick  got 0.203125 want 0.203125
+PASS  2 degree kick recovery steps 100 tick  got 20 want 20
+PASS  2 degree kick recovery seconds 100 tick  got 0.200000 want 0.200000
+PASS  2 degree kick recovery steps 128 tick  got 25 want 25
+PASS  2 degree kick recovery seconds 128 tick  got 0.195312 want 0.195312
+PASS  burst 3 recovery steps 64 tick  got 30 want 30
+PASS  burst 3 recovery seconds 64 tick (first tick at/after)  got 0.468750 want 0.468750
+PASS  burst 30 recovery steps 64 tick  got 69 want 69
+PASS  burst 30 recovery seconds 64 tick (first tick at/after)  got 1.078125 want 1.078125
+PASS  burst 3 recovery steps 128 tick  got 60 want 60
+PASS  burst 3 recovery seconds 128 tick (first tick at/after)  got 0.468750 want 0.468750
+PASS  burst 30 recovery steps 128 tick  got 138 want 138
+PASS  burst 30 recovery seconds 128 tick (first tick at/after)  got 1.078125 want 1.078125
+PASS  burst recovery at-threshold tick count  got 57 want 57
+PASS  burst recovery at-threshold alternative seconds  got 0.445312 want 0.445312
+PASS  J5 release cap disabled by default  got 0.000000 want 0.000000
+PASS  J6 recovery delay defaults from last shot  got last_shot want last_shot
+PASS  J6 last-shot recovery preserves pre-release idle  got 125 want 125
+PASS  J6 release-time alternative restarts delay  got 138 want 138
+PASS  J5 release alternative clamps burst counter to 15  got 15 want 15
+PASS  J5 capped recovery exact tick count  got 95 want 95
+PASS  J5 capped 30-shot spray resets at first tick after 0.7375s  got 0.742188 want 0.742188
+PASS  trigger release edge applies the configured cap  got 15 want 15
+PASS  trigger release edge resets release-based delay  got 0.000000 want 0.000000
+PASS  J2 on uses moving kick in air  got -1.500000 want -1.500000
+PASS  J2 off uses air kick  got -2.000000 want -2.000000
+PASS  J3 off uses 1..k and flips on one  got true want true
+PASS  J3 alternative recorded exact roll bounds  got true want true
+PASS  J1 fixed stub starts without a flip  got true want true
+PASS  J1 fixed stub follows deterministic sequence  got false want false
+PASS  J4 stock recovery keeps stored accuracy  got 0.390000 want 0.390000
+PASS  J4 reset alternative restores starting accuracy  got 0.200000 want 0.200000
+2977 passed, 0 failed
+EXIT 0
+
+=== test_hitboxes.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  standing returns 11 boxes  got true want true
+PASS  box 0 id  got true want true
+PASS  box 0 part  got true want true
+PASS  box 0 size  got (8.000000000, 8.000000000, 12.000000000) want (8.000000000, 8.000000000, 12.000000000)
+PASS  box 0 standing center  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  box 0 includes Vector3 view  got true want true
+PASS  box 1 id  got true want true
+PASS  box 1 part  got true want true
+PASS  box 1 size  got (16.000000000, 16.000000000, 11.000000000) want (16.000000000, 16.000000000, 11.000000000)
+PASS  box 1 standing center  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  box 1 includes Vector3 view  got true want true
+PASS  box 2 id  got true want true
+PASS  box 2 part  got true want true
+PASS  box 2 size  got (14.000000000, 14.000000000, 9.000000000) want (14.000000000, 14.000000000, 9.000000000)
+PASS  box 2 standing center  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  box 2 includes Vector3 view  got true want true
+PASS  box 3 id  got true want true
+PASS  box 3 part  got true want true
+PASS  box 3 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 3 standing center  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  box 3 includes Vector3 view  got true want true
+PASS  box 4 id  got true want true
+PASS  box 4 part  got true want true
+PASS  box 4 size  got (8.000000000, 8.000000000, 16.000000000) want (8.000000000, 8.000000000, 16.000000000)
+PASS  box 4 standing center  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  box 4 includes Vector3 view  got true want true
+PASS  box 5 id  got true want true
+PASS  box 5 part  got true want true
+PASS  box 5 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 5 standing center  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  box 5 includes Vector3 view  got true want true
+PASS  box 6 id  got true want true
+PASS  box 6 part  got true want true
+PASS  box 6 size  got (7.000000000, 7.000000000, 15.000000000) want (7.000000000, 7.000000000, 15.000000000)
+PASS  box 6 standing center  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  box 6 includes Vector3 view  got true want true
+PASS  box 7 id  got true want true
+PASS  box 7 part  got true want true
+PASS  box 7 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 7 standing center  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  box 7 includes Vector3 view  got true want true
+PASS  box 8 id  got true want true
+PASS  box 8 part  got true want true
+PASS  box 8 size  got (11.000000000, 11.000000000, 19.000000000) want (11.000000000, 11.000000000, 19.000000000)
+PASS  box 8 standing center  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  box 8 includes Vector3 view  got true want true
+PASS  box 9 id  got true want true
+PASS  box 9 part  got true want true
+PASS  box 9 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 9 standing center  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  box 9 includes Vector3 view  got true want true
+PASS  box 10 id  got true want true
+PASS  box 10 part  got true want true
+PASS  box 10 size  got (9.000000000, 9.000000000, 19.000000000) want (9.000000000, 9.000000000, 19.000000000)
+PASS  box 10 standing center  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  box 10 includes Vector3 view  got true want true
+PASS  standing box 0 bottom  got 60.000000000 want 60.000000000
+PASS  standing box 0 top  got 72.000000000 want 72.000000000
+PASS  standing box 1 bottom  got 49.000000000 want 49.000000000
+PASS  standing box 1 top  got 60.000000000 want 60.000000000
+PASS  standing box 2 bottom  got 40.000000000 want 40.000000000
+PASS  standing box 2 top  got 49.000000000 want 49.000000000
+PASS  standing box 3 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 3 top  got 58.000000000 want 58.000000000
+PASS  standing box 4 bottom  got 42.000000000 want 42.000000000
+PASS  standing box 4 top  got 58.000000000 want 58.000000000
+PASS  standing box 5 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 5 top  got 42.000000000 want 42.000000000
+PASS  standing box 6 bottom  got 27.000000000 want 27.000000000
+PASS  standing box 6 top  got 42.000000000 want 42.000000000
+PASS  standing box 7 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 7 top  got 40.000000000 want 40.000000000
+PASS  standing box 8 bottom  got 21.000000000 want 21.000000000
+PASS  standing box 8 top  got 40.000000000 want 40.000000000
+PASS  standing box 9 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 9 top  got 21.000000000 want 21.000000000
+PASS  standing box 10 bottom  got 2.000000000 want 2.000000000
+PASS  standing box 10 top  got 21.000000000 want 21.000000000
+PASS  standing segment stack  got 72.000000000 want 72.000000000
+PASS  head top equals stand height  got 72.000000000 want 72.000000000
+PASS  standing eye is inside head  got true want true
+PASS  left arm center beside chest  got 12.000000000 want 12.000000000
+PASS  right arm center beside chest  got -12.000000000 want -12.000000000
+PASS  thigh overlap  got 3.000000000 want 3.000000000
+PASS  crouched box 0 bottom  got 24.000000000 want 24.000000000
+PASS  crouched box 0 top  got 36.000000000 want 36.000000000
+PASS  crouched box 0 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 0 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 1 bottom  got 24.500000000 want 24.500000000
+PASS  crouched box 1 top  got 30.000000000 want 30.000000000
+PASS  crouched box 1 depth unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 1 width unchanged  got 16.000000000 want 16.000000000
+PASS  crouched box 2 bottom  got 20.000000000 want 20.000000000
+PASS  crouched box 2 top  got 24.500000000 want 24.500000000
+PASS  crouched box 2 depth unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 2 width unchanged  got 14.000000000 want 14.000000000
+PASS  crouched box 3 bottom  got 21.000000000 want 21.000000000
+PASS  crouched box 3 top  got 29.000000000 want 29.000000000
+PASS  crouched box 3 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 3 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 bottom  got 21.000000000 want 21.000000000
+PASS  crouched box 4 top  got 29.000000000 want 29.000000000
+PASS  crouched box 4 depth unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 4 width unchanged  got 8.000000000 want 8.000000000
+PASS  crouched box 5 bottom  got 13.500000000 want 13.500000000
+PASS  crouched box 5 top  got 21.000000000 want 21.000000000
+PASS  crouched box 5 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 5 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 bottom  got 13.500000000 want 13.500000000
+PASS  crouched box 6 top  got 21.000000000 want 21.000000000
+PASS  crouched box 6 depth unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 6 width unchanged  got 7.000000000 want 7.000000000
+PASS  crouched box 7 bottom  got 10.500000000 want 10.500000000
+PASS  crouched box 7 top  got 20.000000000 want 20.000000000
+PASS  crouched box 7 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 7 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 bottom  got 10.500000000 want 10.500000000
+PASS  crouched box 8 top  got 20.000000000 want 20.000000000
+PASS  crouched box 8 depth unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 8 width unchanged  got 11.000000000 want 11.000000000
+PASS  crouched box 9 bottom  got 1.000000000 want 1.000000000
+PASS  crouched box 9 top  got 10.500000000 want 10.500000000
+PASS  crouched box 9 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 9 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 bottom  got 1.000000000 want 1.000000000
+PASS  crouched box 10 top  got 10.500000000 want 10.500000000
+PASS  crouched box 10 depth unchanged  got 9.000000000 want 9.000000000
+PASS  crouched box 10 width unchanged  got 9.000000000 want 9.000000000
+PASS  crouched head remains 12 tall  got 12.000000000 want 12.000000000
+PASS  crouched eye height  got 32.000000000 want 32.000000000
+PASS  crouched eye is inside head  got true want true
+PASS  raw crouched head/chest overlap z=24.5..30  got 5.500000000 want 5.500000000
+PASS  raw crouched head-only top band  got 6.000000000 want 6.000000000
+PASS  raw crouched head-only bottom sliver  got 0.500000000 want 0.500000000
+PASS  A2-a half crouch head top  got 36.000000000 want 36.000000000
+PASS  A2-a half crouch head center  got 30.000000000 want 30.000000000
+PASS  A2-a half crouch chest center  got 27.250000000 want 27.250000000
+PASS  A3 half-duck head bottom  got 42.000000000 want 42.000000000
+PASS  A3 half-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 half-duck eye  got 48.000000000 want 48.000000000
+PASS  A3 duck fraction zero reproduces standing box 0  got (0.000000000, 0.000000000, 66.000000000) want (0.000000000, 0.000000000, 66.000000000)
+PASS  A3 duck fraction zero reproduces standing size 0  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  A3 duck fraction one reproduces crouched box 0  got (0.000000000, 0.000000000, 30.000000000) want (0.000000000, 0.000000000, 30.000000000)
+PASS  A3 duck fraction one reproduces crouched size 0  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  A3 duck fraction zero reproduces standing box 1  got (0.000000000, 0.000000000, 54.500000000) want (0.000000000, 0.000000000, 54.500000000)
+PASS  A3 duck fraction zero reproduces standing size 1  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  A3 duck fraction one reproduces crouched box 1  got (0.000000000, 0.000000000, 27.250000000) want (0.000000000, 0.000000000, 27.250000000)
+PASS  A3 duck fraction one reproduces crouched size 1  got (8.000000000, 8.000000000, 2.750000000) want (8.000000000, 8.000000000, 2.750000000)
+PASS  A3 duck fraction zero reproduces standing box 2  got (0.000000000, 0.000000000, 44.500000000) want (0.000000000, 0.000000000, 44.500000000)
+PASS  A3 duck fraction zero reproduces standing size 2  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  A3 duck fraction one reproduces crouched box 2  got (0.000000000, 0.000000000, 22.250000000) want (0.000000000, 0.000000000, 22.250000000)
+PASS  A3 duck fraction one reproduces crouched size 2  got (7.000000000, 7.000000000, 2.250000000) want (7.000000000, 7.000000000, 2.250000000)
+PASS  A3 duck fraction zero reproduces standing box 3  got (0.000000000, 12.000000000, 50.000000000) want (0.000000000, 12.000000000, 50.000000000)
+PASS  A3 duck fraction zero reproduces standing size 3  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  A3 duck fraction one reproduces crouched box 3  got (0.000000000, 12.000000000, 25.000000000) want (0.000000000, 12.000000000, 25.000000000)
+PASS  A3 duck fraction one reproduces crouched size 3  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  A3 duck fraction zero reproduces standing box 4  got (0.000000000, -12.000000000, 50.000000000) want (0.000000000, -12.000000000, 50.000000000)
+PASS  A3 duck fraction zero reproduces standing size 4  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  A3 duck fraction one reproduces crouched box 4  got (0.000000000, -12.000000000, 25.000000000) want (0.000000000, -12.000000000, 25.000000000)
+PASS  A3 duck fraction one reproduces crouched size 4  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  A3 duck fraction zero reproduces standing box 5  got (0.000000000, 12.000000000, 34.500000000) want (0.000000000, 12.000000000, 34.500000000)
+PASS  A3 duck fraction zero reproduces standing size 5  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  A3 duck fraction one reproduces crouched box 5  got (0.000000000, 12.000000000, 17.250000000) want (0.000000000, 12.000000000, 17.250000000)
+PASS  A3 duck fraction one reproduces crouched size 5  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  A3 duck fraction zero reproduces standing box 6  got (0.000000000, -12.000000000, 34.500000000) want (0.000000000, -12.000000000, 34.500000000)
+PASS  A3 duck fraction zero reproduces standing size 6  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  A3 duck fraction one reproduces crouched box 6  got (0.000000000, -12.000000000, 17.250000000) want (0.000000000, -12.000000000, 17.250000000)
+PASS  A3 duck fraction one reproduces crouched size 6  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  A3 duck fraction zero reproduces standing box 7  got (0.000000000, 4.000000000, 30.500000000) want (0.000000000, 4.000000000, 30.500000000)
+PASS  A3 duck fraction zero reproduces standing size 7  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 7  got (0.000000000, 4.000000000, 15.250000000) want (0.000000000, 4.000000000, 15.250000000)
+PASS  A3 duck fraction one reproduces crouched size 7  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 8  got (0.000000000, -4.000000000, 30.500000000) want (0.000000000, -4.000000000, 30.500000000)
+PASS  A3 duck fraction zero reproduces standing size 8  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 8  got (0.000000000, -4.000000000, 15.250000000) want (0.000000000, -4.000000000, 15.250000000)
+PASS  A3 duck fraction one reproduces crouched size 8  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 9  got (0.000000000, 4.000000000, 11.500000000) want (0.000000000, 4.000000000, 11.500000000)
+PASS  A3 duck fraction zero reproduces standing size 9  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 9  got (0.000000000, 4.000000000, 5.750000000) want (0.000000000, 4.000000000, 5.750000000)
+PASS  A3 duck fraction one reproduces crouched size 9  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A3 duck fraction zero reproduces standing box 10  got (0.000000000, -4.000000000, 11.500000000) want (0.000000000, -4.000000000, 11.500000000)
+PASS  A3 duck fraction zero reproduces standing size 10  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  A3 duck fraction one reproduces crouched box 10  got (0.000000000, -4.000000000, 5.750000000) want (0.000000000, -4.000000000, 5.750000000)
+PASS  A3 duck fraction one reproduces crouched size 10  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A3 eye stays strictly inside head f=0.00000  got true want true
+PASS  A3 eye stays strictly inside head f=0.01562  got true want true
+PASS  A3 eye stays strictly inside head f=0.03125  got true want true
+PASS  A3 eye stays strictly inside head f=0.04688  got true want true
+PASS  A3 eye stays strictly inside head f=0.06250  got true want true
+PASS  A3 eye stays strictly inside head f=0.07812  got true want true
+PASS  A3 eye stays strictly inside head f=0.09375  got true want true
+PASS  A3 eye stays strictly inside head f=0.10938  got true want true
+PASS  A3 eye stays strictly inside head f=0.12500  got true want true
+PASS  A3 eye stays strictly inside head f=0.14062  got true want true
+PASS  A3 eye stays strictly inside head f=0.15625  got true want true
+PASS  A3 eye stays strictly inside head f=0.17188  got true want true
+PASS  A3 eye stays strictly inside head f=0.18750  got true want true
+PASS  A3 eye stays strictly inside head f=0.20312  got true want true
+PASS  A3 eye stays strictly inside head f=0.21875  got true want true
+PASS  A3 eye stays strictly inside head f=0.23438  got true want true
+PASS  A3 eye stays strictly inside head f=0.25000  got true want true
+PASS  A3 eye stays strictly inside head f=0.26562  got true want true
+PASS  A3 eye stays strictly inside head f=0.28125  got true want true
+PASS  A3 eye stays strictly inside head f=0.29688  got true want true
+PASS  A3 eye stays strictly inside head f=0.31250  got true want true
+PASS  A3 eye stays strictly inside head f=0.32812  got true want true
+PASS  A3 eye stays strictly inside head f=0.34375  got true want true
+PASS  A3 eye stays strictly inside head f=0.35938  got true want true
+PASS  A3 eye stays strictly inside head f=0.37500  got true want true
+PASS  A3 eye stays strictly inside head f=0.39062  got true want true
+PASS  A3 eye stays strictly inside head f=0.40625  got true want true
+PASS  A3 eye stays strictly inside head f=0.42188  got true want true
+PASS  A3 eye stays strictly inside head f=0.43750  got true want true
+PASS  A3 eye stays strictly inside head f=0.45312  got true want true
+PASS  A3 eye stays strictly inside head f=0.46875  got true want true
+PASS  A3 eye stays strictly inside head f=0.48438  got true want true
+PASS  A3 eye stays strictly inside head f=0.50000  got true want true
+PASS  A3 eye stays strictly inside head f=0.51562  got true want true
+PASS  A3 eye stays strictly inside head f=0.53125  got true want true
+PASS  A3 eye stays strictly inside head f=0.54688  got true want true
+PASS  A3 eye stays strictly inside head f=0.56250  got true want true
+PASS  A3 eye stays strictly inside head f=0.57812  got true want true
+PASS  A3 eye stays strictly inside head f=0.59375  got true want true
+PASS  A3 eye stays strictly inside head f=0.60938  got true want true
+PASS  A3 eye stays strictly inside head f=0.62500  got true want true
+PASS  A3 eye stays strictly inside head f=0.64062  got true want true
+PASS  A3 eye stays strictly inside head f=0.65625  got true want true
+PASS  A3 eye stays strictly inside head f=0.67188  got true want true
+PASS  A3 eye stays strictly inside head f=0.68750  got true want true
+PASS  A3 eye stays strictly inside head f=0.70312  got true want true
+PASS  A3 eye stays strictly inside head f=0.71875  got true want true
+PASS  A3 eye stays strictly inside head f=0.73438  got true want true
+PASS  A3 eye stays strictly inside head f=0.75000  got true want true
+PASS  A3 eye stays strictly inside head f=0.76562  got true want true
+PASS  A3 eye stays strictly inside head f=0.78125  got true want true
+PASS  A3 eye stays strictly inside head f=0.79688  got true want true
+PASS  A3 eye stays strictly inside head f=0.81250  got true want true
+PASS  A3 eye stays strictly inside head f=0.82812  got true want true
+PASS  A3 eye stays strictly inside head f=0.84375  got true want true
+PASS  A3 eye stays strictly inside head f=0.85938  got true want true
+PASS  A3 eye stays strictly inside head f=0.87500  got true want true
+PASS  A3 eye stays strictly inside head f=0.89062  got true want true
+PASS  A3 eye stays strictly inside head f=0.90625  got true want true
+PASS  A3 eye stays strictly inside head f=0.92188  got true want true
+PASS  A3 eye stays strictly inside head f=0.93750  got true want true
+PASS  A3 eye stays strictly inside head f=0.95312  got true want true
+PASS  A3 eye stays strictly inside head f=0.96875  got true want true
+PASS  A3 eye stays strictly inside head f=0.98438  got true want true
+PASS  A3 eye stays strictly inside head f=1.00000  got true want true
+PASS  A2-b default overlap rule is entry first  got entry_first want entry_first
+PASS  A2-b head priority alternative is configurable  got head_priority_in_overlap want head_priority_in_overlap
+PASS  yaw 0.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 0.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 0.0 box 0 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 0.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 0.0 box 1 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 0.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 0.0 box 2 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 3 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 0.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 3 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 4 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 0.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 0.0 box 4 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 5 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 0.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 5 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 6 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 0.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 0.0 box 6 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 7 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 0.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 7 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 8 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 0.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 0.0 box 8 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 9 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 0.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 9 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 box 10 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 0.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 0.0 box 10 yaw  got 0.000000000 want 0.000000000
+PASS  yaw 0.0 forward axis  got (1.000000000, 0.000000000, 0.000000000) want (1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 0.0 left axis  got (-0.000000000, 1.000000000, 0.000000000) want (-0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 0.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 90.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 90.0 box 0 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 90.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 90.0 box 1 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 90.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 90.0 box 2 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 3 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 3 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 4 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 90.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 90.0 box 4 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 5 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 5 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 6 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 90.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 90.0 box 6 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 7 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 7 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 8 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 90.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 90.0 box 8 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 9 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 9 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 box 10 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 90.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 90.0 box 10 yaw  got 90.000000000 want 90.000000000
+PASS  yaw 90.0 forward axis  got (0.000000000, 1.000000000, 0.000000000) want (0.000000000, 1.000000000, 0.000000000)
+PASS  yaw 90.0 left axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 90.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 180.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 180.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 180.0 box 0 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 180.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 180.0 box 1 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 180.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 180.0 box 2 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 3 center  got (10.000000000, 8.000000000, 83.500000000) want (10.000000000, 8.000000000, 83.500000000)
+PASS  yaw 180.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 3 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 4 center  got (10.000000000, 32.000000000, 83.500000000) want (10.000000000, 32.000000000, 83.500000000)
+PASS  yaw 180.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 180.0 box 4 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 5 center  got (10.000000000, 8.000000000, 68.000000000) want (10.000000000, 8.000000000, 68.000000000)
+PASS  yaw 180.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 5 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 6 center  got (10.000000000, 32.000000000, 68.000000000) want (10.000000000, 32.000000000, 68.000000000)
+PASS  yaw 180.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 180.0 box 6 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 7 center  got (10.000000000, 16.000000000, 64.000000000) want (10.000000000, 16.000000000, 64.000000000)
+PASS  yaw 180.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 7 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 8 center  got (10.000000000, 24.000000000, 64.000000000) want (10.000000000, 24.000000000, 64.000000000)
+PASS  yaw 180.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 180.0 box 8 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 9 center  got (10.000000000, 16.000000000, 45.000000000) want (10.000000000, 16.000000000, 45.000000000)
+PASS  yaw 180.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 9 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 box 10 center  got (10.000000000, 24.000000000, 45.000000000) want (10.000000000, 24.000000000, 45.000000000)
+PASS  yaw 180.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 180.0 box 10 yaw  got 180.000000000 want 180.000000000
+PASS  yaw 180.0 forward axis  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  yaw 180.0 left axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 180.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 270.0 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 270.0 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 270.0 box 0 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 270.0 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 270.0 box 1 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 270.0 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 270.0 box 2 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 3 center  got (22.000000000, 20.000000000, 83.500000000) want (22.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 3 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 4 center  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  yaw 270.0 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 270.0 box 4 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 5 center  got (22.000000000, 20.000000000, 68.000000000) want (22.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 5 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 6 center  got (-2.000000000, 20.000000000, 68.000000000) want (-2.000000000, 20.000000000, 68.000000000)
+PASS  yaw 270.0 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 270.0 box 6 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 7 center  got (14.000000000, 20.000000000, 64.000000000) want (14.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 7 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 8 center  got (6.000000000, 20.000000000, 64.000000000) want (6.000000000, 20.000000000, 64.000000000)
+PASS  yaw 270.0 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 270.0 box 8 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 9 center  got (14.000000000, 20.000000000, 45.000000000) want (14.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 9 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 box 10 center  got (6.000000000, 20.000000000, 45.000000000) want (6.000000000, 20.000000000, 45.000000000)
+PASS  yaw 270.0 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 270.0 box 10 yaw  got 270.000000000 want 270.000000000
+PASS  yaw 270.0 forward axis  got (-0.000000000, -1.000000000, 0.000000000) want (-0.000000000, -1.000000000, 0.000000000)
+PASS  yaw 270.0 left axis  got (1.000000000, -0.000000000, 0.000000000) want (1.000000000, -0.000000000, 0.000000000)
+PASS  yaw 270.0 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 37.5 box 0 center  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  yaw 37.5 box 0 half sizes  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  yaw 37.5 box 0 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 1 center  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  yaw 37.5 box 1 half sizes  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  yaw 37.5 box 1 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 2 center  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  yaw 37.5 box 2 half sizes  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  yaw 37.5 box 2 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 3 center  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  yaw 37.5 box 3 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 3 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 4 center  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  yaw 37.5 box 4 half sizes  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  yaw 37.5 box 4 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 5 center  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  yaw 37.5 box 5 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 5 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 6 center  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  yaw 37.5 box 6 half sizes  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  yaw 37.5 box 6 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 7 center  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  yaw 37.5 box 7 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 7 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 8 center  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  yaw 37.5 box 8 half sizes  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  yaw 37.5 box 8 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 9 center  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  yaw 37.5 box 9 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 9 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 box 10 center  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  yaw 37.5 box 10 half sizes  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  yaw 37.5 box 10 yaw  got 37.500000000 want 37.500000000
+PASS  yaw 37.5 forward axis  got (0.793353340, 0.608761429, 0.000000000) want (0.793353340, 0.608761429, 0.000000000)
+PASS  yaw 37.5 left axis  got (-0.608761429, 0.793353340, 0.000000000) want (-0.608761429, 0.793353340, 0.000000000)
+PASS  yaw 37.5 z-up axis  got (0.000000000, 0.000000000, 1.000000000) want (0.000000000, 0.000000000, 1.000000000)
+PASS  yaw 90 left shoulder expected position  got (-2.000000000, 20.000000000, 83.500000000) want (-2.000000000, 20.000000000, 83.500000000)
+PASS  jump stand box 0 rigid shift  got (10.000000000, 20.000000000, 99.500000000) want (10.000000000, 20.000000000, 99.500000000)
+PASS  jump stand box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  crouch-jump box 0 rigid shift  got (10.000000000, 20.000000000, 63.500000000) want (10.000000000, 20.000000000, 63.500000000)
+PASS  crouch-jump box 0 size unchanged  got (4.000000000, 4.000000000, 6.000000000) want (4.000000000, 4.000000000, 6.000000000)
+PASS  jump stand box 1 rigid shift  got (10.000000000, 20.000000000, 88.000000000) want (10.000000000, 20.000000000, 88.000000000)
+PASS  jump stand box 1 size unchanged  got (8.000000000, 8.000000000, 5.500000000) want (8.000000000, 8.000000000, 5.500000000)
+PASS  crouch-jump box 1 rigid shift  got (10.000000000, 20.000000000, 60.750000000) want (10.000000000, 20.000000000, 60.750000000)
+PASS  crouch-jump box 1 size unchanged  got (8.000000000, 8.000000000, 2.750000000) want (8.000000000, 8.000000000, 2.750000000)
+PASS  jump stand box 2 rigid shift  got (10.000000000, 20.000000000, 78.000000000) want (10.000000000, 20.000000000, 78.000000000)
+PASS  jump stand box 2 size unchanged  got (7.000000000, 7.000000000, 4.500000000) want (7.000000000, 7.000000000, 4.500000000)
+PASS  crouch-jump box 2 rigid shift  got (10.000000000, 20.000000000, 55.750000000) want (10.000000000, 20.000000000, 55.750000000)
+PASS  crouch-jump box 2 size unchanged  got (7.000000000, 7.000000000, 2.250000000) want (7.000000000, 7.000000000, 2.250000000)
+PASS  jump stand box 3 rigid shift  got (2.694862852, 29.520240083, 83.500000000) want (2.694862852, 29.520240083, 83.500000000)
+PASS  jump stand box 3 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 3 rigid shift  got (2.694862852, 29.520240083, 58.500000000) want (2.694862852, 29.520240083, 58.500000000)
+PASS  crouch-jump box 3 size unchanged  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  jump stand box 4 rigid shift  got (17.305137148, 10.479759917, 83.500000000) want (17.305137148, 10.479759917, 83.500000000)
+PASS  jump stand box 4 size unchanged  got (4.000000000, 4.000000000, 8.000000000) want (4.000000000, 4.000000000, 8.000000000)
+PASS  crouch-jump box 4 rigid shift  got (17.305137148, 10.479759917, 58.500000000) want (17.305137148, 10.479759917, 58.500000000)
+PASS  crouch-jump box 4 size unchanged  got (4.000000000, 4.000000000, 4.000000000) want (4.000000000, 4.000000000, 4.000000000)
+PASS  jump stand box 5 rigid shift  got (2.694862852, 29.520240083, 68.000000000) want (2.694862852, 29.520240083, 68.000000000)
+PASS  jump stand box 5 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 5 rigid shift  got (2.694862852, 29.520240083, 50.750000000) want (2.694862852, 29.520240083, 50.750000000)
+PASS  crouch-jump box 5 size unchanged  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  jump stand box 6 rigid shift  got (17.305137148, 10.479759917, 68.000000000) want (17.305137148, 10.479759917, 68.000000000)
+PASS  jump stand box 6 size unchanged  got (3.500000000, 3.500000000, 7.500000000) want (3.500000000, 3.500000000, 7.500000000)
+PASS  crouch-jump box 6 rigid shift  got (17.305137148, 10.479759917, 50.750000000) want (17.305137148, 10.479759917, 50.750000000)
+PASS  crouch-jump box 6 size unchanged  got (3.500000000, 3.500000000, 3.750000000) want (3.500000000, 3.500000000, 3.750000000)
+PASS  jump stand box 7 rigid shift  got (7.564954284, 23.173413361, 64.000000000) want (7.564954284, 23.173413361, 64.000000000)
+PASS  jump stand box 7 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 7 rigid shift  got (7.564954284, 23.173413361, 48.750000000) want (7.564954284, 23.173413361, 48.750000000)
+PASS  crouch-jump box 7 size unchanged  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  jump stand box 8 rigid shift  got (12.435045716, 16.826586639, 64.000000000) want (12.435045716, 16.826586639, 64.000000000)
+PASS  jump stand box 8 size unchanged  got (5.500000000, 5.500000000, 9.500000000) want (5.500000000, 5.500000000, 9.500000000)
+PASS  crouch-jump box 8 rigid shift  got (12.435045716, 16.826586639, 48.750000000) want (12.435045716, 16.826586639, 48.750000000)
+PASS  crouch-jump box 8 size unchanged  got (5.500000000, 5.500000000, 4.750000000) want (5.500000000, 5.500000000, 4.750000000)
+PASS  jump stand box 9 rigid shift  got (7.564954284, 23.173413361, 45.000000000) want (7.564954284, 23.173413361, 45.000000000)
+PASS  jump stand box 9 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 9 rigid shift  got (7.564954284, 23.173413361, 39.250000000) want (7.564954284, 23.173413361, 39.250000000)
+PASS  crouch-jump box 9 size unchanged  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  jump stand box 10 rigid shift  got (12.435045716, 16.826586639, 45.000000000) want (12.435045716, 16.826586639, 45.000000000)
+PASS  jump stand box 10 size unchanged  got (4.500000000, 4.500000000, 9.500000000) want (4.500000000, 4.500000000, 9.500000000)
+PASS  crouch-jump box 10 rigid shift  got (12.435045716, 16.826586639, 39.250000000) want (12.435045716, 16.826586639, 39.250000000)
+PASS  crouch-jump box 10 size unchanged  got (4.500000000, 4.500000000, 4.750000000) want (4.500000000, 4.500000000, 4.750000000)
+PASS  A2-f game-to-spec position  got (12.500000000, 44.250000000, 64.000000000) want (12.500000000, 44.250000000, 64.000000000)
+PASS  A2-f spec-to-game y  got -44.250000000 want -44.250000000
+PASS  A2-f spec-to-game height  got 64.000000000 want 64.000000000
+PASS  A2-e/F yaw uses input_cmd wire quantization  got 127.501831055 want 127.500000000
+PASS  A2-e/F pitch is positive-up on wire, positive-down in spec  got -15.000686656 want -15.000000000
+PASS  A2-e pitch clamps to signed 16-bit range  got 65535 want 65535
+PASS  J5 radius multiplier  got 2.000000000 want 2.000000000
+PASS  J5 diameter mode  got diameter want diameter
+PASS  J6 config matches JSON  got 0.500000000 want 0.500000000
+PASS  J7 stand height matches JSON  got 72.000000000 want 72.000000000
+PASS  J7 eye height matches JSON  got 64.000000000 want 64.000000000
+PASS  J8 proposed length scale  got 0.570000000 want 0.570000000
+PASS  J8 uses rounded v0.2 table  got v0.2_rounded want v0.2_rounded
+PASS  J9 A-pose default  got a_pose want a_pose
+PASS  SKELETON_SHA256 matches canonical JSON  got 56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0 want 56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0
+PASS  SKELETON_SHA256 is 64 lowercase hex  got true want true
+492 passed, 0 failed
+EXIT 0
+
+=== test_ray_box.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  rule1_axis-aligned hit  got true want true
+PASS  rule1 entry distance  got 4.000000000 want 4.000000000
+PASS  rule1 hit point  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  rule1 hit normal  got (-1.000000000, 0.000000000, 0.000000000) want (-1.000000000, 0.000000000, 0.000000000)
+PASS  rule1 parallel on face hits  got true want true
+PASS  rule1 parallel face entry  got 4.000000000 want 4.000000000
+PASS  rule1 parallel outside misses  got false want false
+PASS  rule1 segment ends before box  got false want false
+PASS  rule1 endpoint hit is inclusive  got true want true
+PASS  rule1 box behind shooter misses  got false want false
+PASS  rule1 yaw-frame slab hit  got true want true
+PASS  rule1 yaw-frame distance  got 4.000000000 want 4.000000000
+PASS  rule1 yaw-frame normal  got (-0.000000000, -1.000000000, 0.000000000) want (0.000000000, -1.000000000, 0.000000000)
+PASS  rule2 head wins within distance tolerance  got 0 want 0
+PASS  rule2 lower id wins within priority group  got 3 want 3
+PASS  rule2 smaller entry wins outside tolerance  got 1 want 1
+PASS  rule3 starts inside counts as hit  got true want true
+PASS  rule3 inside distance is zero  got 0.000000000 want 0.000000000
+PASS  rule3 inside point is origin  got (0.000000000, 0.000000000, 0.000000000) want (0.000000000, 0.000000000, 0.000000000)
+PASS  rule3 boundary start counts as inside  got true want true
+PASS  rule3 boundary start distance  got 0.000000000 want 0.000000000
+PASS  rule4 z 72.50 outcome  got near_miss want near_miss
+PASS  rule4 z 72.50 closest distance  got 0.500000000 want 0.500000000
+PASS  rule4 z 72.50 closest box  got 0 want 0
+PASS  rule4 z 72.50 ray point  got (496.000000000, 0.000000000, 72.500000000) want (496.000000000, 0.000000000, 72.500000000)
+PASS  rule4 z 72.50 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 72.99 outcome  got near_miss want near_miss
+PASS  rule4 z 72.99 closest distance  got 0.990000000 want 0.990000000
+PASS  rule4 z 72.99 closest box  got 0 want 0
+PASS  rule4 z 72.99 ray point  got (496.000000000, 0.000000000, 72.990000000) want (496.000000000, 0.000000000, 72.990000000)
+PASS  rule4 z 72.99 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 73.00 outcome  got near_miss want near_miss
+PASS  rule4 z 73.00 closest distance  got 1.000000000 want 1.000000000
+PASS  rule4 z 73.00 closest box  got 0 want 0
+PASS  rule4 z 73.00 ray point  got (496.000000000, 0.000000000, 73.000000000) want (496.000000000, 0.000000000, 73.000000000)
+PASS  rule4 z 73.00 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  rule4 z 73.01 outcome  got none want none
+PASS  rule4 z 73.01 closest distance  got 1.010000000 want 1.010000000
+PASS  rule4 z 73.01 closest box  got 0 want 0
+PASS  rule4 z 73.01 ray point  got (496.000000000, 0.000000000, 73.010000000) want (496.000000000, 0.000000000, 73.010000000)
+PASS  rule4 z 73.01 box point  got (496.000000000, -0.000000000, 72.000000000) want (496.000000000, 0.000000000, 72.000000000)
+PASS  diagonal closest approach outcome  got near_miss want near_miss
+PASS  diagonal closest approach distance  got 0.707106781 want 0.707106781
+PASS  diagonal closest ray point  got (-1.000000000, 1.500000000, 1.500000000) want (-1.000000000, 1.500000000, 1.500000000)
+PASS  diagonal closest box point  got (-1.000000000, 1.000000000, 1.000000000) want (-1.000000000, 1.000000000, 1.000000000)
+PASS  near miss clips to segment endpoint  got 2.236067977 want 2.236067977
+PASS  clipped nearest ray point  got (-2.000000000, 3.000000000, 0.000000000) want (-2.000000000, 3.000000000, 0.000000000)
+PASS  clipped nearest box point  got (-1.000000000, 1.000000000, 0.000000000) want (-1.000000000, 1.000000000, 0.000000000)
+PASS  near-miss tie selects head priority  got 0 want 0
+PASS  near-miss repeated result is deterministic  got 0 want 0
+PASS  near-miss repeated distance is deterministic  got 0.500000000 want 0.500000000
+PASS  near-miss repeated ray point is deterministic  got (9.000000000, 1.500000000, 0.000000000) want (9.000000000, 1.500000000, 0.000000000)
+PASS  near-miss repeated box point is deterministic  got (9.000000000, 1.000000000, 0.000000000) want (9.000000000, 1.000000000, 0.000000000)
+PASS  standing skeleton ray hits head  got 0 want 0
+PASS  standing skeleton padded head distance  got 494.000000000 want 494.000000000
+PASS  standing skeleton padded hit point  got (494.000000000, 0.000000000, 64.000000000) want (494.000000000, 0.000000000, 64.000000000)
+PASS  zero-padding skeleton hit restores legacy distance  got 496.000000000 want 496.000000000
+PASS  zero-padding skeleton hit restores legacy point  got (496.000000000, 0.000000000, 64.000000000) want (496.000000000, 0.000000000, 64.000000000)
+PASS  J17 proposed weapon range  got 8192.000000000 want 8192.000000000
+PASS  A4 default hitbox padding  got 2.000000000 want 2.000000000
+PASS  A4 near-miss log threshold  got 4.000000000 want 4.000000000
+PASS  A4 per-bone padding 0  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 1  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 2  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 3  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 4  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 5  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 6  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 7  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 8  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 9  got 2.000000000 want 2.000000000
+PASS  A4 per-bone padding 10  got 2.000000000 want 2.000000000
+PASS  A4 h+2 padded edge counts as a hit  got true want true
+PASS  A4 padded edge entry  got 2.000000000 want 2.000000000
+PASS  A4 h+2+1e-6 misses the padded box  got false want false
+PASS  A4 padded edge outside remains a near miss  got near_miss want near_miss
+PASS  A4 distance to padded edge  got 0.000001000 want 0.000001000
+PASS  A4 h+1 is outside raw box but inside padding  got true want true
+PASS  A4 zero padding restores raw entry  got 4.000000000 want 4.000000000
+PASS  A4 frontal padding moves entry 2 units closer  got 2.000000000 want 2.000000000
+PASS  A4 near miss at 4.0 is logged  got near_miss want near_miss
+PASS  A4 padded near-miss distance 4.0  got 4.000000000 want 4.000000000
+PASS  A4 near miss at 4.0+1e-6 is not logged  got none want none
+PASS  A4 over-threshold distance  got 4.000001000 want 4.000001000
+PASS  A2 test 7 z=33.0 selects crouched head  got 0 want 0
+PASS  A2 test 7 unpadded head entry  got 496.000000000 want 496.000000000
+PASS  A2 test 7 z=27.25 entry-first selects chest  got 1 want 1
+PASS  A2 test 7 unpadded chest entry  got 492.000000000 want 492.000000000
+PASS  A4 padded z=33.0 selects crouched head  got 0 want 0
+PASS  A4 padded z=33.0 head entry  got 494.000000000 want 494.000000000
+PASS  A4 padded entry-first z=27.25 selects chest  got 1 want 1
+PASS  A4 padded chest entry  got 490.000000000 want 490.000000000
+PASS  A2-b head-priority alternative wins padded overlap  got 0 want 0
+PASS  A2-b head-priority entry uses the head surface  got 494.000000000 want 494.000000000
+PASS  golden case total  got 20012 want 20012
+PASS  required seeded random cases  got 20000 want 20000
+Canonical expected-results SHA-256: 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+PASS  Python/GDScript expected-results SHA-256  got 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3 want 4b89531368bd3b0ca06068289b561027fc4cb32fdcc2ffea14fa5e5f99d9afb3
+Golden summary: 20012 cases; maximum absolute error 0.000000051619
+PASS  golden category aimed_hit count  got 6000 want 6000
+PASS  golden category near_miss count  got 6000 want 6000
+PASS  golden category parallel count  got 2000 want 2000
+PASS  golden category inside count  got 2000 want 2000
+PASS  golden category segment_short count  got 1000 want 1000
+PASS  golden category box_behind count  got 1000 want 1000
+PASS  golden category multi_box count  got 2000 want 2000
+PASS  golden category boundary_near_0_5 count  got 1 want 1
+PASS  golden category boundary_near_0_99 count  got 1 want 1
+PASS  golden category boundary_near_1_0 count  got 1 want 1
+PASS  golden category boundary_near_1_01 count  got 1 want 1
+PASS  golden category boundary_edge_graze count  got 1 want 1
+PASS  golden category boundary_thigh_overlap count  got 1 want 1
+PASS  golden category boundary_crouched_head_chest count  got 1 want 1
+PASS  golden category boundary_yaw_0.0 count  got 1 want 1
+PASS  golden category boundary_yaw_90.0 count  got 1 want 1
+PASS  golden category boundary_yaw_180.0 count  got 1 want 1
+PASS  golden category boundary_yaw_270.0 count  got 1 want 1
+PASS  golden category boundary_yaw_359.999 count  got 1 want 1
+PASS  golden maximum absolute error  got 0.000000052 want 0.000000000
+Deterministic result SHA-256: 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b
+PASS  golden suite rerun is byte-identical  got 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b want 2a629a07bcd2b4aca0e5b7ff4ec61255b26be1ac0c2d73d59623bdeb5e134c6b
+PASS  padded golden case total  got 20012 want 20012
+PASS  padded seeded random cases  got 20000 want 20000
+PASS  padded threshold is 4 units  got 4.0 want 4.0
+PASS  padded amount is 2 units  got 2.000000000 want 2.000000000
+Padded expected-results SHA-256: 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609
+PASS  padded Python/GDScript expected-results SHA-256  got 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609 want 2d204cc4c424ffefc6682e6d17b10a1c6c0a551a6faa04ce1ca4fa9b2f273609
+Padded golden summary: 20012 cases; maximum absolute error 0.000000012905
+PASS  padded category aimed_hit count  got 6000 want 6000
+PASS  padded category near_miss count  got 6000 want 6000
+PASS  padded category parallel count  got 2000 want 2000
+PASS  padded category inside count  got 2000 want 2000
+PASS  padded category segment_short count  got 1000 want 1000
+PASS  padded category box_behind count  got 1000 want 1000
+PASS  padded category multi_box count  got 2000 want 2000
+PASS  padded category boundary_near_0_5 count  got 1 want 1
+PASS  padded category boundary_near_0_99 count  got 1 want 1
+PASS  padded category boundary_near_1_0 count  got 1 want 1
+PASS  padded category boundary_near_1_01 count  got 1 want 1
+PASS  padded category boundary_edge_graze count  got 1 want 1
+PASS  padded category boundary_thigh_overlap count  got 1 want 1
+PASS  padded category boundary_crouched_head_chest count  got 1 want 1
+PASS  padded category boundary_yaw_0.0 count  got 1 want 1
+PASS  padded category boundary_yaw_90.0 count  got 1 want 1
+PASS  padded category boundary_yaw_180.0 count  got 1 want 1
+PASS  padded category boundary_yaw_270.0 count  got 1 want 1
+PASS  padded category boundary_yaw_359.999 count  got 1 want 1
+PASS  padded golden maximum absolute error  got 0.000000013 want 0.000000000
+143 passed, 0 failed
+EXIT 0
+
+=== test_lagcomp.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  history 64-tick rewind cap  got 12 want 12
+PASS  history 64-tick capacity  got 13 want 13
+PASS  history 100-tick rewind cap  got 20 want 20
+PASS  history 100-tick capacity  got 21 want 21
+PASS  history 128-tick rewind cap  got 25 want 25
+PASS  history 128-tick capacity  got 26 want 26
+PASS  all 1,000 sequential samples accepted  got true want true
+PASS  ring retains exactly 26 samples  got 26 want 26
+PASS  ring newest tick  got 999 want 999
+PASS  oldest retained tick  got 974.0 want 974
+PASS  oldest retained sample is present  got false want false
+PASS  expired history returns oldest tick  got 974 want 974
+PASS  expired history is marked missing  got true want true
+PASS  out-of-range slot rejects sample  got false want false
+PASS  all 1,601 fractional queries have history  got true want true
+PASS  linear path max error for 1601 fractional queries  got 0.000000000 want 0.000000000
+PASS  shortest yaw arc halfway  got 0.000000000 want 0.000000000
+PASS  origin linear interpolation  got 4.000000000 want 4.000000000
+PASS  nearer old stance before midpoint  got 1 want 1
+PASS  nearer new stance after midpoint  got 0 want 0
+PASS  older stance wins exact midpoint  got 1 want 1
+PASS  alive if both samples alive  got true want true
+PASS  interpolated sample dead if either endpoint dead  got false want false
+PASS  missing-history sample uses oldest tick  got 995 want 995
+PASS  missing-history flag set  got true want true
+PASS  missing-history uses oldest origin  got 995.000000000 want 995.000000000
+PASS  rewind targets alive slots only  got [1, 3] want [1, 3]
+PASS  shooter and dead slots excluded  got 0 want 0
+PASS  missing history target not in mask  got 0 want 0
+PASS  complete-history target in mask  got 2 want 2
+PASS  one target has missing history  got 1 want 1
+PASS  only complete-history target rewound  got 1 want 1
+PASS  rewound boxes match exact linear path  got 0.000000000 want 0.000000000
+PASS  A3 64 tick mid-duck history fraction  got 0.500000000 want 0.500000000
+PASS  A3 64 tick mid-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 64 tick mid-duck eye height  got 48.000000000 want 48.000000000
+PASS  A3 64 tick mid-duck head height hits head  got 0 want 0
+PASS  A3 64 tick stand height is not a head hit  got false want false
+PASS  A3 64 tick crouch height misses mid-duck ray  got none want none
+PASS  A3 100 tick mid-duck history fraction  got 0.500000000 want 0.500000000
+PASS  A3 100 tick mid-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 100 tick mid-duck eye height  got 48.000000000 want 48.000000000
+PASS  A3 100 tick mid-duck head height hits head  got 0 want 0
+PASS  A3 100 tick stand height is not a head hit  got false want false
+PASS  A3 100 tick crouch height misses mid-duck ray  got none want none
+PASS  A3 128 tick mid-duck history fraction  got 0.500000000 want 0.500000000
+PASS  A3 128 tick mid-duck head top  got 54.000000000 want 54.000000000
+PASS  A3 128 tick mid-duck eye height  got 48.000000000 want 48.000000000
+PASS  A3 128 tick mid-duck head height hits head  got 0 want 0
+PASS  A3 128 tick stand height is not a head hit  got false want false
+PASS  A3 128 tick crouch height misses mid-duck ray  got none want none
+PASS  J10 default interpolation ticks  got 4 want 4
+PASS  J11 rewind cap 64 tick  got 12 want 12
+PASS  J11 rewind cap 100 tick  got 20 want 20
+PASS  J11 rewind cap 128 tick  got 25 want 25
+PASS  80ms/interp4 wanted rewind  got 14.240000000 want 14.240000000
+PASS  80ms/interp4 whole rewind  got 14 want 14
+PASS  80ms/interp4 fraction  got 15729 want 15729
+PASS  80ms/interp4 reason  got 0 want 0
+PASS  80ms/interp4 flags  got 0 want 0
+PASS  80ms/interp4 accepts expected claim  got false want false
+PASS  chosen tick matches encoded rewind  got 985.759994507 want 985.759994507
+PASS  80ms/interp2 wanted rewind  got 12.240000000 want 12.240000000
+PASS  80ms/interp3 wanted rewind  got 13.240000000 want 13.240000000
+PASS  claimed-time +0.9 accepted  got false want false
+PASS  claimed-time +1.0 inclusive  got false want false
+PASS  claimed-time +1.1 rejected  got true want true
+PASS  claimed-time reason 1  got 1 want 1
+PASS  claimed-time flag bit 1  got 2 want 2
+PASS  claimed-time clamped to plus one  got 986.760000000 want 986.760000000
+PASS  backtrack claim clamps to minus one  got 1 want 1
+PASS  backtrack clamped claim  got 984.760000000 want 984.760000000
+PASS  full compensation limit is 25 ticks  got 25.000000000 want 25.000000000
+PASS  exact cap not flagged  got 0 want 0
+PASS  170ms wanted rewind  got 25.760000000 want 25.760000000
+PASS  over-cap clamps to 25  got 25 want 25
+PASS  over-cap fraction clears  got 0 want 0
+PASS  over-cap reason 2  got 2 want 2
+PASS  over-cap flag bit 0  got 1 want 1
+PASS  full compensation interp2 limit  got 25.000000000 want 25.000000000
+PASS  full compensation interp3 limit  got 25.000000000 want 25.000000000
+PASS  negative rewind clamps to zero  got 0 want 0
+PASS  negative rewind combined reason 5  got 5 want 5
+PASS  negative rewind has claim flag  got 2 want 2
+PASS  negative rewind has negative flag  got 16 want 16
+PASS  both clamps reason 3  got 3 want 3
+PASS  both clamps flags 0 and 1  got 3 want 3
+PASS  missing-only reason 6  got 6 want 6
+PASS  missing-history flag bit 5  got 32 want 32
+PASS  missing history preserves clamp reason  got 1 want 1
+PASS  missing history adds flag to clamp  got 32 want 32
+PASS  fraction rounding carries whole tick  got 11 want 11
+PASS  fraction rounding carry clears remainder  got 0 want 0
+PASS  ScriptedPath linear speed  got 250.000000000 want 250.000000000
+PASS  ScriptedPath circle endpoint  got (-20.000000000, 0.000000000, 0.000000000) want (-20.000000000, 0.000000000, 0.000000000)
+PASS  ScriptedPath circle tangent yaw  got 270.000000000 want 270.000000000
+PASS  ScriptedPath peek starts in cover  got 60.000000000 want 60.000000000
+PASS  ScriptedPath peek returns to cover  got 60.000000000 want 60.000000000
+PASS  ScriptedPath stance toggle  got 1 want 1
+PASS  ScriptedPath spawn marker  got true want true
+PASS  ScriptedPath death marker  got false want false
+PASS  lag-comp golden case total  got 5015 want 5015
+PASS  lag-comp random case count  got 5000 want 5000
+Lag-comp summary: 5015 cases; maximum pose absolute error 0.000000000000
+PASS  lag-comp golden category linear_rate_100 count  got 542 want 542
+PASS  lag-comp golden category circle_rate_128 count  got 546 want 546
+PASS  lag-comp golden category circle_rate_100 count  got 572 want 572
+PASS  lag-comp golden category peek_rate_128 count  got 523 want 523
+PASS  lag-comp golden category peek_rate_64 count  got 556 want 556
+PASS  lag-comp golden category peek_rate_100 count  got 583 want 583
+PASS  lag-comp golden category circle_rate_64 count  got 553 want 553
+PASS  lag-comp golden category linear_rate_64 count  got 564 want 564
+PASS  lag-comp golden category linear_rate_128 count  got 561 want 561
+PASS  lag-comp golden category rtt_80_interp_4 count  got 1 want 1
+PASS  lag-comp golden category claim_plus_0_9 count  got 1 want 1
+PASS  lag-comp golden category claim_plus_1_0_inclusive count  got 1 want 1
+PASS  lag-comp golden category claim_plus_1_1 count  got 1 want 1
+PASS  lag-comp golden category backtrack_minus_5 count  got 1 want 1
+PASS  lag-comp golden category full_cap_164ms count  got 1 want 1
+PASS  lag-comp golden category over_cap_170ms count  got 1 want 1
+PASS  lag-comp golden category reason_3_both_clamps count  got 1 want 1
+PASS  lag-comp golden category reason_4_negative_in_window count  got 1 want 1
+PASS  lag-comp golden category reason_5_claim_and_negative count  got 1 want 1
+PASS  lag-comp golden category reason_6_missing_history count  got 1 want 1
+PASS  lag-comp golden category circle_shortest_yaw count  got 1 want 1
+PASS  lag-comp golden category peek_path count  got 1 want 1
+PASS  lag-comp golden category stance_toggle_path count  got 1 want 1
+PASS  lag-comp golden category dead_target count  got 1 want 1
+PASS  lag-comp golden max pose error  got 0.000000000 want 0.000000000
+128 passed, 0 failed
+EXIT 0
+
+=== test_hitreg.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  scenario1 one hit record  got 1 want 1
+PASS  scenario1 outcome hit  got 0 want 0
+PASS  scenario1 head box  got 0 want 0
+PASS  scenario1 head region  got 0 want 0
+PASS  scenario1 hit distance  got 0.000000000 want 0.000000000
+PASS  scenario1 padded trace entry distance  got 494.000000142 want 494.000000142
+PASS  scenario1 padded hit ray point  got (494.000000000, 0.000000000, 64.011840595)
+PASS  scenario1 padded hit box point  got (494.000000000, 0.000000000, 64.011840595)
+PASS  scenario1 rewind zero  got 0 want 0
+PASS  scenario1 rewind flags zero  got 0 want 0
+PASS  scenario1 no input reject  got <null> want <null>
+PASS  scenario2 chosen rewind  got 14.240000000 want 14.240000000
+PASS  scenario2 chest hit  got 1 want 1
+PASS  scenario2 chest part  got 1 want 1
+PASS  scenario2 chest region  got 1 want 1
+PASS  scenario2 without rewind is a clean miss  got none want none
+PASS  scenario5 z 74.50 record count  got 1 want 1
+PASS  scenario5 z 74.50 near miss  got 1 want 1
+PASS  scenario5 z 74.50 distance  got 0.511840595 want 0.511840595
+PASS  scenario5 z 74.99 record count  got 1 want 1
+PASS  scenario5 z 74.99 near miss  got 1 want 1
+PASS  scenario5 z 74.99 distance  got 1.001840595 want 1.001840595
+PASS  scenario5 z 75.00 record count  got 1 want 1
+PASS  scenario5 z 75.00 near miss  got 1 want 1
+PASS  scenario5 z 75.00 distance  got 1.011840595 want 1.011840595
+PASS  scenario5 z 77.98 record count  got 1 want 1
+PASS  scenario5 z 77.98 near miss  got 1 want 1
+PASS  scenario5 z 77.98 distance  got 3.991840594 want 3.991840595
+PASS  scenario5 z 78.00 record count  got 0 want 0
+PASS  scenario3 rewound peeker is hit  got 1 want 1
+PASS  scenario3 open peek hits chest  got 1 want 1
+PASS  scenario3 open ray clears wall  got false want false
+PASS  scenario3 target is behind wall at now  got true want true
+PASS  scenario3 hidden ray is world blocked  got true want true
+PASS  scenario3 wall-blocked shot has no SHOT  got 0 want 0
+PASS  scenario3 wall-block still records rewind  got true want true
+PASS  J14 off permits hidden target hit  got true want true
+PASS  J14 off logs THROUGH_WORLD  got 4 want 4
+PASS  scenario4 backtrack clamp reason  got 1 want 1
+PASS  scenario4 backtrack input reject  got 1 want 1
+PASS  scenario4 padded boundary remains logged  got 1 want 1
+PASS  scenario4 old head position is a near miss  got 1 want 1
+PASS  scenario4 near miss is inside 4-unit logger  got true want true
+PASS  scenario6 spread produces one hit  got 1 want 1
+PASS  scenario6 spread moves head aim to chest  got 1 want 1
+PASS  scenario6 downward vertical offset  got -0.005500000 want -0.005500000
+PASS  scenario6 zero spread remains a headshot  got 0 want 0
+PASS  scenario7 z=33.0 crouched head hits head  got 0 want 0
+PASS  scenario7 crouched head distance  got 0.000000000 want 0.000000000
+PASS  scenario7 padded head entry  got 494.000000142 want 494.000000142
+PASS  scenario7 z=27.25 entry-first selects chest  got 1 want 1
+PASS  scenario7 padded chest trace entry distance  got 490.000000141 want 490.000000141
+PASS  scenario7 configured overlap alternative selects head  got 0 want 0
+PASS  scenario7 alternative padded head entry  got 494.000000142 want 494.000000142
+PASS  scenario8 behind target ignored after first hit  got 1 want 1
+PASS  scenario8 first target is hit  got 1 want 1
+PASS  scenario8 front graze creates two records  got 2 want 2
+PASS  scenario8 front target is near miss  got 1 want 1
+PASS  scenario8 hit records share shot index  got 1 want 1
+PASS  J13 penetration alternative reaches rear target  got 2 want 2
+PASS  scenario9 teammate is traced  got 1 want 1
+PASS  scenario9 same-team marker  got true want true
+PASS  scenario10 dead target not traced  got 0 want 0
+PASS  scenario10 missing-history target still traced  got 1 want 1
+PASS  scenario10 missing-history rewind reason  got 6 want 6
+PASS  scenario10 missing-history flag bit  got 32 want 32
+PASS  scenario10 missing-history target not in mask  got 0 want 0
+PASS  scenario10 uses oldest target origin  got 500.000000000 want 500.000000000
+PASS  scenario11 shooter command has no seed  got false want false
+PASS  scenario11 different server seed can change result  got true want true
+PASS  J12 placeholder base damage  got 0.000000000 want 0.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J12 placeholder damage multiplier  got 1.000000000 want 1.000000000
+PASS  J13 non-penetration default  got false want false
+PASS  J14 world-block default  got true want true
+PASS  damage region for box 0  got 0 want 0
+PASS  damage region for box 1  got 1 want 1
+PASS  damage region for box 2  got 2 want 2
+PASS  damage region for box 3  got 3 want 3
+PASS  damage region for box 4  got 3 want 3
+PASS  damage region for box 5  got 3 want 3
+PASS  damage region for box 6  got 3 want 3
+PASS  damage region for box 7  got 4 want 4
+PASS  damage region for box 8  got 4 want 4
+PASS  damage region for box 9  got 4 want 4
+PASS  damage region for box 10  got 4 want 4
+PASS  hitreg named cases present  got 22 want 22
+PASS  hitreg random cases present  got 2000 want 2000
+PASS  hitreg total cases present  got 2022 want 2022
+PASS  Python reference includes scenario 1  got true want true
+PASS  Python reference includes scenario 2  got true want true
+PASS  Python reference includes scenario 3  got true want true
+PASS  Python reference includes scenario 4  got true want true
+PASS  Python reference includes scenario 5  got true want true
+PASS  Python reference includes scenario 6  got true want true
+PASS  Python reference includes scenario 7  got true want true
+PASS  Python reference includes scenario 8  got true want true
+PASS  Python reference includes scenario 9  got true want true
+PASS  Python reference includes scenario 10  got true want true
+PASS  Python reference includes scenario 11  got true want true
+PASS  hitreg golden category named count  got 22 want 22
+PASS  hitreg golden category random count  got 2000 want 2000
+Hitreg golden summary: 2022 cases; max numeric error 0.000000815252
+PASS  hitreg golden maximum error  got 0.000000815 want 0.000000000
+106 passed, 0 failed
+EXIT 0
+
+=== test_evidence.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  evidence ledger disabled by default  got false want false
+PASS  default writer refuses to open  got false want false
+PASS  default reader refuses to read  got false want false
+PASS  default reader reports evidence_disabled  got evidence_disabled want evidence_disabled
+PASS  default reader gates file access before open  got evidence_disabled want evidence_disabled
+PASS  default JSONL export is disabled  got false want false
+PASS  Python verifier requires explicit evidence opt-in  got 2 want 2
+PASS  Python verifier explains default-off flag  got true want true
+PASS  IEEE CRC-32 test vector  got 3421780262 want 3421780262
+PASS  writer opens fixture file with explicit opt-in  got true want true
+PASS  SHOT write  got true want true
+PASS  VIS write  got true want true
+PASS  INPUT_REJECT write  got true want true
+PASS  REWIND_DECISION write  got true want true
+PASS  AIM_KIN write  got true want true
+PASS  128-tick periodic checkpoint  got true want true
+PASS  checkpoint index after periodic write  got 1 want 1
+PASS  final checkpoint close  got true want true
+PASS  binary header size  got 192 want 192
+PASS  header begins with FPEV  got FPEV want FPEV
+PASS  header tick rate little-endian  got 128 want 128
+PASS  header slot count  got 2 want 2
+PASS  file header byte length  got 192 want 192
+PASS  record 1 body length  got 108 want 108
+PASS  record 1 CRC  got 2403203777 want 2403203777
+PASS  record 2 body length  got 12 want 12
+PASS  record 2 CRC  got 1609199001 want 1609199001
+PASS  record 3 body length  got 26 want 26
+PASS  record 3 CRC  got 4003845131 want 4003845131
+PASS  record 5 body length  got 64 want 64
+PASS  record 5 CRC  got 3123076743 want 3123076743
+PASS  record 6 body length  got 40 want 40
+PASS  record 6 CRC  got 369785391 want 369785391
+PASS  record 4 body length  got 36 want 36
+PASS  record 4 body length  got 36 want 36
+PASS  all six record types emitted  got true want true
+PASS  two checkpoints emitted  got 2 want 2
+PASS  first checkpoint count excludes itself  got 5 want 5
+PASS  final checkpoint count is zero  got 0 want 0
+PASS  rewind prefix checkpoint index  got 0 want 0
+PASS  rewind chain prefix starts at header hash  bde703945038826a
+PASS  P6b reader verifies writer output  got true want true
+PASS  P6b reader reports no errors  got 0 want 0
+PASS  P6b reader finds all records  got 7 want 7
+PASS  P6b reader verifies two checkpoints  got 2 want 2
+PASS  P6b chain status  got CHAIN OK want CHAIN OK
+PASS  JSONL export chain status  got CHAIN OK want CHAIN OK
+PASS  JSONL has one line per record  got 7 want 7
+PASS  JSONL first record type  got shot want shot
+PASS  JSONL head name  got head want head
+PASS  JSONL hit outcome name  got hit want hit
+PASS  AIM_KIN disabled writer opens  got true want true
+PASS  J19 AIM_KIN disabled  got false want false
+PASS  disabled AIM_KIN leaves writer usable  got true want true
+PASS  disabled AIM_KIN writer closes  got true want true
+PASS  J19 proposed default is enabled when ledger is opted in  got true want true
+PASS  proposed checkpoint cadence  got 128 want 128
+PASS  retention decision proposal  got 90 want 90
+PASS  GDScript golden writer produced bytes  got true want true
+PASS  GDScript writer matches Python golden bytes  8320 bytes sha256=015471da18b58d450b9f4fbc4f3d86c946eaf4377ceecceaa747d9e86a53e788
+PASS  Python golden passes GDScript reader  got true want true
+PASS  golden has at least three checkpoints  got true want true
+PASS  golden has 108 records  got 108 want 108
+PASS  GDScript exporter chain status  got CHAIN OK want CHAIN OK
+PASS  GDScript JSONL matches golden  36005 chars sha256=36ed75d1de1992aca4803358b9382d98d62283e2eb9808c1e9916171a1aab0a0
+PASS  Python writer exits successfully  got 0 want 0
+PASS  Python writer matches GDScript bytes  8320 bytes sha256=015471da18b58d450b9f4fbc4f3d86c946eaf4377ceecceaa747d9e86a53e788
+PASS  Python reader accepts GDScript output  got 0 want 0
+PASS  Python reader reports CHAIN OK  got CHAIN OK want CHAIN OK
+PASS  Python export exits successfully  got 0 want 0
+PASS  Python and GDScript JSONL are identical  got true want true
+PASS  Python tamper suite exits successfully  got 0 want 0
+PASS  both tamper readers cover all cases  got 13 want 13
+PASS  tamper shot_body detected identically by both readers (record 12)  got true want true
+PASS  tamper shot_body reports crc32  got true want true
+PASS  tamper shot_body reports checkpoint_chain  got true want true
+PASS  tamper vis_body detected identically by both readers (record 0)  got true want true
+PASS  tamper vis_body reports crc32  got true want true
+PASS  tamper vis_body reports checkpoint_chain  got true want true
+PASS  tamper input_reject_body detected identically by both readers (record 10)  got true want true
+PASS  tamper input_reject_body reports crc32  got true want true
+PASS  tamper input_reject_body reports checkpoint_chain  got true want true
+PASS  tamper rewind_body detected identically by both readers (record 11)  got true want true
+PASS  tamper rewind_body reports crc32  got true want true
+PASS  tamper rewind_body reports checkpoint_chain  got true want true
+PASS  tamper aim_kin_body detected identically by both readers (record 14)  got true want true
+PASS  tamper aim_kin_body reports crc32  got true want true
+PASS  tamper aim_kin_body reports checkpoint_chain  got true want true
+PASS  tamper shot_crc detected identically by both readers (record 12)  got true want true
+PASS  tamper shot_crc reports crc32  got true want true
+PASS  tamper shot_crc reports checkpoint_chain  got true want true
+PASS  tamper checkpoint_record_count detected identically by both readers (record 67)  got true want true
+PASS  tamper checkpoint_record_count reports checkpoint_record_count  got true want true
+PASS  tamper checkpoint_record_count reports checkpoint_chain  got true want true
+PASS  tamper delete_record detected identically by both readers (record 66)  got true want true
+PASS  tamper delete_record reports checkpoint_record_count  got true want true
+PASS  tamper delete_record reports checkpoint_chain  got true want true
+PASS  tamper truncate_final_interval detected identically by both readers (record 107)  got true want true
+PASS  tamper truncate_final_interval reports missing_final_checkpoint  got true want true
+PASS  tamper file_header detected identically by both readers (record 11)  got true want true
+PASS  tamper file_header reports checkpoint_chain  got true want true
+PASS  tamper swap_records detected identically by both readers (record 67)  got true want true
+PASS  tamper swap_records reports checkpoint_chain  got true want true
+PASS  tamper move_rewind_interval detected identically by both readers (record 66)  got true want true
+PASS  tamper move_rewind_interval reports checkpoint_chain  got true want true
+PASS  tamper move_rewind_interval reports rewind_checkpoint_link  got true want true
+PASS  tamper replace_with_other_valid_match detected identically by both readers (record 108)  got true want true
+PASS  tamper replace_with_other_valid_match reports final_hash_mismatch  got true want true
+108 passed, 0 failed
+EXIT 0
+
+=== test_anticheat.gd ===
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  AIM_KIN constant delta within wire angle step  got 0.785522461 want 0.781250000
+PASS  AIM_KIN constant speed within wire angle step  got 100.546874971 want 100.000000000
+PASS  AIM_KIN constant acceleration bounded by quantization  got 89.999999974 want 0.000000000
+PASS  AIM_KIN constant turn never settles  got 255 want 255
+PASS  AIM_KIN constant turn has no flags  got 0 want 0
+PASS  AIM_KIN 16-bit speed within angle noise  got 100.546874971 want 100.000000000
+PASS  AIM_KIN fire-tick jump  got 4.998779295 want 5.000000000
+PASS  AIM_KIN snapback distance  got 4.998779295 want 5.000000000
+PASS  AIM_KIN snapback cosine  got -1.000000000 want -1.000000000
+PASS  AIM_KIN SNAPBACK flag  got 1 want 1
+PASS  AIM_KIN flick acceleration within wire noise  got 327689.999904903 want 327680.000000000
+PASS  AIM_KIN flick settles in one tick  got 1 want 1
+PASS  AIM_KIN FLICK_STOP_AT_FIRE flag  got 2 want 2
+PASS  AIM_KIN flick is not snapback  got 0 want 0
+PASS  AIM_KIN yaw wrap is one degree  got 0.999755859 want 1.000000000
+PASS  AIM_KIN yaw wrap is not a flick stop  got 0 want 0
+PASS  AIM_KIN excludes reset window  got true want true
+PASS  AIM_KIN reset has no flags  got 0 want 0
+PASS  AIM_KIN repeated fire tick has no snap  got 0 want 0
+PASS  AIM_KIN dead player is excluded  got true want true
+PASS  AIM_KIN orders by cmd_seq  got 100.546874971 want 100.546874971
+PASS  AIM_KIN human flick with overshoot is unflagged  got 0 want 0
+PASS  AIM_KIN 150ms out-of-order arrival preserves result  got 0 want 0
+PASS  AIM_KIN spray transfer is unflagged  got 0 want 0
+PASS  AIM_KIN slow precise adjustment is unflagged  got 0 want 0
+PASS  AIM_KIN multi-tick settle is not a flick-stop  got 0 want 0
+PASS  AIM_KIN multi-tick settle duration  got 2 want 2
+PASS  J15 default permits a large yaw flick  got true want true
+PASS  J15 finite alternative rejects yaw delta  got false want false
+PASS  J15 finite alternative reason 2  got 2 want 2
+PASS  J15 finite alternative includes its limit  got true want true
+PASS  J15 pitch outside +/-89 is malformed  got 4 want 4
+PASS  J15 non-finite angle is malformed  got 4 want 4
+PASS  offline anti-cheat review disabled by default  got false want false
+PASS  default analyzer reports disabled  got true want true
+PASS  default analyzer keeps auto action NONE  got NONE want NONE
+PASS  default analyzer produces no status rows  got 0 want 0
+PASS  default review writer refuses output  got review_disabled want review_disabled
+PASS  Python offline review requires explicit opt-in  got 2 want 2
+PASS  Python offline review explains default-off flags  got true want true
+PASS  unspecified match uses default AIM_KIN profile  got default want default
+PASS  server surf metadata selects surf AIM_KIN profile  got surf want surf
+PASS  client cannot select AIM_KIN profile  got default want default
+PASS  7A exactly 32 ticks at 2 degrees counts  got 1 want 1
+PASS  7A inclusive angle threshold  got 2.000000000 want 2.000000000
+PASS  7A 31 ticks does not count  got 0 want 0
+PASS  7A 2.01 degrees does not count  got 0 want 0
+PASS  7A exactly 3.0 weighted episodes  got 3.000000000 want 3.000000000
+PASS  7A 3.0 weighted episodes reaches review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7A teammate weight yields 2.75  got 2.750000000 want 2.750000000
+PASS  7A 2.75 weighted episodes stays unflagged  got NO_FLAG want NO_FLAG
+PASS  7A invalid evidence chain cannot raise a review flag  got NO_FLAG want NO_FLAG
+PASS  7A G=63-tick recent visibility drops episode  got 0.000000000 want 0.000000000
+PASS  7A G=65-tick visibility is outside grace  got 1.000000000 want 1.000000000
+PASS  7A S=1992ms sound explains aim  got 0.000000000 want 0.000000000
+PASS  7A S=2008ms sound is too old  got 1.000000000 want 1.000000000
+PASS  7A sound angle 4.1 degrees does not explain  got 1.000000000 want 1.000000000
+PASS  7A common pre-aim spot drops episode  got 0.000000000 want 0.000000000
+PASS  7A pre-aim spot outside radius counts  got 1.000000000 want 1.000000000
+PASS  7A teammate information weighs 0.25  got 0.250000000 want 0.250000000
+PASS  7A teammate explanation is recorded  got true want true
+PASS  7A dead viewer produces no episode  got 0 want 0
+PASS  7A same-team target is excluded  got 0 want 0
+PASS  7A tracking correlation fixture near 0.85  got 0.850200000 want 0.850000000
+PASS  7A correlation 0.85 is tracking  got tracking want tracking
+PASS  7A tracking correlation fixture near 0.75  got 0.750000000 want 0.750000000
+PASS  7A correlation 0.75 is aim only  got aim want aim
+PASS  7A two clean shots at unsent trigger review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7A one hit plus near misses do not trigger review  got NO_FLAG want NO_FLAG
+PASS  7A THROUGH_WORLD hits do not trigger review  got NO_FLAG want NO_FLAG
+PASS  7B three flagged rounds require review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7B three flick-stop rounds require review  got NEEDS_HUMAN_REVIEW want NEEDS_HUMAN_REVIEW
+PASS  7B three flags in one round do not require review  got NO_FLAG want NO_FLAG
+PASS  7B two flagged rounds do not require review  got NO_FLAG want NO_FLAG
+PASS  7B exports AIM_KIN review entries  got 3 want 3
+PASS  7B no shot produces no AIM_KIN  got 0 want 0
+PASS  review queue accepts review-only schema  got true want true
+PASS  review queue refuses non-NONE action  got false want false
+PASS  review queue refuses unsupported status  got false want false
+PASS  default review writer is disabled  got review_disabled want review_disabled
+PASS  invalid report is not written  got false want false
+PASS  valid review report writes  got true want true
+PASS  review queue creates review directory  got true want true
+PASS  anti-cheat source contains no action functions  got false want false
+PASS  P7 golden input evidence chain verifies  got true want true
+PASS  GDScript report matches committed golden JSON  10530 characters
+PASS  P7 golden output is review-only  got NONE want NONE
+PASS  P7 golden selects surf from server metadata  got surf want surf
+PASS  review queue writes analyzer output  got true want true
+PASS  review queue output matches golden bytes  10530 characters
+PASS  Python analyzer exits successfully  got 0 want 0
+PASS  Python report matches committed golden JSON  10530 characters
+92 passed, 0 failed
+EXIT 0
+
+=== Python / generator / simulator checks ===
+ray_box_ref self-test passed 16 boundary assertions
+lagcomp_ref self-test passed 13 named/policy/duck assertions
+hitreg_ref self-test passed 30 named/random assertions
+generated skeleton constants are up to date
+56db86a8d12c400f5149f7cfcbf17ec79dd662c93cc6a3d5f18d4d0c288f7aa0
+CHAIN OK
+PASS Python, skeleton, evidence, and simulator checks

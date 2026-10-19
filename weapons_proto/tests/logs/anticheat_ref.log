@@ -1,0 +1,4 @@
+PASS Python reference matches committed review JSON
+PASS review-only schema: 3 episodes (0.75), 20 unsent shots, 10 AIM_KIN entries
+
+Historical note: this first reference run preceded final JSON float canonicalization and hit-result selection. The final P7b run is recorded in anticheat_ref_p7b.log.

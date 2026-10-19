@@ -1,0 +1,46 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+== PHASE 3: stamina slows ground speed ==
+PASS  ground_top_speed @ 0.0 ms  got 250.0000 want 250.0000
+PASS  ground_top_speed @ 1.0 ms  got 249.9525 want 249.9525
+PASS  ground_top_speed @ 500.0 ms  got 226.2500 want 226.2500
+PASS  ground_top_speed @ 1000.0 ms  got 202.5000 want 202.5000
+PASS  ground_top_speed @ 1315.8 ms  got 187.5000 want 187.5000
+PASS  ground run 64 tick from 0 u/s, after 1 ticks  got 29.4128 want 29.4128
+PASS  ground run 64 tick from 0 u/s, after 5 ticks  got 123.2239 want 123.2239
+PASS  ground run 64 tick from 0 u/s, after 20 ticks  got 202.3438 want 202.3438
+PASS  ground run 64 tick from 0 u/s, after 50 ticks  got 224.6094 want 224.6094
+PASS  ground run 64 tick from 0 u/s, after 100 ticks  got 250.0000 want 250.0000
+PASS  ground run 64 tick from 0 u/s, after 200 ticks  got 250.0000 want 250.0000
+PASS  ground run 64 tick from 300 u/s, after 1 ticks  got 281.2500 want 281.2500
+PASS  ground run 64 tick from 300 u/s, after 5 ticks  got 217.2589 want 217.2589
+PASS  ground run 64 tick from 300 u/s, after 20 ticks  got 202.3438 want 202.3438
+PASS  ground run 64 tick from 300 u/s, after 50 ticks  got 224.6094 want 224.6094
+PASS  ground run 64 tick from 300 u/s, after 100 ticks  got 250.0000 want 250.0000
+PASS  ground run 64 tick from 300 u/s, after 200 ticks  got 250.0000 want 250.0000
+PASS  ground run 100 tick from 0 u/s, after 1 ticks  got 18.7975 want 18.7975
+PASS  ground run 100 tick from 0 u/s, after 5 ticks  got 78.4625 want 78.4625
+PASS  ground run 100 tick from 0 u/s, after 20 ticks  got 197.0000 want 197.0000
+PASS  ground run 100 tick from 0 u/s, after 50 ticks  got 211.2500 want 211.2500
+PASS  ground run 100 tick from 0 u/s, after 100 ticks  got 235.0000 want 235.0000
+PASS  ground run 100 tick from 0 u/s, after 200 ticks  got 250.0000 want 250.0000
+PASS  ground run 100 tick from 300 u/s, after 1 ticks  got 288.0000 want 288.0000
+PASS  ground run 100 tick from 300 u/s, after 5 ticks  got 244.6118 want 244.6118
+PASS  ground run 100 tick from 300 u/s, after 20 ticks  got 197.0000 want 197.0000
+PASS  ground run 100 tick from 300 u/s, after 50 ticks  got 211.2500 want 211.2500
+PASS  ground run 100 tick from 300 u/s, after 100 ticks  got 235.0000 want 235.0000
+PASS  ground run 100 tick from 300 u/s, after 200 ticks  got 250.0000 want 250.0000
+PASS  ground run 128 tick from 0 u/s, after 1 ticks  got 14.6774 want 14.6774
+PASS  ground run 128 tick from 0 u/s, after 5 ticks  got 61.1771 want 61.1771
+PASS  ground run 128 tick from 0 u/s, after 20 ticks  got 194.9219 want 194.9219
+PASS  ground run 128 tick from 0 u/s, after 50 ticks  got 206.0547 want 206.0547
+PASS  ground run 128 tick from 0 u/s, after 100 ticks  got 224.6094 want 224.6094
+PASS  ground run 128 tick from 0 u/s, after 200 ticks  got 250.0000 want 250.0000
+PASS  ground run 128 tick from 300 u/s, after 1 ticks  got 290.6250 want 290.6250
+PASS  ground run 128 tick from 300 u/s, after 5 ticks  got 255.9646 want 255.9646
+PASS  ground run 128 tick from 300 u/s, after 20 ticks  got 194.9219 want 194.9219
+PASS  ground run 128 tick from 300 u/s, after 50 ticks  got 206.0547 want 206.0547
+PASS  ground run 128 tick from 300 u/s, after 100 ticks  got 224.6094 want 224.6094
+PASS  ground run 128 tick from 300 u/s, after 200 ticks  got 250.0000 want 250.0000
+
+41 passed, 0 failed

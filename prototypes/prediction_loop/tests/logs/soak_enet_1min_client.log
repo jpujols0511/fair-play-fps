@@ -1,0 +1,6 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot 4.4.1-stable (official)
+CLIENT connecting to 127.0.0.1:27081 with enet (error code 0), bot 'mixed', ticks 7680
+CLIENT welcome: slot 0, server tick 70, interp 4 ticks, snapshot every 2 ticks
+CLIENT_STATS ticks=7680 corrections=0 error_p99=0.0000 error_max=0.0000 snapshots=3840 snapshot_loss=0.0000 rtt_ms=8.6 rx_B_per_s=8065 tx_B_per_s=8449 overruns=0 overrun_pct=0.0000 dropped_missing_baseline=0 malformed=0 mem_start_MB=20.58 mem_minute_MB=20.75 mem_end_MB=20.75 mem_growth_after_minute_MB=0.00

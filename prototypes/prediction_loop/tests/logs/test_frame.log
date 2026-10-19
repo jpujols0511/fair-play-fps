@@ -1,0 +1,12 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  walk forward at yaw 0: spec_y goes up  spec_y = 235.932
+PASS  walk forward at yaw 0: spec_x does not move  spec_x = 0.000000000
+PASS  game yaw pi/2 -> spec yaw 180  got 180.000000000000 want 180.000000000000
+PASS  game yaw 0 -> spec yaw 90 (faces spec +y)  got 90.000000000000 want 90.000000000000
+PASS  walk at yaw pi/2: spec_x goes negative (spec 180 deg faces -x)  spec_x = -235.932 spec_y = 0.000000000
+PASS  look up 10 deg -> spec pitch -10  got -10.000000000000 want -10.000000000000
+PASS  feet height maps to spec z  
+PASS  round trips exact to 1e-12 (2000 random poses)  worst 0.000000000000001
+
+8 passed, 0 failed

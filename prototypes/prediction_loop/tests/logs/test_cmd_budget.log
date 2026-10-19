@@ -1,0 +1,24 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  speedhack probe: a client sending 8x the commands never travels further than the honest one (+1%); it only loses ticks  honest 2485.9 units, 8x sender 144.1 units over 1280 ticks
+PASS  speedhack probe: executed commands = honest + at most the burst allowance  honest 1280, 8x sender 81
+PASS  speedhack probe: the excess is dropped and counted as RATE_ABUSE  10159 dropped, 10 RATE_ABUSE evidence records (totals)
+PASS  one forged packet with seq 0x7FFFFFFF: position bit-identical to the control run  executed 640 vs 640
+PASS  ... the three forged commands are dropped, counted, and logged once  
+PASS  flood of forged seqs: stored evidence stays tiny (one record per second), totals keep counting  9000 dropped, 24 stored
+PASS  the evidence list itself is capped (4096) and counts what it did not store  
+PASS  filled-in commands spend the budget: 40 ticks execute at most burst + 40  first tick 8, total 47
+PASS  a real outage longer than the window re-syncs once after 128 ticks and execution resumes  resyncs 1, executed 173 of the next 300 ticks
+PASS  a filled-in command keeps movement buttons but never ATTACK  
+PASS  honest jitter burst (6 commands at once) executes in the same tick, nothing dropped  6 executed
+PASS  forged seq 0xFFFFFFFF for 140 ticks: after the attack the player runs again (1173 of 1,300 commands vs 1300 for the control), next_seq stays within the honest stream  resyncs 1, next_seq - honest seq = 0
+PASS  forged seq 0x7FFFFFFF for 140 ticks: after the attack the player runs again (1304 of 1,300 commands vs 1300 for the control), next_seq stays within the honest stream  resyncs 1, next_seq - honest seq = 0
+PASS  forged seq 0x80000000 for 140 ticks: after the attack the player runs again (1304 of 1,300 commands vs 1300 for the control), next_seq stays within the honest stream  resyncs 1, next_seq - honest seq = 0
+PASS  forged seq 0x80000001 for 140 ticks: after the attack the player runs again (1304 of 1,300 commands vs 1300 for the control), next_seq stays within the honest stream  resyncs 1, next_seq - honest seq = 0
+PASS  forged seq 0xF4240 for 140 ticks: after the attack the player runs again (1304 of 1,300 commands vs 1300 for the control), next_seq stays within the honest stream  resyncs 1, next_seq - honest seq = 0
+PASS  resync target is the newest far seq when it is within idle ticks + burst  
+PASS  ... and next_seq + that bound otherwise (never the forged value)  
+PASS  SeqMath: diff and add wrap at 2^32  
+PASS  a command stream that crosses 2^32 executes every command exactly once  100 executed, next_seq 0x54
+
+20 passed, 0 failed

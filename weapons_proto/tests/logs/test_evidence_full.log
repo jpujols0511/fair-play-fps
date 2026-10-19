@@ -1,0 +1,170 @@
+P6a: CRC, record sizes and writer
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  IEEE CRC-32 test vector  got 3421780262 want 3421780262
+PASS  writer opens fixture file  got true want true
+PASS  SHOT write  got true want true
+PASS  VIS write  got true want true
+PASS  INPUT_REJECT write  got true want true
+PASS  REWIND_DECISION write  got true want true
+PASS  AIM_KIN write  got true want true
+PASS  128-tick periodic checkpoint  got true want true
+PASS  checkpoint index after periodic write  got 1 want 1
+PASS  final checkpoint close  got true want true
+PASS  binary header size  got 192 want 192
+PASS  header begins with FPEV  got FPEV want FPEV
+PASS  header tick rate little-endian  got 128 want 128
+PASS  header slot count  got 2 want 2
+PASS  file header byte length  got 192 want 192
+PASS  record 1 body length  got 108 want 108
+PASS  record 1 CRC  got 2403203777 want 2403203777
+PASS  record 2 body length  got 12 want 12
+PASS  record 2 CRC  got 1609199001 want 1609199001
+PASS  record 3 body length  got 26 want 26
+PASS  record 3 CRC  got 4003845131 want 4003845131
+PASS  record 5 body length  got 64 want 64
+PASS  record 5 CRC  got 2882023705 want 2882023705
+PASS  record 6 body length  got 40 want 40
+PASS  record 6 CRC  got 369785391 want 369785391
+PASS  record 4 body length  got 36 want 36
+PASS  record 4 body length  got 36 want 36
+PASS  all six record types emitted  got true want true
+PASS  two checkpoints emitted  got 2 want 2
+PASS  first checkpoint count excludes itself  got 5 want 5
+PASS  final checkpoint count is zero  got 0 want 0
+PASS  rewind prefix checkpoint index  got 0 want 0
+PASS  rewind chain prefix starts at header hash  4a224574f7af432e
+PASS  AIM_KIN disabled writer opens  got true want true
+PASS  J19 AIM_KIN disabled  got false want false
+PASS  disabled AIM_KIN leaves writer usable  got true want true
+PASS  disabled AIM_KIN writer closes  got true want true
+PASS  J19 proposed default is enabled  got true want true
+PASS  proposed checkpoint cadence  got 128 want 128
+PASS  retention decision proposal  got 90 want 90
+40 passed, 0 failed
+
+P6b: reader, checkpoint chain and JSONL
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  IEEE CRC-32 test vector  got 3421780262 want 3421780262
+PASS  writer opens fixture file  got true want true
+PASS  SHOT write  got true want true
+PASS  VIS write  got true want true
+PASS  INPUT_REJECT write  got true want true
+PASS  REWIND_DECISION write  got true want true
+PASS  AIM_KIN write  got true want true
+PASS  128-tick periodic checkpoint  got true want true
+PASS  checkpoint index after periodic write  got 1 want 1
+PASS  final checkpoint close  got true want true
+PASS  binary header size  got 192 want 192
+PASS  header begins with FPEV  got FPEV want FPEV
+PASS  header tick rate little-endian  got 128 want 128
+PASS  header slot count  got 2 want 2
+PASS  file header byte length  got 192 want 192
+PASS  record 1 body length  got 108 want 108
+PASS  record 1 CRC  got 2403203777 want 2403203777
+PASS  record 2 body length  got 12 want 12
+PASS  record 2 CRC  got 1609199001 want 1609199001
+PASS  record 3 body length  got 26 want 26
+PASS  record 3 CRC  got 4003845131 want 4003845131
+PASS  record 5 body length  got 64 want 64
+PASS  record 5 CRC  got 2882023705 want 2882023705
+PASS  record 6 body length  got 40 want 40
+PASS  record 6 CRC  got 369785391 want 369785391
+PASS  record 4 body length  got 36 want 36
+PASS  record 4 body length  got 36 want 36
+PASS  all six record types emitted  got true want true
+PASS  two checkpoints emitted  got 2 want 2
+PASS  first checkpoint count excludes itself  got 5 want 5
+PASS  final checkpoint count is zero  got 0 want 0
+PASS  rewind prefix checkpoint index  got 0 want 0
+PASS  rewind chain prefix starts at header hash  4a224574f7af432e
+PASS  P6b reader verifies writer output  got true want true
+PASS  P6b reader reports no errors  got 0 want 0
+PASS  P6b reader finds all records  got 7 want 7
+PASS  P6b reader verifies two checkpoints  got 2 want 2
+PASS  P6b chain status  got CHAIN OK want CHAIN OK
+PASS  JSONL export chain status  got CHAIN OK want CHAIN OK
+PASS  JSONL has one line per record  got 7 want 7
+PASS  JSONL first record type  got shot want shot
+PASS  JSONL head name  got head want head
+PASS  JSONL hit outcome name  got hit want hit
+PASS  AIM_KIN disabled writer opens  got true want true
+PASS  J19 AIM_KIN disabled  got false want false
+PASS  disabled AIM_KIN leaves writer usable  got true want true
+PASS  disabled AIM_KIN writer closes  got true want true
+PASS  J19 proposed default is enabled  got true want true
+PASS  proposed checkpoint cadence  got 128 want 128
+PASS  retention decision proposal  got 90 want 90
+50 passed, 0 failed
+
+P6c: golden cross-language round trip
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot version info: { "major": 4, "minor": 4, "patch": 1, "hex": 263169, "status": "stable", "build": "official", "hash": "49a5bc7b616bd04689a2c89e89bda41f50241464", "timestamp": 0, "string": "4.4.1-stable (official)" }
+PASS  IEEE CRC-32 test vector  got 3421780262 want 3421780262
+PASS  writer opens fixture file  got true want true
+PASS  SHOT write  got true want true
+PASS  VIS write  got true want true
+PASS  INPUT_REJECT write  got true want true
+PASS  REWIND_DECISION write  got true want true
+PASS  AIM_KIN write  got true want true
+PASS  128-tick periodic checkpoint  got true want true
+PASS  checkpoint index after periodic write  got 1 want 1
+PASS  final checkpoint close  got true want true
+PASS  binary header size  got 192 want 192
+PASS  header begins with FPEV  got FPEV want FPEV
+PASS  header tick rate little-endian  got 128 want 128
+PASS  header slot count  got 2 want 2
+PASS  file header byte length  got 192 want 192
+PASS  record 1 body length  got 108 want 108
+PASS  record 1 CRC  got 2403203777 want 2403203777
+PASS  record 2 body length  got 12 want 12
+PASS  record 2 CRC  got 1609199001 want 1609199001
+PASS  record 3 body length  got 26 want 26
+PASS  record 3 CRC  got 4003845131 want 4003845131
+PASS  record 5 body length  got 64 want 64
+PASS  record 5 CRC  got 2882023705 want 2882023705
+PASS  record 6 body length  got 40 want 40
+PASS  record 6 CRC  got 369785391 want 369785391
+PASS  record 4 body length  got 36 want 36
+PASS  record 4 body length  got 36 want 36
+PASS  all six record types emitted  got true want true
+PASS  two checkpoints emitted  got 2 want 2
+PASS  first checkpoint count excludes itself  got 5 want 5
+PASS  final checkpoint count is zero  got 0 want 0
+PASS  rewind prefix checkpoint index  got 0 want 0
+PASS  rewind chain prefix starts at header hash  4a224574f7af432e
+PASS  P6b reader verifies writer output  got true want true
+PASS  P6b reader reports no errors  got 0 want 0
+PASS  P6b reader finds all records  got 7 want 7
+PASS  P6b reader verifies two checkpoints  got 2 want 2
+PASS  P6b chain status  got CHAIN OK want CHAIN OK
+PASS  JSONL export chain status  got CHAIN OK want CHAIN OK
+PASS  JSONL has one line per record  got 7 want 7
+PASS  JSONL first record type  got shot want shot
+PASS  JSONL head name  got head want head
+PASS  JSONL hit outcome name  got hit want hit
+PASS  AIM_KIN disabled writer opens  got true want true
+PASS  J19 AIM_KIN disabled  got false want false
+PASS  disabled AIM_KIN leaves writer usable  got true want true
+PASS  disabled AIM_KIN writer closes  got true want true
+PASS  J19 proposed default is enabled  got true want true
+PASS  proposed checkpoint cadence  got 128 want 128
+PASS  retention decision proposal  got 90 want 90
+PASS  GDScript golden writer closes  got true want true
+PASS  GDScript writer matches Python golden bytes  8300 bytes sha256=fa9eaede6b06d2731a36f05aa3a9f126ca42f9fff4d87eea97080cf3dfbc3350
+PASS  Python golden passes GDScript reader  got true want true
+PASS  golden has at least three checkpoints  got true want true
+PASS  golden has 107 records  got 107 want 107
+PASS  GDScript exporter chain status  got CHAIN OK want CHAIN OK
+PASS  GDScript JSONL matches golden  35916 chars sha256=1ec8b251f1a0445d7da67cf90971bd14e36fa7a120e0e1649554f9bdd1dda82f
+PASS  Python writer exits successfully  got 0 want 0
+PASS  Python writer matches GDScript bytes  8300 bytes sha256=fa9eaede6b06d2731a36f05aa3a9f126ca42f9fff4d87eea97080cf3dfbc3350
+PASS  Python reader accepts GDScript output  got 0 want 0
+PASS  Python reader reports CHAIN OK  got CHAIN OK want CHAIN OK
+PASS  Python export exits successfully  got 0 want 0
+PASS  Python and GDScript JSONL are identical  got true want true
+63 passed, 0 failed

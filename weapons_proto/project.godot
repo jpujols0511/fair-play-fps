@@ -1,0 +1,8 @@
+config_version=5
+
+[application]
+config/name="Fair Play FPS - Weapons & Hitreg Prototype"
+run/main_scene="res://scenes/range.tscn"
+
+[physics]
+common/physics_ticks_per_second=128

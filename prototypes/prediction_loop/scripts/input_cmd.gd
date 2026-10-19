@@ -1,0 +1,1 @@
+../../../movement_proto/input_cmd.gd

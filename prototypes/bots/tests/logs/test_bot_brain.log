@@ -1,0 +1,112 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+PASS  IDLE while round not live  got 0 want 0
+PASS  IDLE -> PATROL when round live  got 1 want 1
+PASS  PATROL -> IDLE on death  got 0 want 0
+PASS  setup: engaged  got 2 want 2
+PASS  ENGAGE -> IDLE on round end  got 0 want 0
+PASS  IDLE intent: no fire, no move
+PASS  reaction ticks at 128 = 58 (first tick >= 0.45 s)  got 58 want 58
+PASS  PATROL holds before reaction delay (57 ticks)  got 1 want 1
+PASS  PATROL -> ENGAGE at reaction delay  got 2 want 2
+PASS  ENGAGE entry radio ENEMY_SPOTTED  got ENEMY_SPOTTED want ENEMY_SPOTTED
+PASS  broken sighting restarts reaction timer  got 1 want 1
+PASS  setup: engaged  got 2 want 2
+PASS  aims at nearest visible enemy x  got 300.000000000 want 300.000000000
+PASS  aims at chest height  got 54.500000000 want 54.500000000
+PASS  aims at nearest visible enemy z  got 40.000000000 want 40.000000000
+PASS  fires with ammo
+PASS  aim error yaw within dial
+PASS  aim error pitch within half dial
+PASS  setup: engaged  got 2 want 2
+PASS  health exactly 30% stays ENGAGE  got 2 want 2
+PASS  health < 30% -> RETREAT  got 3 want 3
+PASS  low-health retreat radio FALLING_BACK  got FALLING_BACK want FALLING_BACK
+PASS  RETREAT holds fire
+PASS  retreats toward nearest live teammate (x)  got -300.000000000 want -300.000000000
+PASS  retreats toward nearest live teammate (z)  got 50.000000000 want 50.000000000
+PASS  no teammate: retreat away from last seen enemy  got -256.000000000 want -256.000000000
+PASS  setup: engaged  got 2 want 2
+PASS  2 v 2 (teammate within 512) stays ENGAGE  got 2 want 2
+PASS  teammate beyond 512 -> outnumbered -> RETREAT  got 3 want 3
+PASS  outnumbered radio NEED_BACKUP  got NEED_BACKUP want NEED_BACKUP
+PASS  setup: engaged  got 2 want 2
+PASS  dead teammate doesn't count as support  got 3 want 3
+PASS  setup: engaged  got 2 want 2
+PASS  empty magazine -> RETREAT  got 3 want 3
+PASS  reload requested with reserve
+PASS  no fire with empty magazine
+PASS  out of ammo on sight -> RETREAT (never ENGAGE)  got 3 want 3
+PASS  no ammo at all: stays RETREAT after clear time  got 3 want 3
+PASS  no ammo at all: reload false
+PASS  ammo back -> PATROL  got 1 want 1
+PASS  setup: engaged  got 2 want 2
+PASS  RETREAT holds before 2.0 s clear  got 3 want 3
+PASS  RETREAT -> PATROL after 2.0 s unseen with ammo  got 1 want 1
+PASS  ENGAGE holds before 3.0 s in ENGAGE  got 2 want 2
+PASS  ENGAGE -> FLANK after 3.0 s in ENGAGE with a flank route  got 4 want 4
+PASS  FLANK entry radio FLANKING  got FLANKING want FLANKING
+PASS  no flank route: stays ENGAGE  got 2 want 2
+PASS  in FLANK  got 4 want 4
+PASS  FLANK: heads for the flank start (route point 0), not own spot  got 300.000000000 want 300.000000000
+PASS  FLANK: keeps firing at a visible enemy while moving to cover
+PASS  hook false, unseen: still FLANK  got 4 want 4
+PASS  hook false: holds at route point 0 (x)  got 0.000000000 want 0.000000000
+PASS  hook false: holds at route point 0 (z)  got 300.000000000 want 300.000000000
+PASS  waiting + seen: FLANK during reaction delay  got 4 want 4
+PASS  waiting + seen in range: FLANK -> ENGAGE  got 2 want 2
+PASS  after FLANK -> ENGAGE: fires
+PASS  no bounce: stays ENGAGE for < 3.0 s after re-engaging  got 2 want 2
+PASS  waiting + enemy beyond FLANK_ENGAGE_RANGE: stays FLANK  got 4 want 4
+PASS  hook true: moves on to point 1  got 400.000000000 want 400.000000000
+PASS  FLANK holds during reaction delay after re-sighting  got 4 want 4
+PASS  FLANK -> ENGAGE when enemy re-seen (after reaction)  got 2 want 2
+PASS  FLANK -> PATROL when route finished  got 1 want 1
+PASS  FLANK -> RETREAT on low health  got 3 want 3
+PASS  setup: engaged  got 2 want 2
+PASS  ENGAGE holds while contact < 2.0 s  got 2 want 2
+PASS  ENGAGE without sight moves to last seen position  got 800.000000000 want 800.000000000
+PASS  ENGAGE -> PATROL after 2.0 s without contact  got 1 want 1
+PASS  setup: engaged  got 2 want 2
+PASS  crouched enemy: aims at crouched chest 27.25  got 27.250000000 want 27.250000000
+PASS  mid-duck enemy (f 0.5): aims at blended chest 40.875  got 40.875000000 want 40.875000000
+PASS  view carries quantized remote duck (128 / 255)  got 0.501960784 want 0.501960784
+PASS  crouched enemy via snapshot view: aim height 27.25  got 27.250000000 want 27.250000000
+PASS  setup: engaged  got 2 want 2
+PASS  1 round left, reserve 90: stays RETREAT (not fully reloaded)  got 3 want 3
+PASS  1 round left: keeps reloading
+PASS  29 of 30: still RETREAT  got 3 want 3
+PASS  full magazine: RETREAT -> PATROL  got 1 want 1
+PASS  setup: engaged  got 2 want 2
+PASS  1 round left, reserve empty: counts as reloaded -> PATROL  got 1 want 1
+PASS  IDLE + reacted + low health: straight to RETREAT  got 3 want 3
+PASS  IDLE + reacted + empty magazine: straight to RETREAT  got 3 want 3
+PASS  IDLE + reacted + healthy: ENGAGE  got 2 want 2
+PASS  setup: engaged  got 2 want 2
+PASS  1v1 (support counts the bot itself): stays ENGAGE  got 2 want 2
+PASS  PATROL -> RETREAT on sight when already low health  got 3 want 3
+PASS  setup: engaged  got 2 want 2
+PASS  second spot after > 2.0 s gets a radio call  got ["ENEMY_SPOTTED"] want ["ENEMY_SPOTTED"]
+PASS  setup: engaged  got 2 want 2
+PASS  retreat 1 tick after a call: radio suppressed by cooldown  got  want 
+PASS  patrol: first waypoint  got 100.000000000 want 100.000000000
+PASS  patrol: advances inside arrive radius  got 100.000000000 want 100.000000000
+PASS  view drops unsent enemy  got 0 want 0
+PASS  view keeps teammate (always sent)  got 1 want 1
+PASS  never reacts to unsent enemy: still PATROL after 10 s  got 1 want 1
+PASS  unsent enemy: decisions identical to a world without that enemy (1,280 ticks)
+PASS  same enemy, sent (bit 7): ENGAGE after reaction  got 2 want 2
+PASS  same seed: identical 2,000-tick state + intent log  7f9d3b5a1bbebf34
+PASS  different seed: aim errors differ
+PASS  scripted run visits ENGAGE, RETREAT and PATROL  ["1", "2", "3"]
+PASS  bot_brain.gd does not reference 'from_server'
+PASS  bot_brain.gd does not reference 'sent_mask'
+PASS  bot_brain.gd does not reference 'players'
+PASS  bot_brain.gd does not reference 'Body3D'
+PASS  bot_brain.gd does not reference 'PhysicsServer'
+PASS  bot_brain.gd does not reference 'Engine.'
+PASS  bot_brain.gd does not reference 'get_tree'
+PASS  bot_brain.gd does not reference 'Node'
+PASS  bot_brain.gd extends RefCounted
+PASS  bot_brain.gd declares Follows: CD-r3
+RESULT bot_brain: 109 passed, 0 failed

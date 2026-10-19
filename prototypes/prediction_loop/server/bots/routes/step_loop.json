@@ -1,0 +1,2 @@
+{"name": "step_loop", "world": "default", "spawn": [-60.0, 0.0], "loop": true,
+ "waypoints": [{"x": -150.0, "z": 0.0}, {"x": -60.0, "z": 0.0}]}

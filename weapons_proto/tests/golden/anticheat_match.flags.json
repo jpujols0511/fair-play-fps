@@ -1,0 +1,501 @@
+{
+	"aim_kinematics": [
+		{
+			"fire_tick_delta_deg": 3.2,
+			"flags": [
+				"snapback"
+			],
+			"move_state": "stand",
+			"part": "head",
+			"peak_ang_accel_dps2": 1500.0,
+			"peak_ang_vel_dps": 120.0,
+			"pre_fire_speed_dps": 0.2,
+			"round": 1,
+			"settle_ticks": 4,
+			"shooter_slot": 0,
+			"shot_index": 1,
+			"shot_outcome": "hit",
+			"snapback_cos": -0.9,
+			"snapback_deg": 2.4,
+			"spread_at_fire": 0.2,
+			"spread_at_first_shot_minimum": false,
+			"tick": 10
+		},
+		{
+			"fire_tick_delta_deg": 0.1,
+			"flags": [
+				"flick_stop_at_fire"
+			],
+			"move_state": "crouch",
+			"part": "head",
+			"peak_ang_accel_dps2": 200000.0,
+			"peak_ang_vel_dps": 121.0,
+			"pre_fire_speed_dps": 3.0,
+			"round": 1,
+			"settle_ticks": 1,
+			"shooter_slot": 0,
+			"shot_index": 2,
+			"shot_outcome": "hit",
+			"snapback_cos": 0.0,
+			"snapback_deg": 0.0,
+			"spread_at_fire": 0.201,
+			"spread_at_first_shot_minimum": false,
+			"tick": 20
+		},
+		{
+			"fire_tick_delta_deg": 3.2,
+			"flags": [
+				"snapback"
+			],
+			"move_state": "stand",
+			"part": "head",
+			"peak_ang_accel_dps2": 1500.0,
+			"peak_ang_vel_dps": 124.0,
+			"pre_fire_speed_dps": 0.2,
+			"round": 2,
+			"settle_ticks": 4,
+			"shooter_slot": 0,
+			"shot_index": 5,
+			"shot_outcome": "hit",
+			"snapback_cos": -0.9,
+			"snapback_deg": 2.4,
+			"spread_at_fire": 0.204,
+			"spread_at_first_shot_minimum": false,
+			"tick": 50
+		},
+		{
+			"fire_tick_delta_deg": 0.1,
+			"flags": [
+				"flick_stop_at_fire"
+			],
+			"move_state": "crouch",
+			"part": "head",
+			"peak_ang_accel_dps2": 200000.0,
+			"peak_ang_vel_dps": 125.0,
+			"pre_fire_speed_dps": 3.0,
+			"round": 2,
+			"settle_ticks": 1,
+			"shooter_slot": 0,
+			"shot_index": 6,
+			"shot_outcome": "hit",
+			"snapback_cos": 0.0,
+			"snapback_deg": 0.0,
+			"spread_at_fire": 0.205,
+			"spread_at_first_shot_minimum": false,
+			"tick": 60
+		},
+		{
+			"fire_tick_delta_deg": 3.2,
+			"flags": [
+				"snapback"
+			],
+			"move_state": "stand",
+			"part": "head",
+			"peak_ang_accel_dps2": 1500.0,
+			"peak_ang_vel_dps": 128.0,
+			"pre_fire_speed_dps": 0.2,
+			"round": 2,
+			"settle_ticks": 4,
+			"shooter_slot": 0,
+			"shot_index": 9,
+			"shot_outcome": "hit",
+			"snapback_cos": -0.9,
+			"snapback_deg": 2.4,
+			"spread_at_fire": 0.208,
+			"spread_at_first_shot_minimum": false,
+			"tick": 90
+		},
+		{
+			"fire_tick_delta_deg": 0.1,
+			"flags": [
+				"flick_stop_at_fire"
+			],
+			"move_state": "crouch",
+			"part": "head",
+			"peak_ang_accel_dps2": 200000.0,
+			"peak_ang_vel_dps": 129.0,
+			"pre_fire_speed_dps": 3.0,
+			"round": 2,
+			"settle_ticks": 1,
+			"shooter_slot": 0,
+			"shot_index": 10,
+			"shot_outcome": "hit",
+			"snapback_cos": 0.0,
+			"snapback_deg": 0.0,
+			"spread_at_fire": 0.209,
+			"spread_at_first_shot_minimum": false,
+			"tick": 100
+		},
+		{
+			"fire_tick_delta_deg": 3.2,
+			"flags": [
+				"snapback"
+			],
+			"move_state": "stand",
+			"part": "head",
+			"peak_ang_accel_dps2": 1500.0,
+			"peak_ang_vel_dps": 132.0,
+			"pre_fire_speed_dps": 0.2,
+			"round": 3,
+			"settle_ticks": 4,
+			"shooter_slot": 0,
+			"shot_index": 13,
+			"shot_outcome": "hit",
+			"snapback_cos": -0.9,
+			"snapback_deg": 2.4,
+			"spread_at_fire": 0.212,
+			"spread_at_first_shot_minimum": false,
+			"tick": 130
+		},
+		{
+			"fire_tick_delta_deg": 0.1,
+			"flags": [
+				"flick_stop_at_fire"
+			],
+			"move_state": "crouch",
+			"part": "head",
+			"peak_ang_accel_dps2": 200000.0,
+			"peak_ang_vel_dps": 133.0,
+			"pre_fire_speed_dps": 3.0,
+			"round": 3,
+			"settle_ticks": 1,
+			"shooter_slot": 0,
+			"shot_index": 14,
+			"shot_outcome": "hit",
+			"snapback_cos": 0.0,
+			"snapback_deg": 0.0,
+			"spread_at_fire": 0.213,
+			"spread_at_first_shot_minimum": false,
+			"tick": 140
+		},
+		{
+			"fire_tick_delta_deg": 3.2,
+			"flags": [
+				"snapback"
+			],
+			"move_state": "stand",
+			"part": "head",
+			"peak_ang_accel_dps2": 1500.0,
+			"peak_ang_vel_dps": 136.0,
+			"pre_fire_speed_dps": 0.2,
+			"round": 3,
+			"settle_ticks": 4,
+			"shooter_slot": 0,
+			"shot_index": 17,
+			"shot_outcome": "hit",
+			"snapback_cos": -0.9,
+			"snapback_deg": 2.4,
+			"spread_at_fire": 0.216,
+			"spread_at_first_shot_minimum": false,
+			"tick": 170
+		},
+		{
+			"fire_tick_delta_deg": 0.1,
+			"flags": [
+				"flick_stop_at_fire"
+			],
+			"move_state": "crouch",
+			"part": "head",
+			"peak_ang_accel_dps2": 200000.0,
+			"peak_ang_vel_dps": 137.0,
+			"pre_fire_speed_dps": 3.0,
+			"round": 3,
+			"settle_ticks": 1,
+			"shooter_slot": 0,
+			"shot_index": 18,
+			"shot_outcome": "hit",
+			"snapback_cos": 0.0,
+			"snapback_deg": 0.0,
+			"spread_at_fire": 0.217,
+			"spread_at_first_shot_minimum": false,
+			"tick": 180
+		}
+	],
+	"analyzer_version": "0.1",
+	"auto_action": "NONE",
+	"evidence_chain_ok": true,
+	"match_id": "6f1c2b0e-8a43-4d7e-9c1a-2f0b9d3e5a71",
+	"params": {
+		"AIM_KIN_PROFILE": "surf",
+		"C": 0.8,
+		"G_ms": 500,
+		"N": 3,
+		"P": 90,
+		"S_ms": 2000,
+		"X_deg": 2.0,
+		"Y_ms": 250
+	},
+	"players": [
+		{
+			"episodes": [
+				{
+					"drop_reasons": [
+						"teammate"
+					],
+					"dropped": false,
+					"dropped_reasons_checked": [
+						"just_left_view",
+						"sound",
+						"preaim",
+						"teammate",
+						"dead",
+						"same_team"
+					],
+					"end_tick": 91,
+					"kind": "aim",
+					"min_theta_deg": 0.0002,
+					"round": 2,
+					"start_tick": 60,
+					"target_slot": 6,
+					"target_speed_ups": 0.0,
+					"tracking_correlation": 0.0,
+					"weight": 0.25
+				},
+				{
+					"drop_reasons": [
+						"teammate"
+					],
+					"dropped": false,
+					"dropped_reasons_checked": [
+						"just_left_view",
+						"sound",
+						"preaim",
+						"teammate",
+						"dead",
+						"same_team"
+					],
+					"end_tick": 211,
+					"kind": "aim",
+					"min_theta_deg": 0.0002,
+					"round": 3,
+					"start_tick": 180,
+					"target_slot": 6,
+					"target_speed_ups": 0.0,
+					"tracking_correlation": 0.0,
+					"weight": 0.25
+				},
+				{
+					"drop_reasons": [
+						"teammate"
+					],
+					"dropped": false,
+					"dropped_reasons_checked": [
+						"just_left_view",
+						"sound",
+						"preaim",
+						"teammate",
+						"dead",
+						"same_team"
+					],
+					"end_tick": 331,
+					"kind": "aim",
+					"min_theta_deg": 0.0002,
+					"round": 4,
+					"start_tick": 300,
+					"target_slot": 6,
+					"target_speed_ups": 0.0,
+					"tracking_correlation": 0.0,
+					"weight": 0.25
+				}
+			],
+			"player_ref": "5d5efc6df43d30e1b768356b520820bd683179f5e195c0cde4a5bc2288dc9fdb",
+			"shots_at_unsent": [
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": true,
+					"tick": 10
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 20
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 30
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 40
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": true,
+					"tick": 50
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 60
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 70
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 80
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": true,
+					"tick": 90
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 100
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 110
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 120
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": true,
+					"tick": 130
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 140
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 150
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 160
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": true,
+					"tick": 170
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 180
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 190
+				},
+				{
+					"outcome": "near_miss",
+					"target_slot": 5,
+					"through_world": false,
+					"tick": 200
+				}
+			],
+			"slot": 0,
+			"status": "NEEDS_HUMAN_REVIEW",
+			"weighted_episodes": 0.75
+		},
+		{
+			"episodes": [],
+			"player_ref": "d174784f021547d59fec236d58d35a92ccf1e7b1ae8139e0b50ad6f4b8d9ea36",
+			"shots_at_unsent": [],
+			"slot": 1,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "0e7395f9821525857124894b593eed3312c9336458d98006003c14a6368e134a",
+			"shots_at_unsent": [],
+			"slot": 2,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "624e31752bf393d102709729cd32ba9b787b7586635353248d69e1f99d638a33",
+			"shots_at_unsent": [],
+			"slot": 3,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "590fe9d06ad949183ae37e8a88b06f9c6e9b6b88488c6c45d3c3841d6bfa9771",
+			"shots_at_unsent": [],
+			"slot": 4,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "8675cf7d8de0ab165f6707c374893eef9bbe3cf3105e7ab6eb7555ece10ddb77",
+			"shots_at_unsent": [],
+			"slot": 5,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "2d99295021695947430709984235f5b39e4bab30204ed9fb477f18ff26140320",
+			"shots_at_unsent": [],
+			"slot": 6,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "ff9e35b581593c2ddf0e47aee526789937779dc0cfb935bff4feca674ed18b1c",
+			"shots_at_unsent": [],
+			"slot": 7,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "56518fa9fda6a62e3b69d8343f4a0741251965c095f36de23d52a1144ae9419d",
+			"shots_at_unsent": [],
+			"slot": 8,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		},
+		{
+			"episodes": [],
+			"player_ref": "d13be434d3728248ea96ae35a47e7d3094f1ddf45ac93f1cc14cac222cdb5659",
+			"shots_at_unsent": [],
+			"slot": 9,
+			"status": "NO_FLAG",
+			"weighted_episodes": 0.0
+		}
+	]
+}

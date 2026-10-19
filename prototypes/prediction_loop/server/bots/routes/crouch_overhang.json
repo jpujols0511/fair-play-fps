@@ -1,0 +1,2 @@
+{"name": "crouch_overhang", "world": "crouch", "spawn": [440.0, 0.0], "loop": true,
+ "waypoints": [{"x": 470.0, "z": 0.0, "duck": true}, {"x": 640.0, "z": 0.0}, {"x": 630.0, "z": 0.0, "duck": true}, {"x": 480.0, "z": 0.0}]}

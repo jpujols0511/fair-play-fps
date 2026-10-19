@@ -1,0 +1,15 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+
+Godot 4.4.1-stable (official)
+SERVER listening on 127.0.0.1:27081 with enet (error code 0); tick 128 Hz, interp 4.0 ticks, snapshot every 2 ticks
+SWITCHES C1 INTERP_TICKS=4.0 C2 EXTRAP_MAX_TICKS=0.0 C3 OWN_STATE_PRECISION=f64 C4 SNAPSHOT_EVERY_TICKS=2 C5 BASELINE_RING=32 C9 VIS_LATERAL_MARGIN=8.0 C10 TRANSPORT=enet C11 CMD_BURST=8.0 (refill 1.0/tick, window 64) C12 SENT_MASK_HISTORY_TICKS=640
+SERVER client 1 joined as slot 0
+SERVER_STATS tick=1280 clients=1 tick_us_median=164 tick_us_p99=370 overruns=0 rx_B_per_s=7976 tx_B_per_s=7928 cmds_fully_lost=0 rtt_ms=6.0 malformed=0 mem_MB=20.17
+SERVER_STATS tick=2560 clients=1 tick_us_median=173 tick_us_p99=322 overruns=0 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=5.5 malformed=0 mem_MB=20.17
+SERVER_STATS tick=3840 clients=1 tick_us_median=167 tick_us_p99=316 overruns=0 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.17
+SERVER_STATS tick=5120 clients=1 tick_us_median=175 tick_us_p99=372 overruns=0 rx_B_per_s=8448 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=7.8 malformed=0 mem_MB=20.17
+SERVER_STATS tick=6400 clients=1 tick_us_median=177 tick_us_p99=360 overruns=0 rx_B_per_s=8455 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=6.1 malformed=0 mem_MB=20.18
+SERVER_STATS tick=7680 clients=1 tick_us_median=175 tick_us_p99=364 overruns=0 rx_B_per_s=8441 tx_B_per_s=8384 cmds_fully_lost=0 rtt_ms=5.9 malformed=0 mem_MB=20.18
+SERVER client 1 (slot 0) dropped: bye
+SERVER_EXIT last client left (bye)
+SERVER_FINAL ticks=7752 overruns=0 overrun_pct=0.0000 dropped_silent=0 byes=1 malformed=0 oversize_refused=0 acks_rejected=1 cookies_rejected=1 mem_MB=19.82
