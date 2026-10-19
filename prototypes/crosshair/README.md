@@ -1,4 +1,4 @@
-# Crosshair prototype (private)
+# Crosshair prototype
 
 Godot **4.4.1-stable** project for `specs/crosshair_spec_v0.1.md`. Built by Game Builder. Branch `gamebuilder/crosshair`, not merged into main.
 
@@ -29,7 +29,7 @@ mv Godot_v4.4.1-stable_linux.x86_64 godot-4.4.1
 Then:
 
 ```bash
-cd ~/fair-play-fps
+cd fair-play-fps   # repo root
 git fetch origin
 git checkout gamebuilder/crosshair
 git pull

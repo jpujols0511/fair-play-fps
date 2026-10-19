@@ -14,7 +14,7 @@ Builds `specs/round_loop_spec_v0.1.md` (Joan) in his order: **(1) phase enum + t
 
 ## Run on CachyOS (Godot 4.4.1 exactly)
 ```bash
-cd ~/fair-play-fps
+cd fair-play-fps   # repo root
 git fetch origin && git checkout gamebuilder/round-loop && git pull
 cd prototypes/round_loop
 godot --version            # must print 4.4.1.stable...; otherwise use the 4.4.1 binary

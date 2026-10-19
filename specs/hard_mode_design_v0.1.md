@@ -3,7 +3,7 @@
 *Joan's dictation, October 17 2026, recorded by Game Builder. Public as of Oct 19 2026 (CD-r9).*
 *Status: **Joan's doc**, Sections 1–10 kept faithful. The last section lists where it conflicts with already-locked specs; Joan resolves those. Items are also tracked as reconciliation items 12–23.*
 
-**Joan's instruction to Game Builder:** build in order, float literals only.
+**Joan's instruction:** build in order, float literals only.
 
 ---
 
