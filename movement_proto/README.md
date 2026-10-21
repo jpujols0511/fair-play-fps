@@ -85,3 +85,7 @@ python3 specs/goldsrc_movement_sim.py --emit-cases-phase3 movement_proto/tests/r
 - Not modelled (the spec/sim do not model them either): edge friction, crouch, walls/slopes. Playable scene is a flat floor only.
 - The window/visuals could only be checked headless in the build environment (scene loads clean, sim is tested);
   the on-screen look and feel is untested until you run it.
+
+## License
+
+SPDX-License-Identifier: AGPL-3.0-only. Full text in the repository root `LICENSE.txt`.

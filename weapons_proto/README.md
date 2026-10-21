@@ -628,3 +628,7 @@ not implemented/run. P10 remains blocked pending Joan/Game Builder direction.
 This measurement ran against P8 CD-r2 parent `1d71892`, before the CD-r7
 hardening; no remeasurement was performed after the trigger.
 Full output is in `tests/logs/bench_hitreg.log`.
+
+## License
+
+SPDX-License-Identifier: AGPL-3.0-only. Full text in the repository root `LICENSE.txt`.

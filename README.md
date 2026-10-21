@@ -26,6 +26,10 @@ The target is Linux: CachyOS and other distros, through Steam on Linux. No Windo
 
 Built from pieces of Counter-Strike 1.6 through CS2, including Condition Zero and Source. A new game that learns from what made those games durable, and leaves behind what broke them.
 
+## License
+
+SPDX-License-Identifier: AGPL-3.0-only. The full GNU Affero General Public License v3 text is in `LICENSE.txt`.
+
 ---
 
 Fair Play FPS is created and owned by Joan Pujols.

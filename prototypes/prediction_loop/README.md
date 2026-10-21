@@ -143,3 +143,7 @@ A waypoint is `{x, z, arrive_radius (16.0), jump, duck, wait_ticks}`; a route is
 (`server/bots/bot_driver.gd`) only reads its own `PlayerState` and its route and feeds `ClientSlot.enqueue_local()`, the
 queue that network INPUT feeds too. No aim, no shooting, no decisions. Tests: `tests/test_bots.gd`. Two-process run:
 `tools/run_loopback_pair.sh 2 --bots 10 --bot peekview --shim 80,0.02`.
+
+## License
+
+SPDX-License-Identifier: AGPL-3.0-only. Full text in the repository root `LICENSE.txt`.
